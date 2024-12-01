@@ -63,10 +63,10 @@ import com.taotao.cloud.bootstrap.annotation.TaoTaoCloudApplication;
 //@EnableFeignClients(basePackages = {"com.taotao.cloud.auth.api.feign","com.taotao.cloud.auth.api.feign"})
 @TaoTaoBootApplication
 @TaoTaoCloudApplication
-public class TaoTaoCloudauthApplication {
+public class TaoTaoCloudAuthApplication {
 
 	public static void main(String[] args) {
-		new StartupSpringApplication(TaoTaoCloudauthApplication.class)
+		new StartupSpringApplication(TaoTaoCloudAuthApplication.class)
 			.setTtcBanner()
 			.setTtcProfileIfNotExists("dev")
 			.setTtcApplicationProperty("taotao-cloud-auth")
