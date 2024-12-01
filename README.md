@@ -243,7 +243,7 @@ CLOUD:
 * **taotao-cloud-ddd**: [https://github.com/shuigedeng/taotao-cloud-ddd](https://github.com/shuigedeng/taotao-cloud-ddd)
 
 
-* **taotao-cloud-goods**: [https://github.com/shuigedeng/taotao-cloud-goods](https://github.com/shuigedeng/taotao-cloud-goods)
+* **taotao-cloud-auth**: [https://github.com/shuigedeng/taotao-cloud-auth](https://github.com/shuigedeng/taotao-cloud-auth)
 
 
 * **taotao-cloud-order**: [https://github.com/shuigedeng/taotao-cloud-order](https://github.com/shuigedeng/taotao-cloud-order)
