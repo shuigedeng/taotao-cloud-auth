@@ -14,8 +14,5 @@
  **/
 
 dependencies {
-    api project(":taotao-cloud-auth-domain")
     api project(":taotao-cloud-auth-infrastructure")
-    api project(":taotao-cloud-auth-integration")
-    api project(":taotao-cloud-auth-common")
 }
