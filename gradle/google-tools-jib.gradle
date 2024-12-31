@@ -27,8 +27,13 @@ jib {
         mainClass = "com.taotao.cloud.monitor.TaoTaoCloudMonitorApplication"
         args = ["some", "args"]
         ports = ["33332"]
+<<<<<<< HEAD
         //labels = ["app_name": "taotao-cloud-goods", "port": "33332"]
         environment = ["app_name": "taotao-cloud-goods", "port": "33332"]
+=======
+        //labels = ["app_name": "taotao-cloud-auth", "port": "33332"]
+        environment = ["app_name": "taotao-cloud-auth", "port": "33332"]
+>>>>>>> 29663ccb7edacda0a14cae357a098c72a17fe3bc
         format = "OCI"
         user = "root"
         volumes = ["/root/logs"]

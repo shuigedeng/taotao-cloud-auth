@@ -1,6 +1,10 @@
 test {
     // 如需要打印日志 添加 --info
+<<<<<<< HEAD
     //:taotao-cloud-microservice:taotao-cloud-goods:taotao-cloud-goods-biz:test --tests "com.taotao.cloud.goods.biz.RegionTests.synchronizationData" --info
+=======
+    //:taotao-cloud-microservice:taotao-cloud-auth:taotao-cloud-auth-biz:test --tests "com.taotao.cloud.auth.biz.RegionTests.synchronizationData" --info
+>>>>>>> 29663ccb7edacda0a14cae357a098c72a17fe3bc
     useJUnitPlatform()
     ignoreFailures = true
 

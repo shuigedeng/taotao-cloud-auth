@@ -74,9 +74,15 @@ stages:
           PLUGIN_DEBUG: "true"
           PLUGIN_INSECURE: "true"
       - publishImageConfig:
+<<<<<<< HEAD
           dockerfilePath: ./taotao-cloud-goods/Dockerfile
           buildContext: ./taotao-cloud-goods
           tag: taotao-cloud/taotao-cloud-goods:${CICD_EXECUTION_SEQUENCE}
+=======
+          dockerfilePath: ./taotao-cloud-auth/Dockerfile
+          buildContext: ./taotao-cloud-auth
+          tag: taotao-cloud/taotao-cloud-auth:${CICD_EXECUTION_SEQUENCE}
+>>>>>>> 29663ccb7edacda0a14cae357a098c72a17fe3bc
           pushRemote: true
           registry: 192.168.99.240:8443
         env:
@@ -107,7 +113,11 @@ stages:
       - applyYamlConfig:
           path: ./taotao-cloud-auth/deployment.yaml
       - applyYamlConfig:
+<<<<<<< HEAD
           path: ./taotao-cloud-goods/deployment.yaml
+=======
+          path: ./taotao-cloud-auth/deployment.yaml
+>>>>>>> 29663ccb7edacda0a14cae357a098c72a17fe3bc
     when:
       branch:
         include:

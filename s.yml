@@ -93,7 +93,11 @@ services:
               methods:
                 - GET
                 - POST
+<<<<<<< HEAD
   taotao-cloud-goods:
+=======
+  taotao-cloud-auth:
+>>>>>>> 29663ccb7edacda0a14cae357a098c72a17fe3bc
     component: devsapp/fc
     props:
       region: ${vars.region}

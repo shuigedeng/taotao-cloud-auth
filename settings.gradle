@@ -31,7 +31,11 @@ pluginManagement {
 
 plugins {
     //https://plugins.gradle.org/plugin/com.gradle.enterprise
+<<<<<<< HEAD
     id "com.gradle.develocity" version "3.18.2"
+=======
+    id "com.gradle.develocity" version "3.19"
+>>>>>>> 29663ccb7edacda0a14cae357a098c72a17fe3bc
 }
 
 
@@ -88,7 +92,11 @@ develocity {
 }
 
 
+<<<<<<< HEAD
 rootProject.name = 'taotao-cloud-goods'
+=======
+rootProject.name = 'taotao-cloud-auth'
+>>>>>>> 29663ccb7edacda0a14cae357a098c72a17fe3bc
 
 dependencyResolutionManagement {
     //repositories {
@@ -106,6 +114,7 @@ dependencyResolutionManagement {
     }
 }
 
+<<<<<<< HEAD
 include "taotao-cloud-goods-api"
 include "taotao-cloud-goods-application"
 include "taotao-cloud-goods-assembly"
@@ -114,6 +123,16 @@ include "taotao-cloud-goods-domain"
 include "taotao-cloud-goods-facade"
 include "taotao-cloud-goods-infrastructure"
 include "taotao-cloud-goods-integration"
+=======
+include "taotao-cloud-auth-api"
+include "taotao-cloud-auth-application"
+include "taotao-cloud-auth-assembly"
+include "taotao-cloud-auth-common"
+include "taotao-cloud-auth-domain"
+include "taotao-cloud-auth-facade"
+include "taotao-cloud-auth-infrastructure"
+include "taotao-cloud-auth-integration"
+>>>>>>> 29663ccb7edacda0a14cae357a098c72a17fe3bc
 
 
 gradle.settingsEvaluated {

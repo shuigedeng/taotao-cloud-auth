@@ -1,7 +1,11 @@
 # 构建docker image
 #### https://github.com/marketplace?type=actions
 #### https://github.com/sdras/awesome-actions
+<<<<<<< HEAD
 name: Goods Docker Image
+=======
+name: auth Docker Image
+>>>>>>> 29663ccb7edacda0a14cae357a098c72a17fe3bc
 
 on:
   push:
@@ -97,11 +101,19 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
+<<<<<<< HEAD
           gradle-version: "8.11.1"
 
       #https://github.com/marketplace/actions/gradle-build-action
       - name: Gradle BootJar
         run: gradle -p taotao-cloud-goods-assembly clean bootJar -x test -Pprofile=dev
+=======
+          gradle-version: "8.12"
+
+      #https://github.com/marketplace/actions/gradle-build-action
+      - name: Gradle BootJar
+        run: gradle -p taotao-cloud-auth-assembly clean bootJar -x test -Pprofile=dev
+>>>>>>> 29663ccb7edacda0a14cae357a098c72a17fe3bc
 
       #https://github.com/marketplace/actions/publish-docker
       - name: Publish Docker Image
@@ -110,14 +122,22 @@ jobs:
           DINGDING_TOKEN_ID_ARG: ${{ secrets.DING_TOKEN }}
           DINGDING_SECRET_ARG: ${{ secrets.DING_SECRET }}
         with:
+<<<<<<< HEAD
           name: registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-goods
+=======
+          name: registry.cn-hangzhou.aliyuncs.com/taotao-cloud-project/taotao-cloud-auth
+>>>>>>> 29663ccb7edacda0a14cae357a098c72a17fe3bc
           username: ${{ secrets.TAOTAO_CLOUD_REGISTRY_USERNAME }}
           password: ${{ secrets.TAOTAO_CLOUD_REGISTRY_PASSWORD }}
           registry: registry.cn-hangzhou.aliyuncs.com
           buildoptions: "--compress --force-rm"
           buildargs: DINGDING_SECRET_ARG,DINGDING_TOKEN_ID_ARG
           tags: "${{env.TAOTAO_CLOUD_VERSION}}"
+<<<<<<< HEAD
           workdir: ${{ github.workspace }}/taotao-cloud-goods-assembly
+=======
+          workdir: ${{ github.workspace }}/taotao-cloud-auth-assembly
+>>>>>>> 29663ccb7edacda0a14cae357a098c72a17fe3bc
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5.0.2
