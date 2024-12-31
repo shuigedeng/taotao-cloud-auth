@@ -57,6 +57,7 @@
 
 - **数仓模块**  基于**Doris、Piamon、Hudi**的离线数仓和实时数仓(数据湖)
 
+
   > 数据源模块：业务数据写入 **MySQL** 数据库,生成的日志数据被写入 **Kafka**, **rocketmq** 消息队列
 
   > 数据采集模块：**Dinky**开发**FlinkSQL**，消费**Kafka**中的日志数据，并将其写入**Doris**、**Paimon** 、**Hudi**的在线数据存储（ODS）层。使用**DolphinScheduler**配置**SeaTunnel**任务，同步**MySQL**中的业务数据到**Doris**的ODS层。**FlinkSQL/CDC**从**Kafka**和**MySQL**采集数据，分别写入**Paimon** 、**Hudi**的ODS层。
