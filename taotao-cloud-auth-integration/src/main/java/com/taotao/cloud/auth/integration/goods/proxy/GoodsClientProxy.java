@@ -25,6 +25,7 @@ import com.taotao.cloud.order.integration.goods.adapter.GoodsClientAdapter;
 import com.taotao.cloud.order.integration.goods.grpc.GoodsGrpcClient;
 import com.taotao.cloud.order.integration.goods.vo.GoodsVO;
 import jakarta.annotation.Resource;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.openjdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.stereotype.Component;
 
@@ -37,7 +38,7 @@ public class GoodsClientProxy {
 	private GoodsClientAdapter userIntegrationAdapter;
 	@Resource
 	private GoodsGrpcClient goodsGrpcClient;
-	@Reference
+	@DubboReference
 	private IDubboGoodsRpc goodsRpc;
 
 	// 查询用户
