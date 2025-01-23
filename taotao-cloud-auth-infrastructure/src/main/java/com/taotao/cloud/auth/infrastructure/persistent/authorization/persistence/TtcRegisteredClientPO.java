@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.infrastructure.persistent.authorization.po;
+package com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence;
 
 import com.google.common.base.MoreObjects;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.generator.TtcRegisteredClientUuidGenerator;
@@ -46,7 +46,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @org.hibernate.annotations.Cache(
 	usage = CacheConcurrencyStrategy.READ_WRITE,
 	region = OAuth2Constants.REGION_OAUTH2_REGISTERED_CLIENT)
-public class TtcRegisteredClient extends AbstractRegisteredClient {
+public class TtcRegisteredClientPO extends AbstractRegisteredClient {
 
 	/**
 	 * id
@@ -250,7 +250,7 @@ public class TtcRegisteredClient extends AbstractRegisteredClient {
 		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
-		TtcRegisteredClient that = (TtcRegisteredClient) o;
+		TtcRegisteredClientPO that = (TtcRegisteredClientPO) o;
 		return Objects.equals(id, that.id);
 	}
 

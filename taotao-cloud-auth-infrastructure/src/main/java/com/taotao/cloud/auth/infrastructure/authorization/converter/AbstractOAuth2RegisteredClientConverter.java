@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.infrastructure.authorization.converter;
 
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.AbstractOAuth2RegisteredClient;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Scope;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.AbstractOAuth2RegisteredClient;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ScopePO;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.apache.commons.lang3.ObjectUtils;
@@ -39,8 +39,8 @@ public abstract class AbstractOAuth2RegisteredClientConverter<T extends Abstract
 
 	@Override
 	public Set<String> getScopes(T details) {
-		Set<OAuth2Scope> clientScopes = details.getScopes();
-		return clientScopes.stream().map(OAuth2Scope::getScopeCode).collect(Collectors.toSet());
+		Set<OAuth2ScopePO> clientScopes = details.getScopes();
+		return clientScopes.stream().map(OAuth2ScopePO::getScopeCode).collect(Collectors.toSet());
 	}
 
 	@Override

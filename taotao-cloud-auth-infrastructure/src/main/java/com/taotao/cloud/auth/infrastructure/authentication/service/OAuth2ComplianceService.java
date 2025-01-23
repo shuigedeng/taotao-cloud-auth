@@ -18,7 +18,7 @@ package com.taotao.cloud.auth.infrastructure.authentication.service;
 
 import cn.hutool.extra.servlet.JakartaServletUtil;
 import com.google.common.net.HttpHeaders;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Compliance;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2CompliancePO;
 import com.taotao.cloud.auth.infrastructure.persistent.management.repository.OAuth2ComplianceRepository;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.servlet.http.HttpServletRequest;
@@ -53,11 +53,11 @@ public class OAuth2ComplianceService {
         this.complianceRepository = complianceRepository;
     }
 
-    public Page<OAuth2Compliance> findByCondition(
+    public Page<OAuth2CompliancePO> findByCondition(
             int pageNumber, int pageSize, String principalName, String clientId, String ip) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
 
-        Specification<OAuth2Compliance> specification = (root, criteriaQuery, criteriaBuilder) -> {
+        Specification<OAuth2CompliancePO> specification = (root, criteriaQuery, criteriaBuilder) -> {
             List<Predicate> predicates = new ArrayList<>();
 
             if (StringUtils.isNotBlank(principalName)) {
@@ -81,8 +81,8 @@ public class OAuth2ComplianceService {
         return null;
     }
 
-    public OAuth2Compliance save(String principalName, String clientId, String operation, HttpServletRequest request) {
-        OAuth2Compliance compliance = toEntity(principalName, clientId, operation, request);
+    public OAuth2CompliancePO save(String principalName, String clientId, String operation, HttpServletRequest request) {
+        OAuth2CompliancePO compliance = toEntity(principalName, clientId, operation, request);
         log.info("Sign in user is [{}]", compliance);
         return complianceRepository.save(compliance);
     }
@@ -95,9 +95,9 @@ public class OAuth2ComplianceService {
         return JakartaServletUtil.getClientIP(request, "");
     }
 
-    public OAuth2Compliance toEntity(
+    public OAuth2CompliancePO toEntity(
             String principalName, String clientId, String operation, HttpServletRequest request) {
-        OAuth2Compliance audit = new OAuth2Compliance();
+        OAuth2CompliancePO audit = new OAuth2CompliancePO();
         audit.setPrincipalName(principalName);
         audit.setClientId(clientId);
         audit.setOperation(operation);

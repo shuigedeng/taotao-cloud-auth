@@ -18,12 +18,8 @@ package com.taotao.cloud.auth.infrastructure.persistent.authorization.jackson2;
 
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import org.springframework.security.jackson2.AnonymousAuthenticationTokenMixin;
-import org.springframework.security.jackson2.RememberMeAuthenticationTokenMixin;
 import org.springframework.security.jackson2.SecurityJackson2Modules;
-import org.springframework.security.jackson2.SimpleGrantedAuthorityMixin;
 import org.springframework.security.jackson2.UnmodifiableSetMixin;
-import org.springframework.security.jackson2.UserMixin;
 
 /**
  * Jackson module for spring-security-core. This module register

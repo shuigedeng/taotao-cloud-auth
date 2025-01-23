@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.service;
 
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Permission;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Scope;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2PermissionPO;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ScopePO;
 import com.taotao.cloud.auth.infrastructure.persistent.management.repository.OAuth2ScopeRepository;
 import java.util.List;
 import java.util.Set;
@@ -38,23 +38,23 @@ public class OAuth2ScopeService {
         this.oauthScopesRepository = oauthScopesRepository;
     }
 
-    public OAuth2Scope assigned(String scopeId, Set<OAuth2Permission> permissions) {
+    public OAuth2ScopePO assigned(String scopeId, Set<OAuth2PermissionPO> permissions) {
 
-        OAuth2Scope oldScope = oauthScopesRepository.findById(scopeId).get();
+        OAuth2ScopePO oldScope = oauthScopesRepository.findById(scopeId).get();
         oldScope.setPermissions(permissions);
 
         return oauthScopesRepository.saveAndFlush(oldScope);
     }
 
-    public OAuth2Scope findByScopeCode(String scopeCode) {
+    public OAuth2ScopePO findByScopeCode(String scopeCode) {
         return oauthScopesRepository.findByScopeCode(scopeCode);
     }
 
-    public List<OAuth2Scope> findByScopeCodeIn(List<String> scopeCodes) {
+    public List<OAuth2ScopePO> findByScopeCodeIn(List<String> scopeCodes) {
         return oauthScopesRepository.findByScopeCodeIn(scopeCodes);
     }
 
-    public List<OAuth2Scope> findAll() {
+    public List<OAuth2ScopePO> findAll() {
 
         return oauthScopesRepository.findAll();
     }

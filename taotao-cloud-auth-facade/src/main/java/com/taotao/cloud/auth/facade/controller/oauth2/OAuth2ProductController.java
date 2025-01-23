@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.facade.controller.oauth2;
 
-import com.taotao.cloud.auth.application.service.OAuth2ProductService;
+import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ProductService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
 import org.springframework.web.bind.annotation.RequestMapping;

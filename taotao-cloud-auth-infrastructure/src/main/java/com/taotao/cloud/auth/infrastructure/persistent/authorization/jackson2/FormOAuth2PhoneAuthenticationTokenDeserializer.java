@@ -26,11 +26,11 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.MissingNode;
-import com.taotao.boot.security.spring.authentication.login.form.sms.Oauth2FormSmsLoginAuthenticationToken;
-import java.io.IOException;
-import java.util.List;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
+
+import java.io.IOException;
+import java.util.List;
 
 /**
  * Custom deserializer for {@link UsernamePasswordAuthenticationToken}. At the time of
@@ -68,7 +68,7 @@ public class FormOAuth2PhoneAuthenticationTokenDeserializer
 	 */
 	@Override
 	public Oauth2FormSmsLoginAuthenticationToken deserialize(JsonParser jp,
-		DeserializationContext ctxt)
+															 DeserializationContext ctxt)
 		throws IOException, JsonProcessingException {
 		ObjectMapper mapper = (ObjectMapper) jp.getCodec();
 		JsonNode jsonNode = mapper.readTree(jp);
@@ -90,12 +90,11 @@ public class FormOAuth2PhoneAuthenticationTokenDeserializer
 		Oauth2FormSmsLoginAuthenticationToken token = (!authenticated)
 			? Oauth2FormSmsLoginAuthenticationToken.unauthenticated(principal, captcha, type)
 			: Oauth2FormSmsLoginAuthenticationToken.authenticated(principal, captcha, type,
-				authorities);
+			authorities);
 		JsonNode detailsNode = readJsonNode(jsonNode, "details");
 		if (detailsNode.isNull() || detailsNode.isMissingNode()) {
 			token.setDetails(null);
-		}
-		else {
+		} else {
 			Object details = mapper.readValue(detailsNode.toString(), OBJECT);
 			token.setDetails(details);
 		}

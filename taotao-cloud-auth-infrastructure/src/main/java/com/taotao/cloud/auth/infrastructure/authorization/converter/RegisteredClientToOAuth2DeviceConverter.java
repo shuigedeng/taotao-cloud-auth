@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.infrastructure.authorization.converter;
 
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Device;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Scope;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2DevicePO;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ScopePO;
 import com.taotao.cloud.auth.infrastructure.persistent.management.repository.OAuth2ScopeRepository;
 import com.taotao.boot.security.spring.enums.Signature;
 import com.taotao.boot.security.spring.enums.TokenFormat;
@@ -40,7 +40,7 @@ import org.springframework.util.StringUtils;
  * <p>OAuth2Device 转 RegisteredClient 转换器 </p>
  */
 public class RegisteredClientToOAuth2DeviceConverter implements
-	Converter<RegisteredClient, OAuth2Device> {
+	Converter<RegisteredClient, OAuth2DevicePO> {
 
 	private final OAuth2ScopeRepository scopeService;
 
@@ -49,9 +49,9 @@ public class RegisteredClientToOAuth2DeviceConverter implements
 	}
 
 	@Override
-	public OAuth2Device convert(RegisteredClient registeredClient) {
+	public OAuth2DevicePO convert(RegisteredClient registeredClient) {
 
-		OAuth2Device device = new OAuth2Device();
+		OAuth2DevicePO device = new OAuth2DevicePO();
 		device.setDeviceId(registeredClient.getId());
 		device.setDeviceName(registeredClient.getClientName());
 		device.setProductId("");
@@ -100,10 +100,10 @@ public class RegisteredClientToOAuth2DeviceConverter implements
 		return device;
 	}
 
-	private Set<OAuth2Scope> getOAuth2Scopes(Set<String> scopes) {
+	private Set<OAuth2ScopePO> getOAuth2Scopes(Set<String> scopes) {
 		if (CollectionUtils.isNotEmpty(scopes)) {
 			List<String> scopeCodes = new ArrayList<>(scopes);
-			List<OAuth2Scope> result = scopeService.findByScopeCodeIn(scopeCodes);
+			List<OAuth2ScopePO> result = scopeService.findByScopeCodeIn(scopeCodes);
 			if (CollectionUtils.isNotEmpty(result)) {
 				return new HashSet<>(result);
 			}

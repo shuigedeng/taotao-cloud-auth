@@ -16,10 +16,10 @@
 
 package com.taotao.cloud.auth.facade.controller.oauth2;
 
-import com.taotao.cloud.auth.application.service.OAuth2ScopeService;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Permission;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Scope;
 import com.taotao.boot.common.model.Result;
+import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ScopeService;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2PermissionPO;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ScopePO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -28,10 +28,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,6 +36,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * <p> Description : OauthScopesController </p>
@@ -73,15 +74,15 @@ public class OAuth2ScopeController {
 		@Parameter(name = "scope", required = true, description = "范围请求参数"),
 	})
 	@PostMapping("/assigned")
-	public Result<OAuth2Scope> assigned(@RequestBody OAuth2ScopeDto scope) {
+	public Result<OAuth2ScopePO> assigned(@RequestBody OAuth2ScopeDto scope) {
 
-		Set<OAuth2Permission> permissions = new HashSet<>();
+		Set<OAuth2PermissionPO> permissions = new HashSet<>();
 		if (CollectionUtils.isNotEmpty(scope.getPermissions())) {
 			permissions = scope.getPermissions().stream().map(this::toEntity)
 				.collect(Collectors.toSet());
 		}
 
-		OAuth2Scope result = scopeService.assigned(scope.getScopeId(), permissions);
+		OAuth2ScopePO result = scopeService.assigned(scope.getScopeId(), permissions);
 		return Result.success(result);
 	}
 
@@ -100,9 +101,9 @@ public class OAuth2ScopeController {
 			@ApiResponse(responseCode = "500", description = "查询失败")
 		})
 	@GetMapping("/list")
-	public Result<List<OAuth2Scope>> findAll() {
-		List<OAuth2Scope> oAuth2Scopes = scopeService.findAll();
-		return Result.success(oAuth2Scopes);
+	public Result<List<OAuth2ScopePO>> findAll() {
+		List<OAuth2ScopePO> oAuth2ScopePOS = scopeService.findAll();
+		return Result.success(oAuth2ScopePOS);
 	}
 
 	//	@AccessLimited
@@ -115,18 +116,18 @@ public class OAuth2ScopeController {
 				content =
 				@Content(
 					mediaType = "application/json",
-					schema = @Schema(implementation = OAuth2Scope.class))),
+					schema = @Schema(implementation = OAuth2ScopePO.class))),
 			@ApiResponse(responseCode = "204", description = "查询成功，未查到数据"),
 			@ApiResponse(responseCode = "500", description = "查询失败")
 		})
 	@GetMapping("/{scopeCode}")
-	public Result<OAuth2Scope> findByUserName(@PathVariable("scopeCode") String scopeCode) {
-		OAuth2Scope scope = scopeService.findByScopeCode(scopeCode);
+	public Result<OAuth2ScopePO> findByUserName(@PathVariable("scopeCode") String scopeCode) {
+		OAuth2ScopePO scope = scopeService.findByScopeCode(scopeCode);
 		return Result.success(scope);
 	}
 
-	private OAuth2Permission toEntity(OAuth2PermissionDto dto) {
-		OAuth2Permission entity = new OAuth2Permission();
+	private OAuth2PermissionPO toEntity(OAuth2PermissionDto dto) {
+		OAuth2PermissionPO entity = new OAuth2PermissionPO();
 		entity.setPermissionId(dto.getPermissionId());
 		entity.setPermissionCode(dto.getPermissionCode());
 		entity.setPermissionName(dto.getPermissionName());

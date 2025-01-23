@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.facade.controller.oauth2;
 
-import com.taotao.cloud.auth.application.service.impl.TtcAuthorizationService;
+import com.taotao.cloud.auth.infrastructure.authorization.service.TtcAuthorizationService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
 import org.springframework.beans.factory.annotation.Autowired;

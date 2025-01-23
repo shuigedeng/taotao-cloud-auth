@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.persistent.management.repository;
 
 import com.taotao.boot.data.jpa.base.repository.JpaInterfaceSuperRepository;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Application;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ApplicationPO;
 
 /**
  * <p>OAuth2ApplicationRepository </p>
@@ -25,13 +25,13 @@ import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Appli
  *
  * @since : 2022/3/1 18:05
  */
-public interface OAuth2ApplicationRepository extends JpaInterfaceSuperRepository<OAuth2Application, String> {
+public interface OAuth2ApplicationRepository extends JpaInterfaceSuperRepository<OAuth2ApplicationPO, String> {
 
     /**
      * 根据 Client ID 查询 OAuth2Application
      *
      * @param clientId OAuth2Application 中的 clientId
-     * @return {@link OAuth2Application}
+     * @return {@link OAuth2ApplicationPO}
      */
-    OAuth2Application findByClientId(String clientId);
+    OAuth2ApplicationPO findByClientId(String clientId);
 }

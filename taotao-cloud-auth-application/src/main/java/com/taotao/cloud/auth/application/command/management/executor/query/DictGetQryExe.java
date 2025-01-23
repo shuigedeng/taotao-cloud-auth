@@ -3,11 +3,6 @@
 package com.taotao.cloud.auth.application.command.management.executor.query;
 
 import com.taotao.cloud.auth.application.adapter.DictAdapter;
-import com.taotao.cloud.auth.application.command.management.dto.DictGetQry;
-import com.taotao.cloud.auth.application.command.management.dto.clientobject.DictCO;
-import com.taotao.cloud.auth.application.converter.DictConvert;
-import com.taotao.cloud.auth.domain.dict.service.DictDomainService;
-import com.taotao.cloud.auth.infrastructure.persistent.dict.mapper.DictMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

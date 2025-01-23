@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.infrastructure.persistent.authorization.po;
+package com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
@@ -53,7 +53,7 @@ import org.hibernate.envers.RevisionNumber;
 @org.hibernate.annotations.Cache(
 	usage = CacheConcurrencyStrategy.READ_WRITE,
 	region = OAuth2Constants.REGION_OAUTH2_AUTHORIZATION_CONSENT)
-public class TtcAuthorizationConsent extends AbstractEntity {
+public class TtcAuthorizationConsentPO extends AbstractEntity {
 
 	/**
 	 * 注册客户端id
@@ -155,7 +155,7 @@ public class TtcAuthorizationConsent extends AbstractEntity {
 		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
-		TtcAuthorizationConsent that = (TtcAuthorizationConsent) o;
+		TtcAuthorizationConsentPO that = (TtcAuthorizationConsentPO) o;
 		return Objects.equal(registeredClientId, that.registeredClientId)
 			&& Objects.equal(principalName, that.principalName);
 	}

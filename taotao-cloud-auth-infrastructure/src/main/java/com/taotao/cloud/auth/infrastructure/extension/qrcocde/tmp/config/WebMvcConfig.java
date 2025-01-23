@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.config;
 
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.controller.interceptor.ConfirmInterceptor;
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.controller.interceptor.LoginInterceptor;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.controller.interceptor.ConfirmInterceptor;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.controller.interceptor.LoginInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 

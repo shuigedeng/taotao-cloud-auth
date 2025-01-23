@@ -23,35 +23,35 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.MissingNode;
-import com.taotao.boot.security.spring.authentication.details.FormLoginWebAuthenticationDetails;
+import com.taotao.boot.security.spring.authentication.login.form.FormLoginWebAuthenticationDetails;
+
 import java.io.IOException;
 
 /**
  * <p>FormLoginWebAuthenticationDetailsDeserializer </p>
  *
- *
  * @since : 2022/4/14 11:48
  */
 public class FormLoginWebAuthenticationDetailsDeserializer extends JsonDeserializer<FormLoginWebAuthenticationDetails> {
-    @Override
-    public FormLoginWebAuthenticationDetails deserialize(JsonParser jp, DeserializationContext deserializationContext)
-            throws IOException, JacksonException {
-        ObjectMapper mapper = (ObjectMapper) jp.getCodec();
-        JsonNode jsonNode = mapper.readTree(jp);
+	@Override
+	public FormLoginWebAuthenticationDetails deserialize(JsonParser jp, DeserializationContext deserializationContext)
+		throws IOException, JacksonException {
+		ObjectMapper mapper = (ObjectMapper) jp.getCodec();
+		JsonNode jsonNode = mapper.readTree(jp);
 
-        String remoteAddress = readJsonNode(jsonNode, "remoteAddress").asText();
-        String sessionId = readJsonNode(jsonNode, "sessionId").asText();
-        String parameterName = readJsonNode(jsonNode, "parameterName").asText();
-        String category = readJsonNode(jsonNode, "category").asText();
-        String code = readJsonNode(jsonNode, "code").asText();
-        String identity = readJsonNode(jsonNode, "identity").asText();
-        boolean closed = readJsonNode(jsonNode, "closed").asBoolean();
+		String remoteAddress = readJsonNode(jsonNode, "remoteAddress").asText();
+		String sessionId = readJsonNode(jsonNode, "sessionId").asText();
+		String parameterName = readJsonNode(jsonNode, "parameterName").asText();
+		String category = readJsonNode(jsonNode, "category").asText();
+		String code = readJsonNode(jsonNode, "code").asText();
+		String identity = readJsonNode(jsonNode, "identity").asText();
+		boolean closed = readJsonNode(jsonNode, "closed").asBoolean();
 
-        return new FormLoginWebAuthenticationDetails(
-                remoteAddress, sessionId, closed, parameterName, category, code, identity);
-    }
+		return new FormLoginWebAuthenticationDetails(
+			remoteAddress, sessionId, closed, parameterName, category, code, identity);
+	}
 
-    private JsonNode readJsonNode(JsonNode jsonNode, String field) {
-        return jsonNode.has(field) ? jsonNode.get(field) : MissingNode.getInstance();
-    }
+	private JsonNode readJsonNode(JsonNode jsonNode, String field) {
+		return jsonNode.has(field) ? jsonNode.get(field) : MissingNode.getInstance();
+	}
 }

@@ -17,10 +17,11 @@
 package com.taotao.cloud.auth.infrastructure.authorization.token;
 
 import com.taotao.boot.security.spring.constants.BaseConstants;
-import com.taotao.boot.security.spring.userdetails.TtcUser;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import com.taotao.boot.security.spring.core.userdetails.TtcUser;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

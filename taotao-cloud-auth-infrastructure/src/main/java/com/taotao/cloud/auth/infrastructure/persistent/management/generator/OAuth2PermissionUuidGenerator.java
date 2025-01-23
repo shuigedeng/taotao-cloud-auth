@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.persistent.management.generator;
 
 import com.taotao.boot.data.jpa.hibernate.identifier.AbstractUuidGenerator;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Permission;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2PermissionPO;
 import java.lang.reflect.Member;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -45,7 +45,7 @@ public class OAuth2PermissionUuidGenerator extends AbstractUuidGenerator {
 			throw new HibernateException(new NullPointerException());
 		}
 
-		OAuth2Permission permission = (OAuth2Permission) object;
+		OAuth2PermissionPO permission = (OAuth2PermissionPO) object;
 
 		if (StringUtils.isEmpty(permission.getPermissionId())) {
 			return super.generate(session, object);

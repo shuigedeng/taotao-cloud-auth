@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.infrastructure.crypto;
 
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.SecretKey;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.SecretKey;
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.captcha.support.core.definition.AbstractRenderer;
 import com.taotao.boot.captcha.support.core.definition.domain.Metadata;

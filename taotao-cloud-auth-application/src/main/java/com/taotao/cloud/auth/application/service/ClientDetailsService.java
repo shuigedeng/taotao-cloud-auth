@@ -16,7 +16,8 @@
 
 package com.taotao.cloud.auth.application.service;
 
-import com.taotao.boot.security.spring.authority.TtcGrantedAuthority;
+import com.taotao.boot.security.spring.core.authority.TtcGrantedAuthority;
+
 import java.util.Set;
 
 /**

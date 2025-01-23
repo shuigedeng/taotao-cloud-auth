@@ -1,10 +1,10 @@
 
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.generator;
 
-import com.taotao.cloud.auth.infrastructure.persistent.authorizaon.generator.TtcRegisteredClientUuidGenerator;
 import com.taotao.boot.data.jpa.hibernate.identifier.AbstractUuidGenerator;
-import com.taotao.cloud.auth.infrastructure.persistent.authorizaon.po.TtcRegisteredClient;
 import java.lang.reflect.Member;
+
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcRegisteredClientPO;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.HibernateException;
@@ -30,7 +30,7 @@ public class TtcRegisteredClientUuidGeneratorType extends AbstractUuidGenerator 
 			throw new HibernateException(new NullPointerException());
 		}
 
-		TtcRegisteredClient ttcRegisteredClient = (TtcRegisteredClient) object;
+		TtcRegisteredClientPO ttcRegisteredClient = (TtcRegisteredClientPO) object;
 
 		if (StringUtils.isEmpty(ttcRegisteredClient.getId())) {
 			return super.generate(session, object);

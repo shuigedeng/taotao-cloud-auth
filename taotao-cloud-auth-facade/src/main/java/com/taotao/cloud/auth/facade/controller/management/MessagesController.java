@@ -16,14 +16,13 @@
 
 package com.taotao.cloud.auth.facade.controller.management;
 
-import com.taotao.cloud.auth.application.service.impl.TtcAuthorizationConsentService;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.boot.security.spring.annotation.NotAuth;
+import com.taotao.cloud.auth.infrastructure.authorization.service.TtcAuthorizationConsentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -49,10 +48,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/test")
 public class MessagesController {
 
-    @Autowired
-    private JwtDecoder jwtDecoder;
-    @Autowired
-    private TtcAuthorizationConsentService ttcAuthorizationConsentService;
+	@Autowired
+	private JwtDecoder jwtDecoder;
+	@Autowired
+	private TtcAuthorizationConsentService ttcAuthorizationConsentService;
 
 //    @Operation(summary = "测试消息NotAuth", description = "测试消息NotAuth")
 //    @GetMapping("/NotAuth/myPageQuery")
@@ -63,27 +62,27 @@ public class MessagesController {
 //        return Result.success("sadfasdf");
 //    }
 
-    // @Autowired
-    // private IFeignDictApi feignDictService;
-    //
-    // @DubboReference(check = false)
-    // private IDubboDictService dubboDictService;
+	// @Autowired
+	// private IFeignDictApi feignDictService;
+	//
+	// @DubboReference(check = false)
+	// private IDubboDictService dubboDictService;
 
-    @Operation(summary = "测试消息", description = "测试消息")
-    @GetMapping("/messages")
-    public String[] getMessages() {
-        LogUtils.info("slfdlaskdf;lasjdf;lj");
-        // DubboDictRes dubboDictRes = dubboDictService.findByCode(1);
+	@Operation(summary = "测试消息", description = "测试消息")
+	@GetMapping("/messages")
+	public String[] getMessages() {
+		LogUtils.info("slfdlaskdf;lasjdf;lj");
+		// DubboDictRes dubboDictRes = dubboDictService.findByCode(1);
 
-        // try {
-        //	FeignDictResponse feignDictResponse = feignDictService.findByCode("sd");
-        // } catch (Exception e) {
-        //	LogUtils.error(e);
-        //	throw new RuntimeException(e);
-        // }
+		// try {
+		//	FeignDictResponse feignDictResponse = feignDictService.findByCode("sd");
+		// } catch (Exception e) {
+		//	LogUtils.error(e);
+		//	throw new RuntimeException(e);
+		// }
 
-        return new String[] {"Message 1", "Message 2", "Message 3"};
-    }
+		return new String[]{"Message 1", "Message 2", "Message 3"};
+	}
 
 	@Operation(summary = "测试消息NotAuth", description = "测试消息NotAuth")
 	@GetMapping("/NotAuth/messages")
@@ -91,20 +90,20 @@ public class MessagesController {
 	public String[] getMessagesNotAuth() {
 		LogUtils.info("slfdlaskdf;lasjdf;lj NotAuth");
 
-		return new String[] {"Message 1", "Message 2", "Message 3"};
+		return new String[]{"Message 1", "Message 2", "Message 3"};
 	}
 
-    /**
-     * 获取当前认证的OAuth2用户信息，默认是保存在{@link jakarta.servlet.http.HttpSession}中的
-     *
-     * @param user OAuth2用户信息
-     * @return OAuth2用户信息
-     */
-    @Operation(summary = "获取当前认证的OAuth2用户信息", description = "获取当前认证的OAuth2用户信息")
-    @GetMapping("/user")
-    public Result<OAuth2User> user(@AuthenticationPrincipal OAuth2User user) {
-        return Result.success(user);
-    }
+	/**
+	 * 获取当前认证的OAuth2用户信息，默认是保存在{@link jakarta.servlet.http.HttpSession}中的
+	 *
+	 * @param user OAuth2用户信息
+	 * @return OAuth2用户信息
+	 */
+	@Operation(summary = "获取当前认证的OAuth2用户信息", description = "获取当前认证的OAuth2用户信息")
+	@GetMapping("/user")
+	public Result<OAuth2User> user(@AuthenticationPrincipal OAuth2User user) {
+		return Result.success(user);
+	}
 
 //    @Operation(summary = "获取当前认证的OAuth2客户端信息", description = "v")
 //    @GetMapping("/client")
@@ -113,15 +112,15 @@ public class MessagesController {
 //        return Result.success(oAuth2AuthorizedClient);
 //    }
 
-    @GetMapping(value = "/info")
-    public Object getUserInfo() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Object principal = authentication.getPrincipal();
+	@GetMapping(value = "/info")
+	public Object getUserInfo() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Object principal = authentication.getPrincipal();
 
-        JwtAuthenticationToken jwtAuthenticationToken = (JwtAuthenticationToken) authentication;
-        String tokenValue = jwtAuthenticationToken.getToken().getTokenValue();
-        Jwt decode = jwtDecoder.decode(tokenValue);
+		JwtAuthenticationToken jwtAuthenticationToken = (JwtAuthenticationToken) authentication;
+		String tokenValue = jwtAuthenticationToken.getToken().getTokenValue();
+		Jwt decode = jwtDecoder.decode(tokenValue);
 
-        return authentication.getPrincipal();
-    }
+		return authentication.getPrincipal();
+	}
 }

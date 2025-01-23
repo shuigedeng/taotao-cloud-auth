@@ -18,7 +18,7 @@ package com.taotao.cloud.auth.infrastructure.authorization.service;
 
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.converter.OAuth2ToTtcAuthorizationConsentConverter;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.converter.TtcToOAuth2AuthorizationConsentConverter;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.po.TtcAuthorizationConsent;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcAuthorizationConsentPO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.convert.converter.Converter;
@@ -48,11 +48,11 @@ public class JpaOAuth2AuthorizationConsentService implements OAuth2Authorization
 	/**
 	 * 希罗多德到oauth2转换器
 	 */
-	private final Converter<TtcAuthorizationConsent, OAuth2AuthorizationConsent> ttcToOAuth2Converter;
+	private final Converter<TtcAuthorizationConsentPO, OAuth2AuthorizationConsent> ttcToOAuth2Converter;
 	/**
 	 * oauth2到ttc转换器
 	 */
-	private final Converter<OAuth2AuthorizationConsent, TtcAuthorizationConsent> oauth2ToTtcConverter;
+	private final Converter<OAuth2AuthorizationConsent, TtcAuthorizationConsentPO> oauth2ToTtcConverter;
 
 	/**
 	 * jpa oauth2授权同意服务
@@ -120,7 +120,7 @@ public class JpaOAuth2AuthorizationConsentService implements OAuth2Authorization
 	 * @return {@link OAuth2AuthorizationConsent }
 	 * @since 2023-07-10 17:10:37
 	 */
-	private OAuth2AuthorizationConsent toObject(TtcAuthorizationConsent authorizationConsent) {
+	private OAuth2AuthorizationConsent toObject(TtcAuthorizationConsentPO authorizationConsent) {
 		return ttcToOAuth2Converter.convert(authorizationConsent);
 	}
 
@@ -128,10 +128,10 @@ public class JpaOAuth2AuthorizationConsentService implements OAuth2Authorization
 	 * 对实体
 	 *
 	 * @param authorizationConsent 授权同意书
-	 * @return {@link TtcAuthorizationConsent }
+	 * @return {@link TtcAuthorizationConsentPO }
 	 * @since 2023-07-10 17:10:37
 	 */
-	private TtcAuthorizationConsent toEntity(OAuth2AuthorizationConsent authorizationConsent) {
+	private TtcAuthorizationConsentPO toEntity(OAuth2AuthorizationConsent authorizationConsent) {
 		return oauth2ToTtcConverter.convert(authorizationConsent);
 	}
 }

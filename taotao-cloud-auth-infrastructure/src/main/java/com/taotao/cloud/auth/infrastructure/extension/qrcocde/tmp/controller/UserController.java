@@ -16,10 +16,10 @@
 
 package com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.controller;
 
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.entity.Response;
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.entity.User;
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.service.UserService;
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.utils.HostHolder;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.entity.Response;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.entity.User;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.service.UserService;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.utils.HostHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

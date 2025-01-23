@@ -17,10 +17,10 @@
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.jackson2;
 
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.taotao.boot.security.spring.authentication.details.FormLoginWebAuthenticationDetails;
-import com.taotao.boot.security.spring.authority.TtcGrantedAuthority;
-import com.taotao.boot.security.spring.userdetails.TtcUser;
-import com.taotao.boot.security.spring.utils.Jackson2Constants;
+import com.taotao.boot.security.spring.authentication.login.form.FormLoginWebAuthenticationDetails;
+import com.taotao.boot.security.spring.constants.Jackson2Constants;
+import com.taotao.boot.security.spring.core.authority.TtcGrantedAuthority;
+import com.taotao.boot.security.spring.core.userdetails.TtcUser;
 import org.springframework.security.jackson2.SecurityJackson2Modules;
 
 /**

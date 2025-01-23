@@ -2,7 +2,7 @@
 
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.generator;
 
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.po.TtcAuthorization;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcAuthorizationPO;
 import com.taotao.boot.data.jpa.hibernate.identifier.AbstractUuidGenerator;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -31,12 +31,12 @@ public class TtcAuthorizationUuidGeneratorType extends AbstractUuidGenerator {
             throw new HibernateException(new NullPointerException());
         }
 
-        TtcAuthorization ttcAuthorization = (TtcAuthorization) object;
+        TtcAuthorizationPO ttcAuthorizationPO = (TtcAuthorizationPO) object;
 
-        if (StringUtils.isEmpty(ttcAuthorization.getId())) {
+        if (StringUtils.isEmpty(ttcAuthorizationPO.getId())) {
             return super.generate(session, object);
         } else {
-            return ttcAuthorization.getId();
+            return ttcAuthorizationPO.getId();
         }
     }
 }

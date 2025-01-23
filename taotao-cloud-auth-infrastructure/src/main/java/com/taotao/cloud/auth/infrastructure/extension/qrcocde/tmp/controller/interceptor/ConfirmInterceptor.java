@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.controller.interceptor;
 
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.utils.CommonUtil;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.utils.CommonUtil;
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

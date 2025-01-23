@@ -18,8 +18,8 @@ package com.taotao.cloud.auth.infrastructure.authentication.service;
 
 import com.taotao.cloud.auth.infrastructure.authorization.converter.OAuth2ApplicationToRegisteredClientConverter;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.repository.TtcRegisteredClientRepository;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Application;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Scope;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ApplicationPO;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ScopePO;
 import com.taotao.cloud.auth.infrastructure.persistent.management.repository.OAuth2ApplicationRepository;
 import java.util.HashSet;
 import java.util.Set;
@@ -45,7 +45,7 @@ public class OAuth2ApplicationService {
 	private final RegisteredClientRepository registeredClientRepository;
 	private final TtcRegisteredClientRepository ttcRegisteredClientRepository;
 	private final OAuth2ApplicationRepository applicationRepository;
-	private final Converter<OAuth2Application, RegisteredClient> objectConverter;
+	private final Converter<OAuth2ApplicationPO, RegisteredClient> objectConverter;
 
 	public OAuth2ApplicationService(
 		RegisteredClientRepository registeredClientRepository,
@@ -57,8 +57,8 @@ public class OAuth2ApplicationService {
 		this.objectConverter = new OAuth2ApplicationToRegisteredClientConverter();
 	}
 
-	public OAuth2Application saveAndFlush(OAuth2Application entity) {
-		OAuth2Application application = applicationRepository.saveAndFlush(entity);
+	public OAuth2ApplicationPO saveAndFlush(OAuth2ApplicationPO entity) {
+		OAuth2ApplicationPO application = applicationRepository.saveAndFlush(entity);
 		if (ObjectUtils.isNotEmpty(application)) {
 			registeredClientRepository.save(objectConverter.convert(application));
 			log.info("OAuth2ApplicationService saveOrUpdate.");
@@ -77,23 +77,23 @@ public class OAuth2ApplicationService {
 	}
 
 	@Transactional(rollbackFor = RuntimeException.class)
-	public OAuth2Application authorize(String applicationId, String[] scopeIds) {
+	public OAuth2ApplicationPO authorize(String applicationId, String[] scopeIds) {
 
-		Set<OAuth2Scope> scopes = new HashSet<>();
+		Set<OAuth2ScopePO> scopes = new HashSet<>();
 		for (String scopeId : scopeIds) {
-			OAuth2Scope scope = new OAuth2Scope();
+			OAuth2ScopePO scope = new OAuth2ScopePO();
 			scope.setScopeId(scopeId);
 			scopes.add(scope);
 		}
 
-		OAuth2Application oldApplication =
+		OAuth2ApplicationPO oldApplication =
 			applicationRepository.findById(applicationId).get();
 		oldApplication.setScopes(scopes);
 
 		return saveAndFlush(oldApplication);
 	}
 
-	public OAuth2Application findByClientId(String clientId) {
+	public OAuth2ApplicationPO findByClientId(String clientId) {
 		return applicationRepository.findByClientId(clientId);
 	}
 }

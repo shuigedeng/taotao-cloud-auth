@@ -16,15 +16,13 @@
 
 package com.taotao.cloud.auth.facade.controller.management;
 
-import com.taotao.cloud.auth.application.service.OAuth2ApplicationService;
-import com.taotao.cloud.auth.application.service.OAuth2ScopeService;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Application;
 import com.taotao.boot.security.spring.constants.DefaultConstants;
 import com.taotao.boot.security.spring.constants.SymbolConstants;
 import com.taotao.boot.security.spring.properties.OAuth2EndpointProperties;
-import java.security.Principal;
-import java.util.*;
-import java.util.stream.Collectors;
+import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ApplicationService;
+import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ScopeService;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ApplicationPO;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ScopePO;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
 import org.springframework.security.oauth2.core.endpoint.OAuth2ParameterNames;
@@ -37,11 +35,20 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 /**
  * OAuth2 授权确认页面 - controller
  *
- * @since 2022-03-01
  * @see org.springframework.security.oauth2.server.authorization.web.OAuth2AuthorizationEndpointFilter
+ * @since 2022-03-01
  */
 @Controller
 public class ConsentController {
@@ -51,7 +58,7 @@ public class ConsentController {
     private final OAuth2ScopeService scopeService;
     private final OAuth2EndpointProperties oAuth2EndpointProperties;
 
-    private Map<String, OAuth2Scope> dictionaries;
+    private Map<String, OAuth2ScopePO> dictionaries;
 
     public ConsentController(
             OAuth2ApplicationService applicationService,
@@ -89,7 +96,7 @@ public class ConsentController {
         // 之前已经授权过的scope
         Set<String> previouslyApprovedScopes = new HashSet<>();
         // 获取客户端注册信息
-        OAuth2Application application = this.applicationService.findByClientId(clientId);
+        OAuth2ApplicationPO application = this.applicationService.findByClientId(clientId);
         // 获取当前Client下用户之前的consent信息
         OAuth2AuthorizationConsent currentAuthorizationConsent =
                 this.authorizationConsentService.findById(clientId, principal.getName());
@@ -132,10 +139,10 @@ public class ConsentController {
     }
 
     private void initDictionaries() {
-        List<OAuth2Scope> scopes = scopeService.findAll();
+        List<OAuth2ScopePO> scopes = scopeService.findAll();
         if (CollectionUtils.isNotEmpty(scopes)) {
             if (MapUtils.isEmpty(dictionaries) || scopes.size() != dictionaries.size()) {
-                dictionaries = scopes.stream().collect(Collectors.toMap(OAuth2Scope::getScopeCode, item -> item));
+                dictionaries = scopes.stream().collect(Collectors.toMap(OAuth2ScopePO::getScopeCode, item -> item));
             }
         }
     }
@@ -156,7 +163,7 @@ public class ConsentController {
         }
     }
 
-    private Option scopeToOption(OAuth2Scope scope) {
+    private Option scopeToOption(OAuth2ScopePO scope) {
         Option option = new Option();
         String label = scope.getDescription() == null ? scope.getScopeName() : scope.getDescription();
         option.setLabel(label);

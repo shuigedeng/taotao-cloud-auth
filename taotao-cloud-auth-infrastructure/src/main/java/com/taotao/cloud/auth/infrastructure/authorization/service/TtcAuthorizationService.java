@@ -18,7 +18,7 @@ package com.taotao.cloud.auth.infrastructure.authorization.service;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.po.TtcAuthorization;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcAuthorizationPO;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.repository.TtcAuthorizationRepository;
 import jakarta.persistence.criteria.Predicate;
 import java.time.LocalDateTime;
@@ -69,11 +69,11 @@ public class TtcAuthorizationService {
 	 * 按状态查找
 	 *
 	 * @param state 州
-	 * @return {@link Optional }<{@link TtcAuthorization }>
+	 * @return {@link Optional }<{@link TtcAuthorizationPO }>
 	 * @since 2023-07-10 17:10:01
 	 */
-	public Optional<TtcAuthorization> findByState(String state) {
-		Optional<TtcAuthorization> result = this.ttcAuthorizationRepository.findByState(state);
+	public Optional<TtcAuthorizationPO> findByState(String state) {
+		Optional<TtcAuthorizationPO> result = this.ttcAuthorizationRepository.findByState(state);
 		log.info("TtcAuthorization Service findByState.");
 		return result;
 	}
@@ -82,11 +82,11 @@ public class TtcAuthorizationService {
 	 * 按授权码查找
 	 *
 	 * @param authorizationCode 授权代码
-	 * @return {@link Optional }<{@link TtcAuthorization }>
+	 * @return {@link Optional }<{@link TtcAuthorizationPO }>
 	 * @since 2023-07-10 17:10:01
 	 */
-	public Optional<TtcAuthorization> findByAuthorizationCode(String authorizationCode) {
-		Optional<TtcAuthorization> result =
+	public Optional<TtcAuthorizationPO> findByAuthorizationCode(String authorizationCode) {
+		Optional<TtcAuthorizationPO> result =
 			this.ttcAuthorizationRepository.findByAuthorizationCodeValue(authorizationCode);
 		log.info("TtcAuthorization Service findByAuthorizationCode.");
 		return result;
@@ -96,11 +96,11 @@ public class TtcAuthorizationService {
 	 * 通过访问令牌查找
 	 *
 	 * @param accessToken 访问令牌
-	 * @return {@link Optional }<{@link TtcAuthorization }>
+	 * @return {@link Optional }<{@link TtcAuthorizationPO }>
 	 * @since 2023-07-10 17:10:02
 	 */
-	public Optional<TtcAuthorization> findByAccessToken(String accessToken) {
-		Optional<TtcAuthorization> result =
+	public Optional<TtcAuthorizationPO> findByAccessToken(String accessToken) {
+		Optional<TtcAuthorizationPO> result =
 			this.ttcAuthorizationRepository.findByAccessTokenValue(accessToken);
 		log.info("TtcAuthorization Service findByAccessToken.");
 		return result;
@@ -110,11 +110,11 @@ public class TtcAuthorizationService {
 	 * 通过刷新令牌查找
 	 *
 	 * @param refreshToken 刷新令牌
-	 * @return {@link Optional }<{@link TtcAuthorization }>
+	 * @return {@link Optional }<{@link TtcAuthorizationPO }>
 	 * @since 2023-07-10 17:10:03
 	 */
-	public Optional<TtcAuthorization> findByRefreshToken(String refreshToken) {
-		Optional<TtcAuthorization> result =
+	public Optional<TtcAuthorizationPO> findByRefreshToken(String refreshToken) {
+		Optional<TtcAuthorizationPO> result =
 			this.ttcAuthorizationRepository.findByRefreshTokenValue(refreshToken);
 		log.info("TtcAuthorization Service findByRefreshToken.");
 		return result;
@@ -124,11 +124,11 @@ public class TtcAuthorizationService {
 	 * 按oidc标识令牌值查找
 	 *
 	 * @param idToken id令牌
-	 * @return {@link Optional }<{@link TtcAuthorization }>
+	 * @return {@link Optional }<{@link TtcAuthorizationPO }>
 	 * @since 2023-07-10 17:10:03
 	 */
-	public Optional<TtcAuthorization> findByOidcIdTokenValue(String idToken) {
-		Optional<TtcAuthorization> result = this.ttcAuthorizationRepository.findByOidcIdTokenValue(
+	public Optional<TtcAuthorizationPO> findByOidcIdTokenValue(String idToken) {
+		Optional<TtcAuthorizationPO> result = this.ttcAuthorizationRepository.findByOidcIdTokenValue(
 			idToken);
 		log.info("TtcAuthorization Service findByOidcIdTokenValue.");
 		return result;
@@ -138,11 +138,11 @@ public class TtcAuthorizationService {
 	 * 按用户代码值查找
 	 *
 	 * @param userCode 用户代码
-	 * @return {@link Optional }<{@link TtcAuthorization }>
+	 * @return {@link Optional }<{@link TtcAuthorizationPO }>
 	 * @since 2023-07-10 17:10:04
 	 */
-	public Optional<TtcAuthorization> findByUserCodeValue(String userCode) {
-		Optional<TtcAuthorization> result = this.ttcAuthorizationRepository.findByUserCodeValue(
+	public Optional<TtcAuthorizationPO> findByUserCodeValue(String userCode) {
+		Optional<TtcAuthorizationPO> result = this.ttcAuthorizationRepository.findByUserCodeValue(
 			userCode);
 		log.info("TtcAuthorization Service findByUserCodeValue.");
 		return result;
@@ -152,11 +152,11 @@ public class TtcAuthorizationService {
 	 * 按设备代码值查找
 	 *
 	 * @param deviceCode 设备代码
-	 * @return {@link Optional }<{@link TtcAuthorization }>
+	 * @return {@link Optional }<{@link TtcAuthorizationPO }>
 	 * @since 2023-07-10 17:10:05
 	 */
-	public Optional<TtcAuthorization> findByDeviceCodeValue(String deviceCode) {
-		Optional<TtcAuthorization> result =
+	public Optional<TtcAuthorizationPO> findByDeviceCodeValue(String deviceCode) {
+		Optional<TtcAuthorizationPO> result =
 			this.ttcAuthorizationRepository.findByDeviceCodeValue(deviceCode);
 		log.info("TtcAuthorization Service findByDeviceCodeValue.");
 		return result;
@@ -166,14 +166,14 @@ public class TtcAuthorizationService {
 	 * 按状态或授权代码值或访问令牌值或刷新令牌值或oidc id令牌值或用户代码值或设备代码值查找
 	 *
 	 * @param token 令牌
-	 * @return {@link Optional }<{@link TtcAuthorization }>
+	 * @return {@link Optional }<{@link TtcAuthorizationPO }>
 	 * @since 2023-07-10 17:10:05
 	 */
-	public Optional<TtcAuthorization>
+	public Optional<TtcAuthorizationPO>
 	findByStateOrAuthorizationCodeValueOrAccessTokenValueOrRefreshTokenValueOrOidcIdTokenValueOrUserCodeValueOrDeviceCodeValue(
 		String token) {
 
-		Specification<TtcAuthorization> specification = (root, criteriaQuery, criteriaBuilder) -> {
+		Specification<TtcAuthorizationPO> specification = (root, criteriaQuery, criteriaBuilder) -> {
 			List<Predicate> predicates = new ArrayList<>();
 			predicates.add(criteriaBuilder.equal(root.get("state"), token));
 			predicates.add(criteriaBuilder.equal(root.get("authorizationCodeValue"), token));
@@ -188,7 +188,7 @@ public class TtcAuthorizationService {
 			return criteriaQuery.getRestriction();
 		};
 
-		Optional<TtcAuthorization> result = this.ttcAuthorizationRepository.findOne(specification);
+		Optional<TtcAuthorizationPO> result = this.ttcAuthorizationRepository.findOne(specification);
 		log.info("TtcAuthorization Service findByDetection.");
 		return result;
 	}
@@ -208,12 +208,12 @@ public class TtcAuthorizationService {
 	 *
 	 * @param registeredClientId 注册客户端id
 	 * @param principalName      主体名称
-	 * @return {@link List }<{@link TtcAuthorization }>
+	 * @return {@link List }<{@link TtcAuthorizationPO }>
 	 * @since 2023-07-10 17:10:06
 	 */
-	public List<TtcAuthorization> findAvailableAuthorizations(String registeredClientId,
-		String principalName) {
-		List<TtcAuthorization> authorizations = this.ttcAuthorizationRepository
+	public List<TtcAuthorizationPO> findAvailableAuthorizations(String registeredClientId,
+																String principalName) {
+		List<TtcAuthorizationPO> authorizations = this.ttcAuthorizationRepository
 			.findAllByRegisteredClientIdAndPrincipalNameAndAccessTokenExpiresAtAfter(
 				registeredClientId, principalName, LocalDateTime.now());
 		log.info("TtcAuthorization Service findAvailableAuthorizations.");
@@ -229,7 +229,7 @@ public class TtcAuthorizationService {
 	 * @since 2023-07-10 17:10:07
 	 */
 	public int findAuthorizationCount(String registeredClientId, String principalName) {
-		List<TtcAuthorization> authorizations = findAvailableAuthorizations(registeredClientId,
+		List<TtcAuthorizationPO> authorizations = findAvailableAuthorizations(registeredClientId,
 			principalName);
 		int count = 0;
 		if (CollectionUtils.isNotEmpty(authorizations)) {
@@ -243,7 +243,7 @@ public class TtcAuthorizationService {
 	 * @param entity 实体
 	 * @since 2023-07-10 17:10:08
 	 */
-	public void saveAndFlush(TtcAuthorization entity) {
+	public void saveAndFlush(TtcAuthorizationPO entity) {
 		ttcAuthorizationRepository.save(entity);
 	}
 
@@ -261,10 +261,10 @@ public class TtcAuthorizationService {
 	 * 按id查找
 	 *
 	 * @param id id
-	 * @return {@link TtcAuthorization }
+	 * @return {@link TtcAuthorizationPO }
 	 * @since 2023-07-10 17:10:09
 	 */
-	public TtcAuthorization findById(String id) {
+	public TtcAuthorizationPO findById(String id) {
 		return ttcAuthorizationRepository.findById(id).orElse(null);
 	}
 
@@ -274,8 +274,8 @@ public class TtcAuthorizationService {
 	 * @param entity 实体
 	 * @since 2023-07-10 17:10:09
 	 */
-	public void updateAndFlush(TtcAuthorization entity) {
-		TtcAuthorization existingAuthorization = this.findById(entity.getId());
+	public void updateAndFlush(TtcAuthorizationPO entity) {
+		TtcAuthorizationPO existingAuthorization = this.findById(entity.getId());
 		BeanUtil.copyProperties(
 			entity, existingAuthorization, CopyOptions.create().ignoreNullValue());
 		// 更新数据

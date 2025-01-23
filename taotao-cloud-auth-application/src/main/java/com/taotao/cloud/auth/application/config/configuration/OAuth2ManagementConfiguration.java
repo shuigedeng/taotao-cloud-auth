@@ -16,15 +16,17 @@
 
 package com.taotao.cloud.auth.application.config.configuration;
 
-import com.taotao.cloud.auth.application.service.OAuth2ComplianceService;
-import com.taotao.cloud.auth.application.service.OAuth2DeviceService;
+import com.taotao.boot.cache.redis.repository.RedisRepository;
+import com.taotao.boot.security.spring.authentication.listener.AuthenticationSuccessListener;
+import com.taotao.boot.security.spring.authentication.stamp.SignInFailureLimitedStampManager;
+import com.taotao.boot.security.spring.configuration.OAuth2ComplianceConfiguration;
 import com.taotao.cloud.auth.infrastructure.authentication.response.OAuth2DeviceVerificationResponseHandler;
 import com.taotao.cloud.auth.infrastructure.authentication.response.OidcClientRegistrationResponseHandler;
-import com.taotao.cloud.auth.infrastructure.compliance.listener.AuthenticationSuccessListener;
+import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ComplianceService;
+import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2DeviceService;
 import com.taotao.cloud.auth.infrastructure.crypto.AESCryptoProcessor;
 import com.taotao.cloud.auth.infrastructure.crypto.HttpCryptoProcessor;
-import com.taotao.cloud.auth.infrastructure.stamp.SignInFailureLimitedStampManager;
-import com.taotao.boot.cache.redis.repository.RedisRepository;
+import com.taotao.cloud.auth.infrastructure.crypto.RSACryptoProcessor;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,6 +61,7 @@ public class OAuth2ManagementConfiguration {
 	 */
 	@Autowired
 	private RedisRepository redisRepository;
+
 	/**
 	 * http加密处理器
 	 *

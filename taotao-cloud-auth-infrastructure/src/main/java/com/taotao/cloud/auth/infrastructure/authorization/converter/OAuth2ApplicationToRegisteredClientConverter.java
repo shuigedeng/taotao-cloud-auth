@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.authorization.converter;
 
 
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Application;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ApplicationPO;
 
 /**
  * <p>OAuth2Application 转 RegisteredClient 转换器 </p>
@@ -26,4 +26,4 @@ import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Appli
  * @since : 2023/5/21 19:04
  */
 public class OAuth2ApplicationToRegisteredClientConverter
-        extends AbstractOAuth2RegisteredClientConverter<OAuth2Application> {}
+        extends AbstractOAuth2RegisteredClientConverter<OAuth2ApplicationPO> {}

@@ -23,26 +23,26 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.MissingNode;
-import com.taotao.boot.security.spring.authority.TtcGrantedAuthority;
+import com.taotao.boot.security.spring.core.authority.TtcGrantedAuthority;
+
 import java.io.IOException;
 
 /**
  * <p>TtcGrantedAuthority 反序列化 </p>
  *
- *
  * @since : 2022/3/17 20:28
  */
 public class TtcGrantedAuthorityDeserializer extends JsonDeserializer<TtcGrantedAuthority> {
-    @Override
-    public TtcGrantedAuthority deserialize(JsonParser jp, DeserializationContext ctxt)
-            throws IOException, JacksonException {
-        ObjectMapper mapper = (ObjectMapper) jp.getCodec();
-        JsonNode jsonNode = mapper.readTree(jp);
-        String authority = readJsonNode(jsonNode, "authority").asText();
-        return new TtcGrantedAuthority(authority);
-    }
+	@Override
+	public TtcGrantedAuthority deserialize(JsonParser jp, DeserializationContext ctxt)
+		throws IOException, JacksonException {
+		ObjectMapper mapper = (ObjectMapper) jp.getCodec();
+		JsonNode jsonNode = mapper.readTree(jp);
+		String authority = readJsonNode(jsonNode, "authority").asText();
+		return new TtcGrantedAuthority(authority);
+	}
 
-    private JsonNode readJsonNode(JsonNode jsonNode, String field) {
-        return jsonNode.has(field) ? jsonNode.get(field) : MissingNode.getInstance();
-    }
+	private JsonNode readJsonNode(JsonNode jsonNode, String field) {
+		return jsonNode.has(field) ? jsonNode.get(field) : MissingNode.getInstance();
+	}
 }

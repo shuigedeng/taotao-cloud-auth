@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.converter;
 
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.jackson2.OAuth2JacksonProcessor;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.po.RegisteredClientDetails;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.RegisteredClientDetails;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 
 /**
@@ -29,7 +29,7 @@ import org.springframework.security.oauth2.server.authorization.client.Registere
  */
 public abstract class AbstractRegisteredClientConverter<S extends RegisteredClientDetails>
 	extends AbstractOAuth2EntityConverter<S, RegisteredClient> implements
-		com.taotao.cloud.auth.infrastructure.persistent.authorizaon.converter.RegisteredClientConverter<S> {
+		RegisteredClientConverter<S> {
 
 	public AbstractRegisteredClientConverter(OAuth2JacksonProcessor jacksonProcessor) {
 		super(jacksonProcessor);

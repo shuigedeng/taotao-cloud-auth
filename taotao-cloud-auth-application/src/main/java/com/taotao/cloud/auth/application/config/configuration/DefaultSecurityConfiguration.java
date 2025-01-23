@@ -18,12 +18,6 @@ package com.taotao.cloud.auth.application.config.configuration;
 
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
-import com.taotao.cloud.auth.application.event.DefaultOAuth2AuthenticationEventPublisher;
-import com.taotao.cloud.auth.application.service.ClientDetailsService;
-import com.taotao.cloud.auth.application.service.impl.Oauth2ClientDetailsService;
-import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ApplicationService;
-import com.taotao.cloud.auth.infrastructure.authentication.userdetails.TtcUserDetailsService;
-import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.StrategyUserDetailsService;
 import com.taotao.boot.captcha.support.core.processor.CaptchaRendererFactory;
 import com.taotao.boot.security.spring.authentication.filter.ExtensionLoginRefreshTokenFilter;
 import com.taotao.boot.security.spring.authentication.login.extension.ExtensionLoginFilterSecurityConfigurer;
@@ -36,15 +30,21 @@ import com.taotao.boot.security.spring.authentication.login.extension.fingerprin
 import com.taotao.boot.security.spring.authentication.login.extension.gestures.service.GesturesUserDetailsService;
 import com.taotao.boot.security.spring.authentication.login.extension.wechatmp.service.WechatMpUserDetailsService;
 import com.taotao.boot.security.spring.authentication.login.form.FormLoginFilterSecurityConfigurer;
-import com.taotao.boot.security.spring.authentication.login.justauth.JustAuthLoginFilterSecurityConfigurer;
-import com.taotao.boot.security.spring.authentication.login.social.SocialDelegateClientRegistrationRepository;
-import com.taotao.boot.security.spring.authentication.login.social.SocialLoginFilterSecurityConfigurer;
+import com.taotao.boot.security.spring.authentication.login.social.justauth.JustAuthLoginFilterSecurityConfigurer;
+import com.taotao.boot.security.spring.authentication.login.social.oauth2client.SocialDelegateClientRegistrationRepository;
+import com.taotao.boot.security.spring.authentication.login.social.oauth2client.SocialLoginFilterSecurityConfigurer;
 import com.taotao.boot.security.spring.authorization.SecurityAuthorizationManager;
 import com.taotao.boot.security.spring.authorization.SecurityMatcherConfigurer;
 import com.taotao.boot.security.spring.oauth2.token.JwtTokenGenerator;
 import com.taotao.boot.security.spring.oauth2.token.JwtTokenGeneratorImpl;
 import com.taotao.boot.security.spring.oauth2.token.OAuth2AccessTokenStore;
 import com.taotao.boot.security.spring.oauth2.token1.SecurityTokenStrategyConfigurer;
+import com.taotao.cloud.auth.application.event.DefaultOAuth2AuthenticationEventPublisher;
+import com.taotao.cloud.auth.application.service.ClientDetailsService;
+import com.taotao.cloud.auth.application.service.impl.Oauth2ClientDetailsService;
+import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ApplicationService;
+import com.taotao.cloud.auth.infrastructure.authentication.userdetails.TtcUserDetailsService;
+import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.StrategyUserDetailsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
@@ -106,7 +106,6 @@ public class DefaultSecurityConfiguration {
 	//	// 返回配置好的过滤器
 	//	return new CorsFilter(configurationSource);
 	// }
-
 	@Bean
 	SecurityFilterChain defaultSecurityFilterChain(
 		HttpSecurity httpSecurity,

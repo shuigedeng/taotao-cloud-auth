@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.infrastructure.persistent.management.po;
+package com.taotao.cloud.auth.infrastructure.persistent.management.persistence;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
@@ -38,7 +38,7 @@ import org.hibernate.annotations.UuidGenerator;
 @org.hibernate.annotations.Cache(
         usage = CacheConcurrencyStrategy.READ_WRITE,
         region = OAuth2Constants.REGION_OAUTH2_COMPLIANCE)
-public class OAuth2Compliance extends BaseEntity {
+public class OAuth2CompliancePO extends BaseEntity {
 
     @Id
     @UuidGenerator
@@ -215,7 +215,7 @@ public class OAuth2Compliance extends BaseEntity {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OAuth2Compliance that = (OAuth2Compliance) o;
+        OAuth2CompliancePO that = (OAuth2CompliancePO) o;
         return Objects.equal(complianceId, that.complianceId);
     }
 

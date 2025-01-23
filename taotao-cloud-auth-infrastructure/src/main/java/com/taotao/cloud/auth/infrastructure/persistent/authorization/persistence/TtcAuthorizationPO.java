@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.infrastructure.persistent.authorization.po;
+package com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence;
 
 import com.google.common.base.MoreObjects;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.generator.TtcAuthorizationUuidGenerator;
@@ -48,7 +48,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @org.hibernate.annotations.Cache(
 	usage = CacheConcurrencyStrategy.READ_WRITE,
 	region = OAuth2Constants.REGION_OAUTH2_AUTHORIZATION)
-public class TtcAuthorization extends AbstractEntity {
+public class TtcAuthorizationPO extends AbstractEntity {
 
 	/**
 	 * id

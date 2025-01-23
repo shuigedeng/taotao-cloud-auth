@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.persistent.management.repository;
 
 import com.taotao.boot.data.jpa.base.repository.JpaInterfaceSuperRepository;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Compliance;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2CompliancePO;
 
 /**
  * <p>ActionAuditRepository </p>
@@ -25,4 +25,4 @@ import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Compl
  *
  * @since : 2022/7/7 20:39
  */
-public interface OAuth2ComplianceRepository extends JpaInterfaceSuperRepository<OAuth2Compliance, String> {}
+public interface OAuth2ComplianceRepository extends JpaInterfaceSuperRepository<OAuth2CompliancePO, String> {}

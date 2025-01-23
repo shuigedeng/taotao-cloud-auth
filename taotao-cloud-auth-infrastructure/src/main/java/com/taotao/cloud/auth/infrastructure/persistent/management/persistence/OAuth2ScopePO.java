@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.infrastructure.persistent.management.po;
+package com.taotao.cloud.auth.infrastructure.persistent.management.persistence;
 
 import com.google.common.base.MoreObjects;
 import com.taotao.boot.data.jpa.tenant.BaseSysEntity;
@@ -57,7 +57,7 @@ import org.hibernate.annotations.UuidGenerator;
 @org.hibernate.annotations.Cache(
 	usage = CacheConcurrencyStrategy.READ_WRITE,
 	region = OAuth2Constants.REGION_OAUTH2_SCOPE)
-public class OAuth2Scope extends BaseSysEntity {
+public class OAuth2ScopePO extends BaseSysEntity {
 
 	@Id
 	@UuidGenerator
@@ -86,7 +86,7 @@ public class OAuth2Scope extends BaseSysEntity {
 			@Index(name = "oauth2_scope_permission_sid_idx", columnList = "scope_id"),
 			@Index(name = "oauth2_scope_permission_pid_idx", columnList = "permission_id")
 		})
-	private Set<OAuth2Permission> permissions = new HashSet<>();
+	private Set<OAuth2PermissionPO> permissions = new HashSet<>();
 
 	public String getScopeId() {
 		return scopeId;
@@ -112,11 +112,11 @@ public class OAuth2Scope extends BaseSysEntity {
 		this.scopeName = scopeName;
 	}
 
-	public Set<OAuth2Permission> getPermissions() {
+	public Set<OAuth2PermissionPO> getPermissions() {
 		return permissions;
 	}
 
-	public void setPermissions(Set<OAuth2Permission> permissions) {
+	public void setPermissions(Set<OAuth2PermissionPO> permissions) {
 		this.permissions = permissions;
 	}
 
@@ -130,7 +130,7 @@ public class OAuth2Scope extends BaseSysEntity {
 			return false;
 		}
 
-		OAuth2Scope that = (OAuth2Scope) o;
+		OAuth2ScopePO that = (OAuth2ScopePO) o;
 
 		return new EqualsBuilder().append(getScopeId(), that.getScopeId()).isEquals();
 	}

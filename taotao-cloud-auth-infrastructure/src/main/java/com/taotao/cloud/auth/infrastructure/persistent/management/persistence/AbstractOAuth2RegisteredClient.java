@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.infrastructure.persistent.management.po;
+package com.taotao.cloud.auth.infrastructure.persistent.management.persistence;
 
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.po.AbstractRegisteredClient;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.AbstractRegisteredClient;
 import com.taotao.boot.security.spring.enums.Signature;
 import com.taotao.boot.security.spring.enums.TokenFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -95,7 +95,7 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	private Signature idTokenSignatureAlgorithm = Signature.RS256;
 	/* --- TokenSettings End --- */
 
-	public abstract Set<OAuth2Scope> getScopes();
+	public abstract Set<OAuth2ScopePO> getScopes();
 
 	public String getClientId() {
 		return clientId;

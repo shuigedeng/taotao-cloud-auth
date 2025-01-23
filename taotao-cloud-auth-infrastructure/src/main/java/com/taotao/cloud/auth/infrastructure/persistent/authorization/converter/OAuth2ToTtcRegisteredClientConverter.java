@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.converter;
 
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.jackson2.OAuth2JacksonProcessor;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.po.TtcRegisteredClient;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcRegisteredClientPO;
 import java.util.ArrayList;
 import java.util.List;
 import org.dromara.hutool.core.date.DateUtil;
@@ -33,7 +33,7 @@ import org.springframework.util.StringUtils;
  * @since 2023-07-10 17:13:37
  */
 public class OAuth2ToTtcRegisteredClientConverter
-	extends AbstractOAuth2EntityConverter<RegisteredClient, TtcRegisteredClient> {
+	extends AbstractOAuth2EntityConverter<RegisteredClient, TtcRegisteredClientPO> {
 
 	/**
 	 * 密码编码器
@@ -58,11 +58,11 @@ public class OAuth2ToTtcRegisteredClientConverter
 	 * 转换
 	 *
 	 * @param registeredClient 注册客户
-	 * @return {@link TtcRegisteredClient }
+	 * @return {@link TtcRegisteredClientPO }
 	 * @since 2023-07-10 17:13:38
 	 */
 	@Override
-	public TtcRegisteredClient convert(RegisteredClient registeredClient) {
+	public TtcRegisteredClientPO convert(RegisteredClient registeredClient) {
 		List<String> clientAuthenticationMethods = new ArrayList<>(
 			registeredClient.getClientAuthenticationMethods().size());
 		registeredClient
@@ -77,7 +77,7 @@ public class OAuth2ToTtcRegisteredClientConverter
 			.forEach(authorizationGrantType -> authorizationGrantTypes.add(
 				authorizationGrantType.getValue()));
 
-		TtcRegisteredClient entity = new TtcRegisteredClient();
+		TtcRegisteredClientPO entity = new TtcRegisteredClientPO();
 		entity.setId(registeredClient.getId());
 		entity.setClientId(registeredClient.getClientId());
 		entity.setClientIdIssuedAt(

@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.facade.controller.oauth2;
 
-import com.taotao.cloud.auth.application.service.OAuth2DeviceService;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Device;
+import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2DeviceService;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2DevicePO;
 import com.taotao.boot.common.model.Result;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -52,9 +52,9 @@ public class OAuth2DeviceController {
         @Parameter(name = "scopes[]", required = true, description = "Scope对象组成的数组")
     })
     @PutMapping
-    public Result<OAuth2Device> authorize(
+    public Result<OAuth2DevicePO> authorize(
             @RequestParam(name = "deviceId") String deviceId, @RequestParam(name = "scopes[]") String[] scopes) {
-        OAuth2Device device = deviceService.authorize(deviceId, scopes);
+        OAuth2DevicePO device = deviceService.authorize(deviceId, scopes);
         return Result.success(device);
     }
 }

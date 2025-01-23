@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.infrastructure.authorization.service;
 
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.po.TtcRegisteredClient;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcRegisteredClientPO;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.repository.TtcRegisteredClientRepository;
 import java.util.Optional;
 import org.slf4j.Logger;
@@ -62,11 +62,11 @@ public class TtcRegisteredClientService {
      * 按客户id查找
      *
      * @param clientId 客户端id
-     * @return {@link Optional }<{@link TtcRegisteredClient }>
+     * @return {@link Optional }<{@link TtcRegisteredClientPO }>
      * @since 2023-07-10 17:10:23
      */
-    public Optional<TtcRegisteredClient> findByClientId(String clientId) {
-        Optional<TtcRegisteredClient> result = this.registeredClientRepository.findByClientId(clientId);
+    public Optional<TtcRegisteredClientPO> findByClientId(String clientId) {
+        Optional<TtcRegisteredClientPO> result = this.registeredClientRepository.findByClientId(clientId);
         log.info("TtcRegisteredClient Service findByClientId.");
         return result;
     }
@@ -77,7 +77,7 @@ public class TtcRegisteredClientService {
      * @param entity 实体
      * @since 2023-07-10 17:10:23
      */
-    public void save(TtcRegisteredClient entity) {
+    public void save(TtcRegisteredClientPO entity) {
         registeredClientRepository.save(entity);
     }
 
@@ -85,10 +85,10 @@ public class TtcRegisteredClientService {
      * 按id查找
      *
      * @param id id
-     * @return {@link TtcRegisteredClient }
+     * @return {@link TtcRegisteredClientPO }
      * @since 2023-07-10 17:10:23
      */
-    public TtcRegisteredClient findById(String id) {
+    public TtcRegisteredClientPO findById(String id) {
         return registeredClientRepository.findById(id).get();
     }
 

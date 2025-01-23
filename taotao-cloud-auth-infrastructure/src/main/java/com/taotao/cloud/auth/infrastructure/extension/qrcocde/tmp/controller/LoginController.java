@@ -18,9 +18,9 @@ package com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.controller;
 
 import cn.hutool.extra.qrcode.QrCodeUtil;
 import com.alibaba.fastjson.JSONObject;
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.entity.Response;
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.service.LoginService;
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.service.UserService;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.entity.Response;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.service.LoginService;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.service.UserService;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;

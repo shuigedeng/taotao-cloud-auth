@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.infrastructure.persistent.management.po;
+package com.taotao.cloud.auth.infrastructure.persistent.management.persistence;
 
 import com.google.common.base.MoreObjects;
 import com.taotao.boot.data.jpa.tenant.BaseSysEntity;
@@ -42,7 +42,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @org.hibernate.annotations.Cache(
 	usage = CacheConcurrencyStrategy.READ_WRITE,
 	region = OAuth2Constants.REGION_OAUTH2_PERMISSION)
-public class OAuth2Permission extends BaseSysEntity {
+public class OAuth2PermissionPO extends BaseSysEntity {
 
 	@Id
 	@OAuth2PermissionUuid
@@ -96,7 +96,7 @@ public class OAuth2Permission extends BaseSysEntity {
 		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
-		OAuth2Permission that = (OAuth2Permission) o;
+		OAuth2PermissionPO that = (OAuth2PermissionPO) o;
 		return Objects.equals(permissionId, that.permissionId)
 			&& Objects.equals(permissionCode, that.permissionCode)
 			&& Objects.equals(permissionName, that.permissionName);

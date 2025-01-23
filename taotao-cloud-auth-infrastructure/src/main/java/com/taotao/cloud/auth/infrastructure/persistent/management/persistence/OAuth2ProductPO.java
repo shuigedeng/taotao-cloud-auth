@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.infrastructure.persistent.management.po;
+package com.taotao.cloud.auth.infrastructure.persistent.management.persistence;
 
 import com.google.common.base.MoreObjects;
 import com.taotao.boot.data.jpa.tenant.BaseEntity;
@@ -43,7 +43,7 @@ import org.hibernate.annotations.UuidGenerator;
 @org.hibernate.annotations.Cache(
         usage = CacheConcurrencyStrategy.READ_WRITE,
         region = OAuth2Constants.REGION_OAUTH2_IOT_PRODUCT)
-public class OAuth2Product extends BaseEntity {
+public class OAuth2ProductPO extends BaseEntity {
 
     @Id
     @UuidGenerator

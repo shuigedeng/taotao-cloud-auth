@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.infrastructure.persistent.management.po;
+package com.taotao.cloud.auth.infrastructure.persistent.management.persistence;
 
 import com.google.common.base.MoreObjects;
 import com.taotao.boot.security.spring.constants.OAuth2Constants;
@@ -61,7 +61,7 @@ import org.hibernate.annotations.UuidGenerator;
 @org.hibernate.annotations.Cache(
 	usage = CacheConcurrencyStrategy.READ_WRITE,
 	region = OAuth2Constants.REGION_OAUTH2_APPLICATION)
-public class OAuth2Application extends AbstractOAuth2RegisteredClient {
+public class OAuth2ApplicationPO extends AbstractOAuth2RegisteredClient {
 
 	@Schema(name = "应用ID")
 	@Id
@@ -106,7 +106,7 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
 			@Index(name = "oauth2_application_scope_aid_idx", columnList = "application_id"),
 			@Index(name = "oauth2_application_scope_sid_idx", columnList = "scope_id")
 		})
-	private Set<OAuth2Scope> scopes = new HashSet<>();
+	private Set<OAuth2ScopePO> scopes = new HashSet<>();
 
 	public String getApplicationId() {
 		return applicationId;
@@ -157,11 +157,11 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
 	}
 
 	@Override
-	public Set<OAuth2Scope> getScopes() {
+	public Set<OAuth2ScopePO> getScopes() {
 		return scopes;
 	}
 
-	public void setScopes(Set<OAuth2Scope> scopes) {
+	public void setScopes(Set<OAuth2ScopePO> scopes) {
 		this.scopes = scopes;
 	}
 
@@ -178,7 +178,7 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
 		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
-		OAuth2Application that = (OAuth2Application) o;
+		OAuth2ApplicationPO that = (OAuth2ApplicationPO) o;
 		return Objects.equals(applicationId, that.applicationId);
 	}
 

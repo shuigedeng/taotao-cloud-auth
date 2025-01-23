@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.infrastructure.persistent.authorization.po;
+package com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence;
 
 import java.time.LocalDateTime;
 

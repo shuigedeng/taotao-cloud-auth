@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.persistent.management.repository;
 
 import com.taotao.boot.data.jpa.base.repository.JpaInterfaceSuperRepository;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Device;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2DevicePO;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -27,15 +27,15 @@ import org.springframework.data.jpa.repository.Query;
  *
  * @since : 2023/5/15 16:14
  */
-public interface OAuth2DeviceRepository extends JpaInterfaceSuperRepository<OAuth2Device, String> {
+public interface OAuth2DeviceRepository extends JpaInterfaceSuperRepository<OAuth2DevicePO, String> {
 
 	/**
 	 * 根据 Client ID 查询 OAuth2Device
 	 *
 	 * @param clientId OAuth2Device 中的 clientId
-	 * @return {@link OAuth2Device}
+	 * @return {@link OAuth2DevicePO}
 	 */
-	OAuth2Device findByClientId(String clientId);
+	OAuth2DevicePO findByClientId(String clientId);
 
 	/**
 	 * 激活设备
@@ -51,6 +51,6 @@ public interface OAuth2DeviceRepository extends JpaInterfaceSuperRepository<OAut
 	 */
 	@Transactional
 	@Modifying
-	@Query("update OAuth2Device d set d.activated = ?2 where d.clientId = ?1")
+	@Query("update OAuth2DevicePO d set d.activated = ?2 where d.clientId = ?1")
 	int activate(String clientId, boolean isActivated);
 }

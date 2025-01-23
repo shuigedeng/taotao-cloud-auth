@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.auth.facade.controller.oauth2;
 
-import com.taotao.cloud.auth.application.service.OAuth2ComplianceService;
-import com.taotao.cloud.auth.infrastructure.compliance.event.AccountReleaseFromCacheEvent;
 import com.taotao.boot.common.model.Result;
+import com.taotao.boot.security.spring.authentication.compliance.event.AccountReleaseFromCacheEvent;
+import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ComplianceService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;

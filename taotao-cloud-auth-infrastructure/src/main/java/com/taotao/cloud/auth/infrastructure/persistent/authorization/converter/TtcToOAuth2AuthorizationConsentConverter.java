@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.converter;
 
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.po.TtcAuthorizationConsent;
-import com.taotao.boot.security.spring.authority.TtcGrantedAuthority;
+import com.taotao.boot.security.spring.core.authority.TtcGrantedAuthority;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcAuthorizationConsentPO;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.security.oauth2.server.authorization.OAuth2AuthorizationConsent;
@@ -33,7 +33,7 @@ import org.springframework.util.StringUtils;
  * @since 2023-07-10 17:09:35
  */
 public class TtcToOAuth2AuthorizationConsentConverter
-        implements Converter<TtcAuthorizationConsent, OAuth2AuthorizationConsent> {
+        implements Converter<TtcAuthorizationConsentPO, OAuth2AuthorizationConsent> {
 
     private final RegisteredClientRepository registeredClientRepository;
 
@@ -42,7 +42,7 @@ public class TtcToOAuth2AuthorizationConsentConverter
     }
 
     @Override
-    public OAuth2AuthorizationConsent convert(TtcAuthorizationConsent authorizationConsent) {
+    public OAuth2AuthorizationConsent convert(TtcAuthorizationConsentPO authorizationConsent) {
         String registeredClientId = authorizationConsent.getRegisteredClientId();
         RegisteredClient registeredClient = this.registeredClientRepository.findById(registeredClientId);
         if (registeredClient == null) {

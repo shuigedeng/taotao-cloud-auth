@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.facade.controller.oauth2;
 
-import com.taotao.cloud.auth.application.service.OAuth2ApplicationService;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Application;
+import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ApplicationService;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ApplicationPO;
 import com.taotao.boot.common.model.Result;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -52,9 +52,9 @@ public class OAuth2ApplicationController {
         @Parameter(name = "scopes[]", required = true, description = "Scope对象组成的数组")
     })
     @PutMapping
-    public Result<OAuth2Application> authorize(
+    public Result<OAuth2ApplicationPO> authorize(
             @RequestParam(name = "applicationId") String scopeId, @RequestParam(name = "scopes[]") String[] scopes) {
-        OAuth2Application application = applicationService.authorize(scopeId, scopes);
+        OAuth2ApplicationPO application = applicationService.authorize(scopeId, scopes);
         return Result.success(application);
     }
 }

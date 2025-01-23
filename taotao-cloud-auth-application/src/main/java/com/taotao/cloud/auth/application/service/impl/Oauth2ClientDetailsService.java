@@ -18,10 +18,9 @@ package com.taotao.cloud.auth.application.service.impl;
 
 import com.taotao.cloud.auth.application.service.EnhanceClientDetailsService;
 import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ApplicationService;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Application;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Permission;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Scope;
-import com.taotao.boot.security.spring.authority.TtcGrantedAuthority;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ApplicationPO;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2PermissionPO;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ScopePO;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -45,13 +44,13 @@ public class Oauth2ClientDetailsService implements EnhanceClientDetailsService {
 
 	@Override
 	public Set<TtcGrantedAuthority> findAuthoritiesById(String clientId) {
-		OAuth2Application application = applicationService.findByClientId(clientId);
+		OAuth2ApplicationPO application = applicationService.findByClientId(clientId);
 		if (ObjectUtils.isNotEmpty(application)) {
-			Set<OAuth2Scope> scopes = application.getScopes();
+			Set<OAuth2ScopePO> scopes = application.getScopes();
 			Set<TtcGrantedAuthority> result = new HashSet<>();
 			if (CollectionUtils.isNotEmpty(scopes)) {
-				for (OAuth2Scope scope : scopes) {
-					Set<OAuth2Permission> permissions = scope.getPermissions();
+				for (OAuth2ScopePO scope : scopes) {
+					Set<OAuth2PermissionPO> permissions = scope.getPermissions();
 					if (CollectionUtils.isNotEmpty(permissions)) {
 						Set<TtcGrantedAuthority> grantedAuthorities = permissions.stream()
 							.map(item -> new TtcGrantedAuthority(item.getPermissionCode()))

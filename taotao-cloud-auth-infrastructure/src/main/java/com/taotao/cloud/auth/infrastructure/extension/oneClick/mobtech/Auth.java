@@ -18,13 +18,14 @@ package com.taotao.cloud.auth.infrastructure.extension.oneClick.mobtech;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.taotao.cloud.auth.application.login.extension.oneClick.mobtech.utils.Base64Utils;
-import com.taotao.cloud.auth.application.login.extension.oneClick.mobtech.utils.BaseUtils;
-import com.taotao.cloud.auth.application.login.extension.oneClick.mobtech.utils.DES;
-import com.taotao.cloud.auth.application.login.extension.oneClick.mobtech.utils.SignUtil;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
+import com.taotao.cloud.auth.infrastructure.extension.oneClick.mobtech.utils.Base64Utils;
+import com.taotao.cloud.auth.infrastructure.extension.oneClick.mobtech.utils.BaseUtils;
+import com.taotao.cloud.auth.infrastructure.extension.oneClick.mobtech.utils.DES;
+import com.taotao.cloud.auth.infrastructure.extension.oneClick.mobtech.utils.SignUtil;
 import okhttp3.Call;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;

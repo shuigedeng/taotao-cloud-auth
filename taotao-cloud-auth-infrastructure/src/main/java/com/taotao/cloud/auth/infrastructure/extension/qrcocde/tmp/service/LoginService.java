@@ -17,12 +17,12 @@
 package com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.service;
 
 import com.alibaba.fastjson.JSONObject;
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.entity.LoginTicket;
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.entity.QrCodeStatusEnum;
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.entity.User;
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.utils.CommonUtil;
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.utils.HostHolder;
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.utils.LoginConstant;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.entity.LoginTicket;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.entity.QrCodeStatusEnum;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.entity.User;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.utils.CommonUtil;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.utils.HostHolder;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.utils.LoginConstant;
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;

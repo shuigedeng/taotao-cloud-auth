@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.utils;
 
-import com.taotao.cloud.auth.application.login.extension.qrcocde.tmp.entity.User;
+import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.entity.User;
 import org.springframework.stereotype.Component;
 
 @Component

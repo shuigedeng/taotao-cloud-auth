@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.crypto;
 
 
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.SecretKey;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.SecretKey;
 
 /**
  * <p>非对称加密 </p>

@@ -17,6 +17,7 @@
 package com.taotao.cloud.auth.facade.controller.oauth2;
 
 import com.alibaba.nacos.api.model.v2.Result;
+import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ConstantService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;

@@ -19,9 +19,10 @@ package com.taotao.cloud.auth.infrastructure.persistent.authorization.converter;
 import static org.dromara.hutool.core.text.StrPool.COMMA;
 
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.jackson2.OAuth2JacksonProcessor;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.po.TtcAuthorization;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcAuthorizationPO;
 import java.time.LocalDateTime;
 import java.util.function.Consumer;
+
 import org.dromara.hutool.core.date.DateUtil;
 import org.springframework.security.oauth2.core.OAuth2AccessToken;
 import org.springframework.security.oauth2.core.OAuth2DeviceCode;
@@ -42,7 +43,7 @@ import org.springframework.util.StringUtils;
  * @since 2023-07-10 17:13:42
  */
 public class OAuth2ToTtcAuthorizationConverter
-	extends AbstractOAuth2EntityConverter<OAuth2Authorization, TtcAuthorization> {
+	extends AbstractOAuth2EntityConverter<OAuth2Authorization, TtcAuthorizationPO> {
 
 	/**
 	 * oauth2到希罗多德授权转换器
@@ -59,12 +60,12 @@ public class OAuth2ToTtcAuthorizationConverter
 	 * 转换
 	 *
 	 * @param authorization 授权
-	 * @return {@link TtcAuthorization }
+	 * @return {@link TtcAuthorizationPO }
 	 * @since 2023-07-10 17:13:42
 	 */
 	@Override
-	public TtcAuthorization convert(OAuth2Authorization authorization) {
-		TtcAuthorization entity = new TtcAuthorization();
+	public TtcAuthorizationPO convert(OAuth2Authorization authorization) {
+		TtcAuthorizationPO entity = new TtcAuthorizationPO();
 		entity.setId(authorization.getId());
 		entity.setRegisteredClientId(authorization.getRegisteredClientId());
 		entity.setPrincipalName(authorization.getPrincipalName());

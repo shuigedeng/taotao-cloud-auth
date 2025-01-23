@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.persistent.management.repository;
 
 import com.taotao.boot.data.jpa.base.repository.JpaInterfaceSuperRepository;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Scope;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ScopePO;
 import java.util.List;
 
 /**
@@ -25,15 +25,15 @@ import java.util.List;
  *
  * @since : 2020/3/19 16:57
  */
-public interface OAuth2ScopeRepository extends JpaInterfaceSuperRepository<OAuth2Scope, String> {
+public interface OAuth2ScopeRepository extends JpaInterfaceSuperRepository<OAuth2ScopePO, String> {
 
 	/**
 	 * 根据范围代码查询应用范围
 	 *
 	 * @param scopeCode 范围代码
-	 * @return 应用范围 {@link OAuth2Scope}
+	 * @return 应用范围 {@link OAuth2ScopePO}
 	 */
-	OAuth2Scope findByScopeCode(String scopeCode);
+	OAuth2ScopePO findByScopeCode(String scopeCode);
 
 	/**
 	 * 根据 scope codes 查询对应的对象列表
@@ -41,5 +41,5 @@ public interface OAuth2ScopeRepository extends JpaInterfaceSuperRepository<OAuth
 	 * @param scopeCodes 范围代码
 	 * @return 对象列表
 	 */
-	List<OAuth2Scope> findByScopeCodeIn(List<String> scopeCodes);
+	List<OAuth2ScopePO> findByScopeCodeIn(List<String> scopeCodes);
 }

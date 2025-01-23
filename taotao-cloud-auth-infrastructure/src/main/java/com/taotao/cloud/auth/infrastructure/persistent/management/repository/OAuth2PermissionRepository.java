@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.persistent.management.repository;
 
 import com.taotao.boot.data.jpa.base.repository.JpaInterfaceSuperRepository;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Permission;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2PermissionPO;
 
 /**
  * <p>OAuth2AuthorityRepository </p>
@@ -25,4 +25,4 @@ import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Permi
  *
  * @since : 2022/4/1 13:52
  */
-public interface OAuth2PermissionRepository extends JpaInterfaceSuperRepository<OAuth2Permission, String> {}
+public interface OAuth2PermissionRepository extends JpaInterfaceSuperRepository<OAuth2PermissionPO, String> {}

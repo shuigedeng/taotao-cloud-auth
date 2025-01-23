@@ -19,8 +19,8 @@ package com.taotao.cloud.auth.infrastructure.authentication.service;
 import com.taotao.cloud.auth.infrastructure.authorization.converter.OAuth2DeviceToRegisteredClientConverter;
 import com.taotao.cloud.auth.infrastructure.authorization.converter.RegisteredClientToOAuth2DeviceConverter;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.repository.TtcRegisteredClientRepository;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Device;
-import com.taotao.cloud.auth.infrastructure.persistent.management.po.OAuth2Scope;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2DevicePO;
+import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ScopePO;
 import com.taotao.cloud.auth.infrastructure.persistent.management.repository.OAuth2DeviceRepository;
 import java.util.HashSet;
 import java.util.Set;
@@ -47,8 +47,8 @@ public class OAuth2DeviceService {
 	private final RegisteredClientRepository registeredClientRepository;
 	private final TtcRegisteredClientRepository ttcRegisteredClientRepository;
 	private final OAuth2DeviceRepository deviceRepository;
-	private final Converter<OAuth2Device, RegisteredClient> oauth2DeviceToRegisteredClientConverter;
-	private final Converter<RegisteredClient, OAuth2Device> registeredClientToOAuth2DeviceConverter;
+	private final Converter<OAuth2DevicePO, RegisteredClient> oauth2DeviceToRegisteredClientConverter;
+	private final Converter<RegisteredClient, OAuth2DevicePO> registeredClientToOAuth2DeviceConverter;
 
 	public OAuth2DeviceService(
 		RegisteredClientRepository registeredClientRepository,
@@ -64,8 +64,8 @@ public class OAuth2DeviceService {
 	}
 
 	@Transactional(rollbackFor = RuntimeException.class)
-	public OAuth2Device saveAndFlush(OAuth2Device entity) {
-		OAuth2Device device = deviceRepository.saveAndFlush(entity);
+	public OAuth2DevicePO saveAndFlush(OAuth2DevicePO entity) {
+		OAuth2DevicePO device = deviceRepository.saveAndFlush(entity);
 		if (ObjectUtils.isNotEmpty(device)) {
 			registeredClientRepository.save(
 				oauth2DeviceToRegisteredClientConverter.convert(device));
@@ -84,16 +84,16 @@ public class OAuth2DeviceService {
 	}
 
 	@Transactional(rollbackFor = RuntimeException.class)
-	public OAuth2Device authorize(String deviceId, String[] scopeIds) {
+	public OAuth2DevicePO authorize(String deviceId, String[] scopeIds) {
 
-		Set<OAuth2Scope> scopes = new HashSet<>();
+		Set<OAuth2ScopePO> scopes = new HashSet<>();
 		for (String scopeId : scopeIds) {
-			OAuth2Scope scope = new OAuth2Scope();
+			OAuth2ScopePO scope = new OAuth2ScopePO();
 			scope.setScopeId(scopeId);
 			scopes.add(scope);
 		}
 
-		OAuth2Device oldDevice = deviceRepository.findById(deviceId).get();
+		OAuth2DevicePO oldDevice = deviceRepository.findById(deviceId).get();
 		oldDevice.setScopes(scopes);
 
 		return saveAndFlush(oldDevice);
@@ -110,10 +110,10 @@ public class OAuth2DeviceService {
 			registeredClientRepository.findByClientId(oidcClientRegistration.getClientId());
 
 		if (ObjectUtils.isNotEmpty(registeredClient)) {
-			OAuth2Device oauth2Device = registeredClientToOAuth2DeviceConverter.convert(
+			OAuth2DevicePO oauth2DevicePO = registeredClientToOAuth2DeviceConverter.convert(
 				registeredClient);
-			if (ObjectUtils.isNotEmpty(oauth2Device)) {
-				OAuth2Device result = deviceRepository.save(oauth2Device);
+			if (ObjectUtils.isNotEmpty(oauth2DevicePO)) {
+				OAuth2DevicePO result = deviceRepository.save(oauth2DevicePO);
 				return ObjectUtils.isNotEmpty(result);
 			}
 		}

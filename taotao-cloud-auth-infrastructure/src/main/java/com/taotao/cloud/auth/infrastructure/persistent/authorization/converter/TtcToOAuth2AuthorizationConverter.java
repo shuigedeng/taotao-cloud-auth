@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.converter;
 
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.jackson2.OAuth2JacksonProcessor;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.po.TtcAuthorization;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcAuthorizationPO;
 import com.taotao.boot.security.spring.utils.OAuth2AuthorizationUtils;
 import org.dromara.hutool.core.date.DateUtil;
 import org.springframework.dao.DataRetrievalFailureException;
@@ -41,7 +41,7 @@ import org.springframework.util.StringUtils;
  * @since 2023-07-10 17:13:53
  */
 public class TtcToOAuth2AuthorizationConverter
-        extends AbstractOAuth2EntityConverter<TtcAuthorization, OAuth2Authorization> {
+        extends AbstractOAuth2EntityConverter<TtcAuthorizationPO, OAuth2Authorization> {
 
     /**
      * 注册客户端存储库
@@ -70,7 +70,7 @@ public class TtcToOAuth2AuthorizationConverter
      * @since 2023-07-10 17:13:54
      */
     @Override
-    public OAuth2Authorization convert(TtcAuthorization entity) {
+    public OAuth2Authorization convert(TtcAuthorizationPO entity) {
         RegisteredClient registeredClient = this.registeredClientRepository.findById(entity.getRegisteredClientId());
         if (registeredClient == null) {
             throw new DataRetrievalFailureException("The RegisteredClient with id '" + entity.getRegisteredClientId()
