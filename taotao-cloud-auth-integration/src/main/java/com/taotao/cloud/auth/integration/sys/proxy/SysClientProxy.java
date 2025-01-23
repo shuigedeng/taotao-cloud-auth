@@ -14,42 +14,38 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.integration.sku.proxy;
+package com.taotao.cloud.auth.integration.sys.proxy;
 
 import com.taotao.cloud.goods.api.dubbo.IDubboGoodsRpc;
 import com.taotao.cloud.goods.api.dubbo.request.DubboGoodsQueryRequest;
 import com.taotao.cloud.goods.api.dubbo.response.DubboGoodsQueryResponse;
-import com.taotao.cloud.goods.api.feign.IFeignGoodsSkuApi;
-import com.taotao.cloud.goods.api.feign.response.FeignGoodsSkuSpecGalleryResponse;
+import com.taotao.cloud.goods.api.feign.IFeignGoodsApi;
 import com.taotao.cloud.goods.api.grpc.HelloReply;
-import com.taotao.cloud.order.integration.sku.adapter.SkuClientAdapter;
-import com.taotao.cloud.order.integration.sku.grpc.SkuGrpcClient;
-import com.taotao.cloud.order.integration.sku.vo.SkuVO;
+import com.taotao.cloud.order.integration.goods.adapter.GoodsClientAdapter;
+import com.taotao.cloud.order.integration.goods.grpc.GoodsGrpcClient;
+import com.taotao.cloud.order.integration.goods.vo.GoodsVO;
 import jakarta.annotation.Resource;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.openjdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SkuClientProxy {
+public class SysClientProxy {
 
 	@Resource
-	private IFeignGoodsSkuApi goodsSkuApi;
+	private IFeignGoodsApi goodsApi;
 	@Resource
-	private SkuClientAdapter skuClientAdapter;
+	private GoodsClientAdapter userIntegrationAdapter;
 	@Resource
-	private SkuGrpcClient skuGrpcClient;
+	private GoodsGrpcClient goodsGrpcClient;
 	@DubboReference
 	private IDubboGoodsRpc goodsRpc;
 
 	// 查询用户
-	public SkuVO getUserInfo(Long skuId) {
-		FeignGoodsSkuSpecGalleryResponse user = goodsSkuApi.getGoodsSkuByIdFromCache(skuId);
-		DubboGoodsQueryResponse goodsQueryResponse = goodsRpc.queryGoodsByParams(
-			new DubboGoodsQueryRequest());
+	public GoodsVO getGoodsVO(Long storeId) {
+		Long goodsNum = goodsApi.countStoreGoodsNum(storeId);
+		DubboGoodsQueryResponse goods = goodsRpc.queryGoodsByParams(new DubboGoodsQueryRequest());
+		HelloReply helloReply = goodsGrpcClient.sayHello("sfdasdf");
 
-		HelloReply helloReply = skuGrpcClient.sayHello("");
-
-		return skuClientAdapter.convert(user, goodsQueryResponse, helloReply);
+		return userIntegrationAdapter.convert(goodsNum, goods, helloReply);
 	}
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.integration.goods.adapter;
+package com.taotao.cloud.auth.integration.sys.adapter;
 
 import com.taotao.cloud.goods.api.dubbo.response.DubboGoodsQueryResponse;
 import com.taotao.cloud.goods.api.grpc.HelloReply;
@@ -22,7 +22,7 @@ import com.taotao.cloud.order.integration.goods.vo.GoodsVO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class GoodsClientAdapter {
+public class SysClientAdapter {
 
     public GoodsVO convert(Long goodsNum , DubboGoodsQueryResponse goods , HelloReply helloReply) {
 		GoodsVO goodsVO = new GoodsVO();

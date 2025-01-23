@@ -1,4 +1,4 @@
-package com.taotao.cloud.auth.integration.sku.grpc;
+package com.taotao.cloud.auth.integration.sys.grpc;
 
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.protobuf.ByteString;
@@ -16,7 +16,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SkuGrpcClient {
+public class SysGrpcClient {
 
 	@Autowired
 	private DiscoveryClient discoveryClient;

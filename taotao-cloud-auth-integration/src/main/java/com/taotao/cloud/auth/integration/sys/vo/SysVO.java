@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.integration.goods.vo;
+package com.taotao.cloud.auth.integration.sys.vo;
 
 import lombok.Data;
 
 @Data
-public class GoodsVO {
+public class SysVO {
 
     private String cityCode;
     private String addressDetail;
