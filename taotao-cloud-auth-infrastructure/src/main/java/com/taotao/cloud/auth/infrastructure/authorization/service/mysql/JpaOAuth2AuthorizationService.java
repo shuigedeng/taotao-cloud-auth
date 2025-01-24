@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.infrastructure.authorization.service;
+package com.taotao.cloud.auth.infrastructure.authorization.service.mysql;
 
+import com.taotao.cloud.auth.infrastructure.authorization.service.TtcAuthorizationService;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.converter.OAuth2ToTtcAuthorizationConverter;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.converter.TtcToOAuth2AuthorizationConverter;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.jackson2.OAuth2JacksonProcessor;

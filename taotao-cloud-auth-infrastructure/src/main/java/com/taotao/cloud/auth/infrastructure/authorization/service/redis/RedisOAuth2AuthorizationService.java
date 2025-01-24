@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.infrastructure.authorization.service;
+package com.taotao.cloud.auth.infrastructure.authorization.service.redis;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.common.utils.log.LogUtils;
+import com.taotao.cloud.auth.infrastructure.authorization.service.TtcAuthorizationService;
+import com.taotao.cloud.auth.infrastructure.authorization.service.mysql.JpaOAuth2AuthorizationService;
 import java.util.concurrent.TimeUnit;
 import org.springframework.security.oauth2.core.OAuth2AccessToken;
 import org.springframework.security.oauth2.core.OAuth2RefreshToken;

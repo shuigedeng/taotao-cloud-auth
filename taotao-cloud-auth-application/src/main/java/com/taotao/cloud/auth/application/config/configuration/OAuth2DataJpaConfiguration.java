@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.auth.application.config.configuration;
 
-import com.taotao.cloud.auth.infrastructure.authorization.service.JpaOAuth2AuthorizationConsentService;
-import com.taotao.cloud.auth.infrastructure.authorization.service.JpaOAuth2AuthorizationService;
-import com.taotao.cloud.auth.infrastructure.authorization.service.JpaRegisteredClientRepository;
+import com.taotao.cloud.auth.infrastructure.authorization.service.mysql.JpaOAuth2AuthorizationConsentService;
+import com.taotao.cloud.auth.infrastructure.authorization.service.mysql.JpaOAuth2AuthorizationService;
+import com.taotao.cloud.auth.infrastructure.authorization.service.mysql.JpaRegisteredClientRepository;
 import com.taotao.cloud.auth.infrastructure.authorization.service.TtcAuthorizationConsentService;
 import com.taotao.cloud.auth.infrastructure.authorization.service.TtcAuthorizationService;
 import com.taotao.cloud.auth.infrastructure.authorization.service.TtcRegisteredClientService;

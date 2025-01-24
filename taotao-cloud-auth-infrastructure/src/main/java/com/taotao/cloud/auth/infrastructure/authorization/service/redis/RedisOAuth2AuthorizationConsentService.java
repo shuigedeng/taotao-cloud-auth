@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.infrastructure.authorization.service;
+package com.taotao.cloud.auth.infrastructure.authorization.service.redis;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.common.utils.log.LogUtils;
+import com.taotao.cloud.auth.infrastructure.authorization.service.TtcAuthorizationConsentService;
+import com.taotao.cloud.auth.infrastructure.authorization.service.mysql.JpaOAuth2AuthorizationConsentService;
 import java.util.concurrent.TimeUnit;
 import org.springframework.security.oauth2.server.authorization.OAuth2AuthorizationConsent;
 import org.springframework.security.oauth2.server.authorization.OAuth2AuthorizationConsentService;
@@ -35,7 +37,7 @@ import org.springframework.security.oauth2.server.authorization.client.Registere
  * @since 2023-07-10 17:10:53
  */
 public final class RedisOAuth2AuthorizationConsentService extends
-		JpaOAuth2AuthorizationConsentService {
+	JpaOAuth2AuthorizationConsentService {
 
 	/**
 	 * 查询时放入Redis中的部分 key

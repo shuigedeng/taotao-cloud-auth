@@ -22,14 +22,12 @@ import com.taotao.cloud.auth.infrastructure.authentication.extension.social.core
 import com.taotao.cloud.auth.infrastructure.authentication.extension.social.core.exception.AccessIdentityVerificationFailedException;
 import com.taotao.cloud.auth.infrastructure.authentication.extension.social.handler.AbstractSocialAuthenticationHandler;
 import com.taotao.cloud.auth.infrastructure.authentication.extension.social.handler.SocialUserDetails;
-import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.local.SysSocialUserService;
-import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.local.SysUserService;
-import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.user.SysSocialUser;
-import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.user.SysUser;
 import com.taotao.boot.security.spring.core.AccessPrincipal;
 import com.taotao.boot.security.spring.core.userdetails.TtcUser;
 import com.taotao.boot.security.spring.exception.SocialCredentialsParameterBindingFailedException;
 import com.taotao.boot.security.spring.exception.UsernameAlreadyExistsException;
+import com.taotao.cloud.sys.api.feign.SocialUserApi;
+import com.taotao.cloud.sys.api.feign.UserApi;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.dromara.hutool.core.bean.BeanUtil;
@@ -43,10 +41,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class DefaultSocialAuthenticationHandler extends AbstractSocialAuthenticationHandler {
 
 	@Autowired
-	private SysUserService sysUserService;
+	private UserApi sysUserService;
 
 	@Autowired
-	private SysSocialUserService sysSocialUserService;
+	private SocialUserApi sysSocialUserService;
 
 	@Autowired
 	private AccessHandlerStrategyFactory accessHandlerStrategyFactory;
@@ -58,7 +56,7 @@ public class DefaultSocialAuthenticationHandler extends AbstractSocialAuthentica
 			accessHandlerStrategyFactory.findAccessUserDetails(source, accessPrincipal);
 
 		if (BeanUtil.isNotEmpty(accessUserDetails)) {
-			SysSocialUser sysSocialUser = new SysSocialUser();
+			SocialUserDetails sysSocialUser = new SocialUserDetails();
 			BeanUtil.copyProperties(accessUserDetails, sysSocialUser);
 			return sysSocialUser;
 		}

@@ -53,17 +53,17 @@ public class TtcUserDetailsService implements EnhanceUserDetailsService {
 	@Override
 	public UserDetails loadUserBySocial(String source, AccessPrincipal accessPrincipal)
 		throws UsernameNotFoundException {
-		TtcUser TtcUser = strategyUserDetailsService.findUserDetailsBySocial(
+		TtcUser ttcUser = strategyUserDetailsService.findUserDetailsBySocial(
 			StringUtils.toRootUpperCase(source), accessPrincipal);
-		log.info("UserDetailsService loaded social user : [{}]", TtcUser.getUsername());
-		return TtcUser;
+		log.info("UserDetailsService loaded social user : [{}]", ttcUser.getUsername());
+		return ttcUser;
 	}
 
 	@Override
 	public TtcUser loadTtcUserByUsername(String username) throws UsernameNotFoundException {
-		TtcUser TtcUser = strategyUserDetailsService.findUserDetailsByUsername(username);
+		TtcUser ttcUser = strategyUserDetailsService.findUserDetailsByUsername(username);
 		log.info("UserDetailsService loaded user : [{}]", username);
-		return TtcUser;
+		return ttcUser;
 	}
 
 	@Override

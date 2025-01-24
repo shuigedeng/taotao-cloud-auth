@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.authentication.extension;
 
 import com.taotao.boot.security.spring.core.userdetails.EnhanceUserDetailsService;
-import com.taotao.cloud.auth.infrastructure.authorization.service.JpaOAuth2AuthorizationService;
+import com.taotao.cloud.auth.infrastructure.authorization.service.mysql.JpaOAuth2AuthorizationService;
 import com.taotao.cloud.auth.infrastructure.properties.OAuth2AuthenticationProperties;
 import com.taotao.cloud.auth.infrastructure.utils.OAuth2AuthenticationProviderUtils;
 import com.taotao.cloud.auth.infrastructure.utils.OAuth2EndpointUtils;

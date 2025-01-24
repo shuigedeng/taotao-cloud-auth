@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.infrastructure.authorization.service;
+package com.taotao.cloud.auth.infrastructure.authorization.service.redis;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
+import com.taotao.cloud.auth.infrastructure.authorization.service.TtcRegisteredClientService;
+import com.taotao.cloud.auth.infrastructure.authorization.service.mysql.JpaRegisteredClientRepository;
 import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
