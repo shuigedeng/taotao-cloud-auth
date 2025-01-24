@@ -16,30 +16,29 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.remote;
 
+import com.taotao.boot.security.spring.event.domain.SysPermission;
 import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.AbstractStrategyPermissionDetailsService;
-import com.taotao.boot.security.spring.TtcPermission;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.taotao.boot.security.spring.event.domain.SysPermission;
 /**
  * <p>远程权限服务 </p>
- *
  */
 public class RemotePermissionDetailsService extends AbstractStrategyPermissionDetailsService {
 
-    //    private final RemoteAuthorityDetailsService remoteAuthorityDetailsService;
-    //
-    //    public RemotePermissionDetailsService(RemoteAuthorityDetailsService remoteAuthorityDetailsService) {
-    //        this.remoteAuthorityDetailsService = remoteAuthorityDetailsService;
-    //    }
+	//    private final RemoteAuthorityDetailsService remoteAuthorityDetailsService;
+	//
+	//    public RemotePermissionDetailsService(RemoteAuthorityDetailsService remoteAuthorityDetailsService) {
+	//        this.remoteAuthorityDetailsService = remoteAuthorityDetailsService;
+	//    }
 
-    @Override
-    public List<TtcPermission> findAll() {
-        //        Result<List<SysPermission>> result = remoteAuthorityDetailsService.findAll();
-        //        List<SysPermission> authorities = result.getData();
-        //        if (CollectionUtils.isNotEmpty(authorities)) {
-        //            return toEntities(authorities);
-        //        }
-        return new ArrayList<>();
-    }
+	@Override
+	public List<SysPermission> findAll() {
+		//        Result<List<SysPermission>> result = remoteAuthorityDetailsService.findAll();
+		//        List<SysPermission> authorities = result.getData();
+		//        if (CollectionUtils.isNotEmpty(authorities)) {
+		//            return toEntities(authorities);
+		//        }
+		return new ArrayList<>();
+	}
 }

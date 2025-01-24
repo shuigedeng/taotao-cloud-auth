@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.service;
 
-import com.taotao.cloud.auth.infrastructure.persistent.management.repository.OAuth2PermissionRepository;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.repository.OAuth2PermissionRepository;
 import org.springframework.stereotype.Service;
 
 /**

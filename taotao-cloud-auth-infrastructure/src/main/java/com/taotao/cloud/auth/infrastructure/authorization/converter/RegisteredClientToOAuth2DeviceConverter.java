@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.auth.infrastructure.authorization.converter;
 
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2DevicePO;
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ScopePO;
-import com.taotao.cloud.auth.infrastructure.persistent.management.repository.OAuth2ScopeRepository;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2DevicePO;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2ScopePO;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.repository.OAuth2ScopeRepository;
 import com.taotao.boot.security.spring.enums.Signature;
 import com.taotao.boot.security.spring.enums.TokenFormat;
 import java.util.ArrayList;
@@ -42,10 +42,10 @@ import org.springframework.util.StringUtils;
 public class RegisteredClientToOAuth2DeviceConverter implements
 	Converter<RegisteredClient, OAuth2DevicePO> {
 
-	private final OAuth2ScopeRepository scopeService;
+	private final OAuth2ScopeRepository oAuth2ScopeRepository;
 
-	public RegisteredClientToOAuth2DeviceConverter(OAuth2ScopeRepository scopeService) {
-		this.scopeService = scopeService;
+	public RegisteredClientToOAuth2DeviceConverter(OAuth2ScopeRepository oAuth2ScopeRepository) {
+		this.oAuth2ScopeRepository = oAuth2ScopeRepository;
 	}
 
 	@Override

@@ -16,10 +16,10 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.extension.password;
 
+import com.taotao.boot.security.spring.core.userdetails.EnhanceUserDetailsService;
 import com.taotao.cloud.auth.infrastructure.authentication.extension.OAuth2AbstractUserDetailsAuthenticationProvider;
 import com.taotao.cloud.auth.infrastructure.properties.OAuth2AuthenticationProperties;
 import com.taotao.cloud.auth.infrastructure.utils.OAuth2AuthenticationProviderUtils;
-import com.taotao.boot.security.spring.userdetails.EnhanceUserDetailsService;
 import com.taotao.boot.security.spring.oauth2.TtcAuthorizationGrantType;
 import java.security.Principal;
 import java.util.Map;

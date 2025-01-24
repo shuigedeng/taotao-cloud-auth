@@ -27,7 +27,6 @@ import com.taotao.boot.security.spring.core.deserializer.TtcUserDeserializer;
  * <p>
  * This mixin class helps in serialize/deserialize {@link org.springframework.security.core.userdetails.User}. This class also register a custom deserializer UserDeserializer to deserialize User object successfully. In order to use this mixin you need to register two more mixin classes in your ObjectMapper configuration.
  * SimpleGrantedAuthorityMixin
- * UnmodifiableSetMixin
  * ObjectMapper mapper = new ObjectMapper();
  * mapper.registerModule(new CoreJackson2Module());
  * <p>

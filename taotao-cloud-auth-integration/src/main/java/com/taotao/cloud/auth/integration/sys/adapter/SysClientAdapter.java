@@ -16,17 +16,21 @@
 
 package com.taotao.cloud.auth.integration.sys.adapter;
 
-import com.taotao.cloud.goods.api.dubbo.response.DubboGoodsQueryResponse;
-import com.taotao.cloud.goods.api.grpc.HelloReply;
-import com.taotao.cloud.order.integration.goods.vo.GoodsVO;
+import com.taotao.cloud.auth.integration.sys.vo.DictVO;
+import com.taotao.cloud.sys.api.feign.response.DictApiResponse;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SysClientAdapter {
 
-    public GoodsVO convert(Long goodsNum , DubboGoodsQueryResponse goods , HelloReply helloReply) {
-		GoodsVO goodsVO = new GoodsVO();
-
-        return goodsVO;
+    public DictVO convert(DictApiResponse dictApiResponse) {
+		DictVO dictVO = new DictVO();
+		dictVO.setDictName(dictApiResponse.dictName());
+		dictVO.setDictCode(dictApiResponse.dictCode());
+		dictVO.setRemark(dictApiResponse.remark());
+		dictVO.setDescription(dictApiResponse.description());
+		dictVO.setId(dictApiResponse.id());
+		dictVO.setSortNum(dictApiResponse.sortNum());
+        return dictVO;
     }
 }

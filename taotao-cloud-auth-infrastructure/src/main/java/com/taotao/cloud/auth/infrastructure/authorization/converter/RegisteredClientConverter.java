@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.infrastructure.authorization.converter;
 
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.RegisteredClientDetails;
+import com.taotao.cloud.auth.infrastructure.persistent.shared.RegisteredClientDetails;
 import com.taotao.boot.security.spring.utils.OAuth2AuthorizationUtils;
 import java.util.Set;
 import org.dromara.hutool.core.date.DateUtil;

@@ -18,8 +18,8 @@ package com.taotao.cloud.auth.infrastructure.authentication.service;
 
 import cn.hutool.extra.servlet.JakartaServletUtil;
 import com.google.common.net.HttpHeaders;
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2CompliancePO;
-import com.taotao.cloud.auth.infrastructure.persistent.management.repository.OAuth2ComplianceRepository;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2CompliancePO;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.repository.OAuth2ComplianceRepository;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.ArrayList;

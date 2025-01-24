@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy;
 
-import com.taotao.boot.security.spring.TtcPermission;
+import com.taotao.boot.security.spring.event.domain.SysPermission;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,15 +28,15 @@ import java.util.stream.Collectors;
 public abstract class AbstractStrategyPermissionDetailsService implements
 		StrategyPermissionDetailsService {
 
-    protected List<TtcPermission> toEntities(List<SysPermission> permissions) {
+    protected List<SysPermission> toEntities(List<SysPermission> permissions) {
         return permissions.stream().map(this::toEntity).collect(Collectors.toList());
     }
 
-    protected TtcPermission toEntity(SysPermission object) {
-        TtcPermission ttcPermission = new TtcPermission();
-		ttcPermission.setPermissionId(object.getPermissionId());
-		ttcPermission.setPermissionCode(object.getPermissionCode());
-		ttcPermission.setPermissionName(object.getPermissionName());
-        return ttcPermission;
+    protected SysPermission toEntity(SysPermission object) {
+        SysPermission SysPermission = new SysPermission();
+		SysPermission.setPermissionId(object.getPermissionId());
+		SysPermission.setPermissionCode(object.getPermissionCode());
+		SysPermission.setPermissionName(object.getPermissionName());
+        return SysPermission;
     }
 }

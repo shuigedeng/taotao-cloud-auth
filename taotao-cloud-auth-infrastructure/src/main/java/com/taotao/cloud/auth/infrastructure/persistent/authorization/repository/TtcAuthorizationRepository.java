@@ -17,6 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.repository;
 
 import com.taotao.boot.data.jpa.base.repository.JpaInterfaceSuperRepository;
+import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcAuthorizationPO;
 import jakarta.persistence.QueryHint;
 import java.time.LocalDateTime;
@@ -37,7 +38,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @since 2023-07-10 17:11:21
  */
 public interface TtcAuthorizationRepository extends
-	JpaInterfaceSuperRepository<TtcAuthorizationPO, String> {
+	BaseInterfaceSuperRepository<TtcAuthorizationPO, String> {
 
 	/**
 	 * 根据 State 查询 OAuth2 认证信息

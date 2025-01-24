@@ -19,6 +19,7 @@ package com.taotao.cloud.auth.infrastructure.persistent.authorization.persistenc
 import com.google.common.base.MoreObjects;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.generator.TtcRegisteredClientUuidGenerator;
 import com.taotao.boot.security.spring.constants.OAuth2Constants;
+import com.taotao.cloud.auth.infrastructure.persistent.shared.AbstractRegisteredClient;
 import jakarta.persistence.Cacheable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -46,15 +47,15 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @org.hibernate.annotations.Cache(
 	usage = CacheConcurrencyStrategy.READ_WRITE,
 	region = OAuth2Constants.REGION_OAUTH2_REGISTERED_CLIENT)
-public class TtcRegisteredClientPO extends AbstractRegisteredClient {
+public class TtcRegisteredClientPO extends AbstractRegisteredClient<TtcRegisteredClientPO, String> {
 
 	/**
 	 * id
 	 */
-	@Id
-	@TtcRegisteredClientUuidGenerator
-	@Column(name = "id", nullable = false, length = 100)
-	private String id;
+//	@Id
+//	@TtcRegisteredClientUuidGenerator
+//	@Column(name = "id", nullable = false, length = 100)
+//	private String id;
 
 	/**
 	 * 客户端id
@@ -100,7 +101,7 @@ public class TtcRegisteredClientPO extends AbstractRegisteredClient {
 	 */
 	@Override
 	public String getId() {
-		return id;
+		return super.id();
 	}
 
 	/**
@@ -110,7 +111,7 @@ public class TtcRegisteredClientPO extends AbstractRegisteredClient {
 	 * @since 2023-07-10 17:12:44
 	 */
 	public void setId(String id) {
-		this.id = id;
+		super.id(id);
 	}
 
 	/**
@@ -251,7 +252,7 @@ public class TtcRegisteredClientPO extends AbstractRegisteredClient {
 			return false;
 		}
 		TtcRegisteredClientPO that = (TtcRegisteredClientPO) o;
-		return Objects.equals(id, that.id);
+		return Objects.equals(id(), that.id());
 	}
 
 	/**
@@ -262,7 +263,7 @@ public class TtcRegisteredClientPO extends AbstractRegisteredClient {
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(id());
 	}
 
 	/**
@@ -274,7 +275,7 @@ public class TtcRegisteredClientPO extends AbstractRegisteredClient {
 	@Override
 	public String toString() {
 		return MoreObjects.toStringHelper(this)
-			.add("id", id)
+			.add("id", id())
 			.add("clientId", clientId)
 			.add("clientSecret", clientSecret)
 			.add("clientName", clientName)

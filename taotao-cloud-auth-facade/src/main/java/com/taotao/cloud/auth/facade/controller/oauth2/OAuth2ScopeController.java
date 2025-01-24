@@ -18,8 +18,8 @@ package com.taotao.cloud.auth.facade.controller.oauth2;
 
 import com.taotao.boot.common.model.Result;
 import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ScopeService;
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2PermissionPO;
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ScopePO;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2PermissionPO;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2ScopePO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;

@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.service;
 
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2PermissionPO;
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ScopePO;
-import com.taotao.cloud.auth.infrastructure.persistent.management.repository.OAuth2ScopeRepository;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2PermissionPO;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2ScopePO;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.repository.OAuth2ScopeRepository;
 import java.util.List;
 import java.util.Set;
 import org.springframework.stereotype.Service;

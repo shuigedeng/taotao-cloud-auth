@@ -16,8 +16,11 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.remote;
 
+import com.taotao.boot.security.spring.core.AccessPrincipal;
+import com.taotao.boot.security.spring.core.authority.TtcGrantedAuthority;
 import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.AbstractStrategyUserDetailsService;
-import com.taotao.boot.security.spring.userdetails.TtcUser;
+import com.taotao.boot.security.spring.core.userdetails.TtcUser;
+import com.taotao.cloud.sys.api.feign.UserApi;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -30,9 +33,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
  */
 public class RemoteUserDetailsService extends AbstractStrategyUserDetailsService {
 
-    private final IFeignUserApi userApi;
+    private final UserApi userApi;
 
-    public RemoteUserDetailsService(IFeignUserApi userApi) {
+    public RemoteUserDetailsService(UserApi userApi) {
         this.userApi = userApi;
     }
 
@@ -51,18 +54,19 @@ public class RemoteUserDetailsService extends AbstractStrategyUserDetailsService
         roles.add("ROLE_A1");
         roles.add("ROLE_A2");
         // admin/123456
-        TtcUser user = new TtcUser(
-                "33e781c5-31e0-4ea4-8b02-1236bde9643",
-                "admin",
-                "{bcrypt}$2a$10$lvjys/FAHAVmgXM.U1LtOOJ./C5SstExZCZ0Z5N7SeGZAue0JFtXC",
-                true,
-                true,
-                true,
-                true,
-                authorities,
-                roles,
-                "",
-                "");
+//        TtcUser user = new TtcUser(
+//                "33e781c5-31e0-4ea4-8b02-1236bde9643",
+//                "admin",
+//                "{bcrypt}$2a$10$lvjys/FAHAVmgXM.U1LtOOJ./C5SstExZCZ0Z5N7SeGZAue0JFtXC",
+//                true,
+//                true,
+//                true,
+//                true,
+//                authorities,
+//                roles,
+//                "",
+//                "");
+		TtcUser user = new TtcUser();
         return user;
     }
 

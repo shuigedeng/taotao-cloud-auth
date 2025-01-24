@@ -18,9 +18,9 @@ package com.taotao.cloud.auth.infrastructure.persistent.authorization.persistenc
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.generator.TtcAuthorizationConsentId;
-import com.taotao.boot.data.jpa.tenant.AbstractEntity;
 import com.taotao.boot.security.spring.constants.OAuth2Constants;
+import com.taotao.boot.webagg.entity.BaseSuperEntity;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.generator.TtcAuthorizationConsentId;
 import jakarta.persistence.Cacheable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,10 +28,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
 import jakarta.persistence.Index;
 import jakarta.persistence.Table;
-import jakarta.persistence.Version;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.envers.Audited;
-import org.hibernate.envers.RevisionNumber;
 
 /**
  * <p>OAuth2 认证确认信息实体 </p>
@@ -53,7 +51,8 @@ import org.hibernate.envers.RevisionNumber;
 @org.hibernate.annotations.Cache(
 	usage = CacheConcurrencyStrategy.READ_WRITE,
 	region = OAuth2Constants.REGION_OAUTH2_AUTHORIZATION_CONSENT)
-public class TtcAuthorizationConsentPO extends AbstractEntity {
+public class TtcAuthorizationConsentPO extends
+	BaseSuperEntity<TtcAuthorizationConsentPO, TtcAuthorizationConsentId> {
 
 	/**
 	 * 注册客户端id
@@ -75,10 +74,10 @@ public class TtcAuthorizationConsentPO extends AbstractEntity {
 	@Column(name = "authorities", nullable = false, length = 1000)
 	private String authorities;
 
-	@Version
-	@RevisionNumber
-	@Column(name = "version", columnDefinition = "int not null default 1 comment '版本号'")
-	private Long version = 1L;
+//	@Version
+//	@RevisionNumber
+//	@Column(name = "version", columnDefinition = "int not null default 1 comment '版本号'")
+//	private Long version = 1L;
 
 	/**
 	 * 获取注册客户端id
@@ -186,11 +185,4 @@ public class TtcAuthorizationConsentPO extends AbstractEntity {
 			.toString();
 	}
 
-	public Long getVersion() {
-		return version;
-	}
-
-	public void setVersion(Long version) {
-		this.version = version;
-	}
 }

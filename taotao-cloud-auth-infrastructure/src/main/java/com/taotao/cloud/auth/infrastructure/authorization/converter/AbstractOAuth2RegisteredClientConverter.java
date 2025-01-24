@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.infrastructure.authorization.converter;
 
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.AbstractOAuth2RegisteredClient;
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ScopePO;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.AbstractOAuth2RegisteredClient;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2ScopePO;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.apache.commons.lang3.ObjectUtils;

@@ -17,6 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence;
 
 import com.google.common.base.MoreObjects;
+import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.generator.TtcAuthorizationUuidGenerator;
 import com.taotao.boot.data.jpa.tenant.AbstractEntity;
 import com.taotao.boot.security.spring.constants.OAuth2Constants;
@@ -48,15 +49,15 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @org.hibernate.annotations.Cache(
 	usage = CacheConcurrencyStrategy.READ_WRITE,
 	region = OAuth2Constants.REGION_OAUTH2_AUTHORIZATION)
-public class TtcAuthorizationPO extends AbstractEntity {
+public class TtcAuthorizationPO extends BaseSuperEntity<TtcAuthorizationPO, String> {
 
 	/**
 	 * id
 	 */
-	@Id
-	@TtcAuthorizationUuidGenerator
-	@Column(name = "id", nullable = false, length = 100)
-	private String id;
+//	@Id
+//	@TtcAuthorizationUuidGenerator
+//	@Column(name = "id", nullable = false, length = 100)
+//	private String id;
 
 	/**
 	 * 注册客户端id
@@ -263,7 +264,7 @@ public class TtcAuthorizationPO extends AbstractEntity {
 	 * @since 2023-07-10 17:11:47
 	 */
 	public String getId() {
-		return id;
+		return id();
 	}
 
 	/**
@@ -273,7 +274,7 @@ public class TtcAuthorizationPO extends AbstractEntity {
 	 * @since 2023-07-10 17:11:48
 	 */
 	public void setId(String id) {
-		this.id = id;
+		super.setId(id);
 	}
 
 	/**
@@ -945,7 +946,6 @@ public class TtcAuthorizationPO extends AbstractEntity {
 	@Override
 	public String toString() {
 		return MoreObjects.toStringHelper(this)
-			.add("id", id)
 			.add("registeredClientId", registeredClientId)
 			.add("principalName", principalName)
 			.add("attributes", attributes)

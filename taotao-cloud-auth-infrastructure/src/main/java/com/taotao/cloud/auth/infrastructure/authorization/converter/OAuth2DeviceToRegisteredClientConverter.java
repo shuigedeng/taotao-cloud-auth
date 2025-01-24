@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.authorization.converter;
 
 
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2DevicePO;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2DevicePO;
 
 /**
  * <p>OAuth2Device 转 RegisteredClient 转换器 </p>

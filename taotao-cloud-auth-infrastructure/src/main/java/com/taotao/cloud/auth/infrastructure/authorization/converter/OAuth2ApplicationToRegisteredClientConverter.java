@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.authorization.converter;
 
 
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ApplicationPO;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2ApplicationPO;
 
 /**
  * <p>OAuth2Application 转 RegisteredClient 转换器 </p>

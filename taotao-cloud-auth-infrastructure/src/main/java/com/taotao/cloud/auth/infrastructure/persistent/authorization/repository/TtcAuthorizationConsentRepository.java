@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.repository;
 
+import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.generator.TtcAuthorizationConsentId;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcAuthorizationConsentPO;
 import com.taotao.boot.data.jpa.base.repository.JpaInterfaceSuperRepository;
@@ -33,7 +34,7 @@ import org.springframework.data.jpa.repository.QueryHints;
  */
 public interface TtcAuthorizationConsentRepository
 	extends
-	JpaInterfaceSuperRepository<TtcAuthorizationConsentPO, TtcAuthorizationConsentId> {
+	BaseInterfaceSuperRepository<TtcAuthorizationConsentPO, TtcAuthorizationConsentId> {
 
 	/**
 	 * 根据 client id 和 principalName 查询 OAuth2 确认信息

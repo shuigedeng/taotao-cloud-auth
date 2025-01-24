@@ -19,12 +19,11 @@ package com.taotao.cloud.auth.infrastructure.persistent.authorization.jackson2;
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.springframework.security.jackson2.SecurityJackson2Modules;
-import org.springframework.security.jackson2.UnmodifiableSetMixin;
 
 /**
  * Jackson module for spring-security-core. This module register
  * {@link AnonymousAuthenticationTokenMixin}, {@link RememberMeAuthenticationTokenMixin},
- * {@link SimpleGrantedAuthorityMixin}, {@link UnmodifiableSetMixin}, {@link UserMixin} and
+ * {@link SimpleGrantedAuthorityMixin}, {@link UserMixin} and
  * {@link FormOAuth2PhoneAuthenticationTokenMixin}. If no default typing enabled by default then
  * it'll enable it because typing info is needed to properly serialize/deserialize objects. In order
  * to use this module just add this module into your ObjectMapper configuration.

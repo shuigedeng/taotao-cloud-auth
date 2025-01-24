@@ -8,7 +8,8 @@ import java.io.Serializable;
 /**
  * <p>OAuth2AuthorizationConsent 联合主键 </p>
  * <p>
- * 复合主键类必须满足： 1. 实现Serializable接口; 2. 有默认的public无参数的构造方法; 3.
+ * 复合主键类必须满足： 1. 实现Serializable接口;
+ * 2. 有默认的public无参数的构造方法; 3.
  * 重写equals和hashCode方法。equals方法用于判断两个对象是否相同，
  */
 public class TtcAuthorizationConsentId implements Serializable {

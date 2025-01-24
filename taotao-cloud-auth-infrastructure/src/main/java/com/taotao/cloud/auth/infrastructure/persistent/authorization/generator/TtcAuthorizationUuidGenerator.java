@@ -2,7 +2,6 @@
 
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.generator;
 
-import com.taotao.cloud.auth.infrastructure.persistent.authorizaon.generator.TtcAuthorizationUuidGeneratorType;
 import org.hibernate.annotations.IdGeneratorType;
 
 import java.lang.annotation.Retention;

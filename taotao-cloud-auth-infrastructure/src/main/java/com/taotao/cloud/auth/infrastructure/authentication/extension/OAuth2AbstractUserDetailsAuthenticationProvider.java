@@ -16,12 +16,12 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.extension;
 
+import com.taotao.boot.security.spring.core.userdetails.EnhanceUserDetailsService;
 import com.taotao.cloud.auth.infrastructure.authorization.service.JpaOAuth2AuthorizationService;
 import com.taotao.cloud.auth.infrastructure.properties.OAuth2AuthenticationProperties;
 import com.taotao.cloud.auth.infrastructure.utils.OAuth2AuthenticationProviderUtils;
 import com.taotao.cloud.auth.infrastructure.utils.OAuth2EndpointUtils;
 import com.taotao.boot.security.spring.constants.OAuth2ErrorKeys;
-import com.taotao.boot.security.spring.userdetails.EnhanceUserDetailsService;
 import com.taotao.boot.security.spring.exception.AccountEndpointLimitedException;
 import java.util.List;
 import java.util.Map;

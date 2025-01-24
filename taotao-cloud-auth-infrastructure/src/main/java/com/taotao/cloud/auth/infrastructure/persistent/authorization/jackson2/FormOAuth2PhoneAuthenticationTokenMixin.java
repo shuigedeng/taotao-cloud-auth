@@ -22,7 +22,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.springframework.security.jackson2.CoreJackson2Module;
 import org.springframework.security.jackson2.SecurityJackson2Modules;
 import org.springframework.security.jackson2.SimpleGrantedAuthorityMixin;
-import org.springframework.security.jackson2.UnmodifiableSetMixin;
 
 /**
  * This mixin class is used to serialize / deserialize
@@ -31,7 +30,6 @@ import org.springframework.security.jackson2.UnmodifiableSetMixin;
  * <p>
  * In order to use this mixin you'll need to add 3 more mixin classes.
  * <ol>
- * <li>{@link UnmodifiableSetMixin}</li>
  * <li>{@link SimpleGrantedAuthorityMixin}</li>
  * <li>{@link UserMixin}</li>
  * </ol>

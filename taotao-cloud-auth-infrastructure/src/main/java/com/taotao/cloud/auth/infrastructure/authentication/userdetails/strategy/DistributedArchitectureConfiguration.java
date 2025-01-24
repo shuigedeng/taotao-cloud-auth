@@ -17,12 +17,9 @@
 package com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy;
 
 import com.taotao.cloud.auth.infrastructure.authentication.extension.social.handler.SocialAuthenticationHandler;
-import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.local.LocalPermissionDetailsService;
-import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.local.LocalUserDetailsService;
-import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.local.SysPermissionService;
-import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.local.SysUserService;
 import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.remote.RemotePermissionDetailsService;
 import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.remote.RemoteUserDetailsService;
+import com.taotao.cloud.sys.api.feign.UserApi;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,29 +46,6 @@ public class DistributedArchitectureConfiguration {
 		log.debug(" Module [Distributed Architecture] Auto Configure.");
 	}
 
-	@Configuration(proxyBeanMethods = false)
-	@ConditionalOnProperty(prefix = "taotao.cloud.auth.local", name = "enabled", havingValue = "true")
-	static class DataAccessStrategyLocalConfiguration {
-
-		@Bean
-		@ConditionalOnMissingBean
-		public StrategyUserDetailsService localUserDetailsService(
-			SysUserService sysUserService,
-			SocialAuthenticationHandler socialAuthenticationHandler) {
-			log.debug(" Strategy [Local User Details Service] Auto Configure.");
-			return new LocalUserDetailsService(sysUserService, socialAuthenticationHandler);
-		}
-
-		@Bean
-		@ConditionalOnMissingBean
-		public StrategyPermissionDetailsService localPermissionDetailsService(
-			SysPermissionService sysPermissionService) {
-			LocalPermissionDetailsService localPermissionDetailsService =
-				new LocalPermissionDetailsService(sysPermissionService);
-			log.debug(" Strategy [Local Permission Details Service] Auto Configure.");
-			return localPermissionDetailsService;
-		}
-	}
 
 	// 默认使用feign方式
 	@Configuration(proxyBeanMethods = false)
@@ -84,7 +58,7 @@ public class DistributedArchitectureConfiguration {
 
 		@Bean
 		@ConditionalOnMissingBean
-		public StrategyUserDetailsService remoteUserDetailsService(IFeignUserApi userApi) {
+		public StrategyUserDetailsService remoteUserDetailsService(UserApi userApi) {
 			log.debug(" Strategy [Remote User Details Service] Auto Configure.");
 			return new RemoteUserDetailsService(userApi);
 		}

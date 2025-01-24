@@ -16,11 +16,12 @@
 
 package com.taotao.cloud.auth.application.service.impl;
 
+import com.taotao.boot.security.spring.core.authority.TtcGrantedAuthority;
 import com.taotao.cloud.auth.application.service.EnhanceClientDetailsService;
 import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ApplicationService;
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ApplicationPO;
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2PermissionPO;
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ScopePO;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2ApplicationPO;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2PermissionPO;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2ScopePO;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;

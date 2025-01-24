@@ -19,9 +19,10 @@ package com.taotao.cloud.auth.infrastructure.authentication.service;
 import com.taotao.cloud.auth.infrastructure.authorization.converter.OAuth2DeviceToRegisteredClientConverter;
 import com.taotao.cloud.auth.infrastructure.authorization.converter.RegisteredClientToOAuth2DeviceConverter;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.repository.TtcRegisteredClientRepository;
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2DevicePO;
-import com.taotao.cloud.auth.infrastructure.persistent.management.persistence.OAuth2ScopePO;
-import com.taotao.cloud.auth.infrastructure.persistent.management.repository.OAuth2DeviceRepository;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2DevicePO;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2ScopePO;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.repository.OAuth2DeviceRepository;
+import com.taotao.cloud.auth.infrastructure.persistent.oauth2.repository.OAuth2ScopeRepository;
 import java.util.HashSet;
 import java.util.Set;
 import org.apache.commons.lang3.ObjectUtils;
@@ -42,7 +43,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class OAuth2DeviceService {
 
-	private static final Logger log = LoggerFactory.getLogger(OAuth2ApplicationService.class);
+	private static final Logger log = LoggerFactory.getLogger(OAuth2DeviceService.class);
 
 	private final RegisteredClientRepository registeredClientRepository;
 	private final TtcRegisteredClientRepository ttcRegisteredClientRepository;
@@ -54,13 +55,14 @@ public class OAuth2DeviceService {
 		RegisteredClientRepository registeredClientRepository,
 		TtcRegisteredClientRepository ttcRegisteredClientRepository,
 		OAuth2DeviceRepository deviceRepository,
-		OAuth2ScopeService scopeService) {
+		OAuth2ScopeService scopeService,
+		OAuth2ScopeRepository oAuth2ScopeRepository) {
 		this.registeredClientRepository = registeredClientRepository;
 		this.ttcRegisteredClientRepository = ttcRegisteredClientRepository;
 		this.deviceRepository = deviceRepository;
 		this.oauth2DeviceToRegisteredClientConverter = new OAuth2DeviceToRegisteredClientConverter();
 		this.registeredClientToOAuth2DeviceConverter = new RegisteredClientToOAuth2DeviceConverter(
-			scopeService);
+			oAuth2ScopeRepository);
 	}
 
 	@Transactional(rollbackFor = RuntimeException.class)

@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.repository;
 
+import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcRegisteredClientPO;
-import com.taotao.boot.data.jpa.base.repository.JpaInterfaceSuperRepository;
 import jakarta.persistence.QueryHint;
 import java.util.Optional;
 import org.hibernate.jpa.AvailableHints;
@@ -31,7 +31,7 @@ import org.springframework.data.jpa.repository.QueryHints;
  * @since 2023-07-10 17:11:24
  */
 public interface TtcRegisteredClientRepository extends
-	JpaInterfaceSuperRepository<TtcRegisteredClientPO, String> {
+	BaseInterfaceSuperRepository<TtcRegisteredClientPO, String> {
 
 	/**
 	 * 根据 ClientId 查询 RegisteredClient

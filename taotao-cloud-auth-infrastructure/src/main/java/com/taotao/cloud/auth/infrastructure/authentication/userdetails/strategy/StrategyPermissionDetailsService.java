@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy;
 
-import com.taotao.boot.security.spring.TtcPermission;
+import com.taotao.boot.security.spring.event.domain.SysPermission;
 import java.util.List;
 
 /**
@@ -31,8 +31,8 @@ public interface StrategyPermissionDetailsService {
 	/**
 	 * 获取全部权限
 	 *
-	 * @return {@link List }<{@link TtcPermission }>
+	 * @return {@link List }<{@link SysPermission }>
 	 * @since 2023-07-04 10:05:54
 	 */
-	List<TtcPermission> findAll();
+	List<SysPermission> findAll();
 }
