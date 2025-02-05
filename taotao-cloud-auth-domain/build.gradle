@@ -102,8 +102,8 @@ dependencies {
     api 'org.springframework.session:spring-session-data-redis:3.4.1'
 
     //https://central.sonatype.com/artifact/com.github.binarywang/weixin-java-pay?smo=true
-    api 'com.github.binarywang:weixin-java-mp:4.7.0'
-    api 'com.github.binarywang:weixin-java-miniapp:4.7.0'
+    api 'com.github.binarywang:weixin-java-mp:4.7.2.B'
+    api 'com.github.binarywang:weixin-java-miniapp:4.7.2.B'
 
     //api 'top.dcenter:justAuth-spring-security-starter:1.1.25'
 
@@ -139,7 +139,7 @@ dependencies {
     //https://search.maven.org/artifact/com.nimbusds/nimbus-jose-jwt
     api "com.nimbusds:nimbus-jose-jwt:10.0.1"
     //https://search.maven.org/artifact/com.nimbusds/oauth2-oidc-sdk
-    api 'com.nimbusds:oauth2-oidc-sdk:11.20.1'
+    api 'com.nimbusds:oauth2-oidc-sdk:11.21.3'
 
     api "org.apache.commons:commons-collections4"
 
@@ -194,7 +194,7 @@ dependencies {
     //https://search.maven.org/artifact/com.github.gavlyukovskiy/datasource-proxy-spring-boot-starter
     api 'com.github.gavlyukovskiy:datasource-proxy-spring-boot-starter:1.10.0'
 
-    api 'com.github.oshi:oshi-core:6.6.5'
+    api 'com.github.oshi:oshi-core:6.6.6'
 
     //api "io.github.shuigedeng:taotao-boot-starter-apt")
     //annotationProcessor "io.github.shuigedeng:taotao-boot-starter-apt")
