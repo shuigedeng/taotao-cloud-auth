@@ -6,7 +6,7 @@
 dependencies {
     api project(":taotao-cloud-auth-common")
 
-    api "io.github.shuigedeng:taotao-cloud-sys-api:2025.02"
+    api "io.github.shuigedeng:taotao-cloud-sys-api:2025.03"
 
     api "io.github.shuigedeng:taotao-cloud-starter-alibaba"
 

@@ -90,7 +90,7 @@ public class DefaultSecurityConfiguration {
 	//	// 初始化cors配置对象
 	//	CorsConfiguration configuration = new CorsConfiguration();
 	//	// 设置允许跨域的域名,如果允许携带cookie的话,路径就不能写*号, *表示所有的域名都可以跨域访问
-	//	configuration.addAllowedOrigin("http://127.0.0.1:5173");
+	//	configuration.addAllowedOrigin("http://192.168.218.2:5173");
 	//	// 设置跨域访问可以携带cookie
 	//	configuration.setAllowCredentials(true);
 	//	// 允许所有的请求方法 ==> GET POST PUT Delete

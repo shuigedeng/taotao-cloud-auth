@@ -42,7 +42,7 @@ public class LoginController {
     public String createQrCodeImg(Model model) {
         String uuid = loginService.createQrImg();
         String qrCode =
-                Base64.encodeBase64String(QrCodeUtil.generatePng("http://127.0.0.1:8080/login/uuid=" + uuid, 300, 300));
+                Base64.encodeBase64String(QrCodeUtil.generatePng("http://192.168.218.2:8080/login/uuid=" + uuid, 300, 300));
 
         model.addAttribute("uuid", uuid);
         model.addAttribute("QrCode", qrCode);
