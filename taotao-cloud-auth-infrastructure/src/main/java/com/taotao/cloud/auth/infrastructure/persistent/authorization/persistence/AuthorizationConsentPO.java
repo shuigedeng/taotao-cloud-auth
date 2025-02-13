@@ -51,8 +51,8 @@ import org.hibernate.envers.Audited;
 @org.hibernate.annotations.Cache(
 	usage = CacheConcurrencyStrategy.READ_WRITE,
 	region = OAuth2Constants.REGION_OAUTH2_AUTHORIZATION_CONSENT)
-public class TtcAuthorizationConsentPO extends
-	BaseSuperEntity<TtcAuthorizationConsentPO, TtcAuthorizationConsentId> {
+public class AuthorizationConsentPO extends
+	BaseSuperEntity<AuthorizationConsentPO, TtcAuthorizationConsentId> {
 
 	/**
 	 * 注册客户端id
@@ -154,7 +154,7 @@ public class TtcAuthorizationConsentPO extends
 		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
-		TtcAuthorizationConsentPO that = (TtcAuthorizationConsentPO) o;
+		AuthorizationConsentPO that = (AuthorizationConsentPO) o;
 		return Objects.equal(registeredClientId, that.registeredClientId)
 			&& Objects.equal(principalName, that.principalName);
 	}
