@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * <p>OAuth2应用管理接口 </p>
@@ -38,7 +39,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/authorize/application")
 @Tags({@Tag(name = "OAuth2 认证服务接口"), @Tag(name = "OAuth2 应用管理接口")})
-public class OAuth2ApplicationController {
+public class OAuth2ApplicationController extends BusinessController {
 
     private final OAuth2ApplicationService applicationService;
 

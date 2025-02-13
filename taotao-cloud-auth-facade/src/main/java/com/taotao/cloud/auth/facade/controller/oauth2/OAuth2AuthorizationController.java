@@ -22,6 +22,7 @@ import io.swagger.v3.oas.annotations.tags.Tags;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * <p>OAuth2 认证管理接口 </p>
@@ -32,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/authorize/authorization")
 @Tags({@Tag(name = "OAuth2 认证服务接口"), @Tag(name = "OAuth2 认证管理接口")})
-public class OAuth2AuthorizationController {
+public class OAuth2AuthorizationController extends BusinessController {
 
     private final TtcAuthorizationService ttcAuthorizationService;
 

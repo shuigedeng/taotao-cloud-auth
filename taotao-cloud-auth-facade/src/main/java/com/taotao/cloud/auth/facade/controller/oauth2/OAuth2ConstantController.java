@@ -26,6 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * <p>OAuth2 常量 Controller </p>
@@ -36,7 +37,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/authorize/constant")
 @Tags({@Tag(name = "OAuth2 认证服务接口"), @Tag(name = "常量接口")})
-public class OAuth2ConstantController {
+public class OAuth2ConstantController extends BusinessController {
 
     private final OAuth2ConstantService constantService;
 

@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "百度人脸识别API", description = "百度人脸识别API")
 @RestController
 @RequestMapping("/login/face")
-public class BaiduFaceController {
+public class BaiduFaceController extends BusinessController {
 
     @Autowired
     private FaceUtils faceUtils;

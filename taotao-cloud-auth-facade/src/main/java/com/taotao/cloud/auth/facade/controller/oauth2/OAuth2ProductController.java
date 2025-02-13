@@ -21,6 +21,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * <p>OAuth2ProductController </p>
@@ -31,7 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/authorize/product")
 @Tags({@Tag(name = "OAuth2 认证服务接口"), @Tag(name = "物联网管理接口"), @Tag(name = "物联网产品接口")})
-public class OAuth2ProductController {
+public class OAuth2ProductController extends BusinessController {
 
     private final OAuth2ProductService iotProductService;
 

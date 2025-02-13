@@ -18,8 +18,7 @@ package com.taotao.cloud.auth.infrastructure.persistent.authorization.repository
 
 import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.generator.TtcAuthorizationConsentId;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcAuthorizationConsentPO;
-import com.taotao.boot.data.jpa.base.repository.JpaInterfaceSuperRepository;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.AuthorizationConsentPO;
 import jakarta.persistence.QueryHint;
 import java.util.Optional;
 import org.hibernate.jpa.AvailableHints;
@@ -34,18 +33,18 @@ import org.springframework.data.jpa.repository.QueryHints;
  */
 public interface TtcAuthorizationConsentRepository
 	extends
-	BaseInterfaceSuperRepository<TtcAuthorizationConsentPO, TtcAuthorizationConsentId> {
+	BaseInterfaceSuperRepository<AuthorizationConsentPO, TtcAuthorizationConsentId> {
 
 	/**
 	 * 根据 client id 和 principalName 查询 OAuth2 确认信息
 	 *
 	 * @param registeredClientId 注册OAuth2客户端ID
 	 * @param principalName      用户名
-	 * @return {@link Optional }<{@link TtcAuthorizationConsentPO }>
+	 * @return {@link Optional }<{@link AuthorizationConsentPO }>
 	 * @since 2023-07-10 17:11:17
 	 */
 	@QueryHints(@QueryHint(name = AvailableHints.HINT_CACHEABLE, value = "true"))
-	Optional<TtcAuthorizationConsentPO> findByRegisteredClientIdAndPrincipalName(
+	Optional<AuthorizationConsentPO> findByRegisteredClientIdAndPrincipalName(
 		String registeredClientId, String principalName);
 
 	/**

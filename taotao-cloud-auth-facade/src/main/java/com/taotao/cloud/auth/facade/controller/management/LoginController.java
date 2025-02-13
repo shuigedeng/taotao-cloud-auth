@@ -44,7 +44,7 @@ import java.util.Map;
  * @since : 2022/3/21 19:52
  */
 @Controller
-public class LoginController {
+public class LoginController extends BusinessController {
 
 	private static final String DEFAULT_LOGIN_PAGE_VIEW = "login";
 	private static final String DEFAULT_ERROR_PAGE_VIEW = "error";

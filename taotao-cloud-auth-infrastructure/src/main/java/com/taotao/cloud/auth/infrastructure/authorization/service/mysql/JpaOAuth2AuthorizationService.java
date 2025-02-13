@@ -20,7 +20,8 @@ import com.taotao.cloud.auth.infrastructure.authorization.service.TtcAuthorizati
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.converter.OAuth2ToTtcAuthorizationConverter;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.converter.TtcToOAuth2AuthorizationConverter;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.jackson2.OAuth2JacksonProcessor;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcAuthorizationPO;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.AuthorizationPO;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -61,11 +62,11 @@ public class JpaOAuth2AuthorizationService implements OAuth2AuthorizationService
     /**
      * 希罗多德到oauth2转换器
      */
-    private final Converter<TtcAuthorizationPO, OAuth2Authorization> ttcToOAuth2Converter;
+    private final Converter<AuthorizationPO, OAuth2Authorization> ttcToOAuth2Converter;
     /**
      * oauth2到希罗多德转换器
      */
-    private final Converter<OAuth2Authorization, TtcAuthorizationPO> oauth2ToTtcConverter;
+    private final Converter<OAuth2Authorization, AuthorizationPO> oauth2ToTtcConverter;
 
     /**
      * jpa oauth2授权服务
@@ -131,10 +132,10 @@ public class JpaOAuth2AuthorizationService implements OAuth2AuthorizationService
      */
     @Override
     public OAuth2Authorization findById(String id) {
-        TtcAuthorizationPO ttcAuthorizationPO = this.ttcAuthorizationService.findById(id);
-        if (ObjectUtils.isNotEmpty(ttcAuthorizationPO)) {
+        AuthorizationPO authorizationPO = this.ttcAuthorizationService.findById(id);
+        if (ObjectUtils.isNotEmpty(authorizationPO)) {
             log.info("Jpa OAuth2 Authorization Service findById.");
-            return toObject(ttcAuthorizationPO);
+            return toObject(authorizationPO);
         } else {
             return null;
         }
@@ -163,7 +164,7 @@ public class JpaOAuth2AuthorizationService implements OAuth2AuthorizationService
      * @since 2023-07-10 17:10:42
      */
     public List<OAuth2Authorization> findAvailableAuthorizations(String registeredClientId, String principalName) {
-        List<TtcAuthorizationPO> authorizations =
+        List<AuthorizationPO> authorizations =
                 this.ttcAuthorizationService.findAvailableAuthorizations(registeredClientId, principalName);
         if (CollectionUtils.isNotEmpty(authorizations)) {
             return authorizations.stream().map(this::toObject).collect(Collectors.toList());
@@ -184,7 +185,7 @@ public class JpaOAuth2AuthorizationService implements OAuth2AuthorizationService
     public OAuth2Authorization findByToken(String token, OAuth2TokenType tokenType) {
         Assert.hasText(token, "token cannot be empty");
 
-        Optional<TtcAuthorizationPO> result;
+        Optional<AuthorizationPO> result;
         if (tokenType == null) {
             result = this.ttcAuthorizationService
                     .findByStateOrAuthorizationCodeValueOrAccessTokenValueOrRefreshTokenValueOrOidcIdTokenValueOrUserCodeValueOrDeviceCodeValue(
@@ -218,7 +219,7 @@ public class JpaOAuth2AuthorizationService implements OAuth2AuthorizationService
      * @return {@link OAuth2Authorization }
      * @since 2023-07-10 17:10:43
      */
-    private OAuth2Authorization toObject(TtcAuthorizationPO entity) {
+    private OAuth2Authorization toObject(AuthorizationPO entity) {
         return ttcToOAuth2Converter.convert(entity);
     }
 
@@ -226,10 +227,10 @@ public class JpaOAuth2AuthorizationService implements OAuth2AuthorizationService
      * 对实体
      *
      * @param authorization 授权
-     * @return {@link TtcAuthorizationPO }
+     * @return {@link AuthorizationPO }
      * @since 2023-07-10 17:10:43
      */
-    private TtcAuthorizationPO toEntity(OAuth2Authorization authorization) {
+    private AuthorizationPO toEntity(OAuth2Authorization authorization) {
         return oauth2ToTtcConverter.convert(authorization);
     }
 }

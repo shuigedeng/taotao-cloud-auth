@@ -138,7 +138,7 @@ public class DefaultSocialAuthenticationHandler extends AbstractSocialAuthentica
 	}
 
 	protected void setSocialUserInfo(
-		SysSocialUser sysSocialUser,
+		TtcSocialUser sysSocialUser,
 		String accessToken,
 		Integer expireIn,
 		String refreshToken,

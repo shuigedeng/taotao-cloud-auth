@@ -6,7 +6,7 @@ package com.taotao.cloud.auth.infrastructure.authentication.federation;
  * </p>
  *
  */
-//public interface IOauth2ThirdAccountService extends IService<Oauth2ThirdAccount> {
+//public interface IOauth2ThirdAccountService extends CommandService<Oauth2ThirdAccount> {
 public interface IOauth2ThirdAccountService  {
 
     /**

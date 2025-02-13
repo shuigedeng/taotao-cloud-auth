@@ -42,7 +42,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "微信小程序平台认证接口")
 @RequestMapping
-public class WxappAccessController {
+public class WxappAccessController extends BusinessController {
 
 	@Autowired
 	private AccessHandlerStrategyFactory accessHandlerStrategyFactory;

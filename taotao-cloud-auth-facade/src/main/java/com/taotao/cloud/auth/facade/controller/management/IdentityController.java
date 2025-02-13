@@ -35,13 +35,14 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * @see <a href="https://conkeyn.iteye.com/blog/2296406">参考文档</a>
  */
 @RestController
 @Tags({@Tag(name = "OAuth2 认证服务器接口"), @Tag(name = "OAuth2 认证服务器开放接口"), @Tag(name = "OAuth2 身份认证辅助接口")})
-public class IdentityController {
+public class IdentityController extends BusinessController {
 
 	private final Logger log = LoggerFactory.getLogger(IdentityController.class);
 

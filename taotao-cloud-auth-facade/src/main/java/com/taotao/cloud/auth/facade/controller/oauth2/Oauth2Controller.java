@@ -55,7 +55,7 @@ import com.taotao.boot.common.utils.log.LogUtils;
 @Tag(name = "Oauth2API", description = "Oauth2API")
 @RestController
 @RequestMapping("/auth/oauth2")
-public class Oauth2Controller {
+public class Oauth2Controller extends BusinessController {
 
     @Autowired
     private RedisRepository redisRepository;

@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * <p>OAuth2DeviceController </p>
@@ -38,7 +39,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/authorize/device")
 @Tags({@Tag(name = "OAuth2 认证服务接口"), @Tag(name = "物联网管理接口"), @Tag(name = "物联网设备接口")})
-public class OAuth2DeviceController {
+public class OAuth2DeviceController extends BusinessController {
 
     private final OAuth2DeviceService deviceService;
 

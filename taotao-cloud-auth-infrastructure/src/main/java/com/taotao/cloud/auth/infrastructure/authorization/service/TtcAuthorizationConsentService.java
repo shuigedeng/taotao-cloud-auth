@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.infrastructure.authorization.service;
 
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcAuthorizationConsentPO;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.AuthorizationConsentPO;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.repository.TtcAuthorizationConsentRepository;
 import java.util.Optional;
 import org.slf4j.Logger;
@@ -64,12 +64,12 @@ public class TtcAuthorizationConsentService {
 	 *
 	 * @param registeredClientId 注册客户端id
 	 * @param principalName      主体名称
-	 * @return {@link Optional }<{@link TtcAuthorizationConsentPO }>
+	 * @return {@link Optional }<{@link AuthorizationConsentPO }>
 	 * @since 2023-07-10 17:09:46
 	 */
-	public Optional<TtcAuthorizationConsentPO> findByRegisteredClientIdAndPrincipalName(
+	public Optional<AuthorizationConsentPO> findByRegisteredClientIdAndPrincipalName(
 		String registeredClientId, String principalName) {
-		Optional<TtcAuthorizationConsentPO> result =
+		Optional<AuthorizationConsentPO> result =
 			this.authorizationConsentRepository.findByRegisteredClientIdAndPrincipalName(
 				registeredClientId, principalName);
 		log.info("TtcAuthorizationConsent Service findByRegisteredClientIdAndPrincipalName.");
@@ -97,7 +97,7 @@ public class TtcAuthorizationConsentService {
 	 * @param entity 实体
 	 * @since 2023-07-10 17:09:47
 	 */
-	public void save(TtcAuthorizationConsentPO entity) {
+	public void save(AuthorizationConsentPO entity) {
 		authorizationConsentRepository.save(entity);
 	}
 

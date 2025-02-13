@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @RequestMapping("/login")
-public class LoginController {
+public class LoginController extends BusinessController {
 
     @Autowired
     LoginService loginService;

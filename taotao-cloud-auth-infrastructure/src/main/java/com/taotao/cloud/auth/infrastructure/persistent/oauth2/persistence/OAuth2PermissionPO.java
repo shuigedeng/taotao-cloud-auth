@@ -17,9 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence;
 
 import com.google.common.base.MoreObjects;
-import com.taotao.boot.data.jpa.tenant.BaseSysEntity;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcAuthorizationConsentPO;
 import com.taotao.cloud.auth.infrastructure.persistent.oauth2.generator.OAuth2PermissionUuid;
 import com.taotao.boot.security.spring.constants.OAuth2Constants;
 import jakarta.persistence.Cacheable;

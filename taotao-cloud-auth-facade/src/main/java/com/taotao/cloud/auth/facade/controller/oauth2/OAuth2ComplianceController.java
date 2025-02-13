@@ -37,6 +37,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * <p>OAuth2ComplianceController </p>
@@ -47,7 +48,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/authorize/compliance")
 @Tags({@Tag(name = "OAuth2 认证服务接口"), @Tag(name = "OAuth2 应用安全合规接口"), @Tag(name = "OAuth2 审计管理接口")})
-public class OAuth2ComplianceController {
+public class OAuth2ComplianceController extends BusinessController {
 
     private final OAuth2ComplianceService complianceService;
 

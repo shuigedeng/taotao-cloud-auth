@@ -16,9 +16,8 @@
 
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.repository;
 
-import com.taotao.boot.data.jpa.base.repository.JpaInterfaceSuperRepository;
 import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcAuthorizationPO;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.AuthorizationPO;
 import jakarta.persistence.QueryHint;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -38,77 +37,77 @@ import org.springframework.transaction.annotation.Transactional;
  * @since 2023-07-10 17:11:21
  */
 public interface TtcAuthorizationRepository extends
-	BaseInterfaceSuperRepository<TtcAuthorizationPO, String> {
+	BaseInterfaceSuperRepository<AuthorizationPO, String> {
 
 	/**
 	 * 根据 State 查询 OAuth2 认证信息
 	 *
 	 * @param state OAuth2 Authorization Code 模式参数 State
-	 * @return {@link Optional }<{@link TtcAuthorizationPO }>
+	 * @return {@link Optional }<{@link AuthorizationPO }>
 	 * @since 2023-07-10 17:11:21
 	 */
 	@QueryHints(@QueryHint(name = AvailableHints.HINT_CACHEABLE, value = "true"))
-	Optional<TtcAuthorizationPO> findByState(String state);
+	Optional<AuthorizationPO> findByState(String state);
 
 	/**
 	 * 根据 authorizationCode 查询 OAuth2 认证信息
 	 *
 	 * @param authorizationCode OAuth2 Authorization Code 模式参数 code
-	 * @return {@link Optional }<{@link TtcAuthorizationPO }>
+	 * @return {@link Optional }<{@link AuthorizationPO }>
 	 * @since 2023-07-10 17:11:21
 	 */
 	@QueryHints(@QueryHint(name = AvailableHints.HINT_CACHEABLE, value = "true"))
-	Optional<TtcAuthorizationPO> findByAuthorizationCodeValue(String authorizationCode);
+	Optional<AuthorizationPO> findByAuthorizationCodeValue(String authorizationCode);
 
 	/**
 	 * 根据 Access Token 查询 OAuth2 认证信息
 	 *
 	 * @param accessToken OAuth2 accessToken
-	 * @return {@link Optional }<{@link TtcAuthorizationPO }>
+	 * @return {@link Optional }<{@link AuthorizationPO }>
 	 * @since 2023-07-10 17:11:21
 	 */
 	@QueryHints(@QueryHint(name = AvailableHints.HINT_CACHEABLE, value = "true"))
-	Optional<TtcAuthorizationPO> findByAccessTokenValue(String accessToken);
+	Optional<AuthorizationPO> findByAccessTokenValue(String accessToken);
 
 	/**
 	 * 根据 Refresh Token 查询 OAuth2 认证信息
 	 *
 	 * @param refreshToken OAuth2 refreshToken
-	 * @return {@link Optional }<{@link TtcAuthorizationPO }>
+	 * @return {@link Optional }<{@link AuthorizationPO }>
 	 * @since 2023-07-10 17:11:21
 	 */
 	@QueryHints(@QueryHint(name = AvailableHints.HINT_CACHEABLE, value = "true"))
-	Optional<TtcAuthorizationPO> findByRefreshTokenValue(String refreshToken);
+	Optional<AuthorizationPO> findByRefreshTokenValue(String refreshToken);
 
 	/**
 	 * 根据 Id Token 查询 OAuth2 认证信息
 	 *
 	 * @param idToken OAuth2 idToken
-	 * @return {@link Optional }<{@link TtcAuthorizationPO }>
+	 * @return {@link Optional }<{@link AuthorizationPO }>
 	 * @since 2023-07-10 17:11:21
 	 */
 	@QueryHints(@QueryHint(name = AvailableHints.HINT_CACHEABLE, value = "true"))
-	Optional<TtcAuthorizationPO> findByOidcIdTokenValue(String idToken);
+	Optional<AuthorizationPO> findByOidcIdTokenValue(String idToken);
 
 	/**
 	 * 根据 User Code 查询 OAuth2 认证信息
 	 *
 	 * @param userCode OAuth2 userCode
-	 * @return {@link Optional }<{@link TtcAuthorizationPO }>
+	 * @return {@link Optional }<{@link AuthorizationPO }>
 	 * @since 2023-07-10 17:11:21
 	 */
 	@QueryHints(@QueryHint(name = AvailableHints.HINT_CACHEABLE, value = "true"))
-	Optional<TtcAuthorizationPO> findByUserCodeValue(String userCode);
+	Optional<AuthorizationPO> findByUserCodeValue(String userCode);
 
 	/**
 	 * 根据 Device Code 查询 OAuth2 认证信息
 	 *
 	 * @param deviceCode OAuth2 deviceCode
-	 * @return {@link Optional }<{@link TtcAuthorizationPO }>
+	 * @return {@link Optional }<{@link AuthorizationPO }>
 	 * @since 2023-07-10 17:11:21
 	 */
 	@QueryHints(@QueryHint(name = AvailableHints.HINT_CACHEABLE, value = "true"))
-	Optional<TtcAuthorizationPO> findByDeviceCodeValue(String deviceCode);
+	Optional<AuthorizationPO> findByDeviceCodeValue(String deviceCode);
 
 	/**
 	 * 根据客户端ID和用户名查询未过期Token
@@ -116,10 +115,10 @@ public interface TtcAuthorizationRepository extends
 	 * @param registeredClientId 客户端ID
 	 * @param principalName      用户名称
 	 * @param localDateTime      时间
-	 * @return {@link List }<{@link TtcAuthorizationPO }>
+	 * @return {@link List }<{@link AuthorizationPO }>
 	 * @since 2023-07-10 17:11:21
 	 */
-	List<TtcAuthorizationPO> findAllByRegisteredClientIdAndPrincipalNameAndAccessTokenExpiresAtAfter(
+	List<AuthorizationPO> findAllByRegisteredClientIdAndPrincipalNameAndAccessTokenExpiresAtAfter(
 		String registeredClientId, String principalName, LocalDateTime localDateTime);
 
 	/**
@@ -139,49 +138,49 @@ public interface TtcAuthorizationRepository extends
 	/**
 	 * 更新由
 	 *
-	 * @param ttcAuthorizationPO 希罗多德授权
+	 * @param authorizationPO 希罗多德授权
 	 * @return {@link Integer }
 	 * @since 2023-07-10 17:11:22
 	 */
 	@Modifying
 	@Transactional
 	@Query("""
-		  update TtcAuthorizationPO set
-			registeredClientId = :#{#ttcAuthorizationPO.registeredClientId} ,
-			principalName = :#{#ttcAuthorizationPO.principalName} ,
-			authorizationGrantType = :#{#ttcAuthorizationPO.authorizationGrantType} ,
-			authorizedScopes = :#{#ttcAuthorizationPO.authorizedScopes} ,
-			attributes = :#{#ttcAuthorizationPO.attributes} ,
-			state = :#{#ttcAuthorizationPO.state} ,
-			authorizationCodeValue = :#{#ttcAuthorizationPO.authorizationCodeValue} ,
-			authorizationCodeIssuedAt = :#{#ttcAuthorizationPO.authorizationCodeIssuedAt} ,
-			authorizationCodeExpiresAt = :#{#ttcAuthorizationPO.authorizationCodeExpiresAt} ,
-			authorizationCodeMetadata = :#{#ttcAuthorizationPO.authorizationCodeMetadata} ,
-			accessTokenValue = :#{#ttcAuthorizationPO.accessTokenValue} ,
-			accessTokenIssuedAt = :#{#ttcAuthorizationPO.accessTokenIssuedAt} ,
-			accessTokenExpiresAt = :#{#ttcAuthorizationPO.accessTokenExpiresAt} ,
-			accessTokenMetadata = :#{#ttcAuthorizationPO.accessTokenMetadata} ,
-			accessTokenType = :#{#ttcAuthorizationPO.accessTokenType} ,
-			accessTokenScopes = :#{#ttcAuthorizationPO.accessTokenScopes} ,
-			oidcIdTokenValue = :#{#ttcAuthorizationPO.oidcIdTokenValue} ,
-			oidcIdTokenIssuedAt = :#{#ttcAuthorizationPO.oidcIdTokenIssuedAt} ,
-			oidcIdTokenExpiresAt = :#{#ttcAuthorizationPO.oidcIdTokenExpiresAt} ,
-			oidcIdTokenMetadata = :#{#ttcAuthorizationPO.oidcIdTokenMetadata} ,
-			oidcIdTokenClaims = :#{#ttcAuthorizationPO.oidcIdTokenClaims} ,
-			refreshTokenValue = :#{#ttcAuthorizationPO.refreshTokenValue} ,
-			refreshTokenIssuedAt = :#{#ttcAuthorizationPO.refreshTokenIssuedAt} ,
-			refreshTokenExpiresAt = :#{#ttcAuthorizationPO.refreshTokenExpiresAt} ,
-			refreshTokenMetadata = :#{#ttcAuthorizationPO.refreshTokenMetadata} ,
-			userCodeValue = :#{#ttcAuthorizationPO.userCodeValue} ,
-			userCodeIssuedAt = :#{#ttcAuthorizationPO.userCodeIssuedAt} ,
-			userCodeExpiresAt = :#{#ttcAuthorizationPO.userCodeExpiresAt} ,
-			userCodeMetadata = :#{#ttcAuthorizationPO.userCodeMetadata} ,
-			deviceCodeValue = :#{#ttcAuthorizationPO.deviceCodeValue} ,
-			deviceCodeIssuedAt = :#{#ttcAuthorizationPO.deviceCodeIssuedAt} ,
-			deviceCodeExpiresAt = :#{#ttcAuthorizationPO.deviceCodeExpiresAt} ,
-			deviceCodeMetadata =  :#{#ttcAuthorizationPO.deviceCodeMetadata}
-			where id = :#{#ttcAuthorizationPO.id}
+		  update AuthorizationPO set
+			registeredClientId = :#{#authorizationPO.registeredClientId} ,
+			principalName = :#{#authorizationPO.principalName} ,
+			authorizationGrantType = :#{#authorizationPO.authorizationGrantType} ,
+			authorizedScopes = :#{#authorizationPO.authorizedScopes} ,
+			attributes = :#{#authorizationPO.attributes} ,
+			state = :#{#authorizationPO.state} ,
+			authorizationCodeValue = :#{#authorizationPO.authorizationCodeValue} ,
+			authorizationCodeIssuedAt = :#{#authorizationPO.authorizationCodeIssuedAt} ,
+			authorizationCodeExpiresAt = :#{#authorizationPO.authorizationCodeExpiresAt} ,
+			authorizationCodeMetadata = :#{#authorizationPO.authorizationCodeMetadata} ,
+			accessTokenValue = :#{#authorizationPO.accessTokenValue} ,
+			accessTokenIssuedAt = :#{#authorizationPO.accessTokenIssuedAt} ,
+			accessTokenExpiresAt = :#{#authorizationPO.accessTokenExpiresAt} ,
+			accessTokenMetadata = :#{#authorizationPO.accessTokenMetadata} ,
+			accessTokenType = :#{#authorizationPO.accessTokenType} ,
+			accessTokenScopes = :#{#authorizationPO.accessTokenScopes} ,
+			oidcIdTokenValue = :#{#authorizationPO.oidcIdTokenValue} ,
+			oidcIdTokenIssuedAt = :#{#authorizationPO.oidcIdTokenIssuedAt} ,
+			oidcIdTokenExpiresAt = :#{#authorizationPO.oidcIdTokenExpiresAt} ,
+			oidcIdTokenMetadata = :#{#authorizationPO.oidcIdTokenMetadata} ,
+			oidcIdTokenClaims = :#{#authorizationPO.oidcIdTokenClaims} ,
+			refreshTokenValue = :#{#authorizationPO.refreshTokenValue} ,
+			refreshTokenIssuedAt = :#{#authorizationPO.refreshTokenIssuedAt} ,
+			refreshTokenExpiresAt = :#{#authorizationPO.refreshTokenExpiresAt} ,
+			refreshTokenMetadata = :#{#authorizationPO.refreshTokenMetadata} ,
+			userCodeValue = :#{#authorizationPO.userCodeValue} ,
+			userCodeIssuedAt = :#{#authorizationPO.userCodeIssuedAt} ,
+			userCodeExpiresAt = :#{#authorizationPO.userCodeExpiresAt} ,
+			userCodeMetadata = :#{#authorizationPO.userCodeMetadata} ,
+			deviceCodeValue = :#{#authorizationPO.deviceCodeValue} ,
+			deviceCodeIssuedAt = :#{#authorizationPO.deviceCodeIssuedAt} ,
+			deviceCodeExpiresAt = :#{#authorizationPO.deviceCodeExpiresAt} ,
+			deviceCodeMetadata =  :#{#authorizationPO.deviceCodeMetadata}
+			where id = :#{#authorizationPO.id}
 		""")
 	Integer updateBy(
-		@Param("ttcAuthorizationPO") TtcAuthorizationPO ttcAuthorizationPO);
+		@Param("authorizationPO") AuthorizationPO authorizationPO);
 }

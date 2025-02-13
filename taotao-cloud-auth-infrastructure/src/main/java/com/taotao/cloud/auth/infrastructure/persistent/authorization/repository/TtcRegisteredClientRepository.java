@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.repository;
 
 import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcRegisteredClientPO;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.RegisteredClientPO;
 import jakarta.persistence.QueryHint;
 import java.util.Optional;
 import org.hibernate.jpa.AvailableHints;
@@ -31,15 +31,15 @@ import org.springframework.data.jpa.repository.QueryHints;
  * @since 2023-07-10 17:11:24
  */
 public interface TtcRegisteredClientRepository extends
-	BaseInterfaceSuperRepository<TtcRegisteredClientPO, String> {
+	BaseInterfaceSuperRepository<RegisteredClientPO, String> {
 
 	/**
 	 * 根据 ClientId 查询 RegisteredClient
 	 *
 	 * @param clientId OAuth2 客户端ID
-	 * @return {@link Optional }<{@link TtcRegisteredClientPO }>
+	 * @return {@link Optional }<{@link RegisteredClientPO }>
 	 * @since 2023-07-10 17:11:24
 	 */
 	@QueryHints(@QueryHint(name = AvailableHints.HINT_CACHEABLE, value = "true"))
-	Optional<TtcRegisteredClientPO> findByClientId(String clientId);
+	Optional<RegisteredClientPO> findByClientId(String clientId);
 }

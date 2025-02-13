@@ -20,7 +20,7 @@ import com.taotao.cloud.auth.infrastructure.authorization.service.TtcRegisteredC
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.converter.OAuth2ToTtcRegisteredClientConverter;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.converter.TtcToOAuth2RegisteredClientConverter;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.jackson2.OAuth2JacksonProcessor;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcRegisteredClientPO;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.RegisteredClientPO;
 import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,11 +50,11 @@ public class JpaRegisteredClientRepository implements RegisteredClientRepository
     /**
      * 希罗多德到oauth2转换器
      */
-    private final Converter<TtcRegisteredClientPO, RegisteredClient> ttcToOAuth2Converter;
+    private final Converter<RegisteredClientPO, RegisteredClient> ttcToOAuth2Converter;
     /**
      * oauth2到希罗多德转换器
      */
-    private final Converter<RegisteredClient, TtcRegisteredClientPO> oauth2ToTtcConverter;
+    private final Converter<RegisteredClient, RegisteredClientPO> oauth2ToTtcConverter;
 
     /**
      * jpa注册客户端存储库
@@ -95,9 +95,9 @@ public class JpaRegisteredClientRepository implements RegisteredClientRepository
     @Override
     public RegisteredClient findById(String id) {
         log.info("Jpa Registered Client Repository findById.");
-        TtcRegisteredClientPO ttcRegisteredClientPO = this.ttcRegisteredClientService.findById(id);
-        if (ObjectUtils.isNotEmpty(ttcRegisteredClientPO)) {
-            return toObject(ttcRegisteredClientPO);
+        RegisteredClientPO registeredClientPO = this.ttcRegisteredClientService.findById(id);
+        if (ObjectUtils.isNotEmpty(registeredClientPO)) {
+            return toObject(registeredClientPO);
         }
         return null;
     }
@@ -132,22 +132,22 @@ public class JpaRegisteredClientRepository implements RegisteredClientRepository
     /**
      * 反对
      *
-     * @param ttcRegisteredClientPO 希罗多德注册客户
+     * @param registeredClientPO 希罗多德注册客户
      * @return {@link RegisteredClient }
      * @since 2023-07-10 17:10:48
      */
-    private RegisteredClient toObject(TtcRegisteredClientPO ttcRegisteredClientPO) {
-        return ttcToOAuth2Converter.convert(ttcRegisteredClientPO);
+    private RegisteredClient toObject(RegisteredClientPO registeredClientPO) {
+        return ttcToOAuth2Converter.convert(registeredClientPO);
     }
 
     /**
      * 对实体
      *
      * @param registeredClient 注册客户
-     * @return {@link TtcRegisteredClientPO }
+     * @return {@link RegisteredClientPO }
      * @since 2023-07-10 17:10:48
      */
-    private TtcRegisteredClientPO toEntity(RegisteredClient registeredClient) {
+    private RegisteredClientPO toEntity(RegisteredClient registeredClient) {
         return oauth2ToTtcConverter.convert(registeredClient);
     }
 }

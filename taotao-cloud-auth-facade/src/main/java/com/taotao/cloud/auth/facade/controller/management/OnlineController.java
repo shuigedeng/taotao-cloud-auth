@@ -30,6 +30,7 @@ package com.taotao.cloud.auth.facade.controller.management; // package com.taota
 // import org.springframework.web.bind.annotation.RequestMapping;
 // import org.springframework.web.bind.annotation.RequestParam;
 // import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 //
 /// **
 // * OnlineController
@@ -41,7 +42,7 @@ package com.taotao.cloud.auth.facade.controller.management; // package com.taota
 // @RestController
 // @RequestMapping("/auth/online")
 // @Api(tags = "系统：在线用户管理")
-// public class OnlineController {
+// public class OnlineController extends BusinessController {
 //
 //    private final OnlineUserService onlineUserService;
 //

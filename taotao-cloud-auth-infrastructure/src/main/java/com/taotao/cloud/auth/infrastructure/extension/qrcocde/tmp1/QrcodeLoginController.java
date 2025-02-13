@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "二维码扫码登录API", description = "二维码扫码登录API")
 @RestController
 @RequestMapping("/login/qrcode")
-public class QrcodeLoginController {
+public class QrcodeLoginController extends BusinessController {
 
     @Autowired
     private QrCodeLoginService qrCodeLoginService;

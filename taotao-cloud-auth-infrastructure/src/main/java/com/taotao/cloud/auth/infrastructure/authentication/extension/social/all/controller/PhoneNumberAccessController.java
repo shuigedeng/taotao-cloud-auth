@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "手机验证码登录接口")
 @RequestMapping
-public class PhoneNumberAccessController {
+public class PhoneNumberAccessController extends BusinessController {
 
     //	@Autowired
     //	private AccessHandlerStrategyFactory accessHandlerStrategyFactory;

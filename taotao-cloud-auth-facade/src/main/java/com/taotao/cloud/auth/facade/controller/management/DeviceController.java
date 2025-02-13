@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @since : 2023/3/24 17:09
  */
 @Controller
-public class DeviceController {
+public class DeviceController extends BusinessController {
 
     @GetMapping(DefaultConstants.DEVICE_ACTIVATION_URI)
     public String activate(@RequestParam(value = OAuth2ParameterNames.USER_CODE, required = false) String userCode) {

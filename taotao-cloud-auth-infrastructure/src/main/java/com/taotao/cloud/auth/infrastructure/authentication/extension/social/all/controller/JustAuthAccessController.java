@@ -46,7 +46,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "社交登录Redirect Url")
 @RequestMapping
-public class JustAuthAccessController {
+public class JustAuthAccessController extends BusinessController {
 
 	@Autowired
 	private ApplicationContext applicationContext;

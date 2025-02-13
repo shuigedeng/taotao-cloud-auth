@@ -17,17 +17,12 @@
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence;
 
 import com.google.common.base.MoreObjects;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.generator.TtcRegisteredClientUuidGenerator;
 import com.taotao.boot.security.spring.constants.OAuth2Constants;
 import com.taotao.cloud.auth.infrastructure.persistent.shared.AbstractRegisteredClient;
-import jakarta.persistence.Cacheable;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Index;
-import jakarta.persistence.Table;
-import java.util.Objects;
+import jakarta.persistence.*;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import java.util.Objects;
 
 /**
  * <p>OAuth2 客户端实体 </p>
@@ -47,7 +42,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @org.hibernate.annotations.Cache(
 	usage = CacheConcurrencyStrategy.READ_WRITE,
 	region = OAuth2Constants.REGION_OAUTH2_REGISTERED_CLIENT)
-public class TtcRegisteredClientPO extends AbstractRegisteredClient<TtcRegisteredClientPO, String> {
+public class RegisteredClientPO extends AbstractRegisteredClient<RegisteredClientPO, String> {
 
 	/**
 	 * id
@@ -251,7 +246,7 @@ public class TtcRegisteredClientPO extends AbstractRegisteredClient<TtcRegistere
 		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
-		TtcRegisteredClientPO that = (TtcRegisteredClientPO) o;
+		RegisteredClientPO that = (RegisteredClientPO) o;
 		return Objects.equals(id(), that.id());
 	}
 

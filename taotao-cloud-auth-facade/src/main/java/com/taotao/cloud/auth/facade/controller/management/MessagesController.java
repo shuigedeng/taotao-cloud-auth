@@ -34,6 +34,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * MessagesController
@@ -46,7 +47,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "测试API", description = "测试API")
 @RestController
 @RequestMapping("/api/test")
-public class MessagesController {
+public class MessagesController extends BusinessController {
 
 	@Autowired
 	private JwtDecoder jwtDecoder;

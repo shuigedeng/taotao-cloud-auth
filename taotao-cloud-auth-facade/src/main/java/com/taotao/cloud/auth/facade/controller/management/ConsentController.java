@@ -51,7 +51,7 @@ import java.util.stream.Collectors;
  * @since 2022-03-01
  */
 @Controller
-public class ConsentController {
+public class ConsentController extends BusinessController {
 
     private final OAuth2ApplicationService applicationService;
     private final OAuth2AuthorizationConsentService authorizationConsentService;

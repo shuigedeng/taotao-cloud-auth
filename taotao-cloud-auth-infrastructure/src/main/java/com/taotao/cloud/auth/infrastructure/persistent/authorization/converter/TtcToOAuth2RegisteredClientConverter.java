@@ -17,7 +17,8 @@
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.converter;
 
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.jackson2.OAuth2JacksonProcessor;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcRegisteredClientPO;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.RegisteredClientPO;
+
 import java.util.Map;
 import java.util.Set;
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
@@ -32,7 +33,7 @@ import org.springframework.util.StringUtils;
  * @since 2023-07-10 17:13:50
  */
 public class TtcToOAuth2RegisteredClientConverter
-	extends AbstractRegisteredClientConverter<TtcRegisteredClientPO> {
+	extends AbstractRegisteredClientConverter<RegisteredClientPO> {
 
 	/**
 	 * Ttc到oauth2注册客户端转换器
@@ -53,7 +54,7 @@ public class TtcToOAuth2RegisteredClientConverter
 	 * @since 2023-07-10 17:13:50
 	 */
 	@Override
-	public Set<String> getScopes(TtcRegisteredClientPO details) {
+	public Set<String> getScopes(RegisteredClientPO details) {
 		return StringUtils.commaDelimitedListToSet(details.getScopes());
 	}
 
@@ -65,7 +66,7 @@ public class TtcToOAuth2RegisteredClientConverter
 	 * @since 2023-07-10 17:13:51
 	 */
 	@Override
-	public ClientSettings getClientSettings(TtcRegisteredClientPO details) {
+	public ClientSettings getClientSettings(RegisteredClientPO details) {
 		Map<String, Object> clientSettingsMap = parseMap(details.getClientSettings());
 		return ClientSettings.withSettings(clientSettingsMap).build();
 	}
@@ -78,7 +79,7 @@ public class TtcToOAuth2RegisteredClientConverter
 	 * @since 2023-07-10 17:13:51
 	 */
 	@Override
-	public TokenSettings getTokenSettings(TtcRegisteredClientPO details) {
+	public TokenSettings getTokenSettings(RegisteredClientPO details) {
 		Map<String, Object> tokenSettingsMap = parseMap(details.getTokenSettings());
 		return TokenSettings.withSettings(tokenSettingsMap).build();
 	}

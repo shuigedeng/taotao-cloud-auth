@@ -30,6 +30,7 @@ package com.taotao.cloud.auth.facade.controller.management;
 // import org.springframework.web.bind.annotation.GetMapping;
 // import org.springframework.web.bind.annotation.PathVariable;
 // import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 //
 // import javax.annotation.PostConstruct;
 // import javax.servlet.http.HttpServletRequest;
@@ -41,7 +42,7 @@ package com.taotao.cloud.auth.facade.controller.management;
 // * @author markix
 // */
 // @RestController
-// public class BindController {
+// public class BindController extends BusinessController {
 //
 //    @Autowired
 //    private UserToAuthDao userToAuthDao;

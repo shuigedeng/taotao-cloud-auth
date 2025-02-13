@@ -16,7 +16,8 @@
 
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.converter;
 
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.TtcAuthorizationConsentPO;
+import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.AuthorizationConsentPO;
+
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.core.convert.converter.Converter;
@@ -32,18 +33,18 @@ import org.springframework.util.StringUtils;
  * @since 2023-07-10 17:13:47
  */
 public class OAuth2ToTtcAuthorizationConsentConverter
-	implements Converter<OAuth2AuthorizationConsent, TtcAuthorizationConsentPO> {
+	implements Converter<OAuth2AuthorizationConsent, AuthorizationConsentPO> {
 
 	/**
 	 * 转换
 	 *
 	 * @param authorizationConsent 授权同意书
-	 * @return {@link TtcAuthorizationConsentPO }
+	 * @return {@link AuthorizationConsentPO }
 	 * @since 2023-07-10 17:13:47
 	 */
 	@Override
-	public TtcAuthorizationConsentPO convert(OAuth2AuthorizationConsent authorizationConsent) {
-		TtcAuthorizationConsentPO entity = new TtcAuthorizationConsentPO();
+	public AuthorizationConsentPO convert(OAuth2AuthorizationConsent authorizationConsent) {
+		AuthorizationConsentPO entity = new AuthorizationConsentPO();
 		entity.setRegisteredClientId(authorizationConsent.getRegisteredClientId());
 		entity.setPrincipalName(authorizationConsent.getPrincipalName());
 

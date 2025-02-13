@@ -36,6 +36,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 import java.util.HashSet;
 import java.util.List;
@@ -50,7 +51,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/authorize/scope")
 @Tags({@Tag(name = "OAuth2 认证服务接口"), @Tag(name = "OAuth2 权限范围管理接口")})
-public class OAuth2ScopeController {
+public class OAuth2ScopeController extends BusinessController {
 
 	private final OAuth2ScopeService scopeService;
 

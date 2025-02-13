@@ -38,6 +38,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * <p>OAuth2 扩展 接口 </p>
@@ -48,7 +49,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/oauth2")
 @Tags({@Tag(name = "OAuth2 认证服务接口"), @Tag(name = "OAuth2 扩展接口")})
-public class OAuthSignOutController {
+public class OAuthSignOutController extends BusinessController {
 
     private final OAuth2AuthorizationService authorizationService;
     private final OAuth2ComplianceService complianceService;

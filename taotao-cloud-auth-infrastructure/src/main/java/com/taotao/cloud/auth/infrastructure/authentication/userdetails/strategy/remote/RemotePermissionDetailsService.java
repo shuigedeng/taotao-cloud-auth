@@ -16,11 +16,9 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.remote;
 
-import com.taotao.boot.security.spring.event.domain.SysPermission;
 import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.AbstractStrategyPermissionDetailsService;
 import java.util.ArrayList;
 import java.util.List;
-import com.taotao.boot.security.spring.event.domain.SysPermission;
 /**
  * <p>远程权限服务 </p>
  */

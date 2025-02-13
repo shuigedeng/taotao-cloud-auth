@@ -18,13 +18,10 @@ package com.taotao.cloud.auth.infrastructure.persistent.authorization.persistenc
 
 import com.google.common.base.MoreObjects;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
-import com.taotao.cloud.auth.infrastructure.persistent.authorization.generator.TtcAuthorizationUuidGenerator;
-import com.taotao.boot.data.jpa.tenant.AbstractEntity;
 import com.taotao.boot.security.spring.constants.OAuth2Constants;
 import jakarta.persistence.Cacheable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.Index;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
@@ -49,7 +46,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @org.hibernate.annotations.Cache(
 	usage = CacheConcurrencyStrategy.READ_WRITE,
 	region = OAuth2Constants.REGION_OAUTH2_AUTHORIZATION)
-public class TtcAuthorizationPO extends BaseSuperEntity<TtcAuthorizationPO, String> {
+public class AuthorizationPO extends BaseSuperEntity<AuthorizationPO, String> {
 
 	/**
 	 * id
