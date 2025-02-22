@@ -54,9 +54,7 @@
  */
 
 dependencies {
-    api project(":taotao-cloud-auth-api")
     api project(":taotao-cloud-auth-common")
-    api project(":taotao-cloud-auth-integration")
 
     //cloud
     api "io.github.shuigedeng:taotao-cloud-starter-seata"
@@ -99,7 +97,7 @@ dependencies {
     api "io.github.shuigedeng:taotao-boot-starter-security-justauth"
 
     //https://central.sonatype.com/artifact/org.springframework.session/spring-session-data-redis
-    api 'org.springframework.session:spring-session-data-redis:3.4.1'
+    api 'org.springframework.session:spring-session-data-redis:3.4.2'
 
     //https://central.sonatype.com/artifact/com.github.binarywang/weixin-java-pay?smo=true
     api 'com.github.binarywang:weixin-java-mp:4.7.2.B'
@@ -139,7 +137,7 @@ dependencies {
     //https://search.maven.org/artifact/com.nimbusds/nimbus-jose-jwt
     api "com.nimbusds:nimbus-jose-jwt:10.0.1"
     //https://search.maven.org/artifact/com.nimbusds/oauth2-oidc-sdk
-    api 'com.nimbusds:oauth2-oidc-sdk:11.21.3'
+    api 'com.nimbusds:oauth2-oidc-sdk:11.23'
 
     api "org.apache.commons:commons-collections4"
 
@@ -216,11 +214,11 @@ configurations {
         //implementation 'com.alibaba:fastjson:2.0.52!!'
 
         resolutionStrategy {
-            force "org.codehaus.groovy:groovy:4.0.0"
+            force "org.codehaus.groovy:groovy:3.0.23"
             force 'org.antlr:antlr4:4.13.2'
             force 'net.minidev:json-smart:2.5.1'
             //todo 临时使用
-            force "io.opentelemetry:opentelemetry-api-incubator:1.45.0-alpha"
+            force "io.opentelemetry:opentelemetry-api-incubator:1.47.0-alpha"
             force 'org.bouncycastle:bcprov-jdk18on:1.80'
             force 'org.bouncycastle:bcpkix-jdk18on:1.80'
             force 'org.bouncycastle:bcutil-jdk18on:1.80'
