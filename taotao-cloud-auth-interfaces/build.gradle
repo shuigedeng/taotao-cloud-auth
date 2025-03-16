@@ -34,8 +34,6 @@
 
 dependencies {
     api project(":taotao-cloud-auth-application")
-    api project(":taotao-cloud-auth-infrastructure")
-    api project(":taotao-cloud-auth-facade")
 }
 
 

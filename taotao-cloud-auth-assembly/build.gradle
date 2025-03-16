@@ -17,7 +17,9 @@ description = "商品中心"
 archivesBaseName = 'taotao-cloud-auth'
 
 dependencies {
-    implementation project(":taotao-cloud-auth-interfaces")
+    api project(":taotao-cloud-auth-facade")
+    api project(":taotao-cloud-auth-interfaces")
+    api project(":taotao-cloud-auth-infrastructure")
 
     //developmentOnly "org.springframework.boot:spring-boot-devtools"
     //developmentOnly "org.springframework.boot:spring-boot-docker-compose"
