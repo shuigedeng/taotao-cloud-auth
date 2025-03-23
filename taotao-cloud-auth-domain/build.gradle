@@ -100,8 +100,8 @@ dependencies {
     api 'org.springframework.session:spring-session-data-redis:3.4.2'
 
     //https://central.sonatype.com/artifact/com.github.binarywang/weixin-java-pay?smo=true
-    api 'com.github.binarywang:weixin-java-mp:4.7.2.B'
-    api 'com.github.binarywang:weixin-java-miniapp:4.7.2.B'
+    api 'com.github.binarywang:weixin-java-mp:4.7.3.B'
+    api 'com.github.binarywang:weixin-java-miniapp:4.7.3.B'
 
     //api 'top.dcenter:justAuth-spring-security-starter:1.1.25'
 
@@ -110,7 +110,7 @@ dependencies {
     //https://search.maven.org/artifact/org.webjars/bootstrap
     api "org.webjars:bootstrap:5.3.3"
     //https://search.maven.org/artifact/org.webjars/webjars-locator-lite
-    api "org.webjars:webjars-locator-lite:1.0.1"
+    api "org.webjars:webjars-locator-lite:1.1.0"
     api 'org.webjars:font-awesome:6.5.1'
     api 'org.webjars.bower:jquery-backstretch:2.1.17'
     api 'org.webjars:uniform:2.1.2-1'
@@ -218,7 +218,7 @@ configurations {
             force 'org.antlr:antlr4:4.13.2'
             force 'net.minidev:json-smart:2.5.2'
             //todo 临时使用
-            force "io.opentelemetry:opentelemetry-api-incubator:1.47.0-alpha"
+            force "io.opentelemetry:opentelemetry-api-incubator:1.48.0-alpha"
             force 'org.bouncycastle:bcprov-jdk18on:1.80'
             force 'org.bouncycastle:bcpkix-jdk18on:1.80'
             force 'org.bouncycastle:bcutil-jdk18on:1.80'
