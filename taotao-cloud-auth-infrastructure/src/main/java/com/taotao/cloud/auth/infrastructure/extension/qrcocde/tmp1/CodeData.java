@@ -16,10 +16,12 @@
 
 package com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp1;
 
-import lombok.Data;
+import lombok.*;
 import lombok.NoArgsConstructor;
 
-@Data
+@Setter
+@Getter
+@ToString
 @NoArgsConstructor
 public class CodeData {
     /**

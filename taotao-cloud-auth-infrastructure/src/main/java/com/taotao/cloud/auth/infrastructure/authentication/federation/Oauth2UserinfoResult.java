@@ -2,12 +2,14 @@ package com.taotao.cloud.auth.infrastructure.authentication.federation;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
-import lombok.Data;
+import lombok.*;
 
 /**
  * oauth2登录后获取用户信息响应类
  */
-@Data
+@Setter
+@Getter
+@ToString
 public class Oauth2UserinfoResult {
 
 	/**

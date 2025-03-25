@@ -16,11 +16,13 @@
 
 package com.taotao.cloud.auth.infrastructure.extension.face.baidu;
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 
-@Data
+@Setter
+@Getter
+@ToString
 @RefreshScope
 @ConfigurationProperties(prefix = BaiduFaceProperties.PREFIX)
 public class BaiduFaceProperties {

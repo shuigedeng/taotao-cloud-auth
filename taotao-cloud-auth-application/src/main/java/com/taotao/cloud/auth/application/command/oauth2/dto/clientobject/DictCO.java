@@ -4,9 +4,11 @@ package com.taotao.cloud.auth.application.command.oauth2.dto.clientobject;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.LocalDateTime;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Setter
+@Getter
+@ToString
 @Schema(name = "DictCO", description = "字典")
 public class DictCO  {
 

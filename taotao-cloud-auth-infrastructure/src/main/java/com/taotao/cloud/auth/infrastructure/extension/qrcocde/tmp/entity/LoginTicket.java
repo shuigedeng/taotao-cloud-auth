@@ -16,9 +16,11 @@
 
 package com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.entity;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Setter
+@Getter
+@ToString
 public class LoginTicket {
 
     private String userId;

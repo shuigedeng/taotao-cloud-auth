@@ -21,11 +21,13 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import lombok.NoArgsConstructor;
 
 /** 分销商品信息 */
-@Data
+@Setter
+@Getter
+@ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
