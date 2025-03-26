@@ -16,7 +16,7 @@
 
  package com.taotao.cloud.auth.api.feign;
 
- import com.taotao.boot.common.constant.ServiceName;
+ import com.taotao.boot.common.constant.ServiceNameConstants;
  import com.taotao.cloud.auth.api.feign.fallback.Oauth2ClientApiFallback;
  import com.taotao.cloud.auth.api.feign.request.FeignClientQueryApiRequest;
  import com.taotao.cloud.auth.api.feign.response.ClientApiResponse;
@@ -33,7 +33,7 @@
   */
  @FeignClient(
 	 contextId = "Oauth2ClientApi",
-	 value = ServiceName.TAOTAO_CLOUD_AUTH,
+	 value = ServiceNameConstants.TAOTAO_CLOUD_AUTH,
 	 fallbackFactory = Oauth2ClientApiFallback.class)
  public interface Oauth2ClientApi {
 
