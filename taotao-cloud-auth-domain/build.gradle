@@ -135,7 +135,7 @@ dependencies {
     api "org.springframework.boot:spring-boot-starter-oauth2-authorization-server"
 
     //https://search.maven.org/artifact/com.nimbusds/nimbus-jose-jwt
-    api "com.nimbusds:nimbus-jose-jwt:10.1"
+    api "com.nimbusds:nimbus-jose-jwt:10.2"
     //https://search.maven.org/artifact/com.nimbusds/oauth2-oidc-sdk
     api 'com.nimbusds:oauth2-oidc-sdk:11.23.1'
 
@@ -218,7 +218,7 @@ configurations {
             force 'org.antlr:antlr4:4.13.2'
             force 'net.minidev:json-smart:2.5.2'
             //todo 临时使用
-            force "io.opentelemetry:opentelemetry-api-incubator:1.48.0-alpha"
+            force "io.opentelemetry:opentelemetry-api-incubator:1.49.0-alpha"
             force 'org.bouncycastle:bcprov-jdk18on:1.80'
             force 'org.bouncycastle:bcpkix-jdk18on:1.80'
             force 'org.bouncycastle:bcutil-jdk18on:1.80'
