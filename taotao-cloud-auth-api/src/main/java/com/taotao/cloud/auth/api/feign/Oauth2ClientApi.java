@@ -17,12 +17,15 @@
  package com.taotao.cloud.auth.api.feign;
 
  import com.taotao.boot.common.constant.ServiceNameConstants;
+ import com.taotao.boot.common.model.FeignRequest;
+ import com.taotao.boot.common.model.FeignResponse;
  import com.taotao.cloud.auth.api.feign.fallback.Oauth2ClientApiFallback;
  import com.taotao.cloud.auth.api.feign.request.FeignClientQueryApiRequest;
  import com.taotao.cloud.auth.api.feign.response.ClientApiResponse;
  import org.springframework.cloud.openfeign.FeignClient;
- import org.springframework.web.bind.annotation.GetMapping;
- import org.springframework.web.bind.annotation.RequestParam;
+ import org.springframework.validation.annotation.Validated;
+ import org.springframework.web.bind.annotation.PostMapping;
+ import org.springframework.web.bind.annotation.RequestBody;
 
  /**
   * 远程调用客户端
@@ -37,6 +40,7 @@
 	 fallbackFactory = Oauth2ClientApiFallback.class)
  public interface Oauth2ClientApi {
 
-	 @GetMapping(value = "/auth/feign/query")
-	 ClientApiResponse query( @RequestParam(value = "feignClientQueryApiRequest")FeignClientQueryApiRequest feignClientQueryApiRequest);
+	 @PostMapping(value = "/auth/feign/query")
+	 FeignResponse<ClientApiResponse> query(
+		 @Validated @RequestBody FeignRequest<FeignClientQueryApiRequest> feignClientQueryApiRequest);
  }

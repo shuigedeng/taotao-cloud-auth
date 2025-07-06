@@ -16,6 +16,8 @@
 
  package com.taotao.cloud.auth.api.feign.fallback;
 
+ import com.taotao.boot.common.model.FeignRequest;
+ import com.taotao.boot.common.model.FeignResponse;
  import com.taotao.cloud.auth.api.feign.Oauth2ClientApi;
  import com.taotao.cloud.auth.api.feign.request.FeignClientQueryApiRequest;
  import com.taotao.cloud.auth.api.feign.response.ClientApiResponse;
@@ -33,7 +35,8 @@
      public Oauth2ClientApi create(Throwable throwable) {
          return new Oauth2ClientApi() {
 			 @Override
-			 public ClientApiResponse query(FeignClientQueryApiRequest feignClientQueryApiRequest) {
+			 public FeignResponse<ClientApiResponse> query(
+				 FeignRequest<FeignClientQueryApiRequest> feignClientQueryApiRequest) {
 				 return null;
 			 }
 		 };

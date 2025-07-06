@@ -16,6 +16,9 @@
 
 package com.taotao.cloud.auth.api.dubbo;
 
+import com.taotao.boot.common.model.RpcRequest;
+import com.taotao.boot.common.model.RpcResponse;
+import com.taotao.cloud.auth.api.dubbo.request.ClientQueryRpcRequest;
 import com.taotao.cloud.auth.api.dubbo.response.ClientRpcResponse;
 
 /**
@@ -27,5 +30,5 @@ import com.taotao.cloud.auth.api.dubbo.response.ClientRpcResponse;
  */
 public interface Oauth2ClientRpcService {
 
-	ClientRpcResponse findById(Long id);
+	RpcResponse<ClientRpcResponse> findById(RpcRequest<ClientQueryRpcRequest> clientQueryRpcRequest);
 }
