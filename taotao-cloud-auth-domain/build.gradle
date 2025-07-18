@@ -91,8 +91,8 @@ dependencies {
     api 'org.springframework.session:spring-session-data-redis:3.5.1'
 
     //https://central.sonatype.com/artifact/com.github.binarywang/weixin-java-pay?smo=true
-    api 'com.github.binarywang:weixin-java-mp:4.7.6.B'
-    api 'com.github.binarywang:weixin-java-miniapp:4.7.6.B'
+    api 'com.github.binarywang:weixin-java-mp:4.7.7.B'
+    api 'com.github.binarywang:weixin-java-miniapp:4.7.7.B'
 
     //api 'top.dcenter:justAuth-spring-security-starter:1.1.25'
 
@@ -126,7 +126,7 @@ dependencies {
     api "org.springframework.boot:spring-boot-starter-oauth2-authorization-server"
 
     //https://search.maven.org/artifact/com.nimbusds/nimbus-jose-jwt
-    api "com.nimbusds:nimbus-jose-jwt:10.3"
+    api "com.nimbusds:nimbus-jose-jwt:10.3.1"
     //https://search.maven.org/artifact/com.nimbusds/oauth2-oidc-sdk
     api 'com.nimbusds:oauth2-oidc-sdk:11.26'
 
@@ -209,7 +209,7 @@ configurations {
             force 'org.antlr:antlr4:4.13.2'
             force 'net.minidev:json-smart:2.5.2'
             //todo 临时使用
-            force "io.opentelemetry:opentelemetry-api-incubator:1.51.0-alpha"
+            force "io.opentelemetry:opentelemetry-api-incubator:1.52.0-alpha"
             force 'org.bouncycastle:bcprov-jdk18on:1.81'
             force 'org.bouncycastle:bcpkix-jdk18on:1.81'
             force 'org.bouncycastle:bcutil-jdk18on:1.81'
