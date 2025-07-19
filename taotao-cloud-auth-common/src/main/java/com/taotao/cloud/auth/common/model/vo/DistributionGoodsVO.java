@@ -19,9 +19,9 @@ package com.taotao.cloud.auth.common.model.vo;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import lombok.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.*;
 import lombok.NoArgsConstructor;
 
 /** 分销商品信息 */

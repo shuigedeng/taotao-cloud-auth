@@ -34,8 +34,8 @@ import org.springframework.stereotype.Service;
 @DubboService(interfaceClass = Oauth2ClientRpcService.class, validation = "true")
 public class DubboClientRpcService implements Oauth2ClientRpcService {
 
-	@Override
-	public ClientRpcResponse findById(Long id) {
-		return null;
-	}
+    @Override
+    public ClientRpcResponse findById(Long id) {
+        return null;
+    }
 }

@@ -54,7 +54,8 @@ public class OAuth2ApplicationController extends BusinessController {
     })
     @PutMapping
     public Result<OAuth2ApplicationPO> authorize(
-            @RequestParam(name = "applicationId") String scopeId, @RequestParam(name = "scopes[]") String[] scopes) {
+            @RequestParam(name = "applicationId") String scopeId,
+            @RequestParam(name = "scopes[]") String[] scopes) {
         OAuth2ApplicationPO application = applicationService.authorize(scopeId, scopes);
         return Result.success(application);
     }

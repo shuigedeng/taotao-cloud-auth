@@ -49,79 +49,78 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/test")
 public class MessagesController extends BusinessController {
 
-	@Autowired
-	private JwtDecoder jwtDecoder;
-	@Autowired
-	private TtcAuthorizationConsentService ttcAuthorizationConsentService;
+    @Autowired private JwtDecoder jwtDecoder;
+    @Autowired private TtcAuthorizationConsentService ttcAuthorizationConsentService;
 
-//    @Operation(summary = "测试消息NotAuth", description = "测试消息NotAuth")
-//    @GetMapping("/NotAuth/myPageQuery")
-//    @NotAuth
-//    public Result<String> myPageQuery() {
-//        Page<TtcAuthorizationConsent> ttcAuthorizationConsents = ttcAuthorizationConsentService.myPageQuery(null, null);
-//
-//        return Result.success("sadfasdf");
-//    }
+    //    @Operation(summary = "测试消息NotAuth", description = "测试消息NotAuth")
+    //    @GetMapping("/NotAuth/myPageQuery")
+    //    @NotAuth
+    //    public Result<String> myPageQuery() {
+    //        Page<TtcAuthorizationConsent> ttcAuthorizationConsents =
+    // ttcAuthorizationConsentService.myPageQuery(null, null);
+    //
+    //        return Result.success("sadfasdf");
+    //    }
 
-	// @Autowired
-	// private IFeignDictApi feignDictService;
-	//
-	// @DubboReference(check = false)
-	// private IDubboDictService dubboDictService;
+    // @Autowired
+    // private IFeignDictApi feignDictService;
+    //
+    // @DubboReference(check = false)
+    // private IDubboDictService dubboDictService;
 
-	@Operation(summary = "测试消息", description = "测试消息")
-	@GetMapping("/messages")
-	public String[] getMessages() {
-		LogUtils.info("slfdlaskdf;lasjdf;lj");
-		// DubboDictRes dubboDictRes = dubboDictService.findByCode(1);
+    @Operation(summary = "测试消息", description = "测试消息")
+    @GetMapping("/messages")
+    public String[] getMessages() {
+        LogUtils.info("slfdlaskdf;lasjdf;lj");
+        // DubboDictRes dubboDictRes = dubboDictService.findByCode(1);
 
-		// try {
-		//	FeignDictResponse feignDictResponse = feignDictService.findByCode("sd");
-		// } catch (Exception e) {
-		//	LogUtils.error(e);
-		//	throw new RuntimeException(e);
-		// }
+        // try {
+        //	FeignDictResponse feignDictResponse = feignDictService.findByCode("sd");
+        // } catch (Exception e) {
+        //	LogUtils.error(e);
+        //	throw new RuntimeException(e);
+        // }
 
-		return new String[]{"Message 1", "Message 2", "Message 3"};
-	}
+        return new String[] {"Message 1", "Message 2", "Message 3"};
+    }
 
-	@Operation(summary = "测试消息NotAuth", description = "测试消息NotAuth")
-	@GetMapping("/NotAuth/messages")
-	@NotAuth
-	public String[] getMessagesNotAuth() {
-		LogUtils.info("slfdlaskdf;lasjdf;lj NotAuth");
+    @Operation(summary = "测试消息NotAuth", description = "测试消息NotAuth")
+    @GetMapping("/NotAuth/messages")
+    @NotAuth
+    public String[] getMessagesNotAuth() {
+        LogUtils.info("slfdlaskdf;lasjdf;lj NotAuth");
 
-		return new String[]{"Message 1", "Message 2", "Message 3"};
-	}
+        return new String[] {"Message 1", "Message 2", "Message 3"};
+    }
 
-	/**
-	 * 获取当前认证的OAuth2用户信息，默认是保存在{@link jakarta.servlet.http.HttpSession}中的
-	 *
-	 * @param user OAuth2用户信息
-	 * @return OAuth2用户信息
-	 */
-	@Operation(summary = "获取当前认证的OAuth2用户信息", description = "获取当前认证的OAuth2用户信息")
-	@GetMapping("/user")
-	public Result<OAuth2User> user(@AuthenticationPrincipal OAuth2User user) {
-		return Result.success(user);
-	}
+    /**
+     * 获取当前认证的OAuth2用户信息，默认是保存在{@link jakarta.servlet.http.HttpSession}中的
+     *
+     * @param user OAuth2用户信息
+     * @return OAuth2用户信息
+     */
+    @Operation(summary = "获取当前认证的OAuth2用户信息", description = "获取当前认证的OAuth2用户信息")
+    @GetMapping("/user")
+    public Result<OAuth2User> user(@AuthenticationPrincipal OAuth2User user) {
+        return Result.success(user);
+    }
 
-//    @Operation(summary = "获取当前认证的OAuth2客户端信息", description = "v")
-//    @GetMapping("/client")
-//    public Result<OAuth2AuthorizedClient> client(
-//            @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient oAuth2AuthorizedClient) {
-//        return Result.success(oAuth2AuthorizedClient);
-//    }
+    //    @Operation(summary = "获取当前认证的OAuth2客户端信息", description = "v")
+    //    @GetMapping("/client")
+    //    public Result<OAuth2AuthorizedClient> client(
+    //            @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient oAuth2AuthorizedClient) {
+    //        return Result.success(oAuth2AuthorizedClient);
+    //    }
 
-	@GetMapping(value = "/info")
-	public Object getUserInfo() {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		Object principal = authentication.getPrincipal();
+    @GetMapping(value = "/info")
+    public Object getUserInfo() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Object principal = authentication.getPrincipal();
 
-		JwtAuthenticationToken jwtAuthenticationToken = (JwtAuthenticationToken) authentication;
-		String tokenValue = jwtAuthenticationToken.getToken().getTokenValue();
-		Jwt decode = jwtDecoder.decode(tokenValue);
+        JwtAuthenticationToken jwtAuthenticationToken = (JwtAuthenticationToken) authentication;
+        String tokenValue = jwtAuthenticationToken.getToken().getTokenValue();
+        Jwt decode = jwtDecoder.decode(tokenValue);
 
-		return authentication.getPrincipal();
-	}
+        return authentication.getPrincipal();
+    }
 }

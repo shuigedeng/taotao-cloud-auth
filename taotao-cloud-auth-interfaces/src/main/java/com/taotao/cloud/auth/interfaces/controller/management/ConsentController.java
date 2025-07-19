@@ -24,6 +24,14 @@ import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2Applica
 import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ScopeService;
 import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2ApplicationPO;
 import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2ScopePO;
+import java.security.Principal;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
 import org.springframework.security.oauth2.core.endpoint.OAuth2ParameterNames;
@@ -35,15 +43,6 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.security.Principal;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * OAuth2 授权确认页面 - controller
@@ -90,7 +89,8 @@ public class ConsentController extends BusinessController {
             @RequestParam(OAuth2ParameterNames.CLIENT_ID) String clientId,
             @RequestParam(OAuth2ParameterNames.SCOPE) String scope,
             @RequestParam(OAuth2ParameterNames.STATE) String state,
-            @RequestParam(value = OAuth2ParameterNames.USER_CODE, required = false) String userCode) {
+            @RequestParam(value = OAuth2ParameterNames.USER_CODE, required = false)
+                    String userCode) {
 
         // 待授权的scope
         Set<String> scopesToApprove = new HashSet<>();
@@ -102,12 +102,14 @@ public class ConsentController extends BusinessController {
         OAuth2AuthorizationConsent currentAuthorizationConsent =
                 this.authorizationConsentService.findById(clientId, principal.getName());
         // 当前Client下用户已经授权的scope
-        Set<String> authorizedScopes = Optional.ofNullable(currentAuthorizationConsent)
-                .map(OAuth2AuthorizationConsent::getScopes)
-                .orElse(Collections.emptySet());
+        Set<String> authorizedScopes =
+                Optional.ofNullable(currentAuthorizationConsent)
+                        .map(OAuth2AuthorizationConsent::getScopes)
+                        .orElse(Collections.emptySet());
 
         // 遍历请求的scope，提取之前已授权过 和 待授权的scope
-        for (String requestedScope : StringUtils.delimitedListToStringArray(scope, SymbolConstants.SPACE)) {
+        for (String requestedScope :
+                StringUtils.delimitedListToStringArray(scope, SymbolConstants.SPACE)) {
             if (OidcScopes.OPENID.equals(requestedScope)) {
                 continue;
             }
@@ -119,7 +121,8 @@ public class ConsentController extends BusinessController {
             }
         }
 
-        Set<String> redirectUris = StringUtils.commaDelimitedListToSet(application.getRedirectUris());
+        Set<String> redirectUris =
+                StringUtils.commaDelimitedListToSet(application.getRedirectUris());
 
         // 输出信息指consent页面
         model.addAttribute("clientId", clientId);
@@ -143,7 +146,11 @@ public class ConsentController extends BusinessController {
         List<OAuth2ScopePO> scopes = scopeService.findAll();
         if (CollectionUtils.isNotEmpty(scopes)) {
             if (MapUtils.isEmpty(dictionaries) || scopes.size() != dictionaries.size()) {
-                dictionaries = scopes.stream().collect(Collectors.toMap(OAuth2ScopePO::getScopeCode, item -> item));
+                dictionaries =
+                        scopes.stream()
+                                .collect(
+                                        Collectors.toMap(
+                                                OAuth2ScopePO::getScopeCode, item -> item));
             }
         }
     }
@@ -166,7 +173,8 @@ public class ConsentController extends BusinessController {
 
     private Option scopeToOption(OAuth2ScopePO scope) {
         Option option = new Option();
-        String label = scope.getDescription() == null ? scope.getScopeName() : scope.getDescription();
+        String label =
+                scope.getDescription() == null ? scope.getScopeName() : scope.getDescription();
         option.setLabel(label);
         option.setValue(scope.getScopeCode());
         return option;

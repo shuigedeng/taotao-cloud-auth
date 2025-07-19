@@ -54,7 +54,8 @@ public class OAuth2DeviceController extends BusinessController {
     })
     @PutMapping
     public Result<OAuth2DevicePO> authorize(
-            @RequestParam(name = "deviceId") String deviceId, @RequestParam(name = "scopes[]") String[] scopes) {
+            @RequestParam(name = "deviceId") String deviceId,
+            @RequestParam(name = "scopes[]") String[] scopes) {
         OAuth2DevicePO device = deviceService.authorize(deviceId, scopes);
         return Result.success(device);
     }

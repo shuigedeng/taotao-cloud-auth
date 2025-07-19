@@ -17,50 +17,49 @@
 package com.taotao.cloud.auth.domain.oauth2.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.auth.domain.oauth2.entity.Oauth2;
 import com.taotao.boot.common.model.PageQuery;
+import com.taotao.cloud.auth.domain.oauth2.entity.Oauth2;
 
 public interface Oauth2DomainService {
 
-	/**
-	 * 新增字典.
-	 *
-	 * @param oauth2 字典对象
-	 * @return 新增结果
-	 */
-	Boolean insert(Oauth2 oauth2);
+    /**
+     * 新增字典.
+     *
+     * @param oauth2 字典对象
+     * @return 新增结果
+     */
+    Boolean insert(Oauth2 oauth2);
 
-	/**
-	 * 修改字典.
-	 *
-	 * @param oauth2 字典对象
-	 * @return 修改结果
-	 */
-	Boolean update(Oauth2 oauth2);
+    /**
+     * 修改字典.
+     *
+     * @param oauth2 字典对象
+     * @return 修改结果
+     */
+    Boolean update(Oauth2 oauth2);
 
-	/**
-	 * 根据ID查看字典.
-	 *
-	 * @param id ID
-	 * @return 字典
-	 */
-	Oauth2 getById(Long id);
+    /**
+     * 根据ID查看字典.
+     *
+     * @param id ID
+     * @return 字典
+     */
+    Oauth2 getById(Long id);
 
-	/**
-	 * 根据ID删除字典.
-	 *
-	 * @param id ID
-	 * @return 删除结果
-	 */
-	Boolean deleteById(Long id);
+    /**
+     * 根据ID删除字典.
+     *
+     * @param id ID
+     * @return 删除结果
+     */
+    Boolean deleteById(Long id);
 
-	/**
-	 * 查询字典列表.
-	 *
-	 * @param oauth2      字典对象
-	 * @param pageQuery 分页参数
-	 * @return 字典列表
-	 */
-	IPage<Oauth2> list(Oauth2 oauth2, PageQuery pageQuery);
-
+    /**
+     * 查询字典列表.
+     *
+     * @param oauth2      字典对象
+     * @param pageQuery 分页参数
+     * @return 字典列表
+     */
+    IPage<Oauth2> list(Oauth2 oauth2, PageQuery pageQuery);
 }

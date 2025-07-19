@@ -31,14 +31,13 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
 import jakarta.validation.constraints.NotBlank;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Map;
 
 /**
  * <p>OAuth2ComplianceController </p>
@@ -65,7 +64,9 @@ public class OAuth2ComplianceController extends BusinessController {
                 @ApiResponse(
                         description = "人员分页列表",
                         content =
-                                @Content(mediaType = "application/json", schema = @Schema(implementation = Map.class)))
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = Map.class)))
             })
     @Parameters({
         @Parameter(name = "pageNumber", required = true, description = "当前页码"),
@@ -82,7 +83,8 @@ public class OAuth2ComplianceController extends BusinessController {
             @RequestParam(value = "clientId", required = false) String clientId,
             @RequestParam(value = "ip", required = false) String ip) {
         Page<OAuth2CompliancePO> pages =
-                complianceService.findByCondition(pageNumber, pageSize, principalName, clientId, ip);
+                complianceService.findByCondition(
+                        pageNumber, pageSize, principalName, clientId, ip);
         return Result.success(JpaUtils.convertJpaPage(pages, OAuth2CompliancePO.class));
     }
 }

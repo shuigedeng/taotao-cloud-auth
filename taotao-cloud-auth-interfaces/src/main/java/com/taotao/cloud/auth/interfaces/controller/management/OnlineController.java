@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.interfaces.controller.management; // package com.taotao.cloud.auth.biz.controller;
+package com.taotao.cloud.auth.interfaces.controller.management; // package
+                                                                // com.taotao.cloud.auth.biz.controller;
 //
 // import java.io.IOException;
 // import java.util.Set;

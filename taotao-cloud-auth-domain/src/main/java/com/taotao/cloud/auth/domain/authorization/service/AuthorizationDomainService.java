@@ -17,50 +17,49 @@
 package com.taotao.cloud.auth.domain.authorization.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.auth.domain.authorization.entity.Authorization;
 import com.taotao.boot.common.model.PageQuery;
+import com.taotao.cloud.auth.domain.authorization.entity.Authorization;
 
 public interface AuthorizationDomainService {
 
-	/**
-	 * 新增字典.
-	 *
-	 * @param authorization 字典对象
-	 * @return 新增结果
-	 */
-	Boolean insert(Authorization authorization);
+    /**
+     * 新增字典.
+     *
+     * @param authorization 字典对象
+     * @return 新增结果
+     */
+    Boolean insert(Authorization authorization);
 
-	/**
-	 * 修改字典.
-	 *
-	 * @param authorization 字典对象
-	 * @return 修改结果
-	 */
-	Boolean update(Authorization authorization);
+    /**
+     * 修改字典.
+     *
+     * @param authorization 字典对象
+     * @return 修改结果
+     */
+    Boolean update(Authorization authorization);
 
-	/**
-	 * 根据ID查看字典.
-	 *
-	 * @param id ID
-	 * @return 字典
-	 */
-	Authorization getById(Long id);
+    /**
+     * 根据ID查看字典.
+     *
+     * @param id ID
+     * @return 字典
+     */
+    Authorization getById(Long id);
 
-	/**
-	 * 根据ID删除字典.
-	 *
-	 * @param id ID
-	 * @return 删除结果
-	 */
-	Boolean deleteById(Long id);
+    /**
+     * 根据ID删除字典.
+     *
+     * @param id ID
+     * @return 删除结果
+     */
+    Boolean deleteById(Long id);
 
-	/**
-	 * 查询字典列表.
-	 *
-	 * @param authorization      字典对象
-	 * @param pageQuery 分页参数
-	 * @return 字典列表
-	 */
-	IPage<Authorization> list(Authorization authorization, PageQuery pageQuery);
-
+    /**
+     * 查询字典列表.
+     *
+     * @param authorization      字典对象
+     * @param pageQuery 分页参数
+     * @return 字典列表
+     */
+    IPage<Authorization> list(Authorization authorization, PageQuery pageQuery);
 }

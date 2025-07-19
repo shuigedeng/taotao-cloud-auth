@@ -27,14 +27,14 @@ import lombok.extern.slf4j.Slf4j;
 @GRpcService
 public class Oauth2ServiceGrpc extends Oauth2ServiceImplBase {
 
-	@Override
-	public void loginByQQ(Oauth2Request request, StreamObserver<BooleanReply> responseObserver) {
-		super.loginByQQ(request, responseObserver);
-	}
+    @Override
+    public void loginByQQ(Oauth2Request request, StreamObserver<BooleanReply> responseObserver) {
+        super.loginByQQ(request, responseObserver);
+    }
 
-	@Override
-	public void loginByWechat(Oauth2Request request,
-		StreamObserver<Oauth2Response> responseObserver) {
-		super.loginByWechat(request, responseObserver);
-	}
+    @Override
+    public void loginByWechat(
+            Oauth2Request request, StreamObserver<Oauth2Response> responseObserver) {
+        super.loginByWechat(request, responseObserver);
+    }
 }

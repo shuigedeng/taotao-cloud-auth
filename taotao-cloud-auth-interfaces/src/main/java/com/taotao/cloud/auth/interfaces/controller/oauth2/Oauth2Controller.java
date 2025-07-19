@@ -26,6 +26,9 @@ import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.auth.infrastructure.authentication.federation.Oauth2UserinfoResult;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import java.security.Principal;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -40,9 +43,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.security.Principal;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 /**
  * Oath2Controller
  *
@@ -56,8 +56,7 @@ import java.time.ZoneOffset;
 @RequestMapping("/auth/oauth2")
 public class Oauth2Controller extends BusinessController {
 
-    @Autowired
-    private RedisRepository redisRepository;
+    @Autowired private RedisRepository redisRepository;
 
     /**
      * 获取当前认证的OAuth2用户信息，默认是保存在{@link jakarta.servlet.http.HttpSession}中的
@@ -79,14 +78,14 @@ public class Oauth2Controller extends BusinessController {
      * @param oAuth2AuthorizedClient OAuth2客户端信息
      * @return OAuth2客户端信息
      */
-//    @Operation(summary = "获取当前认证的OAuth2客户端信息", description = "v")
-//    // @RequestLogger
-//    @PreAuthorize("hasAuthority('express:company:info:id')")
-//    @GetMapping("/client")
-//    public Result<OAuth2AuthorizedClient> user(
-//            @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient oAuth2AuthorizedClient) {
-//        return Result.success(oAuth2AuthorizedClient);
-//    }
+    //    @Operation(summary = "获取当前认证的OAuth2客户端信息", description = "v")
+    //    // @RequestLogger
+    //    @PreAuthorize("hasAuthority('express:company:info:id')")
+    //    @GetMapping("/client")
+    //    public Result<OAuth2AuthorizedClient> user(
+    //            @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient oAuth2AuthorizedClient) {
+    //        return Result.success(oAuth2AuthorizedClient);
+    //    }
 
     @Operation(summary = "退出系统", description = "退出系统")
     // @RequestLogger
@@ -98,11 +97,11 @@ public class Oauth2Controller extends BusinessController {
             String kid = (String) jwt.getHeaders().get("kid");
             try {
                 long epochSecond = jwt.getExpiresAt().getEpochSecond();
-                long nowTime =
-                        LocalDateTime.now().toInstant(ZoneOffset.of("+8")).getEpochSecond();
+                long nowTime = LocalDateTime.now().toInstant(ZoneOffset.of("+8")).getEpochSecond();
 
                 // 标识jwt令牌失效
-                redisRepository.setEx(RedisConstant.LOGOUT_JWT_KEY_PREFIX + kid, "", epochSecond - nowTime);
+                redisRepository.setEx(
+                        RedisConstant.LOGOUT_JWT_KEY_PREFIX + kid, "", epochSecond - nowTime);
 
                 // 添加用户退出日志
 
@@ -117,63 +116,66 @@ public class Oauth2Controller extends BusinessController {
         throw new BaseException("退出失败");
     }
 
-	@ResponseBody
-	@GetMapping("/userInfo")
-	public Oauth2UserinfoResult user(Principal principal) {
-		Oauth2UserinfoResult result = new Oauth2UserinfoResult();
-//		if (!(principal instanceof JwtAuthenticationToken jwtAuthenticationToken)) {
-//			return result;
-//		}
-//		// 获取jwt解析内容
-//		Jwt token = jwtAuthenticationToken.getToken();
-//		// 获取当前用户的账号
-//		String account = token.getClaim(JwtClaimNames.SUB);
-//		// 获取scope
-//		List<String> scopes = token.getClaimAsStringList("scope");
-//		List<String> claimAsStringList = token.getClaimAsStringList(AUTHORITIES_KEY);
-//		if (!ObjUtil.isEmpty(claimAsStringList)) {
-//			scopes = null;
-//		}
-//		LambdaQueryWrapper<Oauth2BasicUser> accountWrapper = Wrappers.lambdaQuery(Oauth2BasicUser.class)
-//			.eq(Oauth2BasicUser::getAccount, account);
-//		Oauth2BasicUser basicUser = basicUserService.getOne(accountWrapper);
-//		if (basicUser != null) {
-//			// 填充用户的权限信息
-//			this.fillUserAuthority(claimAsStringList, basicUser, scopes);
-//			BeanUtils.copyProperties(basicUser, result);
-//			// 根据用户信息查询三方登录信息
-//			LambdaQueryWrapper<Oauth2ThirdAccount> userIdWrapper =
-//				Wrappers.lambdaQuery(Oauth2ThirdAccount.class)
-//					.eq(Oauth2ThirdAccount::getUserId, basicUser.getId());
-//			Oauth2ThirdAccount oauth2ThirdAccount = thirdAccountService.getOne(userIdWrapper);
-//			if (oauth2ThirdAccount == null) {
-//				return result;
-//			}
-//			result.setCredentials(oauth2ThirdAccount.getCredentials());
-//			result.setThirdUsername(oauth2ThirdAccount.getThirdUsername());
-//			result.setCredentialsExpiresAt(oauth2ThirdAccount.getCredentialsExpiresAt());
-//			return result;
-//		}
-//		// 根据当前sub去三方登录表去查
-//		LambdaQueryWrapper<Oauth2ThirdAccount> wrapper = Wrappers.lambdaQuery(Oauth2ThirdAccount.class)
-//			.eq(Oauth2ThirdAccount::getThirdUsername, account)
-//			.eq(Oauth2ThirdAccount::getType, token.getClaim("loginType"));
-//		Oauth2ThirdAccount oauth2ThirdAccount = thirdAccountService.getOne(wrapper);
-//		if (oauth2ThirdAccount == null) {
-//			return result;
-//		}
-//		// 查到之后反查基础用户表
-//		Oauth2BasicUser oauth2BasicUser = basicUserService.getById(oauth2ThirdAccount.getUserId());
-//		BeanUtils.copyProperties(oauth2BasicUser, result);
-//		// 填充用户的权限信息
-//		this.fillUserAuthority(claimAsStringList, oauth2BasicUser, scopes);
-//		// 复制基础用户信息
-//		BeanUtils.copyProperties(oauth2BasicUser, result);
-		// 设置三方用户信息
-//		result.setLocation(oauth2ThirdAccount.getLocation());
-//		result.setCredentials(oauth2ThirdAccount.getCredentials());
-//		result.setThirdUsername(oauth2ThirdAccount.getThirdUsername());
-//		result.setCredentialsExpiresAt(oauth2ThirdAccount.getCredentialsExpiresAt());
-		return result;
-	}
+    @ResponseBody
+    @GetMapping("/userInfo")
+    public Oauth2UserinfoResult user(Principal principal) {
+        Oauth2UserinfoResult result = new Oauth2UserinfoResult();
+        //		if (!(principal instanceof JwtAuthenticationToken jwtAuthenticationToken)) {
+        //			return result;
+        //		}
+        //		// 获取jwt解析内容
+        //		Jwt token = jwtAuthenticationToken.getToken();
+        //		// 获取当前用户的账号
+        //		String account = token.getClaim(JwtClaimNames.SUB);
+        //		// 获取scope
+        //		List<String> scopes = token.getClaimAsStringList("scope");
+        //		List<String> claimAsStringList = token.getClaimAsStringList(AUTHORITIES_KEY);
+        //		if (!ObjUtil.isEmpty(claimAsStringList)) {
+        //			scopes = null;
+        //		}
+        //		LambdaQueryWrapper<Oauth2BasicUser> accountWrapper =
+        // Wrappers.lambdaQuery(Oauth2BasicUser.class)
+        //			.eq(Oauth2BasicUser::getAccount, account);
+        //		Oauth2BasicUser basicUser = basicUserService.getOne(accountWrapper);
+        //		if (basicUser != null) {
+        //			// 填充用户的权限信息
+        //			this.fillUserAuthority(claimAsStringList, basicUser, scopes);
+        //			BeanUtils.copyProperties(basicUser, result);
+        //			// 根据用户信息查询三方登录信息
+        //			LambdaQueryWrapper<Oauth2ThirdAccount> userIdWrapper =
+        //				Wrappers.lambdaQuery(Oauth2ThirdAccount.class)
+        //					.eq(Oauth2ThirdAccount::getUserId, basicUser.getId());
+        //			Oauth2ThirdAccount oauth2ThirdAccount = thirdAccountService.getOne(userIdWrapper);
+        //			if (oauth2ThirdAccount == null) {
+        //				return result;
+        //			}
+        //			result.setCredentials(oauth2ThirdAccount.getCredentials());
+        //			result.setThirdUsername(oauth2ThirdAccount.getThirdUsername());
+        //			result.setCredentialsExpiresAt(oauth2ThirdAccount.getCredentialsExpiresAt());
+        //			return result;
+        //		}
+        //		// 根据当前sub去三方登录表去查
+        //		LambdaQueryWrapper<Oauth2ThirdAccount> wrapper =
+        // Wrappers.lambdaQuery(Oauth2ThirdAccount.class)
+        //			.eq(Oauth2ThirdAccount::getThirdUsername, account)
+        //			.eq(Oauth2ThirdAccount::getType, token.getClaim("loginType"));
+        //		Oauth2ThirdAccount oauth2ThirdAccount = thirdAccountService.getOne(wrapper);
+        //		if (oauth2ThirdAccount == null) {
+        //			return result;
+        //		}
+        //		// 查到之后反查基础用户表
+        //		Oauth2BasicUser oauth2BasicUser =
+        // basicUserService.getById(oauth2ThirdAccount.getUserId());
+        //		BeanUtils.copyProperties(oauth2BasicUser, result);
+        //		// 填充用户的权限信息
+        //		this.fillUserAuthority(claimAsStringList, oauth2BasicUser, scopes);
+        //		// 复制基础用户信息
+        //		BeanUtils.copyProperties(oauth2BasicUser, result);
+        // 设置三方用户信息
+        //		result.setLocation(oauth2ThirdAccount.getLocation());
+        //		result.setCredentials(oauth2ThirdAccount.getCredentials());
+        //		result.setThirdUsername(oauth2ThirdAccount.getThirdUsername());
+        //		result.setCredentialsExpiresAt(oauth2ThirdAccount.getCredentialsExpiresAt());
+        return result;
+    }
 }
