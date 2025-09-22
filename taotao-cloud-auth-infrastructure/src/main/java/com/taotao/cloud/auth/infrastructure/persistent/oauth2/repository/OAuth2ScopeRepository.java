@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.infrastructure.persistent.oauth2.repository;
 
-import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
 import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2ScopePO;
 import java.util.List;
 
@@ -25,7 +25,7 @@ import java.util.List;
  *
  * @since : 2020/3/19 16:57
  */
-public interface OAuth2ScopeRepository extends BaseInterfaceSuperRepository<OAuth2ScopePO, String> {
+public interface OAuth2ScopeRepository extends JpaSuperRepository<OAuth2ScopePO, String> {
 
 	/**
 	 * 根据范围代码查询应用范围

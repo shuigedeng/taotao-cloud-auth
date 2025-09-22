@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.repository;
 
-import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.generator.TtcAuthorizationConsentId;
 import com.taotao.cloud.auth.infrastructure.persistent.authorization.persistence.AuthorizationConsentPO;
 import jakarta.persistence.QueryHint;
