@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.interfaces.controller.oauth2;
 
-import com.taotao.boot.common.model.PageResult;
-import com.taotao.boot.common.model.Result;
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.jpa.utils.JpaUtils;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ComplianceService;

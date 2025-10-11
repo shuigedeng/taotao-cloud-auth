@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.interfaces.controller.management;
 
-import com.taotao.boot.common.model.Result;
+import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.security.spring.authentication.stamp.SignInErrorStatus;
 import com.taotao.boot.security.spring.authentication.stamp.SignInFailureLimitedStampManager;
 import com.taotao.boot.webagg.controller.BusinessController;

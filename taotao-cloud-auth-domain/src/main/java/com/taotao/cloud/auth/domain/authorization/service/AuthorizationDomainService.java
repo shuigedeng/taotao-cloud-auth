@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.domain.authorization.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.PageQuery;
+import com.taotao.boot.common.model.request.PageQuery;
 import com.taotao.cloud.auth.domain.authorization.entity.Authorization;
 
 public interface AuthorizationDomainService {

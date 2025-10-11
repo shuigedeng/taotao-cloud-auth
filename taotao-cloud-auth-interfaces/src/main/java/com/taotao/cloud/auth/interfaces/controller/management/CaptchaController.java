@@ -19,7 +19,7 @@ package com.taotao.cloud.auth.interfaces.controller.management;
 import com.taotao.boot.captcha.support.core.dto.Captcha;
 import com.taotao.boot.captcha.support.core.dto.Verification;
 import com.taotao.boot.captcha.support.core.processor.CaptchaRendererFactory;
-import com.taotao.boot.common.model.Result;
+import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.webagg.controller.BusinessController;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

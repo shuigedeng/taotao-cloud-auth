@@ -17,8 +17,8 @@
  package com.taotao.cloud.auth.api.feign;
 
  import com.taotao.boot.common.constant.ServiceNameConstants;
- import com.taotao.boot.common.model.FeignRequest;
- import com.taotao.boot.common.model.FeignResponse;
+ import com.taotao.boot.common.model.request.Request;
+ import com.taotao.boot.common.model.response.Response;
  import com.taotao.cloud.auth.api.feign.fallback.Oauth2ClientApiFallback;
  import com.taotao.cloud.auth.api.feign.request.FeignClientQueryApiRequest;
  import com.taotao.cloud.auth.api.feign.response.ClientApiResponse;
@@ -41,6 +41,6 @@
  public interface Oauth2ClientApi {
 
 	 @PostMapping(value = "/auth/feign/query")
-	 FeignResponse<ClientApiResponse> query(
-		 @Validated @RequestBody FeignRequest<FeignClientQueryApiRequest> feignClientQueryApiRequest);
+	 Response<ClientApiResponse> query(
+		 @Validated @RequestBody Request<FeignClientQueryApiRequest> feignClientQueryApiRequest);
  }

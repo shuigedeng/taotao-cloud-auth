@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.domain.oauth2.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.PageQuery;
+import com.taotao.boot.common.model.request.PageQuery;
 import com.taotao.cloud.auth.domain.oauth2.entity.Oauth2;
 import com.taotao.cloud.auth.domain.oauth2.repository.Oauth2Repository;
 import com.taotao.cloud.auth.domain.oauth2.service.Oauth2DomainService;
