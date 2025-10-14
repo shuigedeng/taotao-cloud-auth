@@ -3,7 +3,7 @@
 package com.taotao.cloud.auth.application.command.management.executor.query;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.auth.application.adapter.DictAdapter;
+import com.taotao.cloud.auth.application.assembler.DictAssembler;
 import com.taotao.cloud.auth.application.command.management.dto.DictListQry;
 import com.taotao.cloud.auth.application.command.management.dto.clientobject.DictCO;
 import com.taotao.cloud.auth.application.converter.DictConvert;
@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 public class DictListQryExe {
 
 	private final DictDomainService dictDomainService;
-	private final DictAdapter dictAdapter;
+	private final DictAssembler dictAdapter;
 	private final DictConvert dictConvert;
 	private final DictMapper dictMapper;
 

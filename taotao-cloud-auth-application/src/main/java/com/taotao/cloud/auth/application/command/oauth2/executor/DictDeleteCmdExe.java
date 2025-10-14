@@ -2,7 +2,7 @@
 
 package com.taotao.cloud.auth.application.command.oauth2.executor;
 
-import com.taotao.cloud.auth.application.adapter.DictAdapter;
+import com.taotao.cloud.auth.application.assembler.DictAssembler;
 import com.taotao.cloud.auth.application.command.oauth2.dto.DictDeleteCmd;
 import com.taotao.cloud.auth.application.converter.DictConvert;
 import com.taotao.cloud.auth.domain.dict.service.DictDomainService;
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 public class DictDeleteCmdExe {
 
 	private final DictDomainService dictDomainService;
-	private final DictAdapter dictAdapter;
+	private final DictAssembler dictAdapter;
 	private final DictConvert dictConvert;
 	private final DictMapper dictMapper;
 

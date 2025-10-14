@@ -2,7 +2,7 @@
 
 package com.taotao.cloud.auth.application.command.management.executor.query;
 
-import com.taotao.cloud.auth.application.adapter.DictAdapter;
+import com.taotao.cloud.auth.application.assembler.DictAssembler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class DictGetQryExe {
 
 	private final DictDomainService dictDomainService;
-	private final DictAdapter dictAdapter;
+	private final DictAssembler dictAdapter;
 	private final DictConvert dictConvert;
 	private final DictMapper dictMapper;
 

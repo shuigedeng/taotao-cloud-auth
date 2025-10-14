@@ -14,28 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.domain.oauth2.event;
+package com.taotao.cloud.auth.common.enums;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
-
-/**
- *
- */
-@Setter
-@Getter
-@ToString
-@SuperBuilder
-@AllArgsConstructor
-@NoArgsConstructor
-@Schema(name = "OperateLogEvent", description = "操作日志事件")
-public class Oauth2CreateEvent {
-
-    private static final long serialVersionUID = -6523521638764501311L;
-
-    @Schema(name = "name", description = "操作名称")
-    private String name;
+public enum FindTypeEnums {
+    LIST,
+    TREE_LIST,
+    USER_TREE_LIST
 }

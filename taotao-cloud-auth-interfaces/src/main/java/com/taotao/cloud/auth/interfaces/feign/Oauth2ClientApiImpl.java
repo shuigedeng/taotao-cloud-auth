@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.interfaces.feign;
 
-import com.taotao.boot.webagg.controller.ApiController;
+import com.taotao.boot.webagg.controller.FeignController;
 import com.taotao.cloud.auth.api.feign.Oauth2ClientApi;
 import com.taotao.cloud.auth.api.feign.request.FeignClientQueryApiRequest;
 import com.taotao.cloud.auth.api.feign.response.ClientApiResponse;
@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @RequestMapping("/sys/feign/dict")
-public class Oauth2ClientApiImpl extends ApiController implements Oauth2ClientApi {
+public class Oauth2ClientApiImpl extends FeignController implements Oauth2ClientApi {
 
     @Override
     public ClientApiResponse query(FeignClientQueryApiRequest feignClientQueryApiRequest) {

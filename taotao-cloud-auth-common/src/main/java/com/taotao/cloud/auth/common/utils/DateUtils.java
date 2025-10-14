@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.common.helper;
+package com.taotao.cloud.auth.common.utils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

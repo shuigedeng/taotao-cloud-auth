@@ -2,7 +2,7 @@
 
 package com.taotao.cloud.auth.application.command.management.executor.query;
 
-import com.taotao.cloud.auth.application.adapter.DictAdapter;
+import com.taotao.cloud.auth.application.assembler.DictAssembler;
 import com.taotao.cloud.auth.application.command.management.dto.DictOptionListQry;
 import com.taotao.cloud.auth.application.command.management.dto.clientobject.OptionCO;
 import com.taotao.cloud.auth.application.converter.DictConvert;
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 public class DictOptionListQryExe {
 
 	private final DictDomainService dictDomainService;
-	private final DictAdapter dictAdapter;
+	private final DictAssembler dictAdapter;
 	private final DictConvert dictConvert;
 	private final DictMapper dictMapper;
 
