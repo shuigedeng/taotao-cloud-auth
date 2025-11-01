@@ -18,7 +18,6 @@ package com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp1;
 
 import cn.hutool.extra.qrcode.QrCodeUtil;
 import cn.hutool.extra.qrcode.QrConfig;
-import org.dromara.hutool.swing.img.ImgUtil;
 import org.springframework.stereotype.Service;
 
 /**

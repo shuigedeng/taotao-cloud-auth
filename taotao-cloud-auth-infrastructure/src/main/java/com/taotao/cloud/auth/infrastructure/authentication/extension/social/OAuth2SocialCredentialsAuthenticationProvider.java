@@ -27,7 +27,6 @@ import com.taotao.boot.security.spring.oauth2.TtcAuthorizationGrantType;
 import java.security.Principal;
 import java.util.Map;
 import java.util.Set;
-import org.dromara.hutool.core.bean.BeanUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.MutablePropertyValues;

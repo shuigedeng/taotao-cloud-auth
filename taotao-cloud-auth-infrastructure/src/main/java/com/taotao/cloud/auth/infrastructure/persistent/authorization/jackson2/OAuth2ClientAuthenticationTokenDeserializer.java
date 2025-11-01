@@ -26,7 +26,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.taotao.boot.security.spring.core.authority.TtcGrantedAuthority;
 import com.taotao.boot.security.spring.utils.JsonNodeUtils;
 import org.apache.commons.collections4.CollectionUtils;
-import org.dromara.hutool.core.reflect.FieldUtil;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.server.authorization.authentication.OAuth2ClientAuthenticationToken;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;

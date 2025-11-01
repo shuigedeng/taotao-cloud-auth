@@ -28,7 +28,6 @@ import com.taotao.boot.security.spring.exception.StampHasExpiredException;
 import java.time.Duration;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.dromara.hutool.core.data.id.IdUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

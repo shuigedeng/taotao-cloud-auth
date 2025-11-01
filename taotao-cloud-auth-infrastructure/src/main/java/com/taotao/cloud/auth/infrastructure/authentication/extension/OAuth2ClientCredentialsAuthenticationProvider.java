@@ -21,7 +21,6 @@ import com.taotao.cloud.auth.infrastructure.utils.OAuth2AuthenticationProviderUt
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import org.dromara.hutool.core.reflect.FieldUtil;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

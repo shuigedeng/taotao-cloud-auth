@@ -30,7 +30,6 @@ import com.taotao.cloud.sys.api.feign.SocialUserApi;
 import com.taotao.cloud.sys.api.feign.UserApi;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.dromara.hutool.core.bean.BeanUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

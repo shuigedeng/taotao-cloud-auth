@@ -21,7 +21,6 @@ import com.taotao.boot.captcha.support.core.definition.AbstractRenderer;
 import com.taotao.boot.security.spring.exception.MaximumLimitExceededException;
 import java.time.Duration;
 import org.apache.commons.lang3.ObjectUtils;
-import org.dromara.hutool.crypto.SecureUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
