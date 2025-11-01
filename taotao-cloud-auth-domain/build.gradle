@@ -88,7 +88,7 @@ dependencies {
     api "io.github.shuigedeng:taotao-boot-starter-security-justauth"
 
     //https://central.sonatype.com/artifact/org.springframework.session/spring-session-data-redis
-    api 'org.springframework.session:spring-session-data-redis:3.5.2'
+    api 'org.springframework.session:spring-session-data-redis:3.5.3'
 
     //https://central.sonatype.com/artifact/com.github.binarywang/weixin-java-pay?smo=true
     api 'com.github.binarywang:weixin-java-mp:4.7.8.B'
@@ -128,7 +128,7 @@ dependencies {
     //https://search.maven.org/artifact/com.nimbusds/nimbus-jose-jwt
     api "com.nimbusds:nimbus-jose-jwt:10.5"
     //https://search.maven.org/artifact/com.nimbusds/oauth2-oidc-sdk
-    api 'com.nimbusds:oauth2-oidc-sdk:11.29.1'
+    api 'com.nimbusds:oauth2-oidc-sdk:11.30'
 
     api "org.apache.commons:commons-collections4"
 
@@ -146,7 +146,7 @@ dependencies {
 
     // 阿里云app手机一键登录
     //https://search.maven.org/artifact/com.aliyun/dypnsapi20170525
-    api 'com.aliyun:dypnsapi20170525:1.2.3'
+    api 'com.aliyun:dypnsapi20170525:2.0.0'
 
 
 

@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.auth.api.feign.response;
 
+import com.taotao.boot.common.model.response.ResponseBase;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
@@ -40,7 +41,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "公司查询VO")
-public class ClientApiResponse implements Serializable {
+public class ClientApiResponse extends ResponseBase implements Serializable {
 
     @Serial
     private static final long serialVersionUID = -4132785717179910025L;

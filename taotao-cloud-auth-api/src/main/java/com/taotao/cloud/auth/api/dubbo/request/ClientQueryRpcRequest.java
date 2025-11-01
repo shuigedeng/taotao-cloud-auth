@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.auth.api.dubbo.request;
 
+import com.taotao.boot.common.model.request.RequestBase;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
@@ -36,7 +37,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientQueryRpcRequest implements Serializable {
+public class ClientQueryRpcRequest extends RequestBase implements Serializable {
 
     private static final long serialVersionUID = 5126530068827085130L;
 
