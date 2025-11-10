@@ -37,7 +37,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @ToString
 @Builder
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "公司查询VO")
