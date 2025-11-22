@@ -82,7 +82,7 @@ dependencies {
     api "io.github.shuigedeng:taotao-boot-starter-job-quartz"
     api "io.github.shuigedeng:taotao-boot-starter-statemachine"
     api "io.github.shuigedeng:taotao-boot-starter-flowengine"
-    api "io.github.shuigedeng:taotao-boot-starter-web"
+    api "io.github.shuigedeng:taotao-boot-starter-webmvc"
     api "io.github.shuigedeng:taotao-boot-starter-webagg"
     api "io.github.shuigedeng:taotao-boot-starter-security-spring"
     api "io.github.shuigedeng:taotao-boot-starter-security-justauth"
