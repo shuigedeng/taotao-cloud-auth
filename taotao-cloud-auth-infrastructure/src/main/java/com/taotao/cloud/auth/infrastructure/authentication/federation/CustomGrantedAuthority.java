@@ -1,6 +1,6 @@
 package com.taotao.cloud.auth.infrastructure.authentication.federation;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import tools.jackson.databind.annotation.JsonSerialize;
 import lombok.AllArgsConstructor;
 import lombok.*;
 import lombok.NoArgsConstructor;

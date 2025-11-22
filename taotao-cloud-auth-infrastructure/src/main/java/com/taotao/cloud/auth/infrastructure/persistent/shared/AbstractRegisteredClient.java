@@ -17,8 +17,8 @@
 package com.taotao.cloud.auth.infrastructure.persistent.shared;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import tools.jackson.databind.annotation.JsonDeserialize;
+import tools.jackson.databind.annotation.JsonSerialize;
 import com.taotao.boot.data.jpa.tenant.BaseSysEntity;
 import com.taotao.boot.security.spring.constants.DefaultConstants;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;

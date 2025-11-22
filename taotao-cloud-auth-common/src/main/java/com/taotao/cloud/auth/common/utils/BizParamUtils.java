@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.common.utils;
 
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

@@ -126,9 +126,9 @@ dependencies {
     api "org.springframework.boot:spring-boot-starter-oauth2-authorization-server"
 
     //https://search.maven.org/artifact/com.nimbusds/nimbus-jose-jwt
-    api "com.nimbusds:nimbus-jose-jwt:10.5"
+    api "com.nimbusds:nimbus-jose-jwt:10.6"
     //https://search.maven.org/artifact/com.nimbusds/oauth2-oidc-sdk
-    api 'com.nimbusds:oauth2-oidc-sdk:11.30'
+    api 'com.nimbusds:oauth2-oidc-sdk:11.30.1'
 
     api "org.apache.commons:commons-collections4"
 
@@ -185,8 +185,8 @@ dependencies {
 
     annotationProcessor "com.querydsl:querydsl-apt:5.1.0:jakarta"
     api "com.querydsl:querydsl-jpa:5.1.0:jakarta"
-    api "jakarta.persistence:jakarta.persistence-api:3.1.0"
-    annotationProcessor "jakarta.persistence:jakarta.persistence-api:3.1.0"
+    api "jakarta.persistence:jakarta.persistence-api:3.2.0"
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api:3.2.0"
 
 }
 
@@ -209,7 +209,7 @@ configurations {
             force 'org.antlr:antlr4:4.13.2'
             force 'net.minidev:json-smart:2.6.0'
             //todo 临时使用
-            force "io.opentelemetry:opentelemetry-api-incubator:1.55.0-alpha"
+            force "io.opentelemetry:opentelemetry-api-incubator:1.56.0-alpha"
             force 'org.bouncycastle:bcprov-jdk18on:1.82'
             force 'org.bouncycastle:bcpkix-jdk18on:1.82'
             force 'org.bouncycastle:bcutil-jdk18on:1.82'
@@ -232,7 +232,8 @@ configurations {
         //exclude group: "org.apache.logging.log4j", module: "log4j-slf4j-impl"
         //exclude group: "org.apache.logging.log4j", module: "log4j-to-slf4j"
         //exclude group: "org.apache.logging.log4j", module: "log4j-api"
-        exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
+        //exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
+exclude group: "org.springframework.boot", module: "spring-boot-starter-undertow"
         exclude group: "commons-logging", module: "commons-logging"
         exclude group: "org.bouncycastle", module: "bcprov-jdk15on"
         exclude group: "org.bouncycastle", module: "bcpkix-jdk15on"

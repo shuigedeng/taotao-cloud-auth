@@ -16,13 +16,13 @@
 
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.jackson2;
 
-import com.fasterxml.jackson.core.JacksonException;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonParser;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.JsonDeserializer;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
 import com.taotao.boot.security.spring.utils.JsonNodeUtils;
 import java.io.IOException;
 import java.time.Instant;
@@ -39,7 +39,7 @@ import org.springframework.security.oauth2.server.authorization.settings.TokenSe
  *
  * @since : 2022/10/24 15:11
  */
-public class RegisteredClientDeserializer extends JsonDeserializer<RegisteredClient> {
+public class RegisteredClientDeserializer extends ValueDeserializer<RegisteredClient> {
 
     private static final TypeReference<Set<ClientAuthenticationMethod>> CLIENT_AUTHENTICATION_METHOD_SET =
             new TypeReference<Set<ClientAuthenticationMethod>>() {};

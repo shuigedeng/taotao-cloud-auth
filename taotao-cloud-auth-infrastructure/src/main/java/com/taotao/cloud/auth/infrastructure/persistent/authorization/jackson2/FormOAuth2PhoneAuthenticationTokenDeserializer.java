@@ -16,16 +16,16 @@
 
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.jackson2;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import tools.jackson.core.JsonParseException;
+import tools.jackson.core.JsonParser;
+import tools.jackson.core.JsonProcessingException;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.JsonDeserializer;
+import tools.jackson.databind.JsonMappingException;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.node.MissingNode;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -47,7 +47,7 @@ import java.util.List;
  * @since 4.2
  */
 public class FormOAuth2PhoneAuthenticationTokenDeserializer
-	extends JsonDeserializer<Oauth2FormSmsLoginAuthenticationToken> {
+	extends ValueDeserializer<Oauth2FormSmsLoginAuthenticationToken> {
 
 	private static final TypeReference<List<GrantedAuthority>> GRANTED_AUTHORITY_LIST =
 		new TypeReference<List<GrantedAuthority>>() {

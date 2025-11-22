@@ -16,10 +16,10 @@
 
 package com.taotao.cloud.auth.infrastructure.persistent.shared.jackson2;
 
-import com.fasterxml.jackson.core.JacksonException;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonParser;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.JsonDeserializer;
 
 import java.io.IOException;
 import java.time.Instant;
@@ -32,7 +32,7 @@ import java.time.ZoneId;
  * @author : gengwei.zheng
  * @date : 2023/9/22 16:46
  */
-public class TimestampToLocalDateTimeDeserializer extends JsonDeserializer<LocalDateTime> {
+public class TimestampToLocalDateTimeDeserializer extends ValueDeserializer<LocalDateTime> {
     @Override
     public LocalDateTime deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
 

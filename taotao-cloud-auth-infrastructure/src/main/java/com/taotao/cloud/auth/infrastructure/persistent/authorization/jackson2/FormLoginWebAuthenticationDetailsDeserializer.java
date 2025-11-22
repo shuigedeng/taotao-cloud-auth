@@ -16,13 +16,13 @@
 
 package com.taotao.cloud.auth.infrastructure.persistent.authorization.jackson2;
 
-import com.fasterxml.jackson.core.JacksonException;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.MissingNode;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonParser;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.JsonDeserializer;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.node.MissingNode;
 import com.taotao.boot.security.spring.authentication.login.form.FormLoginWebAuthenticationDetails;
 
 import java.io.IOException;
@@ -32,7 +32,7 @@ import java.io.IOException;
  *
  * @since : 2022/4/14 11:48
  */
-public class FormLoginWebAuthenticationDetailsDeserializer extends JsonDeserializer<FormLoginWebAuthenticationDetails> {
+public class FormLoginWebAuthenticationDetailsDeserializer extends ValueDeserializer<FormLoginWebAuthenticationDetails> {
 	@Override
 	public FormLoginWebAuthenticationDetails deserialize(JsonParser jp, DeserializationContext deserializationContext)
 		throws IOException, JacksonException {
