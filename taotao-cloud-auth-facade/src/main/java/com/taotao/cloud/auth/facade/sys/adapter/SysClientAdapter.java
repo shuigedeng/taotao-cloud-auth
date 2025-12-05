@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.facade.sys.adapter;
 
 import com.taotao.cloud.auth.facade.sys.vo.DictVO;
-import com.taotao.cloud.sys.api.feign.response.DictApiResponse;
+import com.taotao.cloud.sys.api.client.response.DictApiResponse;
 import org.springframework.stereotype.Component;
 
 @Component

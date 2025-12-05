@@ -14,18 +14,18 @@
   * limitations under the License.
   */
 
- package com.taotao.cloud.auth.api.feign;
+ package com.taotao.cloud.auth.api.client;
 
  import com.taotao.boot.common.constant.ServiceNameConstants;
  import com.taotao.boot.common.model.request.Request;
  import com.taotao.boot.common.model.response.Response;
- import com.taotao.cloud.auth.api.feign.fallback.Oauth2ClientApiFallback;
- import com.taotao.cloud.auth.api.feign.request.FeignClientQueryApiRequest;
- import com.taotao.cloud.auth.api.feign.response.ClientApiResponse;
- import org.springframework.cloud.openfeign.FeignClient;
+ import com.taotao.cloud.auth.api.client.fallback.Oauth2ClientApiFallback;
+ import com.taotao.cloud.auth.api.client.request.FeignClientQueryApiRequest;
+ import com.taotao.cloud.auth.api.client.response.ClientApiResponse;
  import org.springframework.validation.annotation.Validated;
- import org.springframework.web.bind.annotation.PostMapping;
  import org.springframework.web.bind.annotation.RequestBody;
+ import org.springframework.web.service.annotation.HttpExchange;
+ import org.springframework.web.service.annotation.PostExchange;
 
  /**
   * 远程调用客户端
@@ -34,13 +34,11 @@
   * @version 2022.03
   * @since 2020/5/2 16:42
   */
- @FeignClient(
-	 contextId = "Oauth2ClientApi",
-	 value = ServiceNameConstants.TAOTAO_CLOUD_AUTH,
-	 fallbackFactory = Oauth2ClientApiFallback.class)
+ @HttpExchange(
+	 value = ServiceNameConstants.TAOTAO_CLOUD_AUTH)
  public interface Oauth2ClientApi {
 
-	 @PostMapping(value = "/auth/feign/query")
+	 @PostExchange(value = "/auth/feign/query")
 	 Response<ClientApiResponse> query(
 		 @Validated @RequestBody Request<FeignClientQueryApiRequest> feignClientQueryApiRequest);
  }

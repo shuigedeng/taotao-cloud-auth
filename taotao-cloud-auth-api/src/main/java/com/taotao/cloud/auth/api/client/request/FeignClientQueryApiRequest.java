@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.api.feign.request;
+package com.taotao.cloud.auth.api.client.request;
 
 import com.taotao.boot.common.model.request.RequestBase;
+import lombok.*;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.*;
-import lombok.NoArgsConstructor;
 
 /**
  * 菜单查询对象

@@ -20,7 +20,7 @@ import com.taotao.boot.security.spring.core.AccessPrincipal;
 import com.taotao.boot.security.spring.core.authority.TtcGrantedAuthority;
 import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.AbstractStrategyUserDetailsService;
 import com.taotao.boot.security.spring.core.userdetails.TtcUser;
-import com.taotao.cloud.sys.api.feign.UserApi;
+import com.taotao.cloud.sys.api.client.UserApi;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
