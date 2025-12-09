@@ -17,9 +17,9 @@
 package com.taotao.cloud.auth.interfaces.feign;
 
 import com.taotao.boot.webagg.controller.FeignController;
-import com.taotao.cloud.auth.api.client.Oauth2ClientApi;
-import com.taotao.cloud.auth.api.client.request.FeignClientQueryApiRequest;
-import com.taotao.cloud.auth.api.client.response.ClientApiResponse;
+import com.taotao.cloud.auth.api.inner.Oauth2ClientApi;
+import com.taotao.cloud.auth.api.inner.request.FeignClientQueryApiRequest;
+import com.taotao.cloud.auth.api.inner.response.ClientApiResponse;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
