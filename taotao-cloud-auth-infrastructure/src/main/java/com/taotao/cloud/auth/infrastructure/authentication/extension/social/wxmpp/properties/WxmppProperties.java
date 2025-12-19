@@ -24,7 +24,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * <p>微信公众号属性配置 </p>
  *
- *
  * @since : 2021/4/7 13:17
  */
 @ConfigurationProperties(prefix = AccessConstants.PROPERTY_ACCESS_WXMPP)
@@ -48,7 +47,7 @@ public class WxmppProperties {
         return useRedis;
     }
 
-    public void setUseRedis(boolean useRedis) {
+    public void setUseRedis( boolean useRedis ) {
         this.useRedis = useRedis;
     }
 
@@ -56,7 +55,7 @@ public class WxmppProperties {
         return redis;
     }
 
-    public void setRedis(RedisConfig redis) {
+    public void setRedis( RedisConfig redis ) {
         this.redis = redis;
     }
 
@@ -64,11 +63,19 @@ public class WxmppProperties {
         return enabled;
     }
 
-    public void setEnabled(Boolean enabled) {
+    public void setEnabled( Boolean enabled ) {
         this.enabled = enabled;
     }
 
+    /**
+     * RedisConfig
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
     public static class RedisConfig {
+
         /**
          * redis服务器 主机地址
          */
@@ -83,7 +90,7 @@ public class WxmppProperties {
             return host;
         }
 
-        public void setHost(String host) {
+        public void setHost( String host ) {
             this.host = host;
         }
 
@@ -91,7 +98,7 @@ public class WxmppProperties {
             return port;
         }
 
-        public void setPort(Integer port) {
+        public void setPort( Integer port ) {
             this.port = port;
         }
 
@@ -113,11 +120,19 @@ public class WxmppProperties {
         return configs;
     }
 
-    public void setConfigs(List<MpConfig> configs) {
+    public void setConfigs( List<MpConfig> configs ) {
         this.configs = configs;
     }
 
+    /**
+     * MpConfig
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
     public static class MpConfig {
+
         /**
          * 设置微信公众号的appid
          */
@@ -142,7 +157,7 @@ public class WxmppProperties {
             return appId;
         }
 
-        public void setAppId(String appId) {
+        public void setAppId( String appId ) {
             this.appId = appId;
         }
 
@@ -150,7 +165,7 @@ public class WxmppProperties {
             return secret;
         }
 
-        public void setSecret(String secret) {
+        public void setSecret( String secret ) {
             this.secret = secret;
         }
 
@@ -158,7 +173,7 @@ public class WxmppProperties {
             return token;
         }
 
-        public void setToken(String token) {
+        public void setToken( String token ) {
             this.token = token;
         }
 
@@ -166,7 +181,7 @@ public class WxmppProperties {
             return aesKey;
         }
 
-        public void setAesKey(String aesKey) {
+        public void setAesKey( String aesKey ) {
             this.aesKey = aesKey;
         }
 

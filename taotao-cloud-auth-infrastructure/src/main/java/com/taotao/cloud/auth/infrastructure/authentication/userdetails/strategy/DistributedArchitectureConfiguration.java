@@ -38,38 +38,45 @@ import org.springframework.context.annotation.Configuration;
 @Configuration(proxyBeanMethods = false)
 public class DistributedArchitectureConfiguration {
 
-	private static final Logger log = LoggerFactory.getLogger(
-		DistributedArchitectureConfiguration.class);
+    private static final Logger log = LoggerFactory.getLogger(
+            DistributedArchitectureConfiguration.class);
 
-	@PostConstruct
-	public void postConstruct() {
-		log.debug(" Module [Distributed Architecture] Auto Configure.");
-	}
+    @PostConstruct
+    public void postConstruct() {
+        log.debug(" Module [Distributed Architecture] Auto Configure.");
+    }
 
 
-	// 默认使用feign方式
-	@Configuration(proxyBeanMethods = false)
-	@ConditionalOnProperty(
-		prefix = "taotao.cloud.auth.remote",
-		name = "enabled",
-		havingValue = "true",
-		matchIfMissing = true)
-	static class DataAccessStrategyRemoteConfiguration {
+    // 默认使用feign方式
+    /**
+     * DataAccessStrategyRemoteConfiguration
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
+    @Configuration(proxyBeanMethods = false)
+    @ConditionalOnProperty(
+            prefix = "taotao.cloud.auth.remote",
+            name = "enabled",
+            havingValue = "true",
+            matchIfMissing = true)
+    static class DataAccessStrategyRemoteConfiguration {
 
-		@Bean
-		@ConditionalOnMissingBean
-		public StrategyUserDetailsService remoteUserDetailsService(UserApi userApi) {
-			log.debug(" Strategy [Remote User Details Service] Auto Configure.");
-			return new RemoteUserDetailsService(userApi);
-		}
+        @Bean
+        @ConditionalOnMissingBean
+        public StrategyUserDetailsService remoteUserDetailsService( UserApi userApi ) {
+            log.debug(" Strategy [Remote User Details Service] Auto Configure.");
+            return new RemoteUserDetailsService(userApi);
+        }
 
-		@Bean
-		@ConditionalOnMissingBean
-		public StrategyPermissionDetailsService remotePermissionDetailsService() {
-			RemotePermissionDetailsService remotePermissionDetailsService =
-				new RemotePermissionDetailsService();
-			log.debug(" Strategy [Remote Permission Details Service] Auto Configure.");
-			return remotePermissionDetailsService;
-		}
-	}
+        @Bean
+        @ConditionalOnMissingBean
+        public StrategyPermissionDetailsService remotePermissionDetailsService() {
+            RemotePermissionDetailsService remotePermissionDetailsService =
+                    new RemotePermissionDetailsService();
+            log.debug(" Strategy [Remote Permission Details Service] Auto Configure.");
+            return remotePermissionDetailsService;
+        }
+    }
 }

@@ -22,6 +22,13 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * BaiduFaceConfiguration
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Configuration
 @EnableConfigurationProperties({BaiduFaceProperties.class})
 public class BaiduFaceConfiguration {

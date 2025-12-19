@@ -27,13 +27,23 @@ import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * SysDictClientProxy
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Component
 public class SysDictClientProxy {
 
-    @Autowired private DictApi dictApi;
-    @DubboReference private DictRpcService dictRpcService;
+    @Autowired
+    private DictApi dictApi;
+    @DubboReference
+    private DictRpcService dictRpcService;
 
-    @Resource private SysClientAdapter sysClientAdapter;
+    @Resource
+    private SysClientAdapter sysClientAdapter;
 
     // 查询用户
     public DictVO findByCode() {

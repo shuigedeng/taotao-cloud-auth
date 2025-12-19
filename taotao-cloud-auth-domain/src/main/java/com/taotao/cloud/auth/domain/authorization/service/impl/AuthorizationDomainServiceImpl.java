@@ -22,32 +22,39 @@ import com.taotao.cloud.auth.domain.authorization.entity.Authorization;
 import com.taotao.cloud.auth.domain.authorization.repository.AuthorizationRepository;
 import com.taotao.cloud.auth.domain.authorization.service.AuthorizationDomainService;
 
+/**
+ * AuthorizationDomainServiceImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class AuthorizationDomainServiceImpl implements AuthorizationDomainService {
 
     private AuthorizationRepository authorizationRepository;
 
     @Override
-    public Boolean insert(Authorization authorization) {
+    public Boolean insert( Authorization authorization ) {
         return null;
     }
 
     @Override
-    public Boolean update(Authorization authorization) {
+    public Boolean update( Authorization authorization ) {
         return null;
     }
 
     @Override
-    public Authorization getById(Long id) {
+    public Authorization getById( Long id ) {
         return null;
     }
 
     @Override
-    public Boolean deleteById(Long id) {
+    public Boolean deleteById( Long id ) {
         return null;
     }
 
     @Override
-    public IPage<Authorization> list(Authorization authorization, PageQuery pageQuery) {
+    public IPage<Authorization> list( Authorization authorization, PageQuery pageQuery ) {
         //		return deptRepository.list(deptEntity, pageQuery);
         return null;
     }

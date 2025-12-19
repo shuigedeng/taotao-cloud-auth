@@ -20,19 +20,35 @@ import lombok.*;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 
+/**
+ * BaiduFaceProperties
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Setter
 @Getter
 @ToString
 @RefreshScope
 @ConfigurationProperties(prefix = BaiduFaceProperties.PREFIX)
 public class BaiduFaceProperties {
+
     public static final String PREFIX = "auth.baidu.face";
-    /** appId */
+    /**
+     * appId
+     */
     private String appId;
-    /** api key */
+    /**
+     * api key
+     */
     private String apiKey;
-    /** secret key */
+    /**
+     * secret key
+     */
     private String secretKey;
-    /** 用户组 可以没有 */
+    /**
+     * 用户组 可以没有
+     */
     private String groupId;
 }

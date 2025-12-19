@@ -18,6 +18,7 @@ package com.taotao.cloud.auth.infrastructure.extension.oneClick.mobtech;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -33,13 +34,21 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+/**
+ * Auth
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class Auth {
+
     private static String appkey = "*******";
     private static String appSecret = "*****";
     private static String authHost = "http://identify.verify.mob.com/";
     private static String url = authHost + "auth/auth/sdkClientFreeLogin";
 
-    public static String getPhoneNumber(String mbToken, String opToken, String operator) throws Exception {
+    public static String getPhoneNumber( String mbToken, String opToken, String operator ) throws Exception {
         HashMap<String, Object> request = new HashMap<>();
         request.put("appkey", appkey);
         request.put("token", mbToken);
@@ -61,28 +70,8 @@ public class Auth {
         return jsondata.getString("phone");
     }
 
-    //    public static void main(String[] args) throws Exception {
-    //        String authHost = "http://identify.verify.mob.com/";
-    //        String url = authHost + "auth/auth/sdkClientFreeLogin";
-    //        HashMap<String, Object> request = new HashMap<>();
-    //        request.put("appkey", appkey);
-    //        request.put("token", token);
-    //        request.put("opToken", opToken);
-    //        request.put("operator", operator);
-    //        request.put("timestamp", System.currentTimeMillis());
-    //        request.put("sign", SignUtil.getSign(request, appSecret));
-    //        String response = postRequestNoSecurity(url, null, request);
-    //
-    //        JSONObject jsonObject = JSONObject.parseObject(response);
-    //        if (200 == jsonObject.getInteger("status")) {
-    //            String res = jsonObject.getString("res");
-    //            byte[] decode = DES.decode(Base64Utils.decode(res.getBytes()), appSecret.getBytes());
-    //            jsonObject.put("res", JSONObject.parseObject(new String(decode)));
-    //        }
-    //        LogUtils.info(jsonObject);
-    //    }
-
-    public static String postRequestNoSecurity(String url, Map<String, String> headers, Object data) throws Exception {
+    public static String postRequestNoSecurity( String url, Map<String, String> headers, Object data )
+            throws Exception {
         String securityReq = JSON.toJSONString(data);
         OkHttpClient okHttpClient =
                 new OkHttpClient.Builder().readTimeout(30, TimeUnit.SECONDS).build();

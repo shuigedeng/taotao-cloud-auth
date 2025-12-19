@@ -19,12 +19,19 @@ package com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.utils;
 import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.entity.User;
 import org.springframework.stereotype.Component;
 
+/**
+ * HostHolder
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Component
 public class HostHolder {
 
     private ThreadLocal<User> users = new ThreadLocal<>();
 
-    public void setUser(User user) {
+    public void setUser( User user ) {
         users.set(user);
     }
 

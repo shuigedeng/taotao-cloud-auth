@@ -19,17 +19,25 @@ package com.taotao.cloud.auth.infrastructure.extension.oneClick.mobtech.utils;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * SignUtil
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class SignUtil {
+
     private static String charset = "utf8";
 
-    public static String getSign(Map<String, Object> data, String secret) {
+    public static String getSign( Map<String, Object> data, String secret ) {
         if (data == null) {
             return null;
         }
         // 排序参数
         Map<String, Object> mappingList = new TreeMap<>(data);
         StringBuilder plainText = new StringBuilder();
-        mappingList.forEach((k, v) -> {
+        mappingList.forEach(( k, v ) -> {
             if (!"sign".equals(k) && !BaseUtils.isEmpty(v)) {
                 plainText.append(String.format("%s=%s&", k, v));
             }

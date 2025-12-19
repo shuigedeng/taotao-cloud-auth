@@ -19,6 +19,13 @@ package com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * HomeController
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class HomeController extends BusinessController {
 
     @RequestMapping(path = "/index", method = RequestMethod.GET)

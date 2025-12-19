@@ -19,6 +19,13 @@ package com.taotao.cloud.auth.infrastructure.extension.face.baidutmp;
 import org.springframework.beans.factory.annotation.Autowired;
 
 // @Service
+/**
+ * FaceService
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class FaceService {
 
     @Autowired
@@ -27,7 +34,7 @@ public class FaceService {
     /**
      * 人脸登录
      */
-    public String loginByFace(StringBuffer imagebast64) {
+    public String loginByFace( StringBuffer imagebast64 ) {
         // 处理base64编码内容
         String image = imagebast64.substring(imagebast64.indexOf(",") + 1, imagebast64.length());
         String userId = baiduAiUtils.faceSearch(image);
@@ -37,7 +44,7 @@ public class FaceService {
     /**
      * 人脸注册
      */
-    public Boolean registerFace(String userId, StringBuffer imagebast64) {
+    public Boolean registerFace( String userId, StringBuffer imagebast64 ) {
         // 处理base64编码内容
         String image = imagebast64.substring(imagebast64.indexOf(",") + 1, imagebast64.length());
         Boolean registerFace = baiduAiUtils.faceRegister(userId, image);

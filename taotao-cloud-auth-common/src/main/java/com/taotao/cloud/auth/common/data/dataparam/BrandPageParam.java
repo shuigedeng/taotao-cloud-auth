@@ -22,6 +22,13 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * BrandPageParam
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @EqualsAndHashCode(callSuper = true)
 @Setter
 @Getter
@@ -40,14 +47,15 @@ public class BrandPageParam extends PageQuery {
         private String name;
         private PageQuery pageQuery;
 
-        private BrandPageParamBuilder() {}
+        private BrandPageParamBuilder() {
+        }
 
-        public BrandPageParamBuilder name(String name) {
+        public BrandPageParamBuilder name( String name ) {
             this.name = name;
             return this;
         }
 
-        public BrandPageParamBuilder pageQuery(PageQuery pageQuery) {
+        public BrandPageParamBuilder pageQuery( PageQuery pageQuery ) {
             this.pageQuery = pageQuery;
             return this;
         }

@@ -16,4 +16,13 @@
 
 package com.taotao.cloud.auth.domain.oauth2.valueobject;
 
-public class Oauth2Val {}
+/**
+ * Oauth2Val
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
+public class Oauth2Val {
+
+}

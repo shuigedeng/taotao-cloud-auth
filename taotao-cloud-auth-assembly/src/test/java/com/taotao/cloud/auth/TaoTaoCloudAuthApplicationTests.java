@@ -18,5 +18,14 @@ package com.taotao.cloud.auth;
 
 import org.springframework.boot.test.context.SpringBootTest;
 
+/**
+ * TaoTaoCloudAuthApplicationTests
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @SpringBootTest
-public class TaoTaoCloudAuthApplicationTests {}
+public class TaoTaoCloudAuthApplicationTests {
+
+}

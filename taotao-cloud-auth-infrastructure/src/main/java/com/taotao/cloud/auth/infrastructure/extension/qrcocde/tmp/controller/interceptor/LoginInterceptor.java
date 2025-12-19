@@ -26,6 +26,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+/**
+ * LoginInterceptor
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class LoginInterceptor implements HandlerInterceptor {
 
     private HostHolder hostHolder;
@@ -35,7 +42,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     private UserService userService;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+    public boolean preHandle( HttpServletRequest request, HttpServletResponse response, Object handler )
             throws Exception {
 
         String accessToken = request.getHeader("access_token");
@@ -49,7 +56,8 @@ public class LoginInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+    public void afterCompletion( HttpServletRequest request, HttpServletResponse response, Object handler,
+            Exception ex )
             throws Exception {
         hostHolder.clear();
     }

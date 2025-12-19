@@ -20,10 +20,17 @@ import com.taotao.cloud.auth.facade.sys.vo.DictVO;
 import com.taotao.cloud.sys.api.inner.response.DictApiResponse;
 import org.springframework.stereotype.Component;
 
+/**
+ * SysClientAdapter
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Component
 public class SysClientAdapter {
 
-    public DictVO convert(DictApiResponse dictApiResponse) {
+    public DictVO convert( DictApiResponse dictApiResponse ) {
         DictVO dictVO = new DictVO();
         dictVO.setDictName(dictApiResponse.dictName());
         dictVO.setDictCode(dictApiResponse.dictCode());

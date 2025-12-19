@@ -19,13 +19,22 @@ package com.taotao.cloud.auth.infrastructure.extension.face.baidutmp;
 import com.baidu.aip.face.AipFace;
 import com.taotao.boot.common.utils.log.LogUtils;
 import jakarta.annotation.PostConstruct;
+
 import java.util.HashMap;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 
 // @Component
 // @Slf4j
+/**
+ * BaiduAiUtils
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class BaiduAiUtils {
 
     @Value("${baidu.face.appId}")
@@ -62,7 +71,7 @@ public class BaiduAiUtils {
     /**
      * 用户照片存入人脸库中
      */
-    public Boolean faceRegister(String userId, String image) {
+    public Boolean faceRegister( String userId, String image ) {
         JSONObject res = client.addUser(image, IMAGE_TYPE, groupId, userId, map);
         LogUtils.info("addUser result ：{}", res);
         Integer errorCode = res.getInt("error_code");
@@ -72,7 +81,7 @@ public class BaiduAiUtils {
     /**
      * 更新人脸库中的用户照片
      */
-    public Boolean faceUpdate(String userId, String image) {
+    public Boolean faceUpdate( String userId, String image ) {
         JSONObject res = client.updateUser(image, IMAGE_TYPE, groupId, userId, map);
         LogUtils.info("updateUser result ：{}", res);
         Integer errorCode = res.getInt("error_code");
@@ -82,7 +91,7 @@ public class BaiduAiUtils {
     /**
      * 判断上传的图片中是否具有面部信息
      */
-    public Boolean faceCheck(String image) {
+    public Boolean faceCheck( String image ) {
         JSONObject res = client.detect(image, IMAGE_TYPE, new HashMap<>());
         LogUtils.info("detect result ：{}", res);
         if (res.has("error_code") && res.getInt("error_code") == 0) {
@@ -99,7 +108,7 @@ public class BaiduAiUtils {
      * <p>
      * 2.判断人脸匹配得分（score）大于80分则认为是同一个人
      */
-    public String faceSearch(String image) {
+    public String faceSearch( String image ) {
         JSONObject res = client.search(image, IMAGE_TYPE, groupId, new HashMap<>());
         LogUtils.info("search result ：{}", res);
         if (res.has("error_code") && res.getInt("error_code") == 0) {

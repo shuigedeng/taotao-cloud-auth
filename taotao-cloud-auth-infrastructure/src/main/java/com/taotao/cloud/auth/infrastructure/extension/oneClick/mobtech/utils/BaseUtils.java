@@ -20,18 +20,25 @@ import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Map;
 
+/**
+ * BaseUtils
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class BaseUtils {
 
-    public static boolean isEmpty(Object target) {
+    public static boolean isEmpty( Object target ) {
         if (target == null) {
             return true;
         }
         if (target instanceof String && target.equals("")) {
             return true;
         } else if (target instanceof Collection) {
-            return ((Collection<?>) target).isEmpty();
+            return ( (Collection<?>) target ).isEmpty();
         } else if (target instanceof Map) {
-            return ((Map<?, ?>) target).isEmpty();
+            return ( (Map<?, ?>) target ).isEmpty();
         } else if (target.getClass().isArray()) {
             return Array.getLength(target) == 0;
         }

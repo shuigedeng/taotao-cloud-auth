@@ -17,7 +17,9 @@
 package com.taotao.cloud.auth.infrastructure.extension.face.baidutmp;
 
 import com.alibaba.fastjson2.JSONObject;
+
 import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 // @Controller
 // @RequestMapping("/user")
+/**
+ * UserController
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class UserController extends BusinessController {
 
     @Autowired
@@ -41,7 +50,7 @@ public class UserController extends BusinessController {
      */
     @RequestMapping("/login")
     @ResponseBody
-    public JSONObject searchface(@RequestBody JSONObject jsonObject) {
+    public JSONObject searchface( @RequestBody JSONObject jsonObject ) {
         StringBuffer imagebast64 = new StringBuffer(jsonObject.getString("imagebast64"));
         String userId = faceService.loginByFace(imagebast64);
         JSONObject res = new JSONObject();
@@ -55,7 +64,7 @@ public class UserController extends BusinessController {
      */
     @RequestMapping("/register")
     @ResponseBody
-    public JSONObject registerFace(@RequestBody JSONObject jsonObject) {
+    public JSONObject registerFace( @RequestBody JSONObject jsonObject ) {
         StringBuffer imagebast64 = new StringBuffer(jsonObject.getString("imagebast64"));
         String userId = UUID.randomUUID().toString().substring(0, 4);
         Boolean registerFace = faceService.registerFace(userId, imagebast64);

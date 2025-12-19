@@ -16,4 +16,13 @@
 
 package com.taotao.cloud.auth.domain.oauth2.entity;
 
-public class Oauth2 {}
+/**
+ * Oauth2
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
+public class Oauth2 {
+
+}

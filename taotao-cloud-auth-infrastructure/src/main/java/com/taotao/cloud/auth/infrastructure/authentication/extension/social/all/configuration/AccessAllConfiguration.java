@@ -37,70 +37,51 @@ import org.springframework.context.annotation.Import;
 @Import({JustAuthConfiguration.class, WxappConfiguration.class, WxmppConfiguration.class})
 public class AccessAllConfiguration {
 
-	private static final Logger log = LoggerFactory.getLogger(AccessAllConfiguration.class);
+    private static final Logger log = LoggerFactory.getLogger(AccessAllConfiguration.class);
 
-	@PostConstruct
-	public void init() {
-		log.debug("SDK [Access All] Auto Configure.");
-	}
+    @PostConstruct
+    public void init() {
+        log.debug("SDK [Access All] Auto Configure.");
+    }
 
-	//	@Configuration(proxyBeanMethods = false)
-	//	@ConditionalOnSmsEnabled
-	//	@Import({SmsConfiguration.class})
-	//	static class PhoneNumberSignInConfiguration {
-	//
-	//		@Bean(AccountType.PHONE_NUMBER_HANDLER)
-	//		@ConditionalOnBean({VerificationCodeStampManager.class, SmsSendStrategyFactory.class})
-	//		public PhoneNumberAccessHandler phoneNumberAccessHandler(VerificationCodeStampManager
-	// verificationCodeStampManager, SmsSendStrategyFactory smsSendStrategyFactory) {
-	//			PhoneNumberAccessHandler phoneNumberAuthenticationHandler = new
-	// PhoneNumberAccessHandler(verificationCodeStampManager, smsSendStrategyFactory);
-	//			log.trace("Bean [Phone Number SignIn Handler] Auto Configure.");
-	//			return phoneNumberAuthenticationHandler;
-	//		}
-	//	}
+    //	@Configuration(proxyBeanMethods = false)
+    //	@ConditionalOnSmsEnabled
+    //	@Import({SmsConfiguration.class})
+    //	static class PhoneNumberSignInConfiguration {
+    //
+    //		@Bean(AccountType.PHONE_NUMBER_HANDLER)
+    //		@ConditionalOnBean({VerificationCodeStampManager.class, SmsSendStrategyFactory.class})
+    //		public PhoneNumberAccessHandler phoneNumberAccessHandler(VerificationCodeStampManager
+    // verificationCodeStampManager, SmsSendStrategyFactory smsSendStrategyFactory) {
+    //			PhoneNumberAccessHandler phoneNumberAuthenticationHandler = new
+    // PhoneNumberAccessHandler(verificationCodeStampManager, smsSendStrategyFactory);
+    //			log.trace("Bean [Phone Number SignIn Handler] Auto Configure.");
+    //			return phoneNumberAuthenticationHandler;
+    //		}
+    //	}
 
-	@Bean
-	@ConditionalOnMissingBean(AccessHandlerStrategyFactory.class)
-	public AccessHandlerStrategyFactory accessHandlerStrategyFactory() {
-		AccessHandlerStrategyFactory accessHandlerStrategyFactory = new AccessHandlerStrategyFactory();
-		log.trace("Bean [Access Handler Strategy Factory] Auto Configure.");
-		return accessHandlerStrategyFactory;
-	}
+    @Bean
+    @ConditionalOnMissingBean(AccessHandlerStrategyFactory.class)
+    public AccessHandlerStrategyFactory accessHandlerStrategyFactory() {
+        AccessHandlerStrategyFactory accessHandlerStrategyFactory = new AccessHandlerStrategyFactory();
+        log.trace("Bean [Access Handler Strategy Factory] Auto Configure.");
+        return accessHandlerStrategyFactory;
+    }
 
-	@Configuration(proxyBeanMethods = false)
-	static class ControllerConfiguration {
+    /**
+     * ControllerConfiguration
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
+    @Configuration(proxyBeanMethods = false)
+    static class ControllerConfiguration {
 
-		@PostConstruct
-		public void init() {
-			log.debug("SDK [Access All Controller] Auto Configure.");
-		}
+        @PostConstruct
+        public void init() {
+            log.debug("SDK [Access All Controller] Auto Configure.");
+        }
 
-		//		@Bean
-		//		@ConditionalOnSmsEnabled
-		//		@ConditionalOnMissingBean
-		//		public PhoneNumberAccessController phoneNumberAccessController() {
-		//			PhoneNumberAccessController phoneNumberAuthenticationController = new PhoneNumberAccessController();
-		//			log.trace("Bean [Phone Number Access Controller] Auto Configure.");
-		//			return phoneNumberAuthenticationController;
-		//		}
-
-		//		@Bean
-		//		@ConditionalOnJustAuthEnabled
-		//		@ConditionalOnMissingBean
-		//		public JustAuthAccessController justAuthSignInController() {
-		//			JustAuthAccessController justAuthAuthenticationController = new JustAuthAccessController();
-		//			log.trace("Bean [Just Auth Access Controller] Auto Configure.");
-		//			return justAuthAuthenticationController;
-		//		}
-
-		//		@Bean
-		//		@ConditionalOnWxappEnabled
-		//		@ConditionalOnMissingBean
-		//		public WxappAccessController wxappAccessController() {
-		//			WxappAccessController wxappAccessController = new WxappAccessController();
-		//			log.trace("Bean [Wxapp Access Controller] Auto Configure.");
-		//			return wxappAccessController;
-		//		}
-	}
+    }
 }

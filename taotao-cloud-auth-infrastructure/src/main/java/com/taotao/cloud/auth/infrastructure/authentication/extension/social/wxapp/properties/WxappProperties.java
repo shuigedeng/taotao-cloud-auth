@@ -26,7 +26,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * <p>微信小程序配置属性 </p>
  *
- *
  * @since : 2021/3/26 17:27
  */
 @ConfigurationProperties(prefix = AccessConstants.PROPERTY_ACCESS_WXAPP)
@@ -55,7 +54,7 @@ public class WxappProperties implements Serializable {
         return defaultAppId;
     }
 
-    public void setDefaultAppId(String defaultAppId) {
+    public void setDefaultAppId( String defaultAppId ) {
         this.defaultAppId = defaultAppId;
     }
 
@@ -63,7 +62,7 @@ public class WxappProperties implements Serializable {
         return configs;
     }
 
-    public void setConfigs(List<Config> configs) {
+    public void setConfigs( List<Config> configs ) {
         this.configs = configs;
     }
 
@@ -71,7 +70,7 @@ public class WxappProperties implements Serializable {
         return subscribes;
     }
 
-    public void setSubscribes(List<Subscribe> subscribes) {
+    public void setSubscribes( List<Subscribe> subscribes ) {
         this.subscribes = subscribes;
     }
 
@@ -79,11 +78,19 @@ public class WxappProperties implements Serializable {
         return enabled;
     }
 
-    public void setEnabled(Boolean enabled) {
+    public void setEnabled( Boolean enabled ) {
         this.enabled = enabled;
     }
 
+    /**
+     * Config
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
     public static class Config {
+
         /**
          * 设置微信小程序的appid
          */
@@ -113,7 +120,7 @@ public class WxappProperties implements Serializable {
             return appId;
         }
 
-        public void setAppId(String appId) {
+        public void setAppId( String appId ) {
             this.appId = appId;
         }
 
@@ -121,7 +128,7 @@ public class WxappProperties implements Serializable {
             return secret;
         }
 
-        public void setSecret(String secret) {
+        public void setSecret( String secret ) {
             this.secret = secret;
         }
 
@@ -129,7 +136,7 @@ public class WxappProperties implements Serializable {
             return token;
         }
 
-        public void setToken(String token) {
+        public void setToken( String token ) {
             this.token = token;
         }
 
@@ -137,7 +144,7 @@ public class WxappProperties implements Serializable {
             return aesKey;
         }
 
-        public void setAesKey(String aesKey) {
+        public void setAesKey( String aesKey ) {
             this.aesKey = aesKey;
         }
 
@@ -145,7 +152,7 @@ public class WxappProperties implements Serializable {
             return messageDataFormat;
         }
 
-        public void setMessageDataFormat(String messageDataFormat) {
+        public void setMessageDataFormat( String messageDataFormat ) {
             this.messageDataFormat = messageDataFormat;
         }
 
@@ -161,6 +168,13 @@ public class WxappProperties implements Serializable {
         }
     }
 
+    /**
+     * Subscribe
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
     public static class Subscribe {
 
         /**
@@ -183,7 +197,7 @@ public class WxappProperties implements Serializable {
             return redirectPage;
         }
 
-        public void setRedirectPage(String redirectPage) {
+        public void setRedirectPage( String redirectPage ) {
             this.redirectPage = redirectPage;
         }
 
@@ -191,7 +205,7 @@ public class WxappProperties implements Serializable {
             return templateId;
         }
 
-        public void setTemplateId(String templateId) {
+        public void setTemplateId( String templateId ) {
             this.templateId = templateId;
         }
 
@@ -199,7 +213,7 @@ public class WxappProperties implements Serializable {
             return miniProgramState;
         }
 
-        public void setMiniProgramState(MiniProgramState miniProgramState) {
+        public void setMiniProgramState( MiniProgramState miniProgramState ) {
             this.miniProgramState = miniProgramState;
         }
 
@@ -207,7 +221,7 @@ public class WxappProperties implements Serializable {
             return subscribeId;
         }
 
-        public void setSubscribeId(String subscribeId) {
+        public void setSubscribeId( String subscribeId ) {
             this.subscribeId = subscribeId;
         }
 

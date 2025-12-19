@@ -21,12 +21,19 @@ import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.utils.CommonUt
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * UserService
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class UserService {
 
     @Autowired
     private RedisRepository cacheStore;
 
-    public User getCurrentUser(String userId) {
+    public User getCurrentUser( String userId ) {
         String userKey = CommonUtil.buildUserKey(userId);
         return (User) cacheStore.get(userKey);
     }

@@ -18,6 +18,13 @@ package com.taotao.cloud.auth.facade.sys.vo;
 
 import lombok.*;
 
+/**
+ * DictVO
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Setter
 @Getter
 @ToString
@@ -25,18 +32,28 @@ public class DictVO {
 
     private Long id;
 
-    /** 字典名称 */
+    /**
+     * 字典名称
+     */
     private String dictName;
 
-    /** 字典编码 */
+    /**
+     * 字典编码
+     */
     private String dictCode;
 
-    /** 描述 */
+    /**
+     * 描述
+     */
     private String description;
 
-    /** 排序值 */
+    /**
+     * 排序值
+     */
     private Integer sortNum;
 
-    /** 备注信息 */
+    /**
+     * 备注信息
+     */
     private String remark;
 }

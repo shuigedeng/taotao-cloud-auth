@@ -18,25 +18,32 @@ package com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.utils;
 
 import java.util.UUID;
 
+/**
+ * CommonUtil
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class CommonUtil {
 
     public static String generateUUID() {
         return UUID.randomUUID().toString().replaceAll("-", "");
     }
 
-    public static String buildTicketKey(String uuid) {
+    public static String buildTicketKey( String uuid ) {
         return LoginConstant.PREFIX_TICKET + LoginConstant.SPLIT + uuid;
     }
 
-    public static String buildUserKey(String userId) {
+    public static String buildUserKey( String userId ) {
         return LoginConstant.PREFIX_USER + LoginConstant.SPLIT + userId;
     }
 
-    public static String buildAccessTokenKey(String token) {
+    public static String buildAccessTokenKey( String token ) {
         return LoginConstant.ACCESS_TOKEN__PREFIX + token;
     }
 
-    public static String buildOnceTokenKey(String token) {
+    public static String buildOnceTokenKey( String token ) {
         return LoginConstant.ONCE_TOKEN__PREFIX + token;
     }
 }

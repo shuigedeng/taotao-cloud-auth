@@ -24,13 +24,22 @@ import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.utils.CommonUt
 import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.utils.HostHolder;
 import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.utils.LoginConstant;
 import com.taotao.boot.cache.redis.repository.RedisRepository;
+
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * LoginService
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class LoginService {
 
     private final Lock lock = new ReentrantLock();
@@ -59,7 +68,7 @@ public class LoginService {
         return uuid;
     }
 
-    public JSONObject scanQrCodeImg(String uuid) {
+    public JSONObject scanQrCodeImg( String uuid ) {
         JSONObject data = new JSONObject();
         // 避免多个移动端同时扫描同一个二维码
         try {
@@ -116,7 +125,7 @@ public class LoginService {
         }
     }
 
-    public boolean confirmLogin(String uuid) {
+    public boolean confirmLogin( String uuid ) {
         String ticketKey = CommonUtil.buildTicketKey(uuid);
         LoginTicket loginTicket = (LoginTicket) cacheStore.get(ticketKey);
         boolean logged = true;
@@ -140,7 +149,7 @@ public class LoginService {
         return logged;
     }
 
-    public JSONObject getQrCodeStatus(String uuid, int currentStatus) throws InterruptedException {
+    public JSONObject getQrCodeStatus( String uuid, int currentStatus ) throws InterruptedException {
         lock.lock();
         try {
             JSONObject data = new JSONObject();

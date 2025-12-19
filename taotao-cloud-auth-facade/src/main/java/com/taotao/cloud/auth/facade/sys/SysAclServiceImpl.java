@@ -18,4 +18,13 @@ package com.taotao.cloud.auth.facade.sys;
 
 import com.taotao.cloud.auth.application.acl.SysAclService;
 
-public class SysAclServiceImpl implements SysAclService {}
+/**
+ * SysAclServiceImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
+public class SysAclServiceImpl implements SysAclService {
+
+}

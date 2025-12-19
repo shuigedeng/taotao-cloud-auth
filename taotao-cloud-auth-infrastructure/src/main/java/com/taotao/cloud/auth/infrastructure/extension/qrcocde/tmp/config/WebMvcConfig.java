@@ -21,13 +21,20 @@ import com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp.controller.int
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * WebMvcConfig
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class WebMvcConfig implements WebMvcConfigurer {
 
     private LoginInterceptor loginInterceptor;
 
     private ConfirmInterceptor confirmInterceptor;
 
-    public void addInterceptors(InterceptorRegistry registry) {
+    public void addInterceptors( InterceptorRegistry registry ) {
         registry.addInterceptor(loginInterceptor)
                 .excludePathPatterns("/static/**")
                 .addPathPatterns("/getUser", "/login/scan");

@@ -16,4 +16,13 @@
 
 package com.taotao.cloud.auth.domain.oauth2.aggregate;
 
-public class Oauth2Agg {}
+/**
+ * Oauth2Agg
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
+public class Oauth2Agg {
+
+}

@@ -25,6 +25,14 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * QrcodeLoginController
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Validated
 @Tag(name = "二维码扫码登录API", description = "二维码扫码登录API")
 @RestController
@@ -35,7 +43,7 @@ public class QrcodeLoginController extends BusinessController {
     private QrCodeLoginService qrCodeLoginService;
 
     @RequestMapping(value = "/code", method = RequestMethod.GET)
-    public void createCodeImg(HttpServletRequest request, HttpServletResponse response) {
+    public void createCodeImg( HttpServletRequest request, HttpServletResponse response ) {
         response.setHeader("Pragma", "No-cache");
         response.setHeader("Cache-Control", "no-cache");
 

@@ -23,18 +23,25 @@ import com.taotao.cloud.auth.api.grpc.Oauth2ServiceGrpc.Oauth2ServiceImplBase;
 import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Oauth2ServiceGrpc
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Slf4j
 @GRpcService
 public class Oauth2ServiceGrpc extends Oauth2ServiceImplBase {
 
     @Override
-    public void loginByQQ(Oauth2Request request, StreamObserver<BooleanReply> responseObserver) {
+    public void loginByQQ( Oauth2Request request, StreamObserver<BooleanReply> responseObserver ) {
         super.loginByQQ(request, responseObserver);
     }
 
     @Override
     public void loginByWechat(
-            Oauth2Request request, StreamObserver<Oauth2Response> responseObserver) {
+            Oauth2Request request, StreamObserver<Oauth2Response> responseObserver ) {
         super.loginByWechat(request, responseObserver);
     }
 }

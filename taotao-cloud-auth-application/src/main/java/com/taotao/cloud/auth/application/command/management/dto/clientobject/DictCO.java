@@ -1,36 +1,43 @@
-
-
 package com.taotao.cloud.auth.application.command.management.dto.clientobject;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.time.LocalDateTime;
+
 import lombok.*;
 
+/**
+ * DictCO
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Setter
 @Getter
 @ToString
 @Schema(name = "DictCO", description = "字典")
-public class DictCO  {
+public class DictCO {
 
-	@Schema(name = "id", description = "ID")
-	private Long id;
+    @Schema(name = "id", description = "ID")
+    private Long id;
 
-	@Schema(name = "label", description = "字典标签")
-	private String label;
+    @Schema(name = "label", description = "字典标签")
+    private String label;
 
-	@Schema(name = "type", description = "字典类型")
-	private String type;
+    @Schema(name = "type", description = "字典类型")
+    private String type;
 
-	@Schema(name = "value", description = "字典值")
-	private String value;
+    @Schema(name = "value", description = "字典值")
+    private String value;
 
-	@Schema(name = "remark", description = "字典备注")
-	private String remark;
+    @Schema(name = "remark", description = "字典备注")
+    private String remark;
 
-	@Schema(name = "createDate", description = "创建时间")
-	private LocalDateTime createDate;
+    @Schema(name = "createDate", description = "创建时间")
+    private LocalDateTime createDate;
 
-	@Schema(name = "sort", description = "字典排序")
-	private Integer sort;
+    @Schema(name = "sort", description = "字典排序")
+    private Integer sort;
 
 }

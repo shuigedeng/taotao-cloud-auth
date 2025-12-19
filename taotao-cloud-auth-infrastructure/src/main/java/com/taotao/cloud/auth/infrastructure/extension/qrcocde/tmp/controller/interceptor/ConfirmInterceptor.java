@@ -23,11 +23,18 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+/**
+ * ConfirmInterceptor
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class ConfirmInterceptor implements HandlerInterceptor {
 
     private RedisRepository cacheStore;
 
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+    public boolean preHandle( HttpServletRequest request, HttpServletResponse response, Object handler ) {
         String onceToken = request.getHeader("once_token");
         if (StringUtils.isEmpty(onceToken)) {
             return false;

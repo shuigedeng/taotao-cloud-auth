@@ -19,18 +19,27 @@ package com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp1;
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.common.exception.BaseException;
 import com.taotao.boot.common.utils.log.LogUtils;
+
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * QrCodeLoginService
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Service
 public class QrCodeLoginService {
 
     @Autowired
     private RedisRepository redisRepository;
 
-    public String getScanUUID(String uuid) {
+    public String getScanUUID( String uuid ) {
         return "QR_CODE_UUID:" + uuid;
     }
 
@@ -53,7 +62,7 @@ public class QrCodeLoginService {
     /**
      * uuid状态信息
      */
-    public String getInfoUUID(String uuid) {
+    public String getInfoUUID( String uuid ) {
         Object object = redisRepository.opsForValue().get(getScanUUID(uuid));
         return (String) object;
     }
@@ -61,7 +70,7 @@ public class QrCodeLoginService {
     /**
      * 扫描登录，去确认二维码
      */
-    public CodeData scanQrLogin(String uuid, String account) {
+    public CodeData scanQrLogin( String uuid, String account ) {
         try {
             Object o = redisRepository.opsForValue().get(getScanUUID(uuid));
             if (null == o) {
@@ -91,11 +100,9 @@ public class QrCodeLoginService {
     /**
      * 确认登录，返回学生token以及对应信息
      *
-     * @param uuid
-     * @param id   学生id
-     * @return
+     * @param id 学生id
      */
-    public boolean confirmQrLogin(String uuid, String id) {
+    public boolean confirmQrLogin( String uuid, String id ) {
         try {
             CodeData codeData = (CodeData) redisRepository.opsForValue().get(getScanUUID(uuid));
             if (null == codeData) {

@@ -20,13 +20,23 @@ import com.taotao.boot.common.utils.io.ResourceUtils;
 import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.boot.common.utils.log.LogUtils;
 import io.swagger.v3.oas.annotations.tags.Tag;
+
 import java.io.File;
 import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * BaiduFaceController
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Validated
 @Tag(name = "百度人脸识别API", description = "百度人脸识别API")
 @RestController
@@ -37,7 +47,7 @@ public class BaiduFaceController extends BusinessController {
     private FaceUtils faceUtils;
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(String userName, String faceBase) throws IOException {
+    public String register( String userName, String faceBase ) throws IOException {
         if (!StringUtils.isEmpty(userName) && !StringUtils.isEmpty(faceBase)) {
             // 文件上传的地址
             String upPath = ResourceUtils.getURL("classpath:").getPath() + "static\\photo";

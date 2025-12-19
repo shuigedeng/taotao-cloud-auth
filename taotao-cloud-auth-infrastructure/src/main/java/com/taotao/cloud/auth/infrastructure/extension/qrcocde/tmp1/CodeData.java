@@ -19,11 +19,19 @@ package com.taotao.cloud.auth.infrastructure.extension.qrcocde.tmp1;
 import lombok.*;
 import lombok.NoArgsConstructor;
 
+/**
+ * CodeData
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Setter
 @Getter
 @ToString
 @NoArgsConstructor
 public class CodeData {
+
     /**
      * 二维码状态
      */
@@ -39,16 +47,16 @@ public class CodeData {
      */
     private String token;
 
-    public CodeData(CodeStatusEnum codeStatus) {
+    public CodeData( CodeStatusEnum codeStatus ) {
         this.codeStatus = codeStatus;
     }
 
-    public CodeData(CodeStatusEnum codeStatus, String message) {
+    public CodeData( CodeStatusEnum codeStatus, String message ) {
         this.codeStatus = codeStatus;
         this.message = message;
     }
 
-    public CodeData(CodeStatusEnum codeStatus, String message, String token) {
+    public CodeData( CodeStatusEnum codeStatus, String message, String token ) {
         this.codeStatus = codeStatus;
         this.message = message;
         this.token = token;

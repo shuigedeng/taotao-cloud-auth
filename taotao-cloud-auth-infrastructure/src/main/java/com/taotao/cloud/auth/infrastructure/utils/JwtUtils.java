@@ -20,6 +20,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 import java.util.Set;
+
 import org.springframework.security.oauth2.core.endpoint.OAuth2ParameterNames;
 import org.springframework.security.oauth2.core.oidc.IdTokenClaimNames;
 import org.springframework.security.oauth2.jose.jws.SignatureAlgorithm;
@@ -29,24 +30,31 @@ import org.springframework.security.oauth2.server.authorization.client.Registere
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
+/**
+ * JwtUtils
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class JwtUtils {
 
-	private JwtUtils() {
-	}
+    private JwtUtils() {
+    }
 
-	public static JwsHeader.Builder headers() {
-		return JwsHeader.with(SignatureAlgorithm.RS256);
-	}
+    public static JwsHeader.Builder headers() {
+        return JwsHeader.with(SignatureAlgorithm.RS256);
+    }
 
-	public static JwtClaimsSet.Builder accessTokenClaims(
-		RegisteredClient registeredClient, String issuer, String subject,
-		Set<String> authorizedScopes) {
+    public static JwtClaimsSet.Builder accessTokenClaims(
+            RegisteredClient registeredClient, String issuer, String subject,
+            Set<String> authorizedScopes ) {
 
-		Instant issuedAt = Instant.now();
-		Instant expiresAt = issuedAt.plus(
-			registeredClient.getTokenSettings().getAccessTokenTimeToLive());
+        Instant issuedAt = Instant.now();
+        Instant expiresAt = issuedAt.plus(
+                registeredClient.getTokenSettings().getAccessTokenTimeToLive());
 
-		// @formatter:off
+        // @formatter:off
         JwtClaimsSet.Builder claimsBuilder = JwtClaimsSet.builder();
         if (StringUtils.hasText(issuer)) {
             claimsBuilder.issuer(issuer);
@@ -62,17 +70,17 @@ public class JwtUtils {
         }
         // @formatter:on
 
-		return claimsBuilder;
-	}
+        return claimsBuilder;
+    }
 
-	public static JwtClaimsSet.Builder idTokenClaims(
-		RegisteredClient registeredClient, String issuer, String subject, String nonce) {
+    public static JwtClaimsSet.Builder idTokenClaims(
+            RegisteredClient registeredClient, String issuer, String subject, String nonce ) {
 
-		Instant issuedAt = Instant.now();
-		// TODO Allow configuration for ID Token time-to-live
-		Instant expiresAt = issuedAt.plus(30, ChronoUnit.MINUTES);
+        Instant issuedAt = Instant.now();
+        // TODO Allow configuration for ID Token time-to-live
+        Instant expiresAt = issuedAt.plus(30, ChronoUnit.MINUTES);
 
-		// @formatter:off
+        // @formatter:off
         JwtClaimsSet.Builder claimsBuilder = JwtClaimsSet.builder();
         if (StringUtils.hasText(issuer)) {
             claimsBuilder.issuer(issuer);
@@ -89,8 +97,8 @@ public class JwtUtils {
         // TODO Add 'auth_time' claim
         // @formatter:on
 
-		return claimsBuilder;
-	}
+        return claimsBuilder;
+    }
 
 
 }
