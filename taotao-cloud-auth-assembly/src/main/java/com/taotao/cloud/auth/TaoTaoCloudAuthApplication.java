@@ -69,7 +69,7 @@ public class TaoTaoCloudAuthApplication {
                 .setTtcBanner()
                 .setTtcProfileIfNotExists("dev")
                 .setTtcApplicationProperty("taotao-cloud-auth")
-                .setTtcAllowBeanDefinitionOverriding(true)
+                .setTtcAllowBeanDefinitionOverriding(false)
                 .run(args);
     }
 }
