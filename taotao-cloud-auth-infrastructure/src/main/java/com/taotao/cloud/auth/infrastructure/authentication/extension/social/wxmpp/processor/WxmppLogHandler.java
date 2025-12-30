@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.extension.social.wxmpp.processor;
 
-import com.taotao.boot.common.utils.common.JsonUtils;
+import com.taotao.boot.common.utils.json.JacksonUtils;
 import java.util.Map;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
@@ -47,7 +47,7 @@ public class WxmppLogHandler implements WxMpMessageHandler {
             WxSessionManager wxSessionManager)
             throws WxErrorException {
         // 代码逻辑未实现,仅仅简单打印信息
-        log.info("\n接收到请求消息，内容：{}", JsonUtils.toJson(wxMpXmlMessage));
+        log.info("\n接收到请求消息，内容：{}", JacksonUtils.toJson(wxMpXmlMessage));
         return null;
     }
 }

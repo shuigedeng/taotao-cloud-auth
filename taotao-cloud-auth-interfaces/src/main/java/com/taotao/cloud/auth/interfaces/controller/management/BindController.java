@@ -20,7 +20,7 @@ package com.taotao.cloud.auth.interfaces.controller.management;
 // import com.markix.entity.UserToAuthPO;
 // import com.markix.security.oauth2login.ThirdPlatformType;
 // import com.markix.security.oauth2login.WebAttributes;
-// import lombok.AllArgsConstructor;
+// import lombok.RequiredArgsConstructor;
 // import lombok.*;
 // import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.security.core.context.SecurityContextHolder;
@@ -123,7 +123,7 @@ package com.taotao.cloud.auth.interfaces.controller.management;
 //    @Setter
 @Getter
 @ToString
-//    @AllArgsConstructor
+//    @RequiredArgsConstructor
 //    class OAuthType {
 //        String regId;
 //        String type;

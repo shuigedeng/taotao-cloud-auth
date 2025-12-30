@@ -18,7 +18,7 @@ package com.taotao.cloud.auth.interfaces.dubbo;
 
 import com.taotao.cloud.auth.api.dubbo.Oauth2ClientRpcService;
 import com.taotao.cloud.auth.api.dubbo.response.ClientRpcResponse;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +30,7 @@ import org.springframework.stereotype.Service;
  * @since 2021-10-09 20:26:36
  */
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @DubboService(interfaceClass = Oauth2ClientRpcService.class, validation = "true")
 public class DubboClientRpcService implements Oauth2ClientRpcService {
 
