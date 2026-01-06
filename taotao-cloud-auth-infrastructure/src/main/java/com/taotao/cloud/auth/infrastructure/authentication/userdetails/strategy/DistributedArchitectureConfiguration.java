@@ -16,10 +16,9 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy;
 
-import com.taotao.cloud.auth.infrastructure.authentication.extension.social.handler.SocialAuthenticationHandler;
 import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.remote.RemotePermissionDetailsService;
 import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.remote.RemoteUserDetailsService;
-import com.taotao.cloud.sys.api.inner.UserApi;
+import com.taotao.cloud.sys.api.api.UserApi;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
