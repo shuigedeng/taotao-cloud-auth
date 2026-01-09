@@ -14,34 +14,52 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.api.dubbo.request;
+package com.taotao.cloud.auth.api.rpc.response;
 
-import com.taotao.boot.common.model.request.RequestBase;
+import com.taotao.boot.common.model.response.ResponseBase;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.*;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * 菜单查询对象
+ * 公司查询VO
  *
  * @author shuigedeng
  * @version 2021.10
- * @since 2021-10-09 15:27:42
+ * @since 2021-10-09 16:31:52
  */
 @Setter
 @Getter
 @ToString
 @Builder
+@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientQueryRpcRequest extends RequestBase implements Serializable {
+@Schema(description = "公司查询VO")
+public class ClientRpcResponse extends ResponseBase implements Serializable {
 
-    private static final long serialVersionUID = 5126530068827085130L;
+    @Serial
+    private static final long serialVersionUID = -4132785717179910025L;
 
-    /** id */
     private Long id;
 
+    /** 字典名称 */
+    private String dictName;
+
+    /** 字典编码 */
+    private String dictCode;
+
+    /** 描述 */
+    private String description;
+
+    /** 排序值 */
+    private Integer sortNum;
+
+    /** 备注信息 */
+    private String remark;
 }

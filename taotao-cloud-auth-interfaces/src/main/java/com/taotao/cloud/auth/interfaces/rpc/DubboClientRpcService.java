@@ -14,21 +14,28 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.api.dubbo;
+package com.taotao.cloud.auth.interfaces.rpc;
 
-import com.taotao.boot.common.model.request.Request;
-import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.auth.api.dubbo.request.ClientQueryRpcRequest;
-import com.taotao.cloud.auth.api.dubbo.response.ClientRpcResponse;
+import com.taotao.cloud.auth.api.rpc.Oauth2ClientRpcService;
+import com.taotao.cloud.auth.api.rpc.response.ClientRpcResponse;
+import lombok.RequiredArgsConstructor;
+import org.apache.dubbo.config.annotation.DubboService;
+import org.springframework.stereotype.Service;
 
 /**
- * 后台部门表服务接口
+ * DictServiceImpl
  *
  * @author shuigedeng
- * @version 2022.03
- * @since 2022-03-25 14:22:32
+ * @version 2021.10
+ * @since 2021-10-09 20:26:36
  */
-public interface Oauth2ClientRpcService {
+@Service
+@RequiredArgsConstructor
+@DubboService(interfaceClass = Oauth2ClientRpcService.class, validation = "true")
+public class DubboClientRpcService implements Oauth2ClientRpcService {
 
-	Response<ClientRpcResponse> findById(Request<ClientQueryRpcRequest> clientQueryRpcRequest);
+    @Override
+    public ClientRpcResponse findById(Long id) {
+        return null;
+    }
 }
