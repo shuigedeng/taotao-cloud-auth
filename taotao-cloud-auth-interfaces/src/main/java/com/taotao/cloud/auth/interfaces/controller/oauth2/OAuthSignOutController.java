@@ -83,7 +83,7 @@ public class OAuthSignOutController extends BusinessController {
                 required = true,
                 description = "Basic Token"),
     })
-    @PutMapping("/sign-out")
+    @PostMapping("/sign-out")
     public Result<String> signOut(
             @RequestParam(name = "accessToken") @NotBlank String accessToken,
             HttpServletRequest request) {

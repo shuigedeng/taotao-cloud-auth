@@ -71,7 +71,7 @@ package com.taotao.cloud.auth.interfaces.controller.management;
 //    /**
 //     * 移除关联
 //     */
-//    @DeleteMapping("/unbind/{id}")
+//    @PostMapping("/unbind/{id}")
 //    public void unbind(@PathVariable String id) {
 //        String username = SecurityContextHolder.getContext().getAuthentication().getName();
 //        userToAuthDao.deleteByIdAndUserId(id, username);

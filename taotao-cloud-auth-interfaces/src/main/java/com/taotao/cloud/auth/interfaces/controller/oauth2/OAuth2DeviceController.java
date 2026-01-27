@@ -52,7 +52,7 @@ public class OAuth2DeviceController extends BusinessController {
         @Parameter(name = "deviceId", required = true, description = "设备ID"),
         @Parameter(name = "scopes[]", required = true, description = "Scope对象组成的数组")
     })
-    @PutMapping
+    @PostMapping
     public Result<OAuth2DevicePO> authorize(
             @RequestParam(name = "deviceId") String deviceId,
             @RequestParam(name = "scopes[]") String[] scopes) {
