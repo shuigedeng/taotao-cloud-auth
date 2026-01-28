@@ -37,7 +37,7 @@
 	 value = ServiceNameConstants.TAOTAO_CLOUD_AUTH)
  public interface Oauth2ClientApi {
 
-	 @PostExchange(value = "/auth/feign/query")
+	 @PostExchange(value = "/auth/query")
 	 Response<ClientApiResponse> query(
 		 @Validated @RequestBody Request<FeignClientQueryApiRequest> feignClientQueryApiRequest);
  }

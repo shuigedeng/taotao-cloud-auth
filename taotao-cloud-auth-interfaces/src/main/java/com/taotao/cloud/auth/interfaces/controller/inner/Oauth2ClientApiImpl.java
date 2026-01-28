@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Validated
 @RestController
-@RequestMapping("/sys/feign/dict")
+@RequestMapping("/sys/dict")
 public class Oauth2ClientApiImpl extends InnerController implements Oauth2ClientApi {
 
     @Override
