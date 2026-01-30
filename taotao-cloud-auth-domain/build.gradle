@@ -91,8 +91,8 @@ dependencies {
     api 'org.springframework.session:spring-session-data-redis:4.0.1'
 
     //https://central.sonatype.com/artifact/com.github.binarywang/weixin-java-pay?smo=true
-    api 'com.github.binarywang:weixin-java-mp:4.7.9.B'
-    api 'com.github.binarywang:weixin-java-miniapp:4.7.9.B'
+    api 'com.github.binarywang:weixin-java-mp:4.8.1.B'
+    api 'com.github.binarywang:weixin-java-miniapp:4.8.1.B'
 
     //api 'top.dcenter:justAuth-spring-security-starter:1.1.25'
 
@@ -126,9 +126,9 @@ dependencies {
     api "org.springframework.boot:spring-boot-starter-oauth2-authorization-server"
 
     //https://search.maven.org/artifact/com.nimbusds/nimbus-jose-jwt
-    api "com.nimbusds:nimbus-jose-jwt:10.6"
+    api "com.nimbusds:nimbus-jose-jwt:10.7"
     //https://search.maven.org/artifact/com.nimbusds/oauth2-oidc-sdk
-    api 'com.nimbusds:oauth2-oidc-sdk:11.30.2'
+    api 'com.nimbusds:oauth2-oidc-sdk:11.32'
 
     api "org.apache.commons:commons-collections4"
 
@@ -138,7 +138,7 @@ dependencies {
 
     //百度人脸识别以及登录
     //https://search.maven.org/artifact/com.baidu.aip/java-sdk
-    api('com.baidu.aip:java-sdk:4.16.23') {
+    api('com.baidu.aip:java-sdk:4.16.24') {
         exclude group: "commons-logging", module: "commons-logging"
         exclude group: "org.slf4j", module: "slf4j-simple"
         exclude group: "org.slf4j", module: "slf4j-api"
