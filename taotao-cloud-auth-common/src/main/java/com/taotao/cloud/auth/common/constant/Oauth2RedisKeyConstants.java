@@ -19,7 +19,7 @@ package com.taotao.cloud.auth.common.constant;
 /**
  * 国际化使用到的 redis 缓存key
  *
- * @author hccake
+ * @author shuigedeng
  */
 public final class Oauth2RedisKeyConstants {
 
