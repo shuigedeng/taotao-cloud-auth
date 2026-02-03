@@ -17,11 +17,14 @@
 package com.taotao.cloud.auth.biz.jpa.jackson2;
 
 import org.springframework.security.jackson.SecurityJacksonModules;
+import tools.jackson.databind.JacksonModule;
 import tools.jackson.databind.module.SimpleModule;
 import com.taotao.boot.security.spring.authentication.login.form.FormLoginWebAuthenticationDetails;
 import com.taotao.boot.security.spring.core.authority.TtcGrantedAuthority;
 import com.taotao.boot.security.spring.core.userdetails.TtcUser;
 import com.taotao.cloud.auth.biz.utils.Jackson2Constants;
+
+import java.util.List;
 
 /**
  * <p>自定义 User Details Module </p>
@@ -37,12 +40,11 @@ public class TtcJackson2Module extends SimpleModule {
 
     @Override
     public void setupModule(SetupContext context) {
-        SecurityJacksonModules.enableDefaultTyping(context.getOwner());
 
 
-        context.setMixInAnnotations(TtcUser.class, TtcUserMixin.class);
-        context.setMixInAnnotations(TtcGrantedAuthority.class, TtcGrantedAuthorityMixin.class);
-        context.setMixInAnnotations(
+        context.setMixIn(TtcUser.class, TtcUserMixin.class);
+        context.setMixIn(TtcGrantedAuthority.class, TtcGrantedAuthorityMixin.class);
+        context.setMixIn(
                 FormLoginWebAuthenticationDetails.class,
                 FormLoginWebAuthenticationDetailsMixin.class);
     }

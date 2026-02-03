@@ -16,7 +16,8 @@
 
 package com.taotao.cloud.auth.biz.jwt.utils;
 
-import com.taotao.boot.common.constant.StrPool;
+import cn.hutool.core.text.StrPool;
+import cn.hutool.core.util.StrUtil;
 import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.common.utils.date.DateUtils;
 import com.taotao.boot.common.utils.log.LogUtils;
@@ -158,22 +159,19 @@ public final class JwtUtil {
             // throw new BizException(ExceptionCode.JWT_TOKEN_EXPIRED.getCode(),
             //		ExceptionCode.JWT_TOKEN_EXPIRED.getMsg(), ex);
             throw new BusinessException(
-                    ExceptionCode.JWT_TOKEN_EXPIRED.getCode(),
                     ExceptionCode.JWT_TOKEN_EXPIRED.getMsg());
         } catch (SignatureException ex) {
             LogUtils.error("token=[{}] 签名错误", jsonWebToken, ex);
             // 签名错误
             // throw new BizException(ExceptionCode.JWT_SIGNATURE.getCode(),
             //		ExceptionCode.JWT_SIGNATURE.getMsg(), ex);
-            throw new BusinessException(
-                    ExceptionCode.JWT_SIGNATURE.getCode(), ExceptionCode.JWT_SIGNATURE.getMsg());
+            throw new BusinessException( ExceptionCode.JWT_SIGNATURE.getMsg());
         } catch (IllegalArgumentException ex) {
             LogUtils.error("token=[{}] 为空", jsonWebToken, ex);
             // token 为空
             // throw new BizException(ExceptionCode.JWT_ILLEGAL_ARGUMENT.getCode(),
             //		ExceptionCode.JWT_ILLEGAL_ARGUMENT.getMsg(), ex);
             throw new BusinessException(
-                    ExceptionCode.JWT_ILLEGAL_ARGUMENT.getCode(),
                     ExceptionCode.JWT_ILLEGAL_ARGUMENT.getMsg());
         } catch (Exception e) {
             LogUtils.error(
@@ -186,7 +184,6 @@ public final class JwtUtil {
             // JWT_PARSER_TOKEN_FAIL.getMsg(),
             //		e);
             throw new BusinessException(
-                    ExceptionCode.JWT_PARSER_TOKEN_FAIL.getCode(),
                     ExceptionCode.JWT_PARSER_TOKEN_FAIL.getMsg());
         }
     }

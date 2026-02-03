@@ -91,7 +91,15 @@ dependencies {
         exclude group: "org.webjars.npm", module: "csstype"
         exclude group: "org.webjars.npm", module: "entities"
     }
-    api 'org.webjars.npm:babel__parser:7.28.6'
+    api("org.webjars.npm:babel__parser:7.28.6") {
+        exclude group: "org.webjars.npm", module: "babel__types"
+    }
+    api("org.webjars.npm:babel__types:7.28.6") {
+        exclude group: "org.webjars.npm", module: "babel__helper-validator-identifier"
+        exclude group: "org.webjars.npm", module: "babel__helper-string-parser"
+    }
+    api 'org.webjars.npm:babel__helper-validator-identifier:7.28.5'
+    api 'org.webjars.npm:babel__helper-string-parser:7.27.1'
     api 'org.webjars.npm:source-map-js:1.2.1'
     api("org.webjars.npm:magic-string:0.30.21") {
         exclude group: "org.webjars.npm", module: "jridgewell__sourcemap-codec"

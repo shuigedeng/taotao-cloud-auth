@@ -49,7 +49,8 @@ import org.hibernate.annotations.UuidGenerator;
 @Cacheable
 // @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region =
 // UpmsConstants.REGION_SYS_SOCIAL_USER)
-public class SysSocialUser implements SocialUserDetails {
+//public class SysSocialUser implements SocialUserDetails {
+public class SysSocialUser  {
 
     @Schema(title = "社会用户ID")
     @Id
@@ -188,38 +189,38 @@ public class SysSocialUser implements SocialUserDetails {
     public void setSocialId(String socialId) {
         this.socialId = socialId;
     }
-
-    @Override
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
-    @Override
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    @Override
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    @Override
-    public String getAvatar() {
-        return avatar;
-    }
+//
+//    @Override
+//    public String getUuid() {
+//        return uuid;
+//    }
+//
+//    public void setUuid(String uuid) {
+//        this.uuid = uuid;
+//    }
+//
+//    @Override
+//    public String getUserName() {
+//        return userName;
+//    }
+//
+//    public void setUserName(String userName) {
+//        this.userName = userName;
+//    }
+//
+//    @Override
+//    public String getNickName() {
+//        return nickName;
+//    }
+//
+//    public void setNickName(String nickName) {
+//        this.nickName = nickName;
+//    }
+//
+//    @Override
+//    public String getAvatar() {
+//        return avatar;
+//    }
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
@@ -273,10 +274,10 @@ public class SysSocialUser implements SocialUserDetails {
         this.gender = gender;
     }
 
-    @Override
-    public String getSource() {
-        return source;
-    }
+//    @Override
+//    public String getSource() {
+//        return source;
+//    }
 
     public void setSource(String source) {
         this.source = source;
@@ -369,11 +370,11 @@ public class SysSocialUser implements SocialUserDetails {
     public void setAppId(String appId) {
         this.appId = appId;
     }
-
-    @Override
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+//
+//    @Override
+//    public String getPhoneNumber() {
+//        return phoneNumber;
+//    }
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;

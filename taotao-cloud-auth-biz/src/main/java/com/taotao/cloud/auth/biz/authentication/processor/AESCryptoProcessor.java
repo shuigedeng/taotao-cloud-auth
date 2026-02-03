@@ -25,6 +25,8 @@ import cn.hutool.crypto.symmetric.AES;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.charset.StandardCharsets;
+
 /**
  * <p>AES 加密算法处理器 </p>
  *
@@ -42,16 +44,16 @@ public class AESCryptoProcessor implements SymmetricCryptoProcessor {
 
     @Override
     public String decrypt(String data, String key) {
-        AES aes = SecureUtil.aes(ByteUtil.toUtf8Bytes(key));
-        byte[] result = aes.decrypt(Base64.decode(ByteUtil.toUtf8Bytes(data)));
+        AES aes = SecureUtil.aes(key.getBytes(StandardCharsets.UTF_8));
+        byte[] result = aes.decrypt(Base64.decode(data.getBytes(StandardCharsets.UTF_8)));
         log.info("AES crypto decrypt data, value is : [{}]", result);
         return StrUtil.utf8Str(result);
     }
 
     @Override
     public String encrypt(String data, String key) {
-        AES aes = SecureUtil.aes(ByteUtil.toUtf8Bytes(key));
-        byte[] result = aes.encrypt(ByteUtil.toUtf8Bytes(data));
+        AES aes = SecureUtil.aes(key.getBytes(StandardCharsets.UTF_8));
+        byte[] result = aes.encrypt(data.getBytes(StandardCharsets.UTF_8));
         log.info("AES crypto encrypt data, value is : [{}]", result);
         return StrUtil.utf8Str(result);
     }

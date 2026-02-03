@@ -39,8 +39,9 @@ public class TokenSettingsDeserializer extends ValueDeserializer<TokenSettings> 
     public TokenSettings deserialize(
             JsonParser jsonParser, DeserializationContext deserializationContext)
             throws  JacksonException {
-        JsonMapper mapper = (JsonMapper) jsonParser.getCodec();
-        JsonNode jsonNode = mapper.readTree(jsonParser);
+//        JsonMapper mapper = (JsonMapper) jsonParser.getCodec();
+        JsonMapper mapper =null;
+		JsonNode jsonNode = deserializationContext.readTree(jsonParser);
 
         Map<String, Object> settings =
                 JsonNodeUtils.findValue(

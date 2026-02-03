@@ -38,8 +38,7 @@ public class FormLoginWebAuthenticationDetailsDeserializer
     public FormLoginWebAuthenticationDetails deserialize(
             JsonParser jp, DeserializationContext deserializationContext)
             throws  JacksonException {
-        JsonMapper mapper = (JsonMapper) jp.getCodec();
-        JsonNode jsonNode = mapper.readTree(jp);
+		JsonNode jsonNode = deserializationContext.readTree(jp);
 
         String remoteAddress = readJsonNode(jsonNode, "remoteAddress").asString();
         String sessionId = readJsonNode(jsonNode, "sessionId").asString();

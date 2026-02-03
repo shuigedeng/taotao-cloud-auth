@@ -52,9 +52,10 @@ public class RegisteredClientDeserializer extends ValueDeserializer<RegisteredCl
             JsonParser jsonParser, DeserializationContext deserializationContext)
             throws  JacksonException {
 
-        JsonMapper mapper = (JsonMapper) jsonParser.getCodec();
-        JsonNode root = mapper.readTree(jsonParser);
-        return deserialize(jsonParser, mapper, root);
+//        JsonMapper mapper = (JsonMapper) jsonParser.getCodec();
+        JsonMapper mapper = null;
+		JsonNode jsonNode = deserializationContext.readTree(jsonParser);
+        return deserialize(jsonParser, mapper, jsonNode);
     }
 
     private RegisteredClient deserialize(JsonParser parser, JsonMapper mapper, JsonNode root)

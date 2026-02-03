@@ -36,8 +36,9 @@ public class TtcGrantedAuthorityDeserializer extends ValueDeserializer<TtcGrante
     @Override
     public TtcGrantedAuthority deserialize(JsonParser jp, DeserializationContext ctxt)
             throws  JacksonException {
-        JsonMapper mapper = (JsonMapper) jp.getCodec();
-        JsonNode jsonNode = mapper.readTree(jp);
+//        JsonMapper mapper = (JsonMapper) jp.getCodec();
+        JsonMapper mapper = null;
+		JsonNode jsonNode = ctxt.readTree(jp);
         String authority = readJsonNode(jsonNode, "authority").asString();
         return new TtcGrantedAuthority(authority);
     }

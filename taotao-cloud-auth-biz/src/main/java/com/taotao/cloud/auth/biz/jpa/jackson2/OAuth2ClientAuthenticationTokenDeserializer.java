@@ -50,8 +50,9 @@ public class OAuth2ClientAuthenticationTokenDeserializer
             JsonParser jsonParser, DeserializationContext context)
             throws  JacksonException {
 
-        JsonMapper mapper = (JsonMapper) jsonParser.getCodec();
-        JsonNode jsonNode = mapper.readTree(jsonParser);
+//        JsonMapper mapper = (JsonMapper) jsonParser.getCodec();
+        JsonMapper mapper = null;
+		JsonNode jsonNode = context.readTree(jsonParser);
         return deserialize(jsonParser, mapper, jsonNode);
     }
 

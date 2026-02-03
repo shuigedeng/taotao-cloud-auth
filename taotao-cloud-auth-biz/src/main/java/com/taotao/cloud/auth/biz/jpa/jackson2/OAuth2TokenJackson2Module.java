@@ -40,16 +40,15 @@ public class OAuth2TokenJackson2Module extends SimpleModule {
 
     @Override
     public void setupModule(SetupContext context) {
-        SecurityJacksonModules.enableDefaultTyping(context.getOwner());
 
-        context.setMixInAnnotations(
+        context.setMixIn(
                 ClientAuthenticationMethod.class, ClientAuthenticationMethodMixin.class);
-        context.setMixInAnnotations(
+        context.setMixIn(
                 AuthorizationGrantType.class, AuthorizationGrantTypeMixin.class);
-        context.setMixInAnnotations(TokenSettings.class, TokenSettingsMixin.class);
-        context.setMixInAnnotations(ClientSettings.class, ClientSettingsMixin.class);
-        context.setMixInAnnotations(RegisteredClient.class, RegisteredClientMixin.class);
-        context.setMixInAnnotations(
+        context.setMixIn(TokenSettings.class, TokenSettingsMixin.class);
+        context.setMixIn(ClientSettings.class, ClientSettingsMixin.class);
+        context.setMixIn(RegisteredClient.class, RegisteredClientMixin.class);
+        context.setMixIn(
                 OAuth2ClientAuthenticationToken.class, OAuth2ClientAuthenticationTokenMixin.class);
     }
 }

@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.auth.biz.jpa.jackson2;
 
+import org.springframework.security.jackson.SecurityJacksonModules;
 import org.springframework.security.oauth2.server.authorization.jackson.OAuth2AuthorizationServerJacksonModule;
 import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.JacksonModule;
@@ -55,6 +56,9 @@ public class OAuth2JacksonProcessor {
 		builder.addModules(new OAuth2AuthorizationServerJacksonModule());
 		builder.addModules(new TtcJackson2Module());
 		builder.addModules(new OAuth2TokenJackson2Module());
+				ClassLoader loader = getClass().getClassLoader();
+		List<JacksonModule> modules = SecurityJacksonModules.getModules(loader);
+		builder.addModule(module);
 		jsonMapper =builder.build();
     }
 

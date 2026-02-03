@@ -17,14 +17,14 @@
 package com.taotao.cloud.auth.biz.management.controller;
 
 import com.taotao.boot.common.model.result.Result;
-import com.taotao.cloud.auth.api.model.dto.SignInErrorPrompt;
-import com.taotao.cloud.auth.api.model.dto.SignInErrorStatus;
 import com.taotao.cloud.auth.biz.authentication.stamp.SignInFailureLimitedStampManager;
 import com.taotao.cloud.auth.biz.management.dto.Session;
 import com.taotao.cloud.auth.biz.management.dto.SessionCreate;
 import com.taotao.cloud.auth.biz.management.dto.SessionExchange;
 import com.taotao.cloud.auth.biz.management.entity.SecretKey;
 import com.taotao.cloud.auth.biz.management.service.InterfaceSecurityService;
+import com.taotao.cloud.auth.common.model.dto.SignInErrorPrompt;
+import com.taotao.cloud.auth.common.model.dto.SignInErrorStatus;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -132,7 +132,7 @@ public class IdentityController {
             return Result.success(encryptedAesKey);
         }
 
-        return Result.fail();
+        throw new RuntimeException();
     }
 
     //    @Crypto(responseEncrypt = false)

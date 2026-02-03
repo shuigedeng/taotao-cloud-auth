@@ -19,7 +19,6 @@ package com.taotao.cloud.auth.biz.jpa.jackson2;
 import tools.jackson.core.JacksonException;
 import tools.jackson.core.JsonParser;
 import tools.jackson.databind.DeserializationContext;
-import tools.jackson.databind.JsonDeserializer;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ValueDeserializer;
 import tools.jackson.databind.json.JsonMapper;
@@ -39,7 +38,8 @@ public class ClientSettingsDeserializer extends ValueDeserializer<ClientSettings
     @Override
     public ClientSettings deserialize( JsonParser jsonParser, DeserializationContext deserializationContext)
             throws  JacksonException {
-        JsonMapper mapper = (JsonMapper) jsonParser.getCodec();
+//        JsonMapper mapper = (JsonMapper) jsonParser.getCodec();
+        JsonMapper mapper = null;
         JsonNode jsonNode = deserializationContext.readTree(jsonParser);
 
         Map<String, Object> settings =

@@ -63,14 +63,14 @@ public class DistributedArchitectureConfiguration {
             havingValue = "true")
     static class DataAccessStrategyLocalConfiguration {
 
-        @Bean
-        @ConditionalOnMissingBean
-        public StrategyUserDetailsService localUserDetailsService(
-                SysUserService sysUserService,
-                SocialAuthenticationHandler socialAuthenticationHandler ) {
-            log.debug(" Strategy [Local User Details Service] Auto Configure.");
-            return new LocalUserDetailsService(sysUserService, socialAuthenticationHandler);
-        }
+//        @Bean
+//        @ConditionalOnMissingBean
+//        public StrategyUserDetailsService localUserDetailsService(
+//                SysUserService sysUserService,
+//                SocialAuthenticationHandler socialAuthenticationHandler ) {
+//            log.debug(" Strategy [Local User Details Service] Auto Configure.");
+//            return new LocalUserDetailsService(sysUserService, socialAuthenticationHandler);
+//        }
 
         @Bean
         @ConditionalOnMissingBean
