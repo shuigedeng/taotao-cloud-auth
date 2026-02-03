@@ -19,6 +19,8 @@ package com.taotao.cloud.auth.biz.jpa.jackson2;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.taotao.boot.security.spring.authentication.login.social.justauth.deserializes.UserDeserializer;
+import com.taotao.boot.security.spring.core.userdetails.TtcUserDeserializer;
 import tools.jackson.databind.annotation.JsonDeserialize;
 
 /**
@@ -37,7 +39,7 @@ import tools.jackson.databind.annotation.JsonDeserialize;
  * @since 2023-07-04 10:29:13
  */
 @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS)
-@JsonDeserialize(using = SecurityUserDeserializer.class)
+@JsonDeserialize(using = TtcUserDeserializer.class)
 @JsonAutoDetect(
         fieldVisibility = JsonAutoDetect.Visibility.ANY,
         getterVisibility = JsonAutoDetect.Visibility.NONE,

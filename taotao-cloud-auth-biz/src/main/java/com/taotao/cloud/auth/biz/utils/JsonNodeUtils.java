@@ -61,7 +61,7 @@ public class JsonNodeUtils {
             return null;
         }
         JsonNode value = jsonNode.findValue(fieldName);
-        return (value != null && value.isContainerNode())
+        return (value != null && value.isValueNode())
                 ? mapper.convertValue(value, valueTypeReference)
                 : null;
     }

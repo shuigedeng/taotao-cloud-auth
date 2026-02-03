@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.auth.biz.jpa.jackson2;
 
+import org.springframework.security.jackson.SecurityJacksonModules;
 import tools.jackson.databind.module.SimpleModule;
 import com.taotao.cloud.auth.biz.utils.Jackson2Constants;
-import org.springframework.security.jackson2.SecurityJackson2Modules;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.server.authorization.authentication.OAuth2ClientAuthenticationToken;
@@ -40,7 +40,8 @@ public class OAuth2TokenJackson2Module extends SimpleModule {
 
     @Override
     public void setupModule(SetupContext context) {
-        SecurityJackson2Modules.enableDefaultTyping(context.getOwner());
+        SecurityJacksonModules.enableDefaultTyping(context.getOwner());
+
         context.setMixInAnnotations(
                 ClientAuthenticationMethod.class, ClientAuthenticationMethodMixin.class);
         context.setMixInAnnotations(

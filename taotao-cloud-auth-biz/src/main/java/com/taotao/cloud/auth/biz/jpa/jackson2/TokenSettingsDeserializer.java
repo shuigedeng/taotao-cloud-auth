@@ -19,8 +19,8 @@ package com.taotao.cloud.auth.biz.jpa.jackson2;
 import tools.jackson.core.JacksonException;
 import tools.jackson.core.JsonParser;
 import tools.jackson.databind.DeserializationContext;
-import tools.jackson.databind.JsonDeserializer;
 import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ValueDeserializer;
 import tools.jackson.databind.json.JsonMapper;
 import com.taotao.cloud.auth.biz.utils.JsonNodeUtils;
 import java.io.IOException;
@@ -33,12 +33,12 @@ import org.springframework.security.oauth2.server.authorization.settings.TokenSe
  *
  * @since : 2022/10/24 23:29
  */
-public class TokenSettingsDeserializer extends JsonDeserializer<TokenSettings> {
+public class TokenSettingsDeserializer extends ValueDeserializer<TokenSettings> {
 
     @Override
     public TokenSettings deserialize(
             JsonParser jsonParser, DeserializationContext deserializationContext)
-            throws IOException, JacksonException {
+            throws  JacksonException {
         JsonMapper mapper = (JsonMapper) jsonParser.getCodec();
         JsonNode jsonNode = mapper.readTree(jsonParser);
 

@@ -16,12 +16,13 @@
 
 package com.taotao.cloud.auth.biz.jpa.jackson2;
 
+import org.apache.dubbo.common.utils.FieldUtils;
 import tools.jackson.core.JacksonException;
 import tools.jackson.core.JsonParser;
 import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.DeserializationContext;
-import tools.jackson.databind.JsonDeserializer;
 import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ValueDeserializer;
 import tools.jackson.databind.json.JsonMapper;
 import com.taotao.boot.security.spring.core.authority.TtcGrantedAuthority;
 import com.taotao.cloud.auth.biz.utils.JsonNodeUtils;
@@ -39,7 +40,7 @@ import org.springframework.security.oauth2.server.authorization.client.Registere
  * @since : 2022/10/24 14:43
  */
 public class OAuth2ClientAuthenticationTokenDeserializer
-        extends JsonDeserializer<OAuth2ClientAuthenticationToken> {
+        extends ValueDeserializer<OAuth2ClientAuthenticationToken> {
 
     private static final TypeReference<Set<TtcGrantedAuthority>> TTC_GRANTED_AUTHORITY_SET =
             new TypeReference<Set<TtcGrantedAuthority>>() {};
@@ -47,7 +48,7 @@ public class OAuth2ClientAuthenticationTokenDeserializer
     @Override
     public OAuth2ClientAuthenticationToken deserialize(
             JsonParser jsonParser, DeserializationContext context)
-            throws IOException, JacksonException {
+            throws  JacksonException {
 
         JsonMapper mapper = (JsonMapper) jsonParser.getCodec();
         JsonNode jsonNode = mapper.readTree(jsonParser);
@@ -55,7 +56,7 @@ public class OAuth2ClientAuthenticationTokenDeserializer
     }
 
     private OAuth2ClientAuthenticationToken deserialize(
-            JsonParser parser, JsonMapper mapper, JsonNode root) throws IOException {
+            JsonParser parser, JsonMapper mapper, JsonNode root)  {
         Set<TtcGrantedAuthority> authorities =
                 JsonNodeUtils.findValue(root, "authorities", TTC_GRANTED_AUTHORITY_SET, mapper);
         RegisteredClient registeredClient =
@@ -73,7 +74,7 @@ public class OAuth2ClientAuthenticationTokenDeserializer
                 new OAuth2ClientAuthenticationToken(
                         registeredClient, clientAuthenticationMethod, credentials);
         if (CollectionUtils.isNotEmpty(authorities)) {
-            FieldUtil.setFieldValue(clientAuthenticationToken, "authorities", authorities);
+            FieldUtils.setFieldValue(clientAuthenticationToken, "authorities", authorities);
         }
         return clientAuthenticationToken;
     }

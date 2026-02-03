@@ -20,8 +20,8 @@ import tools.jackson.core.JacksonException;
 import tools.jackson.core.JsonParser;
 import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.DeserializationContext;
-import tools.jackson.databind.JsonDeserializer;
 import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ValueDeserializer;
 import tools.jackson.databind.json.JsonMapper;
 import com.taotao.cloud.auth.biz.utils.JsonNodeUtils;
 import java.io.IOException;
@@ -39,7 +39,7 @@ import org.springframework.security.oauth2.server.authorization.settings.TokenSe
  *
  * @since : 2022/10/24 15:11
  */
-public class RegisteredClientDeserializer extends JsonDeserializer<RegisteredClient> {
+public class RegisteredClientDeserializer extends ValueDeserializer<RegisteredClient> {
 
     private static final TypeReference<Set<ClientAuthenticationMethod>>
             CLIENT_AUTHENTICATION_METHOD_SET =
@@ -50,7 +50,7 @@ public class RegisteredClientDeserializer extends JsonDeserializer<RegisteredCli
     @Override
     public RegisteredClient deserialize(
             JsonParser jsonParser, DeserializationContext deserializationContext)
-            throws IOException, JacksonException {
+            throws  JacksonException {
 
         JsonMapper mapper = (JsonMapper) jsonParser.getCodec();
         JsonNode root = mapper.readTree(jsonParser);
@@ -58,7 +58,7 @@ public class RegisteredClientDeserializer extends JsonDeserializer<RegisteredCli
     }
 
     private RegisteredClient deserialize(JsonParser parser, JsonMapper mapper, JsonNode root)
-            throws IOException {
+            {
 
         String id = JsonNodeUtils.findStringValue(root, "id");
         String clientId = JsonNodeUtils.findStringValue(root, "clientId");

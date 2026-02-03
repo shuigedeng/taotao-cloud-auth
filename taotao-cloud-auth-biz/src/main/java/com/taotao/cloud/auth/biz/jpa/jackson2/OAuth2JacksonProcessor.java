@@ -16,16 +16,17 @@
 
 package com.taotao.cloud.auth.biz.jpa.jackson2;
 
+import org.springframework.security.oauth2.server.authorization.jackson.OAuth2AuthorizationServerJacksonModule;
 import tools.jackson.core.type.TypeReference;
-import tools.jackson.databind.Module;
+import tools.jackson.databind.JacksonModule;
 import tools.jackson.databind.json.JsonMapper;
 import java.util.List;
 import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.jackson2.SecurityJackson2Modules;
-import org.springframework.security.oauth2.server.authorization.jackson2.OAuth2AuthorizationServerJackson2Module;
 import org.springframework.util.ClassUtils;
+
+import static org.springframework.security.jackson.SecurityJacksonModules.getModules;
 
 /**
  * <p>OAuth2 相关 Jackson 处理器 </p>
@@ -40,29 +41,28 @@ public class OAuth2JacksonProcessor {
     private final JsonMapper jsonMapper;
 
     public OAuth2JacksonProcessor() {
+		JsonMapper.Builder builder = JsonMapper.builder();
+		ClassLoader classLoader = OAuth2JacksonProcessor.class.getClassLoader();
+        List<JacksonModule> securityModules = getModules(classLoader);
 
-        jsonMapper =JsonMapper.builder().build();
-
-        ClassLoader classLoader = OAuth2JacksonProcessor.class.getClassLoader();
-        List<Module> securityModules = SecurityJackson2Modules.getModules(classLoader);
-
-        Module module =
+		JacksonModule module =
                 loadAndGetInstance(
                         "com.taotao.cloud.auth.biz.jpa.jackson2.FormOAuth2PhoneLoginJackson2Module",
                         classLoader);
         securityModules.add(module);
 
-        jsonMapper.registerModules(securityModules);
-        jsonMapper.registerModules(new OAuth2AuthorizationServerJackson2Module());
-        jsonMapper.registerModules(new TtcJackson2Module());
-        jsonMapper.registerModules(new OAuth2TokenJackson2Module());
+		builder.addModules(securityModules);
+		builder.addModules(new OAuth2AuthorizationServerJacksonModule());
+		builder.addModules(new TtcJackson2Module());
+		builder.addModules(new OAuth2TokenJackson2Module());
+		jsonMapper =builder.build();
     }
 
-    private static Module loadAndGetInstance(String className, ClassLoader loader) {
+    private static JacksonModule loadAndGetInstance(String className, ClassLoader loader) {
         try {
             @SuppressWarnings("unchecked")
-            Class<? extends Module> securityModule =
-                    (Class<? extends Module>) ClassUtils.forName(className, loader);
+            Class<? extends JacksonModule> securityModule =
+                    (Class<? extends JacksonModule>) ClassUtils.forName(className, loader);
             return securityModule.getDeclaredConstructor().newInstance();
         } catch (Exception ignored) {
         }

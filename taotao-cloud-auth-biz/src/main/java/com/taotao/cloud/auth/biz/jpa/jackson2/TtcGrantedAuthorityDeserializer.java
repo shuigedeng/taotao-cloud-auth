@@ -19,8 +19,8 @@ package com.taotao.cloud.auth.biz.jpa.jackson2;
 import tools.jackson.core.JacksonException;
 import tools.jackson.core.JsonParser;
 import tools.jackson.databind.DeserializationContext;
-import tools.jackson.databind.JsonDeserializer;
 import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ValueDeserializer;
 import tools.jackson.databind.json.JsonMapper;
 import tools.jackson.databind.node.MissingNode;
 import com.taotao.boot.security.spring.core.authority.TtcGrantedAuthority;
@@ -32,10 +32,10 @@ import java.io.IOException;
  *
  * @since : 2022/3/17 20:28
  */
-public class TtcGrantedAuthorityDeserializer extends JsonDeserializer<TtcGrantedAuthority> {
+public class TtcGrantedAuthorityDeserializer extends ValueDeserializer<TtcGrantedAuthority> {
     @Override
     public TtcGrantedAuthority deserialize(JsonParser jp, DeserializationContext ctxt)
-            throws IOException, JacksonException {
+            throws  JacksonException {
         JsonMapper mapper = (JsonMapper) jp.getCodec();
         JsonNode jsonNode = mapper.readTree(jp);
         String authority = readJsonNode(jsonNode, "authority").asString();
