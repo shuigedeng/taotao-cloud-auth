@@ -70,10 +70,10 @@ dependencies {
     //https://search.maven.org/artifact/org.webjars/jquery
     api "org.webjars:jquery:3.7.1"
     //https://search.maven.org/artifact/org.webjars/bootstrap
-    api "org.webjars:bootstrap:5.3.6"
+    api "org.webjars:bootstrap:5.3.8"
     //https://search.maven.org/artifact/org.webjars/webjars-locator-lite
-    api "org.webjars:webjars-locator-lite:1.1.0"
-    api 'org.webjars:font-awesome:6.5.1'
+    api "org.webjars:webjars-locator-lite:1.1.3"
+    api 'org.webjars:font-awesome:7.1.0'
     api("org.webjars.bower:jquery-backstretch:2.1.17") {
         exclude group: "org.webjars.bower", module: "jquery"
     }
@@ -81,8 +81,8 @@ dependencies {
     api 'org.webjars:uniform:2.1.2-1'
     api 'org.webjars.npm:animate.css:4.1.1'
     api "org.webjars.npm:mdi__font:7.4.47"
-    api 'org.webjars.npm:quasar:2.15.1'
-    api("org.webjars.npm:vue:3.4.31") {
+    api 'org.webjars.npm:quasar:2.18.6'
+    api("org.webjars.npm:vue:3.5.27") {
         exclude group: "org.webjars.npm", module: "babel__parser"
         exclude group: "org.webjars.npm", module: "source-map-js"
         exclude group: "org.webjars.npm", module: "magic-string"
@@ -91,9 +91,9 @@ dependencies {
         exclude group: "org.webjars.npm", module: "csstype"
         exclude group: "org.webjars.npm", module: "entities"
     }
-    api 'org.webjars.npm:babel__parser:7.24.0'
+    api 'org.webjars.npm:babel__parser:7.28.6'
     api 'org.webjars.npm:source-map-js:1.2.1'
-    api("org.webjars.npm:magic-string:0.30.19") {
+    api("org.webjars.npm:magic-string:0.30.21") {
         exclude group: "org.webjars.npm", module: "jridgewell__sourcemap-codec"
     }
     api 'org.webjars.npm:jridgewell__sourcemap-codec:1.5.5'
@@ -101,14 +101,14 @@ dependencies {
         exclude group: "org.webjars.npm", module: "types__estree"
     }
     api 'org.webjars.npm:types__estree:1.0.8'
-    api("org.webjars.npm:postcss:8.4.39") {
+    api("org.webjars.npm:postcss:8.5.6") {
         exclude group: "org.webjars.npm", module: "nanoid"
         exclude group: "org.webjars.npm", module: "picocolors"
     }
-    api 'org.webjars.npm:nanoid:4.0.2'
+    api 'org.webjars.npm:nanoid:5.1.6'
     api 'org.webjars.npm:picocolors:1.1.1'
-    api 'org.webjars.npm:csstype:3.1.3'
-    api 'org.webjars.npm:entities:6.0.1'
+    api 'org.webjars.npm:csstype:3.2.3'
+    api 'org.webjars.npm:entities:7.0.1'
 
     api 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.3.RELEASE'
     api "org.springframework.boot:spring-boot-starter-thymeleaf"
@@ -304,18 +304,17 @@ configurations {
             force 'org.bouncycastle:bcpkix-jdk18on:1.82'
             force 'org.bouncycastle:bcutil-jdk18on:1.82'
             force 'org.webjars.npm:csstype:3.1.3'
-            force 'org.webjars.npm:postcss:8.4.39'
-            force 'org.webjars.npm:nanoid:4.0.2'
+            force 'org.webjars.npm:postcss:8.5.6'
+            force 'org.webjars.npm:nanoid:5.1.6'
 
             force 'org.webjars.bower:jquery:3.7.1'
-            force 'org.webjars.npm:magic-string:0.30.19'
+            force 'org.webjars.npm:magic-string:0.30.21'
             force 'org.webjars.npm:estree-walker:3.0.3'
             force 'org.webjars.npm:source-map-js:1.2.1'
-            force 'org.webjars.npm:entities:6.0.1'
+            force 'org.webjars.npm:entities:7.0.1'
             force 'org.webjars.npm:picocolors:1.1.1'
             force 'org.webjars.npm:jridgewell__sourcemap-codec:1.5.5'
             force 'org.webjars.npm:types__estree:1.0.8'
-
         }
 
         //exclude group: "log4j", module: "log4j"
