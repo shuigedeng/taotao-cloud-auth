@@ -1,60 +1,31 @@
 
-/**
- * DDD: domain 领域层 这一层就是最为核心的业务逻辑层， 这一层不包含任何和技术相关的内容，只包含业务逻辑。
- * 领域层主要负责表达业务概念,业务状态信息和业务规则。
- * Domain层是整个系统的核心层,几乎全部的业务逻辑会在该层实现。
- * 领域模型层主要包含以下的内容:
- * 实体(Entities):具有唯一标识的对象
- * 值对象(Value Objects): 无需唯一标识的对象
- * 领域服务(Domain Services): 一些行为无法归类到实体对象或值对象上,本质是一些操作,而非事物(与本例中domain/service包下的含义不同)
- * 聚合/聚合根(Aggregates,Aggregate Roots):
- * 聚合是指一组具有内聚关系的相关对象的集合,每个聚合都有一个root和boundary
- * 工厂(Factories): 创建复杂对象,隐藏创建细节
- * 仓储(Repository): 提供查找和持久化对象的方法
- *
- * |--- domain                      -- 领域层
- * |      |--- model                -- 领域对象
- * |      |       |--- aggregate    -- 聚合
- * |      |       |--- entities     -- 实休
- * |      |       |--- vo           -- 值对象
- * |      |--- service              -- 域服务
- * |      |--- factory              -- 工厂，针对一些复杂的Object可以通过工厂来构建
- * |      |--- port                 -- 端口，即接口
- * |      |--- event                -- 领域事件
- * |      |--- exception            -- 异常封装
- * |      |--- ability              -- 领域能力
- * |      |--- extension            -- 扩展点
- * |      |       |--- impl        -- 扩展点实现
- */
+import org.apache.tools.ant.filters.ReplaceTokens
 
-/**
- * DomainService命名统一以Service为后缀。
- * Entity实体类的命名不用后缀。 值对象类的定义统一以VO结尾。
- * DomainService逻辑中可以调用Repository和Port中定义的接口。
- * DomainService可以操作多个聚合，实体和值对象。
- * Entity实体类可以有构造函数，builder，getters。 不要直接放开所有属性的setters，防止业务代码随意修改实体的属性。
- * 编写业务逻辑需要遵守原则：优先将业务逻辑放在Entity和VO中，然后才是放在聚合中，最后才放在DomainService中。
- * 依赖反转原则：Domain层依赖的外部接口都要定义在Domain模块的port包中。Domain层只面向接口编程，不依赖接口实现类。
- */
+apply from: rootProject.file('gradle/project-report.gradle')
+apply from: rootProject.file('gradle/git.gradle')
+apply from: rootProject.file('gradle/smart-doc.gradle')
+apply from: rootProject.file('gradle/springdoc-openapi.gradle')
+apply from: rootProject.file('gradle/docker.gradle')
+apply from: rootProject.file('gradle/google-tools-jib.gradle')
+apply from: rootProject.file('gradle/shadow.gradle')
+//apply from: rootProject.file('gradle/graalvm.gradle')
+apply from: rootProject.file('gradle/swagger.gradle')
+apply from: rootProject.file('gradle/test.gradle')
+//apply from: rootProject.file('gradle/mybatis-generator.gradle')
 
-/**
- * 4.领域对象 VS 数据对象
- * 1.数据对象使用基本类型保持纯净：PlayerEntity
- * 2.领域对象需要体现业务含义：PlayerQueryResultDomain
- *
- * <p>领域对象 VS 业务对象
- * 1.数据对象使用基本类型保持纯净：PlayerEntity
- * 2.业务对象同样会体现业务 最大不同是领域对象采用充血模型聚合业务: PlayerCreateBO
- *
- * <p>领域层 VS 应用层
- * 第一个区别：领域层关注纵向，应用层关注横向。领域层纵向做隔离，本领域业务行为要在本领域内处理完。
- * 应用层横向做编排，聚合和编排领域服务。
- * 第二个区别：应用层可以更加灵活组合不同领域业务，
- * 并且可以增加流控、监控、日志、权限，分布式锁，相较于领域层功能更为丰富。
- */
+application {
+    mainClass.set("com.taotao.cloud.auth.biz.TaoTaoCloudAuthApplication")
+    applicationName = "taotao-cloud-auth"
+}
+description = "认证中心"
 
 dependencies {
     api project(":taotao-cloud-auth-common")
+    api project(":taotao-cloud-auth-api")
+
+    api "io.github.shuigedeng:taotao-cloud-sys-api:2026.03"
+    api "io.github.shuigedeng:taotao-cloud-member-api:2026.03"
+    api "io.github.shuigedeng:taotao-cloud-message-api:2026.03"
 
     //cloud
     api "io.github.shuigedeng:taotao-cloud-starter-seata"
@@ -62,7 +33,6 @@ dependencies {
     api "io.github.shuigedeng:taotao-cloud-starter-stream"
     api "io.github.shuigedeng:taotao-cloud-starter-alibaba"
     api "io.github.shuigedeng:taotao-cloud-starter-ttc"
-    //api "io.github.shuigedeng:taotao-cloud-starter-openfeign"
 
     //boot
     api "io.github.shuigedeng:taotao-boot-starter-apollo"
@@ -75,7 +45,6 @@ dependencies {
     api "io.github.shuigedeng:taotao-boot-starter-elk"
     api "io.github.shuigedeng:taotao-boot-starter-captcha"
     api "io.github.shuigedeng:taotao-boot-starter-office"
-    api "io.github.shuigedeng:taotao-boot-starter-client"
     api "io.github.shuigedeng:taotao-boot-starter-oss-minio"
     api "io.github.shuigedeng:taotao-boot-starter-job-xxl"
     api "io.github.shuigedeng:taotao-boot-starter-job-schedule"
@@ -86,6 +55,8 @@ dependencies {
     api "io.github.shuigedeng:taotao-boot-starter-webagg"
     api "io.github.shuigedeng:taotao-boot-starter-security-spring"
     api "io.github.shuigedeng:taotao-boot-starter-security-justauth"
+    api "io.github.shuigedeng:taotao-boot-starter-client"
+    api "io.github.shuigedeng:taotao-boot-starter-grpc"
 
     //https://central.sonatype.com/artifact/org.springframework.session/spring-session-data-redis
     api 'org.springframework.session:spring-session-data-redis:4.0.1'
@@ -174,8 +145,6 @@ dependencies {
     //https://search.maven.org/artifact/com.aliyun/dypnsapi20170525
     api 'com.aliyun:dypnsapi20170525:2.0.0'
 
-
-
     //AVIATOR——轻量级JAVA表达式求值引擎 https://blog.csdn.net/ZhangQingmu/article/details/125087255
     //https://code.google.com/p/aviator/
     //http://code.google.com/p/aviator/wiki/User_Guide_zh
@@ -214,6 +183,101 @@ dependencies {
     api "jakarta.persistence:jakarta.persistence-api:3.2.0"
     annotationProcessor "jakarta.persistence:jakarta.persistence-api:3.2.0"
 
+    testImplementation "io.github.shuigedeng:taotao-boot-starter-test"
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:6.0.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:6.0.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:6.0.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:6.0.2'
+    testImplementation "org.assertj:assertj-core:3.27.6"
+
+    testImplementation "org.projectlombok:lombok"
+    testAnnotationProcessor  "org.projectlombok:lombok:${lombokVersion}"
+
+    testImplementation "io.soabase.record-builder:record-builder-core"
+    testAnnotationProcessor "io.soabase.record-builder:record-builder-processor:${recordBuilderVersion}"
+
+    testImplementation "org.mapstruct:mapstruct"
+    testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapstructProcessorVersion}"
+    //https://github.com/entur/mapstruct-spi-protobuf
+    //https://search.maven.org/artifact/no.entur.mapstruct.spi/protobuf-spi-impl
+    testAnnotationProcessor "no.entur.mapstruct.spi:protobuf-spi-impl:1.52.0"
+}
+
+def getProperty(String key, String defaultValue) {
+    def keyValue = findProperty(key) ?: System.getenv(key)
+    if (keyValue != null) {
+        return keyValue;
+    }
+    // 加载根路径自定义配置属性
+    Properties envProps = new Properties()
+    envProps.load(new FileInputStream("${rootProject.projectDir.absolutePath}${File.separator}release.properties"))
+
+    keyValue = envProps.getProperty(key, defaultValue)
+    println("打包profile环境==============" + keyValue)
+    return keyValue
+}
+//多项目分环境打包
+//gradle构建过程中的默认任务processResources，重写
+//gradle build -x test -Pprofile=dev
+//gradle -x test clean bootJar -Pprofile=dev
+processResources {
+    doFirst {
+        //过滤器会将用 @var@ 包裹的变量，替换为指定的值。
+        filter ReplaceTokens, tokens: [activeProfile: getProperty("profile", "dev")]
+
+        //${profile}变量
+        //filesMatching("**/*.yml"){
+        //    expand(project.properties)
+        //}
+
+        //inputs.property('version', version)
+
+        //filesMatching("**/version.properties") {
+        //    expand version: version
+        //}
+    }
+}
+
+tasks.register('createProperties') {
+    dependsOn processResources
+    doLast {
+        def fileDir = new File("${project.layout.buildDirectory.asFile.get()}/resources/main");
+        if (fileDir.exists() && fileDir.isDirectory()) {
+            def pro = ["application.properties", "bootstrap.properties"]
+            pro.forEach(item -> {
+                new File("${project.layout.buildDirectory.asFile.get()}/resources/main/$item").withWriter { w ->
+                    def projectProperties = project.properties
+                    Properties p = new Properties()
+                    projectProperties.each { entry ->
+                        p[entry.key.toString()] = entry.value.toString()
+                    }
+
+                    p.store w, null
+                }
+            })
+        }
+    }
+}
+
+//classes {
+//    dependsOn 'createProperties'
+//}
+
+tasks.register('bootJarTest') {
+    dependsOn 'clean'
+    doFirst {
+        System.setProperty("profile", "test")
+    }
+    finalizedBy("bootJar")
+}
+
+tasks.register('bootJarProduction') {
+    dependsOn 'clean'
+    doFirst {
+        System.setProperty("profile", "prod")
+    }
+    finalizedBy("bootJar")
 }
 
 configurations {
@@ -268,3 +332,4 @@ configurations {
         exclude group: "org.bouncycastle", module: "bcutil-jdk15on"
     }
 }
+

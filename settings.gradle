@@ -115,6 +115,7 @@ include "taotao-cloud-auth-domain"
 include "taotao-cloud-auth-facade"
 include "taotao-cloud-auth-infrastructure"
 include "taotao-cloud-auth-interfaces"
+include "taotao-cloud-auth-biz"
 
 
 gradle.settingsEvaluated {
