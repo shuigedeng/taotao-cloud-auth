@@ -37,7 +37,7 @@ import com.taotao.boot.security.spring.authentication.response.denied.JsonAccess
 import com.taotao.boot.security.spring.authentication.response.entrypoint.JsonAuthenticationEntryPoint;
 import com.taotao.boot.security.spring.authorization.SecurityAuthorizationManager;
 import com.taotao.boot.security.spring.authorization.SecurityMatcherConfigurer;
-import com.taotao.boot.security.spring.autoconfigure.properties.OAuth2AuthenticationProperties;
+import com.taotao.boot.security.spring.autoconfigure.properties.SecurityAuthenticationProperties;
 import com.taotao.boot.security.spring.support.core.details.client.ClientDetailsService;
 import com.taotao.boot.security.spring.support.filter.ExtensionAndOauth2LoginRefreshTokenFilter;
 import com.taotao.boot.security.spring.support.token.OAuth2AccessTokenStore;
@@ -111,7 +111,7 @@ public class DefaultSecurityConfiguration {
 	SecurityFilterChain defaultSecurityFilterChain(
 		HttpSecurity httpSecurity,
 		UserDetailsService userDetailsService,
-		OAuth2AuthenticationProperties authenticationProperties,
+		SecurityAuthenticationProperties authenticationProperties,
 		CaptchaRendererFactory captchaRendererFactory,
 		SecurityMatcherConfigurer securityMatcherConfigurer,
 		SecurityAuthorizationManager securityAuthorizationManager,

@@ -30,7 +30,7 @@ import com.taotao.boot.security.spring.authentication.login.form.FormLoginUrlCon
 import com.taotao.boot.security.spring.authentication.response.OAuth2AccessTokenResponseHandler;
 import com.taotao.boot.security.spring.authentication.response.OAuth2AuthenticationFailureResponseHandler;
 import com.taotao.boot.security.spring.authentication.response.entrypoint.RedirectLoginUrlAuthenticationEntryPoint;
-import com.taotao.boot.security.spring.autoconfigure.properties.OAuth2AuthenticationProperties;
+import com.taotao.boot.security.spring.autoconfigure.properties.SecurityAuthenticationProperties;
 import com.taotao.boot.security.spring.oauth2.authorization.server.device.DeviceClientAuthenticationConverter;
 import com.taotao.boot.security.spring.oauth2.authorization.server.device.DeviceClientAuthenticationProvider;
 import com.taotao.boot.security.spring.oauth2.authorization.server.device.reesponse.OAuth2DeviceVerificationResponseHandler;
@@ -42,7 +42,7 @@ import com.taotao.boot.security.spring.oauth2.authorization.server.utils.OAuth2C
 import com.taotao.boot.security.spring.support.constants.DefaultConstants;
 import com.taotao.boot.security.spring.support.core.details.client.ClientDetailsService;
 import com.taotao.boot.security.spring.support.enums.Certificate;
-import com.taotao.boot.security.spring.autoconfigure.properties.OAuth2AuthorizationProperties;
+import com.taotao.boot.security.spring.autoconfigure.properties.SecurityAuthorizationProperties;
 import com.taotao.boot.security.spring.autoconfigure.properties.OAuth2EndpointProperties;
 import com.taotao.boot.security.spring.support.processor.HttpCryptoProcessor;
 import com.taotao.boot.security.spring.support.token.SecurityTokenStrategyConfigurer;
@@ -146,7 +146,7 @@ public class AuthorizationServerConfiguration {
             HttpCryptoProcessor httpCryptoProcessor,
             SecurityTokenStrategyConfigurer ttcTokenStrategyConfigurer,
 		    FormLoginUrlConfigurer formLoginUrlConfigurer,
-            OAuth2AuthenticationProperties authenticationProperties,
+            SecurityAuthenticationProperties authenticationProperties,
             OAuth2DeviceVerificationResponseHandler deviceVerificationResponseHandler,
             OidcClientRegistrationResponseHandler clientRegistrationResponseHandler,
             OAuth2EndpointProperties auth2EndpointProperties,
@@ -426,9 +426,9 @@ public class AuthorizationServerConfiguration {
 
     @Bean
     public JWKSource<SecurityContext> jwkSource(
-            OAuth2AuthorizationProperties authorizationProperties, RedisRepository redisRepository)
+            SecurityAuthorizationProperties authorizationProperties, RedisRepository redisRepository)
             throws NoSuchAlgorithmException, ParseException {
-        OAuth2AuthorizationProperties.Jwk jwk = authorizationProperties.getJwk();
+        SecurityAuthorizationProperties.Jwk jwk = authorizationProperties.getJwk();
         KeyPair keyPair = null;
 
         // 持久化JWKSource，解决重启后无法解析AccessToken问题

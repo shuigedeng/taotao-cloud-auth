@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.biz.management.controller;
 
-import com.taotao.boot.security.spring.autoconfigure.properties.OAuth2AuthenticationProperties;
+import com.taotao.boot.security.spring.autoconfigure.properties.SecurityAuthenticationProperties;
 import com.taotao.boot.security.spring.support.utils.SymmetricUtils;
 import com.taotao.boot.security.spring.support.utils.WebUtils;
 import jakarta.servlet.http.HttpServletRequest;
@@ -49,10 +49,10 @@ public class LoginController {
     private static final String DEFAULT_LOGIN_PAGE_VIEW = "login";
     private static final String DEFAULT_ERROR_PAGE_VIEW = "error";
 
-    private final OAuth2AuthenticationProperties authenticationProperties;
+    private final SecurityAuthenticationProperties authenticationProperties;
 
     @Autowired
-    public LoginController( OAuth2AuthenticationProperties authenticationProperties) {
+    public LoginController( SecurityAuthenticationProperties authenticationProperties) {
         this.authenticationProperties = authenticationProperties;
     }
 
@@ -91,7 +91,7 @@ public class LoginController {
         return modelAndView;
     }
 
-    private OAuth2AuthenticationProperties.FormLogin getFormLogin() {
+    private SecurityAuthenticationProperties.FormLogin getFormLogin() {
         return authenticationProperties.getFormLogin();
     }
 

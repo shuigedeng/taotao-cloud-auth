@@ -21,7 +21,7 @@ import com.taotao.boot.security.spring.authentication.login.form.FormLoginUrlCon
 import com.taotao.boot.security.spring.authentication.login.social.oauth2client.SocialDelegateClientRegistrationRepository;
 import com.taotao.boot.security.spring.authentication.stamp.LockedUserDetailsStampManager;
 import com.taotao.boot.security.spring.authentication.stamp.SignInFailureLimitedStampManager;
-import com.taotao.boot.security.spring.autoconfigure.properties.OAuth2AuthenticationProperties;
+import com.taotao.boot.security.spring.autoconfigure.properties.SecurityAuthenticationProperties;
 import com.taotao.boot.security.spring.support.processor.AESCryptoProcessor;
 import com.taotao.boot.security.spring.support.processor.HttpCryptoProcessor;
 import com.taotao.boot.security.spring.support.processor.RSACryptoProcessor;
@@ -49,7 +49,7 @@ import java.util.Map;
  * @since 2023-07-10 17:14:18
  */
 @Configuration(proxyBeanMethods = false)
-@EnableConfigurationProperties({OAuth2AuthenticationProperties.class})
+@EnableConfigurationProperties({SecurityAuthenticationProperties.class})
 public class OAuth2AuthenticationConfiguration {
 
     /**
