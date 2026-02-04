@@ -19,12 +19,12 @@ package com.taotao.cloud.auth.biz.authentication.configuration;
 import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.security.spring.authentication.login.form.FormLoginUrlConfigurer;
 import com.taotao.boot.security.spring.authentication.login.social.oauth2client.SocialDelegateClientRegistrationRepository;
+import com.taotao.boot.security.spring.authentication.stamp.LockedUserDetailsStampManager;
+import com.taotao.boot.security.spring.authentication.stamp.SignInFailureLimitedStampManager;
+import com.taotao.boot.security.spring.autoconfigure.properties.OAuth2AuthenticationProperties;
 import com.taotao.cloud.auth.biz.authentication.processor.AESCryptoProcessor;
 import com.taotao.cloud.auth.biz.authentication.processor.HttpCryptoProcessor;
 import com.taotao.cloud.auth.biz.authentication.processor.RSACryptoProcessor;
-import com.taotao.cloud.auth.biz.authentication.properties.OAuth2AuthenticationProperties;
-import com.taotao.cloud.auth.biz.authentication.stamp.LockedUserDetailsStampManager;
-import com.taotao.cloud.auth.biz.authentication.stamp.SignInFailureLimitedStampManager;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -81,19 +81,19 @@ public class OAuth2AuthenticationConfiguration {
      * @return {@link SocialDelegateClientRegistrationRepository }
      * @since 2023-07-10 17:14:19
      */
-    @Bean
-    public SocialDelegateClientRegistrationRepository delegateClientRegistrationRepository(
-        OAuth2ClientProperties properties) {
-        SocialDelegateClientRegistrationRepository clientRegistrationRepository =
-            new SocialDelegateClientRegistrationRepository();
-        if (properties != null) {
-            Map<String, ClientRegistration> clientRegistrations =
-                new OAuth2ClientPropertiesMapper(properties).asClientRegistrations();
-            List<ClientRegistration> registrations = new ArrayList<>(clientRegistrations.values());
-            registrations.forEach(clientRegistrationRepository::addClientRegistration);
-        }
-        return clientRegistrationRepository;
-    }
+//    @Bean
+//    public SocialDelegateClientRegistrationRepository delegateClientRegistrationRepository(
+//        OAuth2ClientProperties properties) {
+//        SocialDelegateClientRegistrationRepository clientRegistrationRepository =
+//            new SocialDelegateClientRegistrationRepository();
+//        if (properties != null) {
+//            Map<String, ClientRegistration> clientRegistrations =
+//                new OAuth2ClientPropertiesMapper(properties).asClientRegistrations();
+//            List<ClientRegistration> registrations = new ArrayList<>(clientRegistrations.values());
+//            registrations.forEach(clientRegistrationRepository::addClientRegistration);
+//        }
+//        return clientRegistrationRepository;
+//    }
 
     /**
      * http加密处理器
@@ -114,14 +114,14 @@ public class OAuth2AuthenticationConfiguration {
      * @return {@link LockedUserDetailsStampManager }
      * @since 2023-07-10 17:14:20
      */
-    @Bean
-    public LockedUserDetailsStampManager lockedUserDetailsStampManager(
-        OAuth2AuthenticationProperties authenticationProperties) {
-        LockedUserDetailsStampManager manager =
-            new LockedUserDetailsStampManager(redisRepository, authenticationProperties);
-        log.info("Bean [Locked UserDetails Stamp Manager] Auto Configure.");
-        return manager;
-    }
+//    @Bean
+//    public LockedUserDetailsStampManager lockedUserDetailsStampManager(
+//        OAuth2AuthenticationProperties authenticationProperties) {
+//        LockedUserDetailsStampManager manager =
+//            new LockedUserDetailsStampManager(redisRepository, authenticationProperties);
+//        log.info("Bean [Locked UserDetails Stamp Manager] Auto Configure.");
+//        return manager;
+//    }
 
     /**
      * 登录失败有限邮票经理
@@ -130,14 +130,14 @@ public class OAuth2AuthenticationConfiguration {
      * @return {@link SignInFailureLimitedStampManager }
      * @since 2023-07-10 17:14:20
      */
-    @Bean
-    public SignInFailureLimitedStampManager signInFailureLimitedStampManager(
-        OAuth2AuthenticationProperties authenticationProperties) {
-        SignInFailureLimitedStampManager manager =
-            new SignInFailureLimitedStampManager(redisRepository, authenticationProperties);
-        log.info("Bean [SignIn Failure Limited Stamp Manager] Auto Configure.");
-        return manager;
-    }
+//    @Bean
+//    public SignInFailureLimitedStampManager signInFailureLimitedStampManager(
+//        OAuth2AuthenticationProperties authenticationProperties) {
+//        SignInFailureLimitedStampManager manager =
+//            new SignInFailureLimitedStampManager(redisRepository, authenticationProperties);
+//        log.info("Bean [SignIn Failure Limited Stamp Manager] Auto Configure.");
+//        return manager;
+//    }
 
     /**
      * auth2表单登录参数配置器
@@ -145,12 +145,12 @@ public class OAuth2AuthenticationConfiguration {
      * @param authenticationProperties 身份验证属性
      * @since 2023-07-10 17:14:21
      */
-    @Bean
-    public FormLoginUrlConfigurer auth2FormLoginParameterConfigurer(
-		com.taotao.boot.security.spring.autoconfigure.properties.OAuth2AuthenticationProperties authenticationProperties) {
-		FormLoginUrlConfigurer configurer = new FormLoginUrlConfigurer(
-            authenticationProperties);
-        log.info("Bean [OAuth2 FormLogin Parameter Configurer] Auto Configure.");
-        return configurer;
-    }
+//    @Bean
+//    public FormLoginUrlConfigurer auth2FormLoginParameterConfigurer(
+//		com.taotao.boot.security.spring.autoconfigure.properties.OAuth2AuthenticationProperties authenticationProperties) {
+//		FormLoginUrlConfigurer configurer = new FormLoginUrlConfigurer(
+//            authenticationProperties);
+//        log.info("Bean [OAuth2 FormLogin Parameter Configurer] Auto Configure.");
+//        return configurer;
+//    }
 }

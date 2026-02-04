@@ -16,12 +16,14 @@
 
 package com.taotao.cloud.auth.biz.authentication.filter;
 
-import com.taotao.cloud.auth.biz.authentication.token.OAuth2AccessTokenStore;
+import com.taotao.boot.security.spring.oauth2.token.OAuth2AccessTokenStore;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServletServerHttpResponse;
@@ -40,7 +42,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
  */
 public class ExtensionAndOauth2LoginRefreshTokenFilter extends OncePerRequestFilter {
 
-    private OAuth2AccessTokenStore oAuth2AccessTokenStore;
+    private ObjectProvider<OAuth2AccessTokenStore> oAuth2AccessTokenStore;
 
     private final HttpMessageConverter<OAuth2AccessTokenResponse> accessTokenHttpResponseConverter =
             new OAuth2AccessTokenResponseHttpMessageConverter();
@@ -50,7 +52,7 @@ public class ExtensionAndOauth2LoginRefreshTokenFilter extends OncePerRequestFil
                     .matcher(HttpMethod.POST, "/login/token/refresh_token");
 
     public ExtensionAndOauth2LoginRefreshTokenFilter(
-            OAuth2AccessTokenStore oAuth2AccessTokenStore) {
+		ObjectProvider<OAuth2AccessTokenStore> oAuth2AccessTokenStore) {
         this.oAuth2AccessTokenStore = oAuth2AccessTokenStore;
     }
 
@@ -67,16 +69,16 @@ public class ExtensionAndOauth2LoginRefreshTokenFilter extends OncePerRequestFil
         String refreshToken = request.getParameter("refresh_token");
 
         OAuth2AccessTokenResponse accessTokenResponse =
-                oAuth2AccessTokenStore.freshToken(refreshToken);
+                oAuth2AccessTokenStore.getIfAvailable().freshToken(refreshToken);
         ServletServerHttpResponse httpResponse = new ServletServerHttpResponse(response);
         this.accessTokenHttpResponseConverter.write(accessTokenResponse, null, httpResponse);
     }
 
-    public OAuth2AccessTokenStore getoAuth2AccessTokenStore() {
-        return oAuth2AccessTokenStore;
-    }
-
-    public void setoAuth2AccessTokenStore(OAuth2AccessTokenStore oAuth2AccessTokenStore) {
-        this.oAuth2AccessTokenStore = oAuth2AccessTokenStore;
-    }
+//    public OAuth2AccessTokenStore getoAuth2AccessTokenStore() {
+//        return oAuth2AccessTokenStore;
+//    }
+//
+//    public void setoAuth2AccessTokenStore(OAuth2AccessTokenStore oAuth2AccessTokenStore) {
+//        this.oAuth2AccessTokenStore = oAuth2AccessTokenStore;
+//    }
 }

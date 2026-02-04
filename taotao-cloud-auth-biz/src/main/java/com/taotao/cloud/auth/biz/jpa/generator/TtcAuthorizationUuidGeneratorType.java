@@ -32,9 +32,7 @@ import org.hibernate.engine.spi.SharedSessionContractImplementor;
  */
 public class TtcAuthorizationUuidGeneratorType extends AbstractUuidGenerator {
 
-    public TtcAuthorizationUuidGeneratorType(
-            TtcAuthorizationUuidGenerator config,
-            Member idMember) {
+    public TtcAuthorizationUuidGeneratorType( Member idMember) {
         super(idMember);
     }
 

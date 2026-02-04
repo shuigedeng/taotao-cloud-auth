@@ -38,13 +38,11 @@ public class ClientSettingsDeserializer extends ValueDeserializer<ClientSettings
     @Override
     public ClientSettings deserialize( JsonParser jsonParser, DeserializationContext deserializationContext)
             throws  JacksonException {
-//        JsonMapper mapper = (JsonMapper) jsonParser.getCodec();
-        JsonMapper mapper = null;
         JsonNode jsonNode = deserializationContext.readTree(jsonParser);
 
         Map<String, Object> settings =
                 JsonNodeUtils.findValue(
-                        jsonNode, "settings", JsonNodeUtils.STRING_OBJECT_MAP, mapper);
+                        jsonNode, "settings", JsonNodeUtils.STRING_OBJECT_MAP, deserializationContext);
 
         return ClientSettings.withSettings(settings).build();
     }

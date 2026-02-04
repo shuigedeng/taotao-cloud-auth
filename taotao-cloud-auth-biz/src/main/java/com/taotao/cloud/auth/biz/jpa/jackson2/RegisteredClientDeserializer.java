@@ -52,23 +52,21 @@ public class RegisteredClientDeserializer extends ValueDeserializer<RegisteredCl
             JsonParser jsonParser, DeserializationContext deserializationContext)
             throws  JacksonException {
 
-//        JsonMapper mapper = (JsonMapper) jsonParser.getCodec();
-        JsonMapper mapper = null;
 		JsonNode jsonNode = deserializationContext.readTree(jsonParser);
-        return deserialize(jsonParser, mapper, jsonNode);
+        return deserialize(jsonParser, deserializationContext, jsonNode);
     }
 
-    private RegisteredClient deserialize(JsonParser parser, JsonMapper mapper, JsonNode root)
+    private RegisteredClient deserialize(JsonParser parser,  DeserializationContext deserializationContext, JsonNode root)
             {
 
         String id = JsonNodeUtils.findStringValue(root, "id");
         String clientId = JsonNodeUtils.findStringValue(root, "clientId");
         Instant clientIdIssuedAt =
-                JsonNodeUtils.findValue(root, "clientIdIssuedAt", JsonNodeUtils.INSTANT, mapper);
+                JsonNodeUtils.findValue(root, "clientIdIssuedAt", JsonNodeUtils.INSTANT, deserializationContext);
         String clientSecret = JsonNodeUtils.findStringValue(root, "clientSecret");
         Instant clientSecretExpiresAt =
                 JsonNodeUtils.findValue(
-                        root, "clientSecretExpiresAt", JsonNodeUtils.INSTANT, mapper);
+                        root, "clientSecretExpiresAt", JsonNodeUtils.INSTANT, deserializationContext);
         String clientName = JsonNodeUtils.findStringValue(root, "clientName");
 
         Set<ClientAuthenticationMethod> clientAuthenticationMethods =
@@ -76,21 +74,21 @@ public class RegisteredClientDeserializer extends ValueDeserializer<RegisteredCl
                         root,
                         "clientAuthenticationMethods",
                         CLIENT_AUTHENTICATION_METHOD_SET,
-                        mapper);
+					deserializationContext);
         Set<AuthorizationGrantType> authorizationGrantTypes =
                 JsonNodeUtils.findValue(
-                        root, "authorizationGrantTypes", AUTHORIZATION_GRANT_TYPE_SET, mapper);
+                        root, "authorizationGrantTypes", AUTHORIZATION_GRANT_TYPE_SET, deserializationContext);
         Set<String> redirectUris =
-                JsonNodeUtils.findValue(root, "redirectUris", JsonNodeUtils.STRING_SET, mapper);
+                JsonNodeUtils.findValue(root, "redirectUris", JsonNodeUtils.STRING_SET, deserializationContext);
         Set<String> postLogoutRedirectUris =
                 JsonNodeUtils.findValue(
-                        root, "postLogoutRedirectUris", JsonNodeUtils.STRING_SET, mapper);
+                        root, "postLogoutRedirectUris", JsonNodeUtils.STRING_SET, deserializationContext);
         Set<String> scopes =
-                JsonNodeUtils.findValue(root, "scopes", JsonNodeUtils.STRING_SET, mapper);
+                JsonNodeUtils.findValue(root, "scopes", JsonNodeUtils.STRING_SET, deserializationContext);
         ClientSettings clientSettings =
-                JsonNodeUtils.findValue(root, "clientSettings", new TypeReference<>() {}, mapper);
+                JsonNodeUtils.findValue(root, "clientSettings", new TypeReference<>() {}, deserializationContext);
         TokenSettings tokenSettings =
-                JsonNodeUtils.findValue(root, "tokenSettings", new TypeReference<>() {}, mapper);
+                JsonNodeUtils.findValue(root, "tokenSettings", new TypeReference<>() {}, deserializationContext);
 
         return RegisteredClient.withId(id)
                 .clientId(clientId)

@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.auth.biz.management.controller;
 
+import com.taotao.boot.security.spring.autoconfigure.properties.OAuth2AuthenticationProperties;
 import com.taotao.boot.security.spring.utils.SymmetricUtils;
 import com.taotao.boot.security.spring.utils.WebUtils;
-import com.taotao.cloud.auth.biz.authentication.properties.OAuth2AuthenticationProperties;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import java.util.Collections;
@@ -52,7 +52,7 @@ public class LoginController {
     private final OAuth2AuthenticationProperties authenticationProperties;
 
     @Autowired
-    public LoginController(OAuth2AuthenticationProperties authenticationProperties) {
+    public LoginController( OAuth2AuthenticationProperties authenticationProperties) {
         this.authenticationProperties = authenticationProperties;
     }
 

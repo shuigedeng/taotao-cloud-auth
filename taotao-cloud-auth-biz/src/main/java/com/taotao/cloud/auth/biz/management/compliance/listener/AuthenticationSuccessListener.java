@@ -17,8 +17,8 @@
 package com.taotao.cloud.auth.biz.management.compliance.listener;
 
 import cn.hutool.crypto.SecureUtil;
+import com.taotao.boot.security.spring.authentication.stamp.SignInFailureLimitedStampManager;
 import com.taotao.boot.security.spring.core.PrincipalDetails;
-import com.taotao.cloud.auth.biz.authentication.stamp.SignInFailureLimitedStampManager;
 import com.taotao.cloud.auth.biz.management.service.OAuth2ComplianceService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.ObjectUtils;

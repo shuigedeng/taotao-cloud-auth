@@ -16,7 +16,9 @@
 
 package com.taotao.cloud.auth.biz.utils;
 
+import tools.jackson.core.JsonParser;
 import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.DeserializationContext;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
 import tools.jackson.databind.node.MissingNode;
@@ -31,17 +33,19 @@ public class JsonNodeUtils {
 
     public static final TypeReference<Instant> INSTANT = new TypeReference<Instant>() {};
 
-    public static final TypeReference<Set<String>> STRING_SET = new TypeReference<Set<String>>() {};
+    public static final TypeReference<Set<String>> STRING_SET = new TypeReference<>() {
+	};
 
     public static final TypeReference<Map<String, Object>> STRING_OBJECT_MAP =
-            new TypeReference<Map<String, Object>>() {};
+		new TypeReference<>() {
+		};
 
     public static String findStringValue(JsonNode jsonNode, String fieldName) {
         if (jsonNode == null) {
             return null;
         }
         JsonNode value = jsonNode.findValue(fieldName);
-        return (value != null && value.isTextual()) ? value.asString() : null;
+        return (value != null && value.isString()) ? value.asString() : null;
     }
 
     public static Boolean findBooleanValue(JsonNode jsonNode, String fieldName) {
@@ -56,13 +60,13 @@ public class JsonNodeUtils {
             JsonNode jsonNode,
             String fieldName,
             TypeReference<T> valueTypeReference,
-            JsonMapper mapper) {
+		DeserializationContext context) {
         if (jsonNode == null) {
             return null;
         }
         JsonNode value = jsonNode.findValue(fieldName);
         return (value != null && value.isValueNode())
-                ? mapper.convertValue(value, valueTypeReference)
+                ? context.readValue(value.traverse(context), valueTypeReference)
                 : null;
     }
 

@@ -22,6 +22,7 @@ import com.taotao.cloud.auth.biz.jpa.generator.TtcRegisteredClientUuidGenerator;
 import jakarta.persistence.*;
 import java.util.Objects;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.UuidGenerator;
 
 /**
  * <p>OAuth2 客户端实体 </p>
@@ -47,7 +48,8 @@ public class TtcRegisteredClient extends AbstractRegisteredClient {
      * id
      */
     @Id
-    @TtcRegisteredClientUuidGenerator
+    //@TtcRegisteredClientUuidGenerator
+    @UuidGenerator
     @Column(name = "id", nullable = false, length = 100)
     private String id;
 

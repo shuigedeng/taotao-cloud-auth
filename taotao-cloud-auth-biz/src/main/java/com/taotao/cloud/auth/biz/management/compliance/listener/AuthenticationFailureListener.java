@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.biz.management.compliance.listener;
 
-import com.taotao.cloud.auth.biz.authentication.stamp.SignInFailureLimitedStampManager;
+import com.taotao.boot.security.spring.authentication.stamp.SignInFailureLimitedStampManager;
 import com.taotao.cloud.auth.biz.exception.MaximumLimitExceededException;
 import com.taotao.cloud.auth.biz.management.compliance.OAuth2AccountStatusManager;
 import java.time.Duration;

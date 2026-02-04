@@ -18,12 +18,13 @@ package com.taotao.cloud.auth.biz;
 
 import com.taotao.boot.core.startup.StartupSpringApplication;
 import com.taotao.boot.data.jpa.extend.JpaExtendRepositoryFactoryBean;
+import com.taotao.boot.security.spring.annotation.EnableOauth2ClientManager;
 import com.taotao.boot.security.spring.annotation.EnableSecurityConfiguration;
 //import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.boot.persistence.autoconfigure.EntityScan;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+//import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.data.envers.repository.config.EnableEnversRepositories;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisIndexedHttpSession;
@@ -80,15 +81,16 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
             "com.taotao.cloud.auth.biz.management.repository"
         },
         repositoryFactoryBeanClass = JpaExtendRepositoryFactoryBean.class)
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @ConfigurationPropertiesScan
+@EnableOauth2ClientManager
 @EnableSecurityConfiguration
 @EnableRedisIndexedHttpSession
 @SpringBootApplication
-public class TaoTaoCloudAuthApplication {
+public class TaoTaoCloudAuthBizApplication {
 
     public static void main(String[] args) {
-        new StartupSpringApplication(TaoTaoCloudAuthApplication.class)
+        new StartupSpringApplication(TaoTaoCloudAuthBizApplication.class)
                 .setTtcBanner()
                 .setTtcProfileIfNotExists("dev")
                 .setTtcApplicationProperty("taotao-cloud-auth")

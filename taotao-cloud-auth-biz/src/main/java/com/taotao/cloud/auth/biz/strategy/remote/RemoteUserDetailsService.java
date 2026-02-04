@@ -33,11 +33,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
  */
 public class RemoteUserDetailsService extends AbstractStrategyUserDetailsService {
 
-    private final UserQueryApi userApi;
-
-    public RemoteUserDetailsService( UserQueryApi userApi) {
-        this.userApi = userApi;
-    }
+//    private final UserQueryApi userApi;
+//
+//    public RemoteUserDetailsService( UserQueryApi userApi) {
+//        this.userApi = userApi;
+//    }
 
     @Override
     public TtcUser findUserDetailsByUsername(String userName) throws UsernameNotFoundException {

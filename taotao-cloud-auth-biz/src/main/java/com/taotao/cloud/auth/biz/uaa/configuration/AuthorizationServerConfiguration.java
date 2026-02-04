@@ -27,6 +27,7 @@ import com.taotao.boot.common.utils.io.ResourceUtils;
 import com.taotao.boot.common.utils.servlet.ResponseUtils;
 import com.taotao.boot.security.spring.authentication.login.form.FormLoginUrlConfigurer;
 import com.taotao.boot.security.spring.authentication.response.entrypoint.RedirectLoginUrlAuthenticationEntryPoint;
+import com.taotao.boot.security.spring.autoconfigure.properties.OAuth2AuthenticationProperties;
 import com.taotao.boot.security.spring.constants.DefaultConstants;
 import com.taotao.boot.security.spring.enums.Certificate;
 import com.taotao.boot.security.spring.oauth2.token1.SecurityTokenStrategyConfigurer;
@@ -37,7 +38,6 @@ import com.taotao.cloud.auth.biz.authentication.device.DeviceClientAuthenticatio
 import com.taotao.cloud.auth.biz.authentication.event.DefaultOAuth2AuthenticationEventPublisher;
 import com.taotao.cloud.auth.biz.authentication.oidc.TtcOidcUserInfoMapper;
 import com.taotao.cloud.auth.biz.authentication.processor.HttpCryptoProcessor;
-import com.taotao.cloud.auth.biz.authentication.properties.OAuth2AuthenticationProperties;
 import com.taotao.cloud.auth.biz.authentication.token.TtcJwtTokenCustomizer;
 import com.taotao.cloud.auth.biz.authentication.token.TtcOpaqueTokenCustomizer;
 import com.taotao.cloud.auth.biz.authentication.utils.OAuth2ConfigurerUtils;

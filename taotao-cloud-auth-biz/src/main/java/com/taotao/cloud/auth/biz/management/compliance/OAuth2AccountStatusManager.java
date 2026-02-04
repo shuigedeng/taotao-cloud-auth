@@ -17,9 +17,9 @@
 package com.taotao.cloud.auth.biz.management.compliance;
 
 import com.taotao.boot.common.enums.DataItemStatusEnum;
+import com.taotao.boot.security.spring.authentication.stamp.LockedUserDetailsStampManager;
 import com.taotao.boot.security.spring.core.userdetails.TtcUser;
 import com.taotao.boot.security.spring.event.domain.TtcUserStatus;
-import com.taotao.cloud.auth.biz.authentication.stamp.LockedUserDetailsStampManager;
 import com.taotao.cloud.auth.biz.management.compliance.processor.changer.AccountStatusChanger;
 import com.taotao.cloud.auth.biz.management.processor.EnhanceUserDetailsService;
 import org.apache.commons.lang3.ObjectUtils;

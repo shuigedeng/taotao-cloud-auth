@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.biz.management.configuration;
 
-import com.taotao.cloud.auth.biz.authentication.stamp.LockedUserDetailsStampManager;
-import com.taotao.cloud.auth.biz.authentication.stamp.SignInFailureLimitedStampManager;
+import com.taotao.boot.security.spring.authentication.stamp.LockedUserDetailsStampManager;
+import com.taotao.boot.security.spring.authentication.stamp.SignInFailureLimitedStampManager;
 import com.taotao.cloud.auth.biz.management.compliance.OAuth2AccountStatusManager;
 import com.taotao.cloud.auth.biz.management.compliance.listener.AccountAutoEnableListener;
 import com.taotao.cloud.auth.biz.management.compliance.listener.AuthenticationFailureListener;
@@ -49,43 +49,43 @@ public class OAuth2ComplianceConfiguration {
         log.info("SDK [OAuth2 Compliance] Auto Configure.");
     }
 
-    @Bean
-    public AccountStatusChanger accountStatusChanger() {
-        TtcAccountStatusChanger ttcAccountStatusChanger = new TtcAccountStatusChanger();
-        log.info("Bean [Account Status Changer] Auto Configure.");
-        return ttcAccountStatusChanger;
-    }
+//    @Bean
+//    public AccountStatusChanger accountStatusChanger() {
+//        TtcAccountStatusChanger ttcAccountStatusChanger = new TtcAccountStatusChanger();
+//        log.info("Bean [Account Status Changer] Auto Configure.");
+//        return ttcAccountStatusChanger;
+//    }
 
-    @Bean
-    public OAuth2AccountStatusManager accountStatusManager(
-            UserDetailsService userDetailsService,
-            AccountStatusChanger accountStatusChanger,
-            LockedUserDetailsStampManager lockedUserDetailsStampManager) {
-        OAuth2AccountStatusManager manager =
-                new OAuth2AccountStatusManager(
-                        userDetailsService, accountStatusChanger, lockedUserDetailsStampManager);
-        log.info("Bean [OAuth2 Account Status Manager] Auto Configure.");
-        return manager;
-    }
+//    @Bean
+//    public OAuth2AccountStatusManager accountStatusManager(
+//            UserDetailsService userDetailsService,
+//            AccountStatusChanger accountStatusChanger,
+//            LockedUserDetailsStampManager lockedUserDetailsStampManager) {
+//        OAuth2AccountStatusManager manager =
+//                new OAuth2AccountStatusManager(
+//                        userDetailsService, accountStatusChanger, lockedUserDetailsStampManager);
+//        log.info("Bean [OAuth2 Account Status Manager] Auto Configure.");
+//        return manager;
+//    }
 
-    @Bean
-    public AccountAutoEnableListener accountLockStatusListener(
-            RedisMessageListenerContainer redisMessageListenerContainer,
-            OAuth2AccountStatusManager accountStatusManager) {
-        AccountAutoEnableListener listener =
-                new AccountAutoEnableListener(redisMessageListenerContainer, accountStatusManager);
-        log.info("Bean [OAuth2 Account Lock Status Listener] Auto Configure.");
-        return listener;
-    }
-
-    @Bean
-    @ConditionalOnMissingBean
-    public AuthenticationFailureListener authenticationFailureListener(
-            SignInFailureLimitedStampManager stampManager,
-            OAuth2AccountStatusManager accountLockService) {
-        AuthenticationFailureListener listener =
-                new AuthenticationFailureListener(stampManager, accountLockService);
-        log.info("Bean [OAuth2 Authentication Failure Listener] Auto Configure.");
-        return listener;
-    }
+//    @Bean
+//    public AccountAutoEnableListener accountLockStatusListener(
+//            RedisMessageListenerContainer redisMessageListenerContainer,
+//            OAuth2AccountStatusManager accountStatusManager) {
+//        AccountAutoEnableListener listener =
+//                new AccountAutoEnableListener(redisMessageListenerContainer, accountStatusManager);
+//        log.info("Bean [OAuth2 Account Lock Status Listener] Auto Configure.");
+//        return listener;
+//    }
+//
+//    @Bean
+//    @ConditionalOnMissingBean
+//    public AuthenticationFailureListener authenticationFailureListener(
+//            SignInFailureLimitedStampManager stampManager,
+//            OAuth2AccountStatusManager accountLockService) {
+//        AuthenticationFailureListener listener =
+//                new AuthenticationFailureListener(stampManager, accountLockService);
+//        log.info("Bean [OAuth2 Authentication Failure Listener] Auto Configure.");
+//        return listener;
+//    }
 }

@@ -23,6 +23,7 @@ import com.taotao.cloud.auth.biz.management.generator.OAuth2PermissionUuid;
 import jakarta.persistence.*;
 import java.util.Objects;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.UuidGenerator;
 
 /**
  * <p>客户端权限 </p>
@@ -41,7 +42,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 public class OAuth2Permission extends BaseSysEntity {
 
     @Id
-    @OAuth2PermissionUuid
+//    @OAuth2PermissionUuid
+    @UuidGenerator
     @Column(name = "permission_id", length = 64)
     private String permissionId;
 

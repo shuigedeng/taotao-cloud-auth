@@ -39,13 +39,11 @@ import com.taotao.boot.security.spring.authentication.response.denied.JsonAccess
 import com.taotao.boot.security.spring.authentication.response.entrypoint.JsonAuthenticationEntryPoint;
 import com.taotao.boot.security.spring.authorization.SecurityAuthorizationManager;
 import com.taotao.boot.security.spring.authorization.SecurityMatcherConfigurer;
+import com.taotao.boot.security.spring.autoconfigure.properties.OAuth2AuthenticationProperties;
+import com.taotao.boot.security.spring.oauth2.token.OAuth2AccessTokenStore;
 import com.taotao.boot.security.spring.oauth2.token1.SecurityTokenStrategyConfigurer;
 import com.taotao.cloud.auth.biz.authentication.event.DefaultOAuth2AuthenticationEventPublisher;
 import com.taotao.cloud.auth.biz.authentication.filter.ExtensionAndOauth2LoginRefreshTokenFilter;
-import com.taotao.cloud.auth.biz.authentication.properties.OAuth2AuthenticationProperties;
-import com.taotao.cloud.auth.biz.authentication.token.JwtTokenGenerator;
-import com.taotao.cloud.auth.biz.authentication.token.JwtTokenGeneratorImpl;
-import com.taotao.cloud.auth.biz.authentication.token.OAuth2AccessTokenStore;
 import com.taotao.cloud.auth.biz.management.processor.ClientDetailsService;
 import com.taotao.cloud.auth.biz.management.processor.Oauth2ClientDetailsService;
 import com.taotao.cloud.auth.biz.management.processor.SecurityUserDetailsService;
@@ -53,6 +51,7 @@ import com.taotao.cloud.auth.biz.management.service.OAuth2ApplicationService;
 import com.taotao.cloud.auth.biz.strategy.StrategyUserDetailsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -123,7 +122,7 @@ public class DefaultSecurityConfiguration {
 		SecurityAuthorizationManager securityAuthorizationManager,
 		SecurityTokenStrategyConfigurer ttcTokenStrategyConfigurer,
 		SocialDelegateClientRegistrationRepository socialDelegateClientRegistrationRepository,
-		OAuth2AccessTokenStore oAuth2AccessTokenStore )
+		ObjectProvider<OAuth2AccessTokenStore> oAuth2AccessTokenStore )
 		throws Exception {
 
 		log.info("[Default Security Filter Chain] Auto Configure.");
@@ -311,7 +310,7 @@ public class DefaultSecurityConfiguration {
 			// **************************************oauth2
 			// login登录配置***********************************************
 			.with(
-				new SocialLoginFilterSecurityConfigurer()
+				new SocialLoginFilterSecurityConfigurer<HttpSecurity>()
 					.socialDelegateClientRegistrationRepository(socialDelegateClientRegistrationRepository),
 				( customizer ) -> {
 					// 微信网页授权
@@ -330,7 +329,7 @@ public class DefaultSecurityConfiguration {
 							"75f9a12c82bd24ecac0d37bf1156c749");
 				})
 			// **************************************oauth2表单登录配置***********************************************
-			.with(new FormLoginFilterSecurityConfigurer<>(),
+			.with(new FormLoginFilterSecurityConfigurer<HttpSecurity>(),
 				( customizer ) -> {
 					customizer
 						.formQrcodeLogin(( formQrcodeLoginHttpConfigurer ) -> {
@@ -377,11 +376,6 @@ public class DefaultSecurityConfiguration {
 				new ExtensionAndOauth2LoginRefreshTokenFilter(oAuth2AccessTokenStore),
 				LogoutFilter.class)
 			.build();
-	}
-
-	@Bean
-	public JwtTokenGenerator jwtTokenGenerator( JWKSource<SecurityContext> jwkSource ) {
-		return new JwtTokenGeneratorImpl(jwkSource);
 	}
 
 	@Bean

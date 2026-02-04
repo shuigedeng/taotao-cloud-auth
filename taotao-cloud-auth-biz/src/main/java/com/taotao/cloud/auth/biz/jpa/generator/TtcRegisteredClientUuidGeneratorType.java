@@ -33,7 +33,6 @@ import org.hibernate.engine.spi.SharedSessionContractImplementor;
 public class TtcRegisteredClientUuidGeneratorType extends AbstractUuidGenerator {
 
     public TtcRegisteredClientUuidGeneratorType(
-            TtcRegisteredClientUuidGenerator config,
             Member idMember) {
         super(idMember);
     }

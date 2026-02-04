@@ -46,19 +46,17 @@ public class OAuth2JacksonProcessor {
 		ClassLoader classLoader = OAuth2JacksonProcessor.class.getClassLoader();
         List<JacksonModule> securityModules = getModules(classLoader);
 
-		JacksonModule module =
-                loadAndGetInstance(
-                        "com.taotao.cloud.auth.biz.jpa.jackson2.FormOAuth2PhoneLoginJackson2Module",
-                        classLoader);
-        securityModules.add(module);
-
+//		JacksonModule module =
+//                loadAndGetInstance(
+//                        "com.taotao.cloud.auth.biz.jpa.jackson2.FormOAuth2PhoneLoginJackson2Module",
+//                        classLoader);
+//        securityModules.add(module);
+//
 		builder.addModules(securityModules);
 		builder.addModules(new OAuth2AuthorizationServerJacksonModule());
 		builder.addModules(new TtcJackson2Module());
 		builder.addModules(new OAuth2TokenJackson2Module());
 				ClassLoader loader = getClass().getClassLoader();
-		List<JacksonModule> modules = SecurityJacksonModules.getModules(loader);
-		builder.addModule(module);
 		jsonMapper =builder.build();
     }
 

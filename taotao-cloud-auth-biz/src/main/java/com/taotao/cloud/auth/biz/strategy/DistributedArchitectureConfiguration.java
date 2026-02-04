@@ -99,12 +99,18 @@ public class DistributedArchitectureConfiguration {
             matchIfMissing = true)
     static class DataAccessStrategyRemoteConfiguration {
 
-        @Bean
-        @ConditionalOnMissingBean
-        public StrategyUserDetailsService remoteUserDetailsService( UserQueryApi userApi ) {
-            log.debug(" Strategy [Remote User Details Service] Auto Configure.");
-            return new RemoteUserDetailsService(userApi);
-        }
+//        @Bean
+//        @ConditionalOnMissingBean
+//        public StrategyUserDetailsService remoteUserDetailsService( UserQueryApi userApi ) {
+//            log.debug(" Strategy [Remote User Details Service] Auto Configure.");
+//            return new RemoteUserDetailsService(userApi);
+//        }
+		@Bean
+		@ConditionalOnMissingBean
+		public StrategyUserDetailsService remoteUserDetailsService(  ) {
+			log.debug(" Strategy [Remote User Details Service] Auto Configure.");
+			return new RemoteUserDetailsService();
+		}
 
         @Bean
         @ConditionalOnMissingBean

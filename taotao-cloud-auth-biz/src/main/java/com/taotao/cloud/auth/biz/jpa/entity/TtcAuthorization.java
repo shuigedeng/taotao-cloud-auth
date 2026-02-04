@@ -23,6 +23,7 @@ import com.taotao.cloud.auth.biz.jpa.generator.TtcAuthorizationUuidGenerator;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.UuidGenerator;
 
 /**
  * <p>OAuth2 认证信息 </p>
@@ -49,7 +50,8 @@ public class TtcAuthorization extends AbstractEntity {
      * id
      */
     @Id
-    @TtcAuthorizationUuidGenerator
+    //@TtcAuthorizationUuidGenerator
+    @UuidGenerator
     @Column(name = "id", nullable = false, length = 100)
     private String id;
 

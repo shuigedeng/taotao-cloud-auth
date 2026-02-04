@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.auth.biz.jpa.jackson2;
 
-import org.apache.dubbo.common.utils.FieldUtils;
 import tools.jackson.core.JacksonException;
 import tools.jackson.core.JsonParser;
 import tools.jackson.core.type.TypeReference;
@@ -26,12 +25,13 @@ import tools.jackson.databind.ValueDeserializer;
 import tools.jackson.databind.json.JsonMapper;
 import com.taotao.boot.security.spring.core.authority.TtcGrantedAuthority;
 import com.taotao.cloud.auth.biz.utils.JsonNodeUtils;
-import java.io.IOException;
 import java.util.Set;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.server.authorization.authentication.OAuth2ClientAuthenticationToken;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
+
+import static cn.hutool.core.util.ReflectUtil.setFieldValue;
 
 /**
  * <p>OAuth2ClientAuthenticationTokenDeserializer </p>
@@ -50,32 +50,30 @@ public class OAuth2ClientAuthenticationTokenDeserializer
             JsonParser jsonParser, DeserializationContext context)
             throws  JacksonException {
 
-//        JsonMapper mapper = (JsonMapper) jsonParser.getCodec();
-        JsonMapper mapper = null;
 		JsonNode jsonNode = context.readTree(jsonParser);
-        return deserialize(jsonParser, mapper, jsonNode);
+        return deserialize(jsonParser, context, jsonNode);
     }
 
     private OAuth2ClientAuthenticationToken deserialize(
-            JsonParser parser, JsonMapper mapper, JsonNode root)  {
+            JsonParser parser, DeserializationContext context, JsonNode root)  {
         Set<TtcGrantedAuthority> authorities =
-                JsonNodeUtils.findValue(root, "authorities", TTC_GRANTED_AUTHORITY_SET, mapper);
+                JsonNodeUtils.findValue(root, "authorities", TTC_GRANTED_AUTHORITY_SET, context);
         RegisteredClient registeredClient =
                 JsonNodeUtils.findValue(
-                        root, "registeredClient", new TypeReference<RegisteredClient>() {}, mapper);
+                        root, "registeredClient", new TypeReference<RegisteredClient>() {}, context);
         String credentials = JsonNodeUtils.findStringValue(root, "credentials");
         ClientAuthenticationMethod clientAuthenticationMethod =
                 JsonNodeUtils.findValue(
                         root,
                         "clientAuthenticationMethod",
                         new TypeReference<ClientAuthenticationMethod>() {},
-                        mapper);
+					context);
 
         OAuth2ClientAuthenticationToken clientAuthenticationToken =
                 new OAuth2ClientAuthenticationToken(
                         registeredClient, clientAuthenticationMethod, credentials);
         if (CollectionUtils.isNotEmpty(authorities)) {
-            FieldUtils.setFieldValue(clientAuthenticationToken, "authorities", authorities);
+            setFieldValue(clientAuthenticationToken, "authorities", authorities);
         }
         return clientAuthenticationToken;
     }

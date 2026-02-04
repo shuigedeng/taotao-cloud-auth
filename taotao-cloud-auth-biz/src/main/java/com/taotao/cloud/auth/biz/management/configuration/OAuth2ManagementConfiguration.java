@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.biz.management.configuration;
 
+import com.taotao.boot.security.spring.authentication.stamp.SignInFailureLimitedStampManager;
 import com.taotao.cloud.auth.biz.authentication.configuration.OAuth2AuthenticationConfiguration;
-import com.taotao.cloud.auth.biz.authentication.stamp.SignInFailureLimitedStampManager;
 import com.taotao.cloud.auth.biz.jpa.configuration.OAuth2DataJpaConfiguration;
 import com.taotao.cloud.auth.biz.management.compliance.listener.AuthenticationSuccessListener;
 import com.taotao.cloud.auth.biz.management.response.OAuth2DeviceVerificationResponseHandler;
