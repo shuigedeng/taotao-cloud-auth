@@ -34,7 +34,7 @@ import org.springframework.util.StringUtils;
 @RequiredArgsConstructor
 public class CustomOidcUserService extends OidcUserService {
 
-    private final IOauth2ThirdAccountService thirdAccountService;
+    private final Oauth2ThirdAccountService thirdAccountService;
 
     private final Oauth2UserConverterContext userConverterContext;
 

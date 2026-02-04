@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.infrastructure.crypto;
 
 import com.taotao.cloud.auth.infrastructure.persistent.shared.SecretKey;
-import com.taotao.boot.security.spring.constants.SymbolConstants;
+import com.taotao.boot.security.spring.support.constants.SymbolConstants;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

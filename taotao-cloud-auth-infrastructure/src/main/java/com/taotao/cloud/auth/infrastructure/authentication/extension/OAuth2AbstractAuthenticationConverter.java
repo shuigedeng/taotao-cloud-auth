@@ -18,9 +18,9 @@ package com.taotao.cloud.auth.infrastructure.authentication.extension;
 
 import com.taotao.cloud.auth.infrastructure.crypto.HttpCryptoProcessor;
 import com.taotao.cloud.auth.infrastructure.utils.OAuth2EndpointUtils;
-import com.taotao.boot.security.spring.constants.OAuth2ErrorKeys;
-import com.taotao.boot.security.spring.exception.SessionInvalidException;
-import com.taotao.boot.security.spring.utils.ListUtils;
+import com.taotao.boot.security.spring.support.constants.OAuth2ErrorKeys;
+import com.taotao.boot.security.spring.support.exception.SessionInvalidException;
+import com.taotao.boot.security.spring.support.utils.ListUtils;
 import java.util.List;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;

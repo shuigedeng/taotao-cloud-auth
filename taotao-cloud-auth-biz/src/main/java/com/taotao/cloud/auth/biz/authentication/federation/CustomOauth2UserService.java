@@ -32,7 +32,7 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 @RequiredArgsConstructor
 public class CustomOauth2UserService extends DefaultOAuth2UserService {
 
-    private final IOauth2ThirdAccountService thirdAccountService;
+    private final Oauth2ThirdAccountService thirdAccountService;
 
     private final Oauth2UserConverterContext userConverterContext;
 

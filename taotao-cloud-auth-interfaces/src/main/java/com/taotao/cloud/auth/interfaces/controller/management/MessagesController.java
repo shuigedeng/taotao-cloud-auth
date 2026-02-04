@@ -18,7 +18,7 @@ package com.taotao.cloud.auth.interfaces.controller.management;
 
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.common.utils.log.LogUtils;
-import com.taotao.boot.security.spring.annotation.NotAuth;
+import com.taotao.boot.security.spring.support.annotation.NotAuth;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.auth.infrastructure.authorization.service.TtcAuthorizationConsentService;
 import io.swagger.v3.oas.annotations.Operation;

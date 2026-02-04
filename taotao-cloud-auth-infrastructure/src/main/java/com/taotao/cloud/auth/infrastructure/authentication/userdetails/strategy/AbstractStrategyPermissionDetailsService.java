@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy;
 
-import com.taotao.boot.security.spring.event.domain.TtcPermission;
+import com.taotao.boot.security.spring.support.event.domain.TtcPermission;
 
 import java.util.List;
 import java.util.stream.Collectors;

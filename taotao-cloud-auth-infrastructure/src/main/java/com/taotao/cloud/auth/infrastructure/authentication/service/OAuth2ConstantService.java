@@ -16,11 +16,11 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.service;
 
-import com.taotao.boot.security.spring.enums.ApplicationType;
-import com.taotao.boot.security.spring.enums.AuthenticationMethod;
-import com.taotao.boot.security.spring.enums.GrantType;
-import com.taotao.boot.security.spring.enums.PermissionExpression;
-import com.taotao.boot.security.spring.enums.Signature;
+import com.taotao.boot.security.spring.support.enums.ApplicationType;
+import com.taotao.boot.security.spring.support.enums.AuthenticationMethod;
+import com.taotao.boot.security.spring.support.enums.GrantType;
+import com.taotao.boot.security.spring.support.enums.PermissionExpression;
+import com.taotao.boot.security.spring.support.enums.Signature;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

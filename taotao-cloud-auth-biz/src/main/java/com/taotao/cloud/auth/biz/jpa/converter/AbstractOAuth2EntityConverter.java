@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.biz.jpa.converter;
 
-import com.taotao.cloud.auth.biz.jpa.jackson2.OAuth2JacksonProcessor;
+import com.taotao.cloud.auth.biz.jpa.jackson.OAuth2JacksonProcessor;
 import java.util.Map;
 import org.springframework.core.convert.converter.Converter;
 

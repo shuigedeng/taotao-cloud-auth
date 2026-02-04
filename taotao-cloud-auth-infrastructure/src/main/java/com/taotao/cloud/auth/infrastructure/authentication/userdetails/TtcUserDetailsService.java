@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.userdetails;
 
-import com.taotao.boot.security.spring.core.AccessPrincipal;
-import com.taotao.boot.security.spring.core.userdetails.EnhanceUserDetailsService;
-import com.taotao.boot.security.spring.core.userdetails.TtcUser;
+import com.taotao.boot.security.spring.support.core.AccessPrincipal;
+import com.taotao.boot.security.spring.support.core.userdetails.EnhanceUserDetailsService;
+import com.taotao.boot.security.spring.support.core.userdetails.TtcUser;
 import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.StrategyUserDetailsService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

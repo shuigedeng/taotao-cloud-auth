@@ -27,7 +27,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 // public class Oauth2ThirdAccountServiceImpl extends ServiceImpl<Oauth2ThirdAccountMapper,
 // Oauth2ThirdAccount> implements IOauth2ThirdAccountService {
-public class Oauth2ThirdAccountServiceImpl implements IOauth2ThirdAccountService {
+public class Oauth2ThirdAccountServiceImpl implements Oauth2ThirdAccountService {
 
     // private final IOauth2BasicUserService basicUserService;
 

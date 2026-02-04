@@ -19,7 +19,7 @@ package com.taotao.cloud.auth.biz.jpa.converter;
 
 import cn.hutool.core.date.DateUtil;
 import com.taotao.cloud.auth.biz.jpa.entity.TtcAuthorization;
-import com.taotao.cloud.auth.biz.jpa.jackson2.OAuth2JacksonProcessor;
+import com.taotao.cloud.auth.biz.jpa.jackson.OAuth2JacksonProcessor;
 import java.time.LocalDateTime;
 import java.util.function.Consumer;
 import org.springframework.security.oauth2.core.*;

@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.extension;
 
-import com.taotao.boot.security.spring.core.userdetails.TtcUser;
-import com.taotao.boot.security.spring.utils.PrincipalUtils;
+import com.taotao.boot.security.spring.support.core.userdetails.TtcUser;
+import com.taotao.boot.security.spring.support.utils.PrincipalUtils;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

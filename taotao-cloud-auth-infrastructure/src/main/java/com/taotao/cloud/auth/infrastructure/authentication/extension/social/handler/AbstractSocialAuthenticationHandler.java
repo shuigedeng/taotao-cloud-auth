@@ -16,10 +16,10 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.extension.social.handler;
 
-import com.taotao.boot.security.spring.core.AccessPrincipal;
-import com.taotao.boot.security.spring.core.userdetails.TtcUser;
-import com.taotao.boot.security.spring.exception.SocialCredentialsUserBindingFailedException;
-import com.taotao.boot.security.spring.exception.UsernameAlreadyExistsException;
+import com.taotao.boot.security.spring.support.core.AccessPrincipal;
+import com.taotao.boot.security.spring.support.core.userdetails.TtcUser;
+import com.taotao.boot.security.spring.support.exception.SocialCredentialsUserBindingFailedException;
+import com.taotao.boot.security.spring.support.exception.UsernameAlreadyExistsException;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.security.core.AuthenticationException;
 

@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.application.service;
 
 import com.taotao.cloud.auth.infrastructure.crypto.HttpCryptoProcessor;
-import com.taotao.boot.security.spring.utils.SecurityUtils;
+import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.cloud.auth.infrastructure.persistent.shared.SecretKey;
 import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;

@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.biz.jpa.converter;
 
 import com.taotao.cloud.auth.biz.jpa.entity.TtcRegisteredClient;
-import com.taotao.cloud.auth.biz.jpa.jackson2.OAuth2JacksonProcessor;
+import com.taotao.cloud.auth.biz.jpa.jackson.OAuth2JacksonProcessor;
 import java.util.Map;
 import java.util.Set;
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;

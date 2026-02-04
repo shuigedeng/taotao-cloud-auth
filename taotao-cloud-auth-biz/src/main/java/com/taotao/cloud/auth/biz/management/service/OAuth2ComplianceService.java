@@ -83,11 +83,11 @@ public class OAuth2ComplianceService {
         return null;
     }
 
-    public OAuth2Compliance save(
+    public void save(
             String principalName, String clientId, String operation, HttpServletRequest request) {
         OAuth2Compliance compliance = toEntity(principalName, clientId, operation, request);
         log.info("Sign in user is [{}]", compliance);
-        return complianceRepository.save(compliance);
+		complianceRepository.save(compliance);
     }
 
     private UserAgent getUserAgent(HttpServletRequest request) {

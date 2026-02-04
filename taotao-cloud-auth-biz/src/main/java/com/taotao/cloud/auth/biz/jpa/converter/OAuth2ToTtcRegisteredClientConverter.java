@@ -18,7 +18,7 @@ package com.taotao.cloud.auth.biz.jpa.converter;
 
 import cn.hutool.core.date.DateUtil;
 import com.taotao.cloud.auth.biz.jpa.entity.TtcRegisteredClient;
-import com.taotao.cloud.auth.biz.jpa.jackson2.OAuth2JacksonProcessor;
+import com.taotao.cloud.auth.biz.jpa.jackson.OAuth2JacksonProcessor;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.security.crypto.password.PasswordEncoder;

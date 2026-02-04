@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import tools.jackson.databind.annotation.JsonDeserialize;
 import tools.jackson.databind.annotation.JsonSerialize;
 import com.taotao.boot.data.jpa.tenant.BaseSysEntity;
-import com.taotao.boot.security.spring.constants.DefaultConstants;
+import com.taotao.boot.security.spring.support.constants.DefaultConstants;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import com.taotao.boot.webagg.entity.SuperEntity;
 import com.taotao.cloud.auth.infrastructure.persistent.shared.jackson2.CommaDelimitedStringToSetSerializer;

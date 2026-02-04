@@ -16,8 +16,6 @@
 
 package com.taotao.cloud.auth.biz.uaa.configuration;
 
-import com.nimbusds.jose.jwk.source.JWKSource;
-import com.nimbusds.jose.proc.SecurityContext;
 import com.taotao.boot.captcha.support.core.processor.CaptchaRendererFactory;
 import com.taotao.boot.security.spring.authentication.login.extension.ExtensionLoginFilterSecurityConfigurer;
 import com.taotao.boot.security.spring.authentication.login.extension.account.service.AccountUserDetailsService;
@@ -40,22 +38,19 @@ import com.taotao.boot.security.spring.authentication.response.entrypoint.JsonAu
 import com.taotao.boot.security.spring.authorization.SecurityAuthorizationManager;
 import com.taotao.boot.security.spring.authorization.SecurityMatcherConfigurer;
 import com.taotao.boot.security.spring.autoconfigure.properties.OAuth2AuthenticationProperties;
-import com.taotao.boot.security.spring.oauth2.token.OAuth2AccessTokenStore;
-import com.taotao.boot.security.spring.oauth2.token1.SecurityTokenStrategyConfigurer;
-import com.taotao.cloud.auth.biz.authentication.event.DefaultOAuth2AuthenticationEventPublisher;
-import com.taotao.cloud.auth.biz.authentication.filter.ExtensionAndOauth2LoginRefreshTokenFilter;
-import com.taotao.cloud.auth.biz.management.processor.ClientDetailsService;
-import com.taotao.cloud.auth.biz.management.processor.Oauth2ClientDetailsService;
-import com.taotao.cloud.auth.biz.management.processor.SecurityUserDetailsService;
+import com.taotao.boot.security.spring.support.core.details.client.ClientDetailsService;
+import com.taotao.boot.security.spring.support.filter.ExtensionAndOauth2LoginRefreshTokenFilter;
+import com.taotao.boot.security.spring.support.token.OAuth2AccessTokenStore;
+import com.taotao.boot.security.spring.support.token.SecurityTokenStrategyConfigurer;
+import com.taotao.cloud.auth.biz.management.details.client.Oauth2ClientDetailsService;
+import com.taotao.cloud.auth.biz.management.details.user.SecurityUserDetailsService;
 import com.taotao.cloud.auth.biz.management.service.OAuth2ApplicationService;
-import com.taotao.cloud.auth.biz.strategy.StrategyUserDetailsService;
+import com.taotao.cloud.auth.biz.management.details.user.strategy.StrategyUserDetailsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationEventPublisher;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -383,12 +378,7 @@ public class DefaultSecurityConfiguration {
 		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
 	}
 
-	@Bean
-	public AuthenticationEventPublisher authenticationEventPublisher(
-		ApplicationContext applicationContext ) {
-		log.info("Bean [Authentication Event Publisher] Auto Configure.");
-		return new DefaultOAuth2AuthenticationEventPublisher(applicationContext);
-	}
+
 
 	@Bean
 	public UserDetailsService userDetailsService(

@@ -19,7 +19,7 @@ package com.taotao.cloud.auth.biz.jpa.storage;
 import com.taotao.cloud.auth.biz.jpa.converter.OAuth2ToTtcRegisteredClientConverter;
 import com.taotao.cloud.auth.biz.jpa.converter.TtcToOAuth2RegisteredClientConverter;
 import com.taotao.cloud.auth.biz.jpa.entity.TtcRegisteredClient;
-import com.taotao.cloud.auth.biz.jpa.jackson2.OAuth2JacksonProcessor;
+import com.taotao.cloud.auth.biz.jpa.jackson.OAuth2JacksonProcessor;
 import com.taotao.cloud.auth.biz.jpa.service.TtcRegisteredClientService;
 import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;

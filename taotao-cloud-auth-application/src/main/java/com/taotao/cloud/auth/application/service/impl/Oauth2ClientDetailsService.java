@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.application.service.impl;
 
-import com.taotao.boot.security.spring.core.authority.TtcGrantedAuthority;
+import com.taotao.boot.security.spring.support.core.authority.TtcGrantedAuthority;
 import com.taotao.cloud.auth.application.service.EnhanceClientDetailsService;
 import com.taotao.cloud.auth.infrastructure.authentication.service.OAuth2ApplicationService;
 import com.taotao.cloud.auth.infrastructure.persistent.oauth2.persistence.OAuth2ApplicationPO;

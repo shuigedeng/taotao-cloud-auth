@@ -22,10 +22,10 @@ import com.taotao.cloud.auth.infrastructure.authentication.extension.social.core
 import com.taotao.cloud.auth.infrastructure.authentication.extension.social.core.exception.AccessIdentityVerificationFailedException;
 import com.taotao.cloud.auth.infrastructure.authentication.extension.social.handler.AbstractSocialAuthenticationHandler;
 import com.taotao.cloud.auth.infrastructure.authentication.extension.social.handler.SocialUserDetails;
-import com.taotao.boot.security.spring.core.AccessPrincipal;
-import com.taotao.boot.security.spring.core.userdetails.TtcUser;
-import com.taotao.boot.security.spring.exception.SocialCredentialsParameterBindingFailedException;
-import com.taotao.boot.security.spring.exception.UsernameAlreadyExistsException;
+import com.taotao.boot.security.spring.support.core.AccessPrincipal;
+import com.taotao.boot.security.spring.support.core.userdetails.TtcUser;
+import com.taotao.boot.security.spring.support.exception.SocialCredentialsParameterBindingFailedException;
+import com.taotao.boot.security.spring.support.exception.UsernameAlreadyExistsException;
 import com.taotao.cloud.sys.api.inner.SocialUserApi;
 import com.taotao.cloud.sys.api.inner.UserApi;
 import org.apache.commons.lang3.ObjectUtils;

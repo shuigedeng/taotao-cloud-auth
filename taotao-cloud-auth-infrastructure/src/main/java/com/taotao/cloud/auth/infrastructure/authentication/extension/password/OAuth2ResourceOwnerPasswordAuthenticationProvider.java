@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.extension.password;
 
-import com.taotao.boot.security.spring.core.userdetails.EnhanceUserDetailsService;
+import com.taotao.boot.security.spring.support.core.userdetails.EnhanceUserDetailsService;
 import com.taotao.cloud.auth.infrastructure.authentication.extension.OAuth2AbstractUserDetailsAuthenticationProvider;
 import com.taotao.cloud.auth.infrastructure.properties.OAuth2AuthenticationProperties;
 import com.taotao.cloud.auth.infrastructure.utils.OAuth2AuthenticationProviderUtils;

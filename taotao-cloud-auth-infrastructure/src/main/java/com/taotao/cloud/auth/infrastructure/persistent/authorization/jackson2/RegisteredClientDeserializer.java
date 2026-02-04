@@ -23,7 +23,7 @@ import tools.jackson.databind.DeserializationContext;
 import tools.jackson.databind.JsonDeserializer;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
-import com.taotao.boot.security.spring.utils.JsonNodeUtils;
+import com.taotao.boot.security.spring.support.utils.JsonNodeUtils;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.Set;

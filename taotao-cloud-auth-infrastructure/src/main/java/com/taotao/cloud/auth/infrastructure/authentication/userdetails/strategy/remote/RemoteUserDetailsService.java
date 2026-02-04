@@ -16,10 +16,10 @@
 
 package com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.remote;
 
-import com.taotao.boot.security.spring.core.AccessPrincipal;
-import com.taotao.boot.security.spring.core.authority.TtcGrantedAuthority;
+import com.taotao.boot.security.spring.support.core.AccessPrincipal;
+import com.taotao.boot.security.spring.support.core.authority.TtcGrantedAuthority;
 import com.taotao.cloud.auth.infrastructure.authentication.userdetails.strategy.AbstractStrategyUserDetailsService;
-import com.taotao.boot.security.spring.core.userdetails.TtcUser;
+import com.taotao.boot.security.spring.support.core.userdetails.TtcUser;
 import com.taotao.cloud.sys.api.inner.UserApi;
 import java.util.ArrayList;
 import java.util.Collection;

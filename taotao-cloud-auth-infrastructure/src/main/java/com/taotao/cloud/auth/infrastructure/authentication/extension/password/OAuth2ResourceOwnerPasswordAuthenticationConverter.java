@@ -21,7 +21,7 @@ import static com.taotao.boot.security.spring.oauth2.TtcAuthorizationGrantType.P
 import com.taotao.cloud.auth.infrastructure.authentication.extension.OAuth2AbstractAuthenticationConverter;
 import com.taotao.cloud.auth.infrastructure.crypto.HttpCryptoProcessor;
 import com.taotao.cloud.auth.infrastructure.utils.OAuth2EndpointUtils;
-import com.taotao.boot.security.spring.constants.HttpHeaders;
+import com.taotao.boot.security.spring.support.constants.HttpHeaders;
 import com.taotao.boot.security.spring.oauth2.TtcAuthorizationGrantType;
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.Arrays;

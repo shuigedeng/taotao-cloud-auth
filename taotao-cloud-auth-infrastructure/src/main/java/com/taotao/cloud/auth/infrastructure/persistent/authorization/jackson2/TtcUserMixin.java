@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import tools.jackson.databind.annotation.JsonDeserialize;
-import com.taotao.boot.security.spring.core.userdetails.TtcUserDeserializer;
+import com.taotao.boot.security.spring.support.core.userdetails.TtcUserDeserializer;
 
 /**
  * <p>自定义 UserDetails Mixin </p>

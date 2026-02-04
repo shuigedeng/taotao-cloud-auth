@@ -19,7 +19,7 @@ package com.taotao.cloud.auth.biz.jpa.storage;
 import com.taotao.cloud.auth.biz.jpa.converter.OAuth2ToTtcAuthorizationConverter;
 import com.taotao.cloud.auth.biz.jpa.converter.TtcToOAuth2AuthorizationConverter;
 import com.taotao.cloud.auth.biz.jpa.entity.TtcAuthorization;
-import com.taotao.cloud.auth.biz.jpa.jackson2.OAuth2JacksonProcessor;
+import com.taotao.cloud.auth.biz.jpa.jackson.OAuth2JacksonProcessor;
 import com.taotao.cloud.auth.biz.jpa.service.TtcAuthorizationService;
 import java.util.ArrayList;
 import java.util.List;
