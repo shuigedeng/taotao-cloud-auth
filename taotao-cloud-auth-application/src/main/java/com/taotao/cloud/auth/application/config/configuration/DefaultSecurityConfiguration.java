@@ -39,6 +39,7 @@ import com.taotao.boot.security.spring.oauth2.token.JwtTokenGenerator;
 import com.taotao.boot.security.spring.oauth2.token.JwtTokenGeneratorImpl;
 import com.taotao.boot.security.spring.oauth2.token.OAuth2AccessTokenStore;
 import com.taotao.boot.security.spring.oauth2.token1.SecurityTokenStrategyConfigurer;
+import com.taotao.boot.security.spring.support.core.details.TtcUser;
 import com.taotao.cloud.auth.application.event.DefaultOAuth2AuthenticationEventPublisher;
 import com.taotao.cloud.auth.application.service.ClientDetailsService;
 import com.taotao.cloud.auth.application.service.impl.Oauth2ClientDetailsService;
@@ -188,7 +189,7 @@ public class DefaultSecurityConfiguration {
 								@Override
 								public UserDetails loadUserByUsername(String username, String type)
 									throws UsernameNotFoundException {
-									return null;
+									return new TtcUser();
 								}
 							});
 					})

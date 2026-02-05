@@ -44,26 +44,27 @@ public class RemoteUserDetailsService extends AbstractStrategyUserDetailsService
         //
         //		SysUser sysUser = result.getData();
         //		return this.convertSysUser(sysUser, userName);
-        //		return new TtcUser();
+        //		return TtcUser.defaultTest();
 
-        Collection<TtcGrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new TtcGrantedAuthority("manager.book.read"));
-        authorities.add(new TtcGrantedAuthority("manager.book.write"));
-        Set<String> roles = new HashSet<>();
-        roles.add("ROLE_A1");
-        roles.add("ROLE_A2");
-        // admin/123456
-        TtcUser user =
-                new TtcUser(
-                        1L,
-                        "admin",
-                        "{bcrypt}$2a$10$lvjys/FAHAVmgXM.U1LtOOJ./C5SstExZCZ0Z5N7SeGZAue0JFtXC",
-                        true,
-                        true,
-                        true,
-                        true,
-                        authorities);
-        return user;
+//        Collection<TtcGrantedAuthority> authorities = new ArrayList<>();
+//        authorities.add(new TtcGrantedAuthority("manager.book.read"));
+//        authorities.add(new TtcGrantedAuthority("manager.book.write"));
+//        Set<String> roles = new HashSet<>();
+//        roles.add("ROLE_A1");
+//        roles.add("ROLE_A2");
+//        // admin/123456
+//        TtcUser user =
+//                new TtcUser(
+//                        1L,
+//                        "admin",
+//                        "{bcrypt}$2a$10$lvjys/FAHAVmgXM.U1LtOOJ./C5SstExZCZ0Z5N7SeGZAue0JFtXC",
+//                        true,
+//                        true,
+//                        true,
+//                        true,
+//                        authorities);
+//        return user;
+		return TtcUser.defaultTest();
     }
 
     @Override
@@ -71,6 +72,6 @@ public class RemoteUserDetailsService extends AbstractStrategyUserDetailsService
         //		Result<TtcUser> result = remoteSocialDetailsService.findUserDetailsBySocial(source,
         // accessPrincipal);
         //		return result.getData();
-        return new TtcUser();
+        return TtcUser.defaultTest();
     }
 }

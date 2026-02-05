@@ -38,6 +38,7 @@ import com.taotao.boot.security.spring.authentication.response.entrypoint.JsonAu
 import com.taotao.boot.security.spring.authorization.SecurityAuthorizationManager;
 import com.taotao.boot.security.spring.authorization.SecurityMatcherConfigurer;
 import com.taotao.boot.security.spring.autoconfigure.properties.SecurityAuthenticationProperties;
+import com.taotao.boot.security.spring.support.core.details.TtcUser;
 import com.taotao.boot.security.spring.support.core.details.client.ClientDetailsService;
 import com.taotao.boot.security.spring.support.filter.ExtensionAndOauth2LoginRefreshTokenFilter;
 import com.taotao.boot.security.spring.support.token.OAuth2AccessTokenStore;
@@ -91,7 +92,7 @@ public class DefaultSecurityConfiguration {
 	//	// 初始化cors配置对象
 	//	CorsConfiguration configuration = new CorsConfiguration();
 	//	// 设置允许跨域的域名,如果允许携带cookie的话,路径就不能写*号, *表示所有的域名都可以跨域访问
-	//	configuration.addAllowedOrigin("http://127.0.0.1:5173");
+	//	configuration.addAllowedOrigin("http://192.168.218.2:5173");
 	//	// 设置跨域访问可以携带cookie
 	//	configuration.setAllowCredentials(true);
 	//	// 允许所有的请求方法 ==> GET POST PUT Delete
@@ -171,45 +172,28 @@ public class DefaultSecurityConfiguration {
 				( customizer ) -> {
 					// 用户+密码登录
 					customizer
-						.accountLogin(
-							accountLoginConfigurerCustomizer -> {
+						.accountLogin(accountLoginConfigurerCustomizer -> {
 								accountLoginConfigurerCustomizer
-									.accountUserDetailsService(
-										new AccountUserDetailsService() {
+									.accountUserDetailsService(new AccountUserDetailsService() {
 											@Override
-											public UserDetails
-											loadUserByUsername(
-												String username,
-												String type )
-												throws
-												UsernameNotFoundException {
-												return null;
+											public UserDetails loadUserByUsername( String username, String type ) throws UsernameNotFoundException {
+												return TtcUser.defaultTest();
 											}
 										});
 							})
 						// 用户+密码+验证码登录
-						.captchaLogin(
-							captchaLoginConfigurerCustomizer -> {
+						.captchaLogin(captchaLoginConfigurerCustomizer -> {
 								captchaLoginConfigurerCustomizer
-									.captchaCheckService(
-										new CaptchaCheckService() {
+									.captchaCheckService(new CaptchaCheckService() {
 											@Override
-											public boolean verifyCaptcha(
-												String
-													verificationCode ) {
-												return false;
+											public boolean verifyCaptcha( String verificationCode ) {
+												return true;
 											}
 										})
-									.captchaUserDetailsService(
-										new CaptchaUserDetailsService() {
+									.captchaUserDetailsService(new CaptchaUserDetailsService() {
 											@Override
-											public UserDetails
-											loadUserByUsername(
-												String username,
-												String type )
-												throws
-												UsernameNotFoundException {
-												return null;
+											public UserDetails loadUserByUsername( String username, String type ) throws UsernameNotFoundException {
+												return TtcUser.defaultTest();
 											}
 										});
 							})
@@ -217,26 +201,16 @@ public class DefaultSecurityConfiguration {
 						.faceLogin(
 							faceLoginConfigurerCustomizer -> {
 								faceLoginConfigurerCustomizer
-									.faceCheckService(
-										new FaceCheckService() {
+									.faceCheckService(new FaceCheckService() {
 											@Override
-											public boolean check(
-												String imgBase64 )
-												throws
-												UsernameNotFoundException {
-												return false;
+											public boolean check( String imgBase64 ) throws UsernameNotFoundException {
+												return true;
 											}
 										})
-									.faceUserDetailsService(
-										new FaceUserDetailsService() {
+									.faceUserDetailsService(new FaceUserDetailsService() {
 											@Override
-											public UserDetails
-											loadUserByImgBase64(
-												String
-													imgBase64 )
-												throws
-												UsernameNotFoundException {
-												return null;
+											public UserDetails loadUserByImgBase64( String imgBase64 ) throws UsernameNotFoundException {
+												return TtcUser.defaultTest();
 											}
 										});
 							})
@@ -244,15 +218,10 @@ public class DefaultSecurityConfiguration {
 						.fingerprintLogin(
 							fingerprintLoginConfigurer -> {
 								fingerprintLoginConfigurer
-									.fingerprintUserDetailsService(
-										new FingerprintUserDetailsService() {
+									.fingerprintUserDetailsService(new FingerprintUserDetailsService() {
 											@Override
-											public UserDetails
-											loadUserByFingerprint(
-												String username )
-												throws
-												UsernameNotFoundException {
-												return null;
+											public UserDetails loadUserByFingerprint( String username ) throws UsernameNotFoundException {
+												return TtcUser.defaultTest();
 											}
 										});
 							})
@@ -260,15 +229,10 @@ public class DefaultSecurityConfiguration {
 						.gesturesLogin(
 							fingerprintLoginConfigurer -> {
 								fingerprintLoginConfigurer
-									.gesturesUserDetailsService(
-										new GesturesUserDetailsService() {
+									.gesturesUserDetailsService(new GesturesUserDetailsService() {
 											@Override
-											public UserDetails
-											loadUserByPhone(
-												String phone )
-												throws
-												UsernameNotFoundException {
-												return null;
+											public UserDetails loadUserByPhone( String phone ) throws UsernameNotFoundException {
+												return TtcUser.defaultTest();
 											}
 										});
 							})
@@ -290,11 +254,8 @@ public class DefaultSecurityConfiguration {
 								mpLoginConfigurer.mpUserDetailsService(
 									new WechatMpUserDetailsService() {
 										@Override
-										public UserDetails loadUserByPhone(
-											String phone )
-											throws
-											UsernameNotFoundException {
-											return null;
+										public UserDetails loadUserByPhone( String phone ) throws UsernameNotFoundException {
+											return TtcUser.defaultTest();
 										}
 									});
 							})
@@ -332,14 +293,14 @@ public class DefaultSecurityConfiguration {
 								.formQrcodeService(new FormQrcodeService() {
 									@Override
 									public boolean verifyQrcode( String qrcode ) {
-										return false;
+										return true;
 									}
 								})
 								.formQrcodeUserDetailsService(new FormQrcodeUserDetailsService() {
 									@Override
 									public UserDetails loadUserByPhone( String phone )
 										throws UsernameNotFoundException {
-										return null;
+										return TtcUser.defaultTest();
 									}
 								});
 						})
@@ -348,14 +309,14 @@ public class DefaultSecurityConfiguration {
 								.formSmsService(new FormSmsService() {
 									@Override
 									public boolean verifyCaptcha( String phone, String rawCode ) {
-										return false;
+										return true;
 									}
 								})
 								.formSmsUserDetailsService(new FormSmsUserDetailsService() {
 									@Override
 									public UserDetails loadUserByPhone( String phone, String type )
 										throws UsernameNotFoundException {
-										return null;
+										return TtcUser.defaultTest();
 									}
 								});
 						});

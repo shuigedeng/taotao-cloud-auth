@@ -76,7 +76,7 @@ redisson:
   attemptTimeout: 10000   #等待获取锁超时时间,-1则是一直等待
   dataValidTime: 1800000
   single_server_config:
-    address: "127.0.0.1:6379"     #服务器地址,必填ip:port
+    address: "192.168.218.2:6379"     #服务器地址,必填ip:port
     subscription_connection_minimum_idle_size: 1     #用于发布和订阅连接的最小保持连接数（长连接）。Redisson内部经常通过发布和订阅来实现许多功能。长期保持一定数量的发布订阅连接是必须的。
     subscription_connection_pool_size: 50     #用于发布和订阅连接的连接池最大容量。连接池的连接数量自动弹性伸缩。
     connection_minimum_idle_size: 24     #最小保持连接数（长连接）。长期保持一定数量的连接有利于提高瞬时写入反应速度。
@@ -109,16 +109,16 @@ redisson:
   #  #监测DNS的变化情况的时间间隔。
   #  dnsMonitoringInterval: 5000
   #  #服务器节点地址.必填
-  #  #redisson.multiple-server-config.node-addresses[0]=127.0.0.1:6379
-  #  #redisson.multiple-server-config.node-addresses[1]=127.0.0.1:6380
-  #  #redisson.multiple-server-config.node-addresses[2]=127.0.0.1:6381
+  #  #redisson.multiple-server-config.node-addresses[0]=192.168.218.2:6379
+  #  #redisson.multiple-server-config.node-addresses[1]=192.168.218.2:6380
+  #  #redisson.multiple-server-config.node-addresses[2]=192.168.218.2:6381
   #  nodeAddresses:
-  #    - "127.0.0.1:6381"
-  #    - "127.0.0.1:6382"
-  #    - "127.0.0.1:6383"
-  #    - "127.0.0.1:6384"
-  #    - "127.0.0.1:6385"
-  #    - "127.0.0.1:6386"
+  #    - "192.168.218.2:6381"
+  #    - "192.168.218.2:6382"
+  #    - "192.168.218.2:6383"
+  #    - "192.168.218.2:6384"
+  #    - "192.168.218.2:6385"
+  #    - "192.168.218.2:6386"
   #  #(哨兵模式,云托管,主从模式特有)尝试连接的数据库编号。
   #  database: 1
   #  #(哨兵模式特有)主服务器的名称是哨兵进程中用来监测主从服务切换情况的。
@@ -132,10 +132,10 @@ arthas:
   # ~/logs/arthas/arthas.log (用户目录下面)里可以找到具体端口日志
   telnetPort: -1
   httpPort: -1
-  ip: 0.0.0.0   # 127.0.0.1只能本地访问，0.0.0.0则可网络访问，但是存在安全问题
+  ip: 0.0.0.0   # 192.168.218.2只能本地访问，0.0.0.0则可网络访问，但是存在安全问题
   agent-id: ${spring.application.name}
   app-name: ${spring.application.name}
-  tunnel-server: ws://127.0.0.1:7777/ws
+  tunnel-server: ws://192.168.218.2:7777/ws
 
 dubbo:
   enabled: true
@@ -157,7 +157,7 @@ dubbo:
     shutwait: 3000
     dump-directory: ${user.home}/logs/${spring.application.name}/dubbo/
   registry:
-    address: nacos://127.0.0.1:8848
+    address: nacos://192.168.218.2:8848
     group: DUBBO_REGISTRY_GROUP
     cluster: CQ
     parameters:
@@ -224,14 +224,14 @@ dubbo:
     export-async: true
   monitor:
     id: ${spring.application.name}
-    address: 127.0.0.1:18080
+    address: 192.168.218.2:18080
     username: admin
     password: 123456
     group: taotao-cloud-dev
     version: ${ttcVersion}
   metadata-report:
     id: ${spring.application.name}
-    address: nacos://127.0.0.1:8848
+    address: nacos://192.168.218.2:8848
     username: nacos
     password: nacos
     group: DUBBO_REGISTRY_GROUP
@@ -240,7 +240,7 @@ dubbo:
       cluster-name: CQ
   config-center:
     id: ${spring.application.name}
-    address: nacos://127.0.0.1:8848
+    address: nacos://192.168.218.2:8848
     username: nacos
     password: nacos
     group: DUBBO_REGISTRY_GROUP
@@ -267,7 +267,7 @@ dubbo:
         enabled: false
 
 rocketmq:
-  name-server: http://127.0.0.1:9876
+  name-server: http://192.168.218.2:9876
   producer:
     group: ${spring.application.name}     # 组名称
     send-message-timeout: 3000     #消息发送时长
@@ -328,11 +328,11 @@ spring:
       max-request-size: 200MB
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://127.0.0.1:3306/taotao-cloud-auth?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&allowMultiQueries=true&autoReconnect=true&useCursorFetch=true&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://192.168.218.2:3306/taotao-cloud-auth?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&allowMultiQueries=true&autoReconnect=true&useCursorFetch=true&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
-    #url: jdbc:postgresql://127.0.0.1:5432/taotao-cloud-auth?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&allowMultiQueries=true
+    #url: jdbc:postgresql://192.168.218.2:5432/taotao-cloud-auth?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&allowMultiQueries=true
     #driver-class-name: org.postgresql.Driver
     #username: root
     #password: 123456
@@ -394,7 +394,7 @@ spring:
     #      use_jdbc_metadata_defaults: false
   data:
     redis:
-      host: 127.0.0.1
+      host: 192.168.218.2
       port: 6379
       database: 1
       #password: ${TAOTAO_CLOUD_REDIS_PASSWORD:taotao-cloud}
@@ -403,7 +403,7 @@ spring:
       #  master:
       #  nodes:
       #cluster:
-      #  nodes: 127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384,127.0.0.1:6385,127.0.0.1:6386
+      #  nodes: 192.168.218.2:6381,192.168.218.2:6382,192.168.218.2:6383,192.168.218.2:6384,192.168.218.2:6385,192.168.218.2:6386
       #  max-redirects: 3
       client-type: lettuce
       lettuce:
@@ -433,7 +433,7 @@ spring:
             # 客户端名称
             clientName: "taotao-cloud-redis-client"
             # 节点地址
-            address: "redis://127.0.0.1:6379"
+            address: "redis://192.168.218.2:6379"
             # 发布和订阅连接的最小空闲连接数
             subscriptionConnectionMinimumIdleSize: 1
             # 发布和订阅连接池大小
@@ -458,7 +458,7 @@ spring:
           lockWatchdogTimeout: 10000
   kafka:
     enabled: true
-    bootstrap-servers: 127.0.0.1:9092
+    bootstrap-servers: 192.168.218.2:9092
     producer:
       retries: 1
       batch-size: 16384
@@ -498,8 +498,8 @@ spring:
          opaquetoken:
            client-id: 14a9cf797931430896ad13a6b1855611
            client-secret: 14a9cf797931430896ad13a6b1855611asdfasfd
-           introspection-uri: http://127.0.0.1/oauth2/introspect
-           #introspection-uri: http://127.0.0.1:8080/oauth/check_token
+           introspection-uri: http://192.168.218.2/oauth2/introspect
+           #introspection-uri: http://192.168.218.2:8080/oauth/check_token
       client:
         registration:
           google:
@@ -540,15 +540,15 @@ spring:
             client-id: 35026971d1fa406aaa150299d4f7bb39
             client-secret: 07e2d86f2b0641c4bb03e512a3eb0eac
             authorization-grant-type: authorization_code
-            redirect-uri: http://127.0.0.1:8090/authorized
+            redirect-uri: http://192.168.218.2:8090/authorized
             scope: message.read
         provider:
           ttauth:
-            authorization-uri: http://127.0.0.1:33401/oauth2/authorize
-            token-uri: http://127.0.0.1:33401/oauth2/token
-            user-info-uri: http://127.0.0.1:33401/api/test/user
+            authorization-uri: http://192.168.218.2:33401/oauth2/authorize
+            token-uri: http://192.168.218.2:33401/oauth2/token
+            user-info-uri: http://192.168.218.2:33401/api/test/user
             user-name-attribute: id
-            jwk-set-uri: http://127.0.0.1:33401/oauth2/jwks
+            jwk-set-uri: http://192.168.218.2:33401/oauth2/jwks
           google:
             authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
             token-uri: https://www.googleapis.com/oauth2/v4/token
@@ -575,7 +575,7 @@ spring:
             user-info-uri:
   #      resourceserver:
 #        jwt:
-#          jwk-set-uri: http://127.0.0.1:33401/oauth2/jwks
+#          jwk-set-uri: http://192.168.218.2:33401/oauth2/jwks
   cloud:
     compatibility-verifier:
       enabled: false
@@ -590,7 +590,7 @@ taotao:
       xxl:
         enabled: true
         admin:
-          addresses: http://127.0.0.1:48080/xxl-job-admin
+          addresses: http://192.168.218.2:48080/xxl-job-admin
           username: admin
           password: 123456
         executor:
@@ -769,21 +769,21 @@ taotao:
         endpoint:
           uaa-service-name: taotao-cloud-uaa
           upms-service-name: taotao-cloud-upms
-          gateway-service-uri: http://127.0.0.1:33401
-          uaa-service-uri: http://127.0.0.1:33401/
-          upms-service-uri: http://127.0.0.1:33401/${ttc.endpoint.upms-service-name}
-          access-token-uri: http://127.0.0.1:33401/oauth2/token
-          authorization-uri: http://127.0.0.1:33401/oauth2/authorize
-          token-revocation-uri: http://127.0.0.1:33401/oauth2/revoke
-          token-introspection-uri: http://127.0.0.1:33401/oauth2/introspect
-          jwk-set-uri: http://127.0.0.1:33401/oauth2/jwks
+          gateway-service-uri: http://192.168.218.2:33401
+          uaa-service-uri: http://192.168.218.2:33401/
+          upms-service-uri: http://192.168.218.2:33401/${ttc.endpoint.upms-service-name}
+          access-token-uri: http://192.168.218.2:33401/oauth2/token
+          authorization-uri: http://192.168.218.2:33401/oauth2/authorize
+          token-revocation-uri: http://192.168.218.2:33401/oauth2/revoke
+          token-introspection-uri: http://192.168.218.2:33401/oauth2/introspect
+          jwk-set-uri: http://192.168.218.2:33401/oauth2/jwks
           issuer-uri: ${ttc.endpoint.uaa-service-uri}
-          oidc-client-registration-uri: http://127.0.0.1:33401/connect/register
-          oidc-user-info-uri: http://127.0.0.1:33401/userinfo
-          #device-authorization-uri: http://127.0.0.1:33401/oauth2/device_authorization
-          #device-authorization-endpoint: http://127.0.0.1:33401/oauth2/device_authorization
-          #device-verification-uri: http://127.0.0.1:33401/oauth2/device_verification
-          #device-verification-endpoint: http://127.0.0.1:33401/oauth2/device_verification
+          oidc-client-registration-uri: http://192.168.218.2:33401/connect/register
+          oidc-user-info-uri: http://192.168.218.2:33401/userinfo
+          #device-authorization-uri: http://192.168.218.2:33401/oauth2/device_authorization
+          #device-authorization-endpoint: http://192.168.218.2:33401/oauth2/device_authorization
+          #device-verification-uri: http://192.168.218.2:33401/oauth2/device_verification
+          #device-verification-endpoint: http://192.168.218.2:33401/oauth2/device_verification
         authentication:
           form-login:
             category: HUTOOL_GIF
@@ -967,7 +967,7 @@ kylin:
     primary-executor: com.taotao.boot.lock.kylin.executor.redisson.RedissonLockExecutor #默认执行器。默认redisson>zookeeper
     redisson: true              #是否开启redisson 默认true
     #zookeeper:
-    #  zk-servers: 127.0.0.1:2181 #zk的server地址，多个server之间使用英文逗号分隔开 。配置地址则开启zookeeper
+    #  zk-servers: 192.168.218.2:2181 #zk的server地址，多个server之间使用英文逗号分隔开 。配置地址则开启zookeeper
     #  session-timeout: 60000     #会话超时时间，默认值60000 单位：毫秒
     #  connection-timeout: 15000  #连接超时时间，默认值15000 单位：毫秒
     #  base-sleep-time-ms: 5000   #初始sleep时间，默认值5000 单位：毫秒
@@ -1011,7 +1011,7 @@ knife4j:
     enableSwaggerModels: true
     enableDocumentManage: true
     enableHost: false
-    enableHostText: http://127.0.0.1:18568
+    enableHostText: http://192.168.218.2:18568
     enableRequestCache: true
     enableFilterMultipartApis: false
     enableFilterMultipartApiMethodType: POST
@@ -1029,7 +1029,7 @@ knife4j:
 
 jwk:
   set:
-    uri: http://127.0.0.1:33401/oauth2/jwks
+    uri: http://192.168.218.2:33401/oauth2/jwks
 
 auth:
   baidu:
@@ -1045,21 +1045,21 @@ ttc:
   endpoint:
     uaa-service-name: taotao-cloud-uaa
     upms-service-name: taotao-cloud-upms
-    gateway-service-uri: http://127.0.0.1:33401
-    uaa-service-uri: http://127.0.0.1:33401/
-    upms-service-uri: http://127.0.0.1:33401/${ttc.endpoint.upms-service-name}
-    access-token-uri: http://127.0.0.1:33401/oauth2/token
-    authorization-uri: http://127.0.0.1:33401/oauth2/authorize
-    token-revocation-uri: http://127.0.0.1:33401/oauth2/revoke
-    token-introspection-uri: http://127.0.0.1:33401/oauth2/introspect
-    jwk-set-uri: http://127.0.0.1:33401/oauth2/jwks
+    gateway-service-uri: http://192.168.218.2:33401
+    uaa-service-uri: http://192.168.218.2:33401/
+    upms-service-uri: http://192.168.218.2:33401/${ttc.endpoint.upms-service-name}
+    access-token-uri: http://192.168.218.2:33401/oauth2/token
+    authorization-uri: http://192.168.218.2:33401/oauth2/authorize
+    token-revocation-uri: http://192.168.218.2:33401/oauth2/revoke
+    token-introspection-uri: http://192.168.218.2:33401/oauth2/introspect
+    jwk-set-uri: http://192.168.218.2:33401/oauth2/jwks
     issuer-uri: ${ttc.endpoint.uaa-service-uri}
-    oidc-client-registration-uri: http://127.0.0.1:33401/connect/register
-    oidc-user-info-uri: http://127.0.0.1:33401/userinfo
-    #device-authorization-uri: http://127.0.0.1:33401/oauth2/device_authorization
-    #device-authorization-endpoint: http://127.0.0.1:33401/oauth2/device_authorization
-    #device-verification-uri: http://127.0.0.1:33401/oauth2/device_verification
-    #device-verification-endpoint: http://127.0.0.1:33401/oauth2/device_verification
+    oidc-client-registration-uri: http://192.168.218.2:33401/connect/register
+    oidc-user-info-uri: http://192.168.218.2:33401/userinfo
+    #device-authorization-uri: http://192.168.218.2:33401/oauth2/device_authorization
+    #device-authorization-endpoint: http://192.168.218.2:33401/oauth2/device_authorization
+    #device-verification-uri: http://192.168.218.2:33401/oauth2/device_verification
+    #device-verification-endpoint: http://192.168.218.2:33401/oauth2/device_verification
   oauth2:
     authentication:
       sign-in-endpoint-limited:
