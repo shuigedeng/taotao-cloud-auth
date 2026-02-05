@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.biz.jpa.jackson;
 
-import com.taotao.boot.security.spring.support.constants.Jackson2Constants;
+import com.taotao.boot.security.spring.support.constants.JacksonConstants;
 import com.taotao.boot.security.spring.support.core.details.TtcUser;
 import tools.jackson.databind.module.SimpleModule;
 import com.taotao.boot.security.spring.authentication.login.form.FormLoginWebAuthenticationDetails;
@@ -31,7 +31,7 @@ import com.taotao.boot.security.spring.support.core.authority.TtcGrantedAuthorit
 public class TtcJacksonModule extends SimpleModule {
 
     public TtcJacksonModule() {
-        super(TtcJacksonModule.class.getName(), Jackson2Constants.VERSION);
+        super(TtcJacksonModule.class.getName(), JacksonConstants.VERSION);
     }
 
     @Override

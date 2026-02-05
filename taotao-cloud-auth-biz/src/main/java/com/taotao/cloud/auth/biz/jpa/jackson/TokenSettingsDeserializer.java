@@ -16,12 +16,12 @@
 
 package com.taotao.cloud.auth.biz.jpa.jackson;
 
+import com.taotao.boot.security.spring.support.utils.JsonNodeUtils;
 import tools.jackson.core.JacksonException;
 import tools.jackson.core.JsonParser;
 import tools.jackson.databind.DeserializationContext;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ValueDeserializer;
-import com.taotao.cloud.auth.biz.utils.JsonNodeUtils;
 
 import java.util.Map;
 import org.springframework.security.oauth2.server.authorization.settings.TokenSettings;

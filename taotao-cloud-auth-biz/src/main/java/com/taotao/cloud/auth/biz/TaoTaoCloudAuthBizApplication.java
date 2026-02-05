@@ -19,8 +19,9 @@ package com.taotao.cloud.auth.biz;
 import com.taotao.boot.core.startup.StartupSpringApplication;
 import com.taotao.boot.data.jpa.extend.JpaExtendRepositoryFactoryBean;
 //import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
-import com.taotao.boot.security.spring.support.annotation.EnableOauth2Client;
-import com.taotao.boot.security.spring.support.annotation.EnableSecurity;
+import com.taotao.boot.security.spring.annotation.EnableOauth2AuthorizationServer;
+import com.taotao.boot.security.spring.annotation.EnableOauth2Client;
+import com.taotao.boot.security.spring.annotation.EnableSecurity;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.boot.persistence.autoconfigure.EntityScan;
@@ -83,8 +84,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
         repositoryFactoryBeanClass = JpaExtendRepositoryFactoryBean.class)
 //@EnableDiscoveryClient
 @ConfigurationPropertiesScan
-@EnableOauth2Client
-@EnableSecurity
+@EnableOauth2AuthorizationServer
 @EnableRedisIndexedHttpSession
 @SpringBootApplication
 public class TaoTaoCloudAuthBizApplication {

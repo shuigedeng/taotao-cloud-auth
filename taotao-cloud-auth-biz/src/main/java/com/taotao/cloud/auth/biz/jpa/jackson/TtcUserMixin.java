@@ -19,7 +19,7 @@ package com.taotao.cloud.auth.biz.jpa.jackson;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.taotao.boot.security.spring.support.core.userdetails.TtcUserDeserializer;
+import com.taotao.boot.security.spring.support.core.details.TtcUserDeserializer;
 import tools.jackson.databind.annotation.JsonDeserialize;
 
 /**

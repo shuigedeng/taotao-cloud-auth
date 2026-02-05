@@ -41,7 +41,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @since : 2023/5/15 16:36
  */
 @Service
-public class OAuth2DeviceService {
+public class OAuth2DeviceService implements com.taotao.boot.security.spring.oauth2.authorization.server.device.service.OAuth2DeviceService{
 
     private static final Logger log = LoggerFactory.getLogger(OAuth2ApplicationService.class);
 
@@ -107,6 +107,7 @@ public class OAuth2DeviceService {
      * @param oidcClientRegistration {@link OidcClientRegistration}
      * @return 是否同步成功
      */
+	@Override
     public boolean sync(OidcClientRegistration oidcClientRegistration) {
         RegisteredClient registeredClient =
                 registeredClientRepository.findByClientId(oidcClientRegistration.getClientId());
@@ -122,6 +123,7 @@ public class OAuth2DeviceService {
         return false;
     }
 
+	@Override
     public boolean activate(String clientId, boolean isActivated) {
         int result = deviceRepository.activate(clientId, isActivated);
         return result != 0;

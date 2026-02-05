@@ -55,15 +55,15 @@ public class IdentityController {
 
     private final Logger log = LoggerFactory.getLogger(IdentityController.class);
 
-    private final InterfaceSecurityService interfaceSecurityService;
-    private final SignInFailureLimitedStampManager signInFailureLimitedStampManager;
+    private  InterfaceSecurityService interfaceSecurityService;
+    private  SignInFailureLimitedStampManager signInFailureLimitedStampManager;
 
-    public IdentityController(
-            InterfaceSecurityService interfaceSecurityService,
-            SignInFailureLimitedStampManager signInFailureLimitedStampManager) {
-        this.interfaceSecurityService = interfaceSecurityService;
-        this.signInFailureLimitedStampManager = signInFailureLimitedStampManager;
-    }
+//    public IdentityController(
+//            InterfaceSecurityService interfaceSecurityService,
+//            SignInFailureLimitedStampManager signInFailureLimitedStampManager) {
+//        this.interfaceSecurityService = interfaceSecurityService;
+//        this.signInFailureLimitedStampManager = signInFailureLimitedStampManager;
+//    }
 
     @Operation(
             summary = "获取后台加密公钥",

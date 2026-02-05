@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.biz.jpa.jackson;
 
-import com.taotao.boot.security.spring.support.constants.Jackson2Constants;
+import com.taotao.boot.security.spring.support.constants.JacksonConstants;
 import tools.jackson.databind.module.SimpleModule;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
@@ -34,7 +34,7 @@ import org.springframework.security.oauth2.server.authorization.settings.TokenSe
 public class OAuth2TokenJacksonModule extends SimpleModule {
 
     public OAuth2TokenJacksonModule() {
-        super(OAuth2TokenJacksonModule.class.getName(), Jackson2Constants.VERSION);
+        super(OAuth2TokenJacksonModule.class.getName(), JacksonConstants.VERSION);
     }
 
     @Override
