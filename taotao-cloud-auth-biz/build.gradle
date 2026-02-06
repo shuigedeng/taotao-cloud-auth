@@ -20,7 +20,6 @@ application {
 description = "认证中心"
 
 dependencies {
-    api project(":taotao-cloud-auth-common")
     api project(":taotao-cloud-auth-api")
 
     api "io.github.shuigedeng:taotao-cloud-sys-api:2026.03"

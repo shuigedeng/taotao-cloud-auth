@@ -108,13 +108,6 @@ dependencyResolutionManagement {
 }
 
 include "taotao-cloud-auth-api"
-include "taotao-cloud-auth-application"
-include "taotao-cloud-auth-assembly"
-include "taotao-cloud-auth-common"
-include "taotao-cloud-auth-domain"
-include "taotao-cloud-auth-facade"
-include "taotao-cloud-auth-infrastructure"
-include "taotao-cloud-auth-interfaces"
 include "taotao-cloud-auth-biz"
 
 

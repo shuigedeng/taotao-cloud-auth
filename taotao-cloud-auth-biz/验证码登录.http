@@ -1,0 +1,25 @@
+### 验证码登录方式1
+POST http://127.0.0.1:33401/login/captcha?username=admin&password=123456&type=b_pc_account_verification&verification_code=111111
+Content-Type: application/x-www-form-urlencoded
+
+
+### 验证码登录方式2
+POST http://127.0.0.1:33401/login/captcha
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "123456",
+  "type": "b_pc_account_verification",
+  "verification_code": "111111"
+}
+
+### 返回的结果
+#{
+#  "access_token": "eyJraWQiOiIxZGY0ZGQ3YS0zMTA3LTQzMzYtODA5Zi0xOWYxMGNmOWJlN2YiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL2Jsb2cudGFvdGFvY2xvdWQudG9wLyIsInN1YiI6ImFkbWluIiwiYXVkIjpbImNsaWVudDEiLCJjbGllbnQyIl0sImV4cCI6MTc3MDM2NTY1NSwiaWF0IjoxNzcwMzQ3NjU1LCJzY29wZSI6WyJtYW5hZ2VyLmJvb2sucmVhZCIsIlJPTEVfUk9MRV9BMSIsIlJPTEVfUk9MRV9BMiIsIm1hbmFnZXIuYm9vay53cml0ZSJdfQ.eOvgmLL0NEvm1GmyazZ0qqNlFcRymW-Vw3SnmHH7ADiu8TVNQwbYo5emZRmEn9MeihmVKmdrFYDdPNqa50g0kM-cTko0VOec1d-pruobspIB0nlM297S-c787seodL9xs_Wezh6EDI_LYUWtHithfBdsKuRe6EhWKxKQUNjMqQVluP11erQlpaj-Tid2RLF2REHGVFv8ilBlTivgo3SerI_W6sT4cUybdCLYDTtvYvKngEdeHRucqKj_2H7j8lHTWmtdrbO5rW4ZhhfP3cBSx2P-dlz-cpshM2WnfKHYocHzt3sha05_WKDVqWvRHDIXz0uJSH6XlOnNrMJZC79t1g",
+#  "refresh_token": "b3edf851-a7a5-4609-9037-fec1cc9dbc6f",
+#  "scope": "manager.book.read ROLE_ROLE_A1 ROLE_ROLE_A2 manager.book.write",
+#  "token_type": "Bearer",
+#  "expires_in": 1770365654
+#}
+###
