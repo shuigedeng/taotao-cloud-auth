@@ -14,22 +14,9 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.biz.uaa.configuration;
+package com.taotao.cloud.auth.biz.configuration;
 
-import com.taotao.boot.security.spring.authentication.login.social.oauth2client.SocialDelegateMapOAuth2AccessTokenResponseConverter;
-import java.util.Arrays;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.MediaType;
-import org.springframework.http.converter.FormHttpMessageConverter;
-import org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager;
-import org.springframework.security.oauth2.client.OAuth2AuthorizedClientProviderBuilder;
-import org.springframework.security.oauth2.client.http.OAuth2ErrorResponseErrorHandler;
-import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
-import org.springframework.security.oauth2.client.web.DefaultOAuth2AuthorizedClientManager;
-import org.springframework.security.oauth2.client.web.OAuth2AuthorizedClientRepository;
-import org.springframework.security.oauth2.core.http.converter.OAuth2AccessTokenResponseHttpMessageConverter;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * 兼容微信刷新token
@@ -39,7 +26,7 @@ import org.springframework.web.client.RestTemplate;
  * @since 2023-07-10 11:43:29
  */
 @Configuration(proxyBeanMethods = false)
-public class OAuth2ClientManagerConfiguration {
+public class OAuth2ClientConfiguration {
 
 //    /**
 //     * O auth 2 authorized client manager o auth 2 authorized client manager.

@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.biz.authentication.federation;
+package com.taotao.cloud.auth.biz.federation;
 
-import com.taotao.cloud.auth.biz.authentication.federation.strategy.context.Oauth2UserConverterContext;
-import java.util.LinkedHashMap;
+import com.taotao.cloud.auth.biz.federation.strategy.context.Oauth2UserConverterContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.oidc.userinfo.OidcUserRequest;
 import org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService;
@@ -26,6 +25,8 @@ import org.springframework.security.oauth2.core.oidc.OidcIdToken;
 import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.util.StringUtils;
+
+import java.util.LinkedHashMap;
 
 /**
  * 自定义三方oidc登录用户信息服务

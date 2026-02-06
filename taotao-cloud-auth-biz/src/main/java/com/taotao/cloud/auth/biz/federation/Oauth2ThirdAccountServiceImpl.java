@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.biz.authentication.federation;
+package com.taotao.cloud.auth.biz.federation;
 
 import lombok.RequiredArgsConstructor;
 
@@ -32,7 +32,7 @@ public class Oauth2ThirdAccountServiceImpl implements Oauth2ThirdAccountService 
     // private final IOauth2BasicUserService basicUserService;
 
     @Override
-    public void checkAndSaveUser(Oauth2ThirdAccount thirdAccount) {
+    public void checkAndSaveUser( Oauth2ThirdAccount thirdAccount) {
         // 构建三方唯一id和三方登录方式的查询条件
         //		Oauth2ThirdAccount oauth2ThirdAccount =
         // this.lambdaQuery().eq(Oauth2ThirdAccount::getType, thirdAccount.getType())

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.biz.authentication.federation.strategy;
+package com.taotao.cloud.auth.biz.federation.strategy;
 
-import com.taotao.cloud.auth.biz.authentication.federation.Oauth2ThirdAccount;
+import com.taotao.cloud.auth.biz.federation.Oauth2ThirdAccount;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
 /**

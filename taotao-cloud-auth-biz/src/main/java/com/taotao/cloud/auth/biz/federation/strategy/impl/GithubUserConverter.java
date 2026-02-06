@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.biz.authentication.federation.strategy.impl;
+package com.taotao.cloud.auth.biz.federation.strategy.impl;
 
-import static com.taotao.cloud.auth.biz.authentication.federation.strategy.impl.GithubUserConverter.THIRD_LOGIN_GITHUB;
-
-import com.taotao.cloud.auth.biz.authentication.federation.Oauth2ThirdAccount;
-import com.taotao.cloud.auth.biz.authentication.federation.strategy.Oauth2UserConverterStrategy;
+import com.taotao.cloud.auth.biz.federation.Oauth2ThirdAccount;
+import com.taotao.cloud.auth.biz.federation.strategy.Oauth2UserConverterStrategy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Component;
+
+import static com.taotao.cloud.auth.biz.authentication.federation.strategy.impl.GithubUserConverter.THIRD_LOGIN_GITHUB;
 
 /**
  * 转换通过Github登录的用户信息

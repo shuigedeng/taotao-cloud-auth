@@ -14,20 +14,21 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.biz.authentication.federation.strategy.context;
+package com.taotao.cloud.auth.biz.federation.strategy.context;
 
-import com.taotao.cloud.auth.biz.authentication.federation.Oauth2ThirdAccount;
-import com.taotao.cloud.auth.biz.authentication.federation.strategy.Oauth2UserConverterStrategy;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Map;
+import com.taotao.cloud.auth.biz.federation.Oauth2ThirdAccount;
+import com.taotao.cloud.auth.biz.federation.strategy.Oauth2UserConverterStrategy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AccessToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
+
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Map;
 
 /**
  * 三方oauth2登录获取的用户信息转换处理

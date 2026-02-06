@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.biz.uaa.configuration;
+package com.taotao.cloud.auth.biz.configuration;
 
 import com.taotao.boot.captcha.support.core.processor.CaptchaRendererFactory;
 import com.taotao.boot.security.spring.authentication.login.extension.ExtensionLoginFilterSecurityConfigurer;
@@ -45,8 +45,8 @@ import com.taotao.boot.security.spring.support.token.OAuth2AccessTokenStore;
 import com.taotao.boot.security.spring.support.token.SecurityTokenStrategyConfigurer;
 import com.taotao.cloud.auth.biz.management.details.client.Oauth2ClientDetailsService;
 import com.taotao.cloud.auth.biz.management.details.user.SecurityUserDetailsService;
-import com.taotao.cloud.auth.biz.management.service.OAuth2ApplicationService;
 import com.taotao.cloud.auth.biz.management.details.user.strategy.StrategyUserDetailsService;
+import com.taotao.cloud.auth.biz.management.service.OAuth2ApplicationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;

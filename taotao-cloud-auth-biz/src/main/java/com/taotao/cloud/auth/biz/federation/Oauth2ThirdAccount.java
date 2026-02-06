@@ -14,14 +14,15 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.biz.authentication.federation;
+package com.taotao.cloud.auth.biz.federation;
 
 import com.baomidou.mybatisplus.annotation.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * <p>

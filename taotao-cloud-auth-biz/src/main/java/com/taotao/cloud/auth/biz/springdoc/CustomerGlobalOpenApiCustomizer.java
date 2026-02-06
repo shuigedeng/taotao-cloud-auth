@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.biz.operation;
+package com.taotao.cloud.auth.biz.springdoc;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
@@ -46,7 +46,7 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-public class CustomerOperation implements GlobalOpenApiCustomizer {
+public class CustomerGlobalOpenApiCustomizer implements GlobalOpenApiCustomizer {
 
     @Override
     public void customise(OpenAPI openApi) {

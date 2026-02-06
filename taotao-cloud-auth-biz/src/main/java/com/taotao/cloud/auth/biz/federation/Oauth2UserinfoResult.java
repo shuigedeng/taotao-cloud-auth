@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.biz.authentication.federation;
+package com.taotao.cloud.auth.biz.federation;
+
+import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
-import lombok.Data;
-import lombok.experimental.*;
 
 /**
  * oauth2登录后获取用户信息响应类

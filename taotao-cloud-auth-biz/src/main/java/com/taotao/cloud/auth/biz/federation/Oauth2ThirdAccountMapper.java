@@ -14,28 +14,13 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.biz.authentication.federation;
-
-import tools.jackson.databind.annotation.JsonSerialize;
-import lombok.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.*;
-import org.springframework.security.core.GrantedAuthority;
+package com.taotao.cloud.auth.biz.federation;
 
 /**
- * 自定义权限类
+ * <p>
+ * 三方登录账户信息表 Mapper 接口
+ * </p>
+ *
  */
-@Data
-@JsonSerialize
-@NoArgsConstructor
-@AllArgsConstructor
-public class CustomGrantedAuthority implements GrantedAuthority {
-
-    private String authority;
-
-    @Override
-    public String getAuthority() {
-        return this.authority;
-    }
-}
+// public interface Oauth2ThirdAccountMapper extends BaseMapper<Oauth2ThirdAccount> {
+public interface Oauth2ThirdAccountMapper {}

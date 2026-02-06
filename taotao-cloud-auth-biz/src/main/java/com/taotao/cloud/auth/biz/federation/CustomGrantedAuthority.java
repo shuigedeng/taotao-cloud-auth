@@ -14,21 +14,27 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.biz.authentication.federation;
+package com.taotao.cloud.auth.biz.federation;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import tools.jackson.databind.annotation.JsonSerialize;
 
 /**
- * <p>
- * 三方登录账户信息表 服务类
- * </p>
- *
+ * 自定义权限类
  */
-// public interface IOauth2ThirdAccountService extends IService<Oauth2ThirdAccount> {
-public interface Oauth2ThirdAccountService {
+@Data
+@JsonSerialize
+@NoArgsConstructor
+@AllArgsConstructor
+public class CustomGrantedAuthority implements GrantedAuthority {
 
-    /**
-     * 检查是否存在该用户信息，不存在则保存，暂时不做关联基础用户信息，由前端引导完善/关联基础用户信息
-     *
-     * @param thirdAccount 用户信息
-     */
-    void checkAndSaveUser(Oauth2ThirdAccount thirdAccount);
+    private String authority;
+
+    @Override
+    public String getAuthority() {
+        return this.authority;
+    }
 }

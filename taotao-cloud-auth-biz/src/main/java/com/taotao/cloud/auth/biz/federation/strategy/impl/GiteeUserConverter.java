@@ -14,15 +14,16 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.biz.authentication.federation.strategy.impl;
+package com.taotao.cloud.auth.biz.federation.strategy.impl;
 
-import static com.taotao.cloud.auth.biz.authentication.federation.strategy.impl.GiteeUserConverter.THIRD_LOGIN_GITEE;
-
-import com.taotao.cloud.auth.biz.authentication.federation.Oauth2ThirdAccount;
-import com.taotao.cloud.auth.biz.authentication.federation.strategy.Oauth2UserConverterStrategy;
-import java.util.Map;
+import com.taotao.cloud.auth.biz.federation.Oauth2ThirdAccount;
+import com.taotao.cloud.auth.biz.federation.strategy.Oauth2UserConverterStrategy;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Component;
+
+import java.util.Map;
+
+import static com.taotao.cloud.auth.biz.authentication.federation.strategy.impl.GiteeUserConverter.THIRD_LOGIN_GITEE;
 
 /**
  * 转换通过码云登录的用户信息

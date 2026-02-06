@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.biz.authentication.federation;
+package com.taotao.cloud.auth.biz.federation;
 
-import com.taotao.cloud.auth.biz.authentication.federation.strategy.context.Oauth2UserConverterContext;
-import java.util.LinkedHashMap;
+import com.taotao.cloud.auth.biz.federation.strategy.context.Oauth2UserConverterContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+
+import java.util.LinkedHashMap;
 
 /**
  * 自定义三方oauth2登录获取用户信息服务
