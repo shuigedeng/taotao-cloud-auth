@@ -1,10 +1,10 @@
 ### 验证码登录方式1
-POST http://127.0.0.1:33401/login/captcha?username=admin&password=123456&type=b_pc_account_verification&verification_code=111111
+POST http://192.168.218.2:33401/login/captcha?username=admin&password=123456&type=b_pc_account_verification&verification_code=111111
 Content-Type: application/x-www-form-urlencoded
 
 
 ### 验证码登录方式2
-POST http://127.0.0.1:33401/login/captcha
+POST http://192.168.218.2:33401/login/captcha
 Content-Type: application/json
 
 {
