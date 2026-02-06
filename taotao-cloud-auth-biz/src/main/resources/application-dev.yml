@@ -140,7 +140,7 @@ arthas:
 dubbo:
   enabled: true
   scan:
-    base-packages: com.taotao.cloud.auth.biz.service.dubbo
+    base-packages: com.taotao.cloud.auth.service.dubbo
   application:
     name: ${spring.application.name}     #当前应用名称
     compiler: javassist     #Java字节码编译器，用于动态类的生成，可选：jdk或javassist
@@ -691,7 +691,7 @@ taotao:
           enabled: false
       jpa:
         enabled: true
-        packages: com.taotao.cloud.auth.biz.jpa.entity
+        packages: com.taotao.cloud.auth.authentication.entity,com.taotao.cloud.auth.oauth2.server.entity
         tenant:
           enabled: false
         dialect: org.hibernate.dialect.MySQLDialect
@@ -804,7 +804,7 @@ mybatis-plus-join:
   sub-table-logic: true
 
 mybatis-plus:
-  typeAliasesPackage: com.taotao.cloud.auth.biz.model.entity  #实体扫描 多个package用户逗号或者分号分割
+  typeAliasesPackage: com.taotao.cloud.auth.oauth2.server.entity  #实体扫描 多个package用户逗号或者分号分割
   mapperLocations: classpath:mapper/*.xml # mapper xml 地址
   global-config:
     banner: true # 关闭mp3.0自带的banner

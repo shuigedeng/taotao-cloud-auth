@@ -1,0 +1,648 @@
+/*
+ * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.taotao.cloud.auth.configuration;
+
+import cn.hutool.core.util.ObjUtil;
+import com.nimbusds.jose.jwk.JWKSet;
+import com.nimbusds.jose.jwk.RSAKey;
+import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
+import com.nimbusds.jose.jwk.source.JWKSource;
+import com.nimbusds.jose.proc.SecurityContext;
+import com.taotao.boot.cache.redis.repository.RedisRepository;
+import com.taotao.boot.common.utils.io.ResourceUtils;
+import com.taotao.boot.common.utils.servlet.ResponseUtils;
+import com.taotao.boot.security.spring.authentication.event.DefaultOAuth2AuthenticationEventPublisher;
+import com.taotao.boot.security.spring.authentication.login.form.FormLoginUrlConfigurer;
+import com.taotao.boot.security.spring.authentication.response.OAuth2AccessTokenResponseHandler;
+import com.taotao.boot.security.spring.authentication.response.OAuth2AuthenticationFailureResponseHandler;
+import com.taotao.boot.security.spring.authentication.response.entrypoint.RedirectLoginUrlAuthenticationEntryPoint;
+import com.taotao.boot.security.spring.autoconfigure.properties.SecurityAuthenticationProperties;
+import com.taotao.boot.security.spring.autoconfigure.properties.SecurityAuthorizationProperties;
+import com.taotao.boot.security.spring.autoconfigure.properties.SecurityOAuth2EndpointProperties;
+import com.taotao.boot.security.spring.oauth2.authorization.server.device.DeviceClientAuthenticationConverter;
+import com.taotao.boot.security.spring.oauth2.authorization.server.device.DeviceClientAuthenticationProvider;
+import com.taotao.boot.security.spring.oauth2.authorization.server.device.reesponse.OAuth2DeviceVerificationResponseHandler;
+import com.taotao.boot.security.spring.oauth2.authorization.server.oidc.TtcOidcUserInfoMapper;
+import com.taotao.boot.security.spring.oauth2.authorization.server.oidc.response.OidcClientRegistrationResponseHandler;
+import com.taotao.boot.security.spring.oauth2.authorization.server.token.TtcJwtTokenCustomizer;
+import com.taotao.boot.security.spring.oauth2.authorization.server.token.TtcOpaqueTokenCustomizer;
+import com.taotao.boot.security.spring.oauth2.authorization.server.utils.OAuth2ConfigurerUtils;
+import com.taotao.boot.security.spring.support.constants.DefaultConstants;
+import com.taotao.boot.security.spring.support.core.details.client.ClientDetailsService;
+import com.taotao.boot.security.spring.support.enums.Certificate;
+import com.taotao.boot.security.spring.support.processor.AESCryptoProcessor;
+import com.taotao.boot.security.spring.support.processor.HttpCryptoProcessor;
+import com.taotao.boot.security.spring.support.processor.RSACryptoProcessor;
+import com.taotao.boot.security.spring.support.token.SecurityTokenStrategyConfigurer;
+import com.taotao.cloud.auth.oauth2.server.service.TtcAuthorizationConsentService;
+import com.taotao.cloud.auth.oauth2.server.service.TtcAuthorizationService;
+import com.taotao.cloud.auth.oauth2.server.service.TtcRegisteredClientService;
+import com.taotao.cloud.auth.oauth2.server.storage.JpaOAuth2AuthorizationConsentService;
+import com.taotao.cloud.auth.oauth2.server.storage.JpaOAuth2AuthorizationService;
+import com.taotao.cloud.auth.oauth2.server.storage.JpaRegisteredClientRepository;
+import jakarta.annotation.PostConstruct;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.lang3.ArrayUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.core.io.Resource;
+import org.springframework.http.MediaType;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.ObjectPostProcessor;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
+import org.springframework.security.config.annotation.web.configurers.oauth2.server.authorization.OAuth2AuthorizationServerConfigurer;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.encrypt.KeyStoreKeyFactory;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.core.OAuth2Token;
+import org.springframework.security.oauth2.core.endpoint.OAuth2ParameterNames;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.server.authorization.OAuth2AuthorizationConsentService;
+import org.springframework.security.oauth2.server.authorization.OAuth2AuthorizationService;
+import org.springframework.security.oauth2.server.authorization.authentication.OAuth2AuthorizationCodeAuthenticationProvider;
+import org.springframework.security.oauth2.server.authorization.authentication.OAuth2AuthorizationCodeRequestAuthenticationToken;
+import org.springframework.security.oauth2.server.authorization.authentication.OAuth2ClientCredentialsAuthenticationProvider;
+import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
+import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
+import org.springframework.security.oauth2.server.authorization.token.JwtEncodingContext;
+import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenClaimsContext;
+import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenCustomizer;
+import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenGenerator;
+import org.springframework.security.oauth2.server.authorization.web.authentication.*;
+import org.springframework.security.web.DefaultRedirectStrategy;
+import org.springframework.security.web.RedirectStrategy;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationConverter;
+import org.springframework.security.web.authentication.DelegatingAuthenticationConverter;
+import org.springframework.security.web.util.matcher.MediaTypeRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
+import org.springframework.util.StringUtils;
+import org.springframework.web.util.UriComponentsBuilder;
+import org.springframework.web.util.UriUtils;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.NoSuchAlgorithmException;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
+import java.text.ParseException;
+import java.util.Arrays;
+import java.util.Set;
+import java.util.UUID;
+
+/**
+ * https://java.cunzaima.cn//spring-authorization-server-1.2.2-zh/core-model-components.html
+ *
+ * <p>认证服务器配置 </p>
+ * <p>
+ * 1. 权限核心处理 {@link org.springframework.security.web.access.intercept.FilterSecurityInterceptor} 2. 默认的权限判断
+ * {@link org.springframework.security.access.vote.AffirmativeBased} 3. 模式决策
+ * {@link org.springframework.security.authentication.ProviderManager}
+ *
+ * @author shuigedeng
+ * @version 2023.07
+ * @since 2023-07-04 10:30:08
+ */
+@Configuration(proxyBeanMethods = false)
+public class Oauth2AuthorizationServerConfiguration {
+
+	private static final Logger log =
+		LoggerFactory.getLogger(Oauth2AuthorizationServerConfiguration.class);
+
+	@PostConstruct
+	public void postConstruct() {
+		log.info("SDK [OAuth2 Authorization Server] Auto Configure.");
+	}
+
+	/**
+	 * redis存储库
+	 */
+	@Autowired
+	private RedisRepository redisRepository;
+
+
+	/**
+	 * http加密处理器
+	 *
+	 * @return {@link HttpCryptoProcessor }
+	 * @since 2023-07-10 17:14:19
+	 */
+	@Bean
+	public HttpCryptoProcessor httpCryptoProcessor() {
+		return new HttpCryptoProcessor(redisRepository, new RSACryptoProcessor(),
+			new AESCryptoProcessor());
+	}
+
+	/**
+	 * 注册客户端存储库
+	 *
+	 * @param ttcRegisteredClientService 希罗多德注册客户服务
+	 * @param passwordEncoder                  密码编码器
+	 * @return {@link RegisteredClientRepository }
+	 * @since 2023-07-10 17:14:04
+	 */
+	@Bean
+	@ConditionalOnMissingBean
+	public RegisteredClientRepository registeredClientRepository(
+		TtcRegisteredClientService ttcRegisteredClientService,
+		PasswordEncoder passwordEncoder) {
+		JpaRegisteredClientRepository jpaRegisteredClientRepository =
+			new JpaRegisteredClientRepository(ttcRegisteredClientService, passwordEncoder);
+		log.info("Bean [Jpa Registered Client Repository] Auto Configure.");
+		return jpaRegisteredClientRepository;
+	}
+
+	/**
+	 * 授权服务
+	 *
+	 * @param ttcAuthorizationService 希罗多德授权服务
+	 * @param registeredClientRepository    注册客户端存储库
+	 * @return {@link OAuth2AuthorizationService }
+	 * @since 2023-07-10 17:14:05
+	 */
+	@Bean
+	@ConditionalOnMissingBean
+	public OAuth2AuthorizationService authorizationService(
+		TtcAuthorizationService ttcAuthorizationService,
+		RegisteredClientRepository registeredClientRepository) {
+		JpaOAuth2AuthorizationService jpaOAuth2AuthorizationService =
+			new JpaOAuth2AuthorizationService(
+				ttcAuthorizationService, registeredClientRepository);
+		log.info("Bean [Jpa OAuth2 Authorization Service] Auto Configure.");
+		return jpaOAuth2AuthorizationService;
+	}
+
+	/**
+	 * 授权同意服务
+	 *
+	 * @param ttcAuthorizationConsentService 希罗多德授权同意服务
+	 * @param registeredClientRepository           注册客户端存储库
+	 * @return {@link OAuth2AuthorizationConsentService }
+	 * @since 2023-07-10 17:14:05
+	 */
+	@Bean
+	@ConditionalOnMissingBean
+	public OAuth2AuthorizationConsentService authorizationConsentService(
+		TtcAuthorizationConsentService ttcAuthorizationConsentService,
+		RegisteredClientRepository registeredClientRepository) {
+		JpaOAuth2AuthorizationConsentService jpaOAuth2AuthorizationConsentService =
+			new JpaOAuth2AuthorizationConsentService(
+				ttcAuthorizationConsentService, registeredClientRepository);
+		log.info("Bean [Jpa OAuth2 Authorization Consent Service] Auto Configure.");
+		return jpaOAuth2AuthorizationConsentService;
+	}
+
+	@Bean
+	@Order(Ordered.HIGHEST_PRECEDENCE)
+	public SecurityFilterChain authorizationServerSecurityFilterChain(
+		HttpSecurity httpSecurity,
+		PasswordEncoder passwordEncoder,
+		UserDetailsService userDetailsService,
+		ClientDetailsService clientDetailsService,
+		HttpCryptoProcessor httpCryptoProcessor,
+		SecurityTokenStrategyConfigurer ttcTokenStrategyConfigurer,
+		FormLoginUrlConfigurer formLoginUrlConfigurer,
+		SecurityAuthenticationProperties securityAuthenticationProperties,
+		SecurityOAuth2EndpointProperties securityOAuth2EndpointProperties,
+		OAuth2DeviceVerificationResponseHandler deviceVerificationResponseHandler,
+		OidcClientRegistrationResponseHandler clientRegistrationResponseHandler,
+		RegisteredClientRepository registeredClientRepository )
+		throws Exception {
+
+		log.info("Core [Authorization Server Security Filter Chain] Auto Configure.");
+
+		// 实现授权码模式使用前后端分离的登录页面   使用redis存储、读取登录的认证信息
+		// httpSecurity.securityContext(securityContextCustomizer -> {
+		//	securityContextCustomizer.securityContextRepository(redisSecurityContextRepository)
+		// });
+
+		OAuth2AuthorizationServerConfigurer authorizationServerConfigurer =
+			new OAuth2AuthorizationServerConfigurer();
+		httpSecurity.with(authorizationServerConfigurer, Customizer.withDefaults());
+
+		OAuth2AuthenticationFailureResponseHandler errorResponseHandler =
+			new OAuth2AuthenticationFailureResponseHandler();
+
+		// 用于管理新建和现有客户端的RegisteredClientRepository（必需）
+		// authorizationServerConfigurer.registeredClientRepository(registeredClientRepository);
+
+		// 用于管理新建和现有授权的OAuth2AuthorizationService。
+		// authorizationServerConfigurer.authorizationService()
+
+		// 用于管理新建和现有授权同意的OAuth2AuthorizationConsentService。
+		// authorizationServerConfigurer.authorizationConsentService()
+
+		// 用于自定义配置OAuth2授权服务器的AuthorizationServerSettings（必需）
+		// authorizationServerConfigurer.authorizationServerSettings()
+
+		// 用于生成OAuth2授权服务器支持的令牌的OAuth2TokenGenerator。
+		// authorizationServerConfigurer.tokenGenerator()
+
+		// 用于OAuth2授权服务器元数据端点的配置器。
+		// authorizationServerConfigurer.authorizationServerMetadataEndpoint()
+
+		// 用于OpenID Connect 1.0提供者配置端点的配置器。。
+		// authorizationServerConfigurer.providerConfigurationEndpoint()
+
+		// 用于OpenID Connect 1.0注销端点的配置器。
+		// authorizationServerConfigurer.logoutEndpoint()
+
+		// 用于OpenID Connect 1.0用户信息端点的配置器。
+		// authorizationServerConfigurer.userInfoEndpoint()
+
+		// 用于OpenID Connect 1.0客户端注册端点的配置器。
+		// authorizationServerConfigurer.clientRegistrationEndpoint()
+
+		// 用于OAuth2令牌端点的配置器。
+		authorizationServerConfigurer.tokenEndpoint(
+			tokenEndpointCustomizer -> {
+				AuthenticationConverter authenticationConverter =
+					new DelegatingAuthenticationConverter(
+						Arrays.asList(
+							new OAuth2AuthorizationCodeAuthenticationConverter(),
+							new OAuth2RefreshTokenAuthenticationConverter(),
+							new OAuth2ClientCredentialsAuthenticationConverter(),
+							new OAuth2DeviceCodeAuthenticationConverter(),
+							new OAuth2DeviceAuthorizationRequestAuthenticationConverter()
+//                                            new OAuth2ResourceOwnerPasswordAuthenticationConverter(
+//                                                    httpCryptoProcessor),
+//                                            new OAuth2SocialCredentialsAuthenticationConverter(
+//                                                    httpCryptoProcessor)
+						)
+					);
+
+				tokenEndpointCustomizer
+					.accessTokenRequestConverter(authenticationConverter)
+					.errorResponseHandler(errorResponseHandler)
+					.accessTokenResponseHandler(
+						new OAuth2AccessTokenResponseHandler(httpCryptoProcessor));
+			});
+
+		// 用于OAuth2令牌内省端点的配置器
+		authorizationServerConfigurer.tokenIntrospectionEndpoint(
+			tokenIntrospectionEndpointCustomizer -> {
+				tokenIntrospectionEndpointCustomizer.errorResponseHandler(errorResponseHandler);
+			});
+
+		// 用于OAuth2令牌撤销端点的配置器。
+		authorizationServerConfigurer.tokenRevocationEndpoint(
+			tokenRevocationEndpointCustomizer -> {
+				tokenRevocationEndpointCustomizer.errorResponseHandler(errorResponseHandler);
+			});
+
+		// 用于OAuth2授权端点的配置器。
+		authorizationServerConfigurer.authorizationEndpoint(
+			authorizationEndpointCustomizer -> {
+				authorizationEndpointCustomizer
+					.authorizationResponseHandler(this::sendAuthorizationResponse)
+					.errorResponseHandler(errorResponseHandler)
+					.consentPage(DefaultConstants.AUTHORIZATION_CONSENT_URI);
+			});
+
+		// 新建设备码converter和provider
+		DeviceClientAuthenticationConverter deviceClientAuthenticationConverter =
+			new DeviceClientAuthenticationConverter(
+				securityOAuth2EndpointProperties.getDeviceAuthorizationEndpoint());
+		DeviceClientAuthenticationProvider deviceClientAuthenticationProvider =
+			new DeviceClientAuthenticationProvider(registeredClientRepository);
+
+		// 用于配置OAuth2客户端认证的配置器。
+		authorizationServerConfigurer.clientAuthentication(
+			clientAuthenticationCustomizer -> {
+				// 客户端认证添加设备码的converter和provider
+				clientAuthenticationCustomizer
+					.errorResponseHandler(errorResponseHandler)
+					.authenticationConverter(deviceClientAuthenticationConverter)
+					.authenticationProvider(deviceClientAuthenticationProvider)
+					.errorResponseHandler(errorResponseHandler);
+			});
+
+		// 用于OAuth2设备授权端点的配置器。 开启设备请求相关端点
+		authorizationServerConfigurer.deviceAuthorizationEndpoint(
+			deviceAuthorizationEndpointCustomizer -> {
+				deviceAuthorizationEndpointCustomizer
+					.errorResponseHandler(errorResponseHandler)
+					.verificationUri(DefaultConstants.DEVICE_ACTIVATION_URI);
+			});
+
+		// 用于OAuth2设备验证端点的配置器。
+		authorizationServerConfigurer.deviceVerificationEndpoint(
+			deviceVerificationEndpointCustomizer -> {
+				deviceVerificationEndpointCustomizer
+					.errorResponseHandler(errorResponseHandler)
+					.consentPage(DefaultConstants.AUTHORIZATION_CONSENT_URI)
+					.deviceVerificationResponseHandler(deviceVerificationResponseHandler);
+			});
+
+		// 开启OpenId Connect 1.0相关端点
+		authorizationServerConfigurer.oidc(
+			oidcCustomizer -> {
+				oidcCustomizer
+					.clientRegistrationEndpoint(
+						clientRegistrationEndpointCustomizer -> {
+							clientRegistrationEndpointCustomizer
+								.errorResponseHandler(errorResponseHandler)
+								.clientRegistrationResponseHandler(
+									clientRegistrationResponseHandler);
+						})
+					.logoutEndpoint(
+						logoutEndpointCustomizer -> {
+							// logoutEndpointCustomizer.logoutResponseHandler()
+						})
+					.userInfoEndpoint(
+						userInfoEndpointCustomizer -> {
+							userInfoEndpointCustomizer.userInfoMapper(
+								new TtcOidcUserInfoMapper());
+						});
+			});
+
+		SessionRegistry sessionRegistry =
+			OAuth2ConfigurerUtils.getOptionalBean(httpSecurity, SessionRegistry.class);
+
+		// 使用自定义的 AuthenticationProvider 替换已有 AuthenticationProvider
+		authorizationServerConfigurer.withObjectPostProcessor(
+			new ObjectPostProcessor<AuthenticationProvider>() {
+				@SuppressWarnings("unchecked")
+				@Override
+				public <O extends AuthenticationProvider> O postProcess( O object ) {
+					OAuth2AuthorizationService authorizationService =
+						OAuth2ConfigurerUtils.getAuthorizationService(httpSecurity);
+
+					// 自定义(重写)OAuth2AuthorizationCodeAuthenticationProvider
+					if (OAuth2AuthorizationCodeAuthenticationProvider.class
+						.isAssignableFrom(object.getClass())) {
+						OAuth2TokenGenerator<? extends OAuth2Token> tokenGenerator =
+							OAuth2ConfigurerUtils.getTokenGenerator(httpSecurity);
+						OAuth2AuthorizationCodeAuthenticationProvider provider =
+							new OAuth2AuthorizationCodeAuthenticationProvider(
+								authorizationService, tokenGenerator);
+						provider.setSessionRegistry(sessionRegistry);
+						log.info(
+							"Custom OAuth2AuthorizationCodeAuthenticationProvider is in effect!");
+						return (O) provider;
+					}
+
+					// 自定义(重写)OAuth2ClientCredentialsAuthenticationProvider
+					if (OAuth2ClientCredentialsAuthenticationProvider.class
+						.isAssignableFrom(object.getClass())) {
+						OAuth2TokenGenerator<? extends OAuth2Token> tokenGenerator =
+							OAuth2ConfigurerUtils.getTokenGenerator(httpSecurity);
+						OAuth2ClientCredentialsAuthenticationProvider provider =
+							new OAuth2ClientCredentialsAuthenticationProvider(
+								authorizationService,
+								tokenGenerator);
+						log.info(
+							"Custom OAuth2ClientCredentialsAuthenticationProvider is in effect!");
+						return (O) provider;
+					}
+					return object;
+				}
+			});
+
+		RequestMatcher endpointsMatcher = authorizationServerConfigurer.getEndpointsMatcher();
+		// 仅拦截 OAuth2 Authorization Server 的相关 endpoint
+		httpSecurity
+			.securityMatcher(endpointsMatcher)
+			// 开启请求认证
+			.authorizeHttpRequests(
+				authorizeHttpRequestsCustomizer -> {
+					authorizeHttpRequestsCustomizer.anyRequest().authenticated();
+				})
+			// 禁用对 OAuth2 Authorization Server 相关 endpoint 的 CSRF 防御
+			.csrf(
+				csrfCustomizer -> {
+					csrfCustomizer.ignoringRequestMatchers(endpointsMatcher);
+				})
+			.oauth2ResourceServer(ttcTokenStrategyConfigurer::from);
+
+		// 这里增加 DefaultAuthenticationEventPublisher 配置，是为了解决 ProviderManager
+		// 在初次使用时，外部定义DefaultAuthenticationEventPublisher 不会注入问题
+		// 外部注入DefaultAuthenticationEventPublisher是标准配置方法，两处都保留是为了保险，还需要深入研究才能决定去掉哪个。
+		AuthenticationManagerBuilder authenticationManagerBuilder =
+			httpSecurity.getSharedObject(AuthenticationManagerBuilder.class);
+		ApplicationContext applicationContext =
+			httpSecurity.getSharedObject(ApplicationContext.class);
+		authenticationManagerBuilder.authenticationEventPublisher(
+			new DefaultOAuth2AuthenticationEventPublisher(applicationContext));
+
+		// 增加新的、自定义 OAuth2 Granter
+		OAuth2AuthorizationService authorizationService =
+			OAuth2ConfigurerUtils.getAuthorizationService(httpSecurity);
+		OAuth2TokenGenerator<? extends OAuth2Token> tokenGenerator =
+			OAuth2ConfigurerUtils.getTokenGenerator(httpSecurity);
+
+		//此处的扩展oauth2的登录 不用扩展这里
+//        OAuth2ResourceOwnerPasswordAuthenticationProvider
+//                resourceOwnerPasswordAuthenticationProvider =
+//                        new OAuth2ResourceOwnerPasswordAuthenticationProvider(
+//                                authorizationService,
+//                                tokenGenerator,
+//                                userDetailsService,
+//                                authenticationProperties);
+//        resourceOwnerPasswordAuthenticationProvider.setPasswordEncoder(passwordEncoder);
+//        resourceOwnerPasswordAuthenticationProvider.setSessionRegistry(sessionRegistry);
+//        httpSecurity.authenticationProvider(resourceOwnerPasswordAuthenticationProvider);
+//
+//        OAuth2SocialCredentialsAuthenticationProvider socialCredentialsAuthenticationProvider =
+//                new OAuth2SocialCredentialsAuthenticationProvider(
+//                        authorizationService,
+//                        tokenGenerator,
+//                        userDetailsService,
+//                        authenticationProperties);
+//        socialCredentialsAuthenticationProvider.setSessionRegistry(sessionRegistry);
+//        httpSecurity.authenticationProvider(socialCredentialsAuthenticationProvider);
+
+		httpSecurity.exceptionHandling(
+			exceptionHandlingCustomizer -> {
+				// 这里使用自定义的未登录处理，并设置登录地址为前端的登录地址
+				exceptionHandlingCustomizer.defaultAuthenticationEntryPointFor(
+					new RedirectLoginUrlAuthenticationEntryPoint("/login"),
+					createRequestMatcher());
+			});
+
+		return httpSecurity
+			.formLogin(formLoginUrlConfigurer::from)
+			.sessionManagement(Customizer.withDefaults())
+			// .addFilterBefore(new MultiTenantFilter(), AuthorizationFilter.class)
+			.build();
+	}
+
+	private static RequestMatcher createRequestMatcher() {
+		MediaTypeRequestMatcher requestMatcher = new MediaTypeRequestMatcher(MediaType.TEXT_HTML);
+		requestMatcher.setIgnoredMediaTypes(Set.of(MediaType.ALL));
+		return requestMatcher;
+	}
+
+	/**
+	 * jwk set缓存前缀
+	 */
+	public static final String AUTHORIZATION_JWS_PREFIX_KEY = "authorization_jws";
+
+	@Bean
+	public JWKSource<SecurityContext> jwkSource(
+		SecurityAuthorizationProperties authorizationProperties, RedisRepository redisRepository )
+		throws NoSuchAlgorithmException, ParseException {
+		SecurityAuthorizationProperties.Jwk jwk = authorizationProperties.getJwk();
+		KeyPair keyPair = null;
+
+		// 持久化JWKSource，解决重启后无法解析AccessToken问题
+		Object jwkSetCache = redisRepository.get(AUTHORIZATION_JWS_PREFIX_KEY);
+		if (ObjUtil.isEmpty(jwkSetCache)) {
+			if (jwk.getCertificate() == Certificate.CUSTOM) {
+				try {
+					Resource[] resource = ResourceUtils.getResources(jwk.getJksKeyStore());
+					if (ArrayUtils.isNotEmpty(resource)) {
+						KeyStoreKeyFactory keyStoreKeyFactory =
+							new KeyStoreKeyFactory(
+								resource[0], jwk.getJksStorePassword().toCharArray());
+						keyPair =
+							keyStoreKeyFactory.getKeyPair(
+								jwk.getJksKeyAlias(),
+								jwk.getJksKeyPassword().toCharArray());
+					}
+				} catch (IOException e) {
+					log.error("Read custom certificate under resource folder error!", e);
+				}
+			} else {
+				KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+				keyPairGenerator.initialize(2048);
+				keyPair = keyPairGenerator.generateKeyPair();
+			}
+
+			RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
+			RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
+			RSAKey rsaKey =
+				new RSAKey.Builder(publicKey)
+					.privateKey(privateKey)
+					.keyID(UUID.randomUUID().toString())
+					.build();
+			JWKSet jwkSet = new JWKSet(rsaKey);
+			// 转为json字符串
+			String jwkSetString = jwkSet.toString(Boolean.FALSE);
+			// 存入redis
+			redisRepository.set(AUTHORIZATION_JWS_PREFIX_KEY, jwkSetString);
+			return new ImmutableJWKSet<>(jwkSet);
+			// return (jwkSelector, securityContext) -> jwkSelector.select(jwkSet);
+		}
+		// 解析存储的jws
+		JWKSet jwkSet = JWKSet.parse((String) jwkSetCache);
+		return new ImmutableJWKSet<>(jwkSet);
+	}
+
+	/**
+	 * jwt 解码
+	 */
+	@Bean
+	public JwtDecoder jwtDecoder( JWKSource<SecurityContext> jwkSource ) {
+		return OAuth2AuthorizationServerConfiguration.jwtDecoder(jwkSource);
+	}
+
+	// jwt Token定制器
+	@Bean
+	public OAuth2TokenCustomizer<JwtEncodingContext> jwtTokenCustomizer() {
+		TtcJwtTokenCustomizer ttcJwtTokenCustomizer = new TtcJwtTokenCustomizer();
+		log.info("Bean [OAuth2 Jwt Token Customizer] Auto Configure.");
+		return ttcJwtTokenCustomizer;
+	}
+
+	// @Bean
+	// public OAuth2TokenCustomizer<JwtEncodingContext> federatedIdentityIdTokenCustomizer() {
+	//	FederatedIdentityIdTokenCustomizer federatedIdentityIdTokenCustomizer = new
+	// FederatedIdentityIdTokenCustomizer();
+	//	log.info("Bean [OAuth2 federatedIdentityIdTokenCustomizer Token Customizer] Auto
+	// Configure.");
+	//	return federatedIdentityIdTokenCustomizer;
+	// }
+
+	// opaqueToken定制器
+	@Bean
+	public OAuth2TokenCustomizer<OAuth2TokenClaimsContext> opaqueTokenCustomizer() {
+		TtcOpaqueTokenCustomizer ttcOpaqueTokenCustomizer = new TtcOpaqueTokenCustomizer();
+		log.info("Bean [OAuth2 Opaque Token Customizer] Auto Configure.");
+		return ttcOpaqueTokenCustomizer;
+	}
+
+	@Bean
+	public AuthorizationServerSettings authorizationServerSettings(
+		SecurityOAuth2EndpointProperties securityOAuth2EndpointProperties ) {
+		return AuthorizationServerSettings.builder()
+			.issuer(securityOAuth2EndpointProperties.getIssuerUri())
+			.authorizationEndpoint(securityOAuth2EndpointProperties.getAuthorizationEndpoint())
+			.deviceAuthorizationEndpoint(
+				securityOAuth2EndpointProperties.getDeviceAuthorizationEndpoint())
+			.deviceVerificationEndpoint(securityOAuth2EndpointProperties.getDeviceVerificationEndpoint())
+			.tokenEndpoint(securityOAuth2EndpointProperties.getAccessTokenEndpoint())
+			.tokenIntrospectionEndpoint(securityOAuth2EndpointProperties.getTokenIntrospectionEndpoint())
+			.tokenRevocationEndpoint(securityOAuth2EndpointProperties.getTokenRevocationEndpoint())
+			.jwkSetEndpoint(securityOAuth2EndpointProperties.getJwkSetEndpoint())
+			.oidcLogoutEndpoint(securityOAuth2EndpointProperties.getOidcLogoutEndpoint())
+			.oidcUserInfoEndpoint(securityOAuth2EndpointProperties.getOidcUserInfoEndpoint())
+			.oidcClientRegistrationEndpoint(
+				securityOAuth2EndpointProperties.getOidcClientRegistrationEndpoint())
+			.build();
+	}
+
+	private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+
+	private void sendAuthorizationResponse(
+		HttpServletRequest request, HttpServletResponse response, Authentication authentication )
+		throws IOException {
+		OAuth2AuthorizationCodeRequestAuthenticationToken authorizationCodeRequestAuthentication =
+			(OAuth2AuthorizationCodeRequestAuthenticationToken) authentication;
+		UriComponentsBuilder uriBuilder =
+			UriComponentsBuilder.fromUriString(
+					authorizationCodeRequestAuthentication.getRedirectUri())
+				.queryParam(
+					OAuth2ParameterNames.CODE,
+					authorizationCodeRequestAuthentication
+						.getAuthorizationCode()
+						.getTokenValue());
+		if (StringUtils.hasText(authorizationCodeRequestAuthentication.getState())) {
+			uriBuilder.queryParam(
+				OAuth2ParameterNames.STATE,
+				UriUtils.encode(
+					authorizationCodeRequestAuthentication.getState(),
+					StandardCharsets.UTF_8));
+		}
+		String redirectUri = uriBuilder.build(true).toUriString();
+
+		if (!isAjaxRequest(request)) {
+			this.redirectStrategy.sendRedirect(request, response, redirectUri);
+		}
+		ResponseUtils.success(response, redirectUri);
+	}
+
+	public boolean isAjaxRequest( HttpServletRequest request ) {
+		String requestedWith = request.getHeader("x-requested-with");
+		return "XMLHttpRequest".equalsIgnoreCase(requestedWith);
+	}
+}
