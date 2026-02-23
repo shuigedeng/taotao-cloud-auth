@@ -59,7 +59,7 @@ dependencies {
     api "io.github.shuigedeng:taotao-boot-starter-grpc"
 
     //https://central.sonatype.com/artifact/org.springframework.session/spring-session-data-redis
-    api 'org.springframework.session:spring-session-data-redis:4.0.1'
+    api 'org.springframework.session:spring-session-data-redis:4.0.2'
 
     //https://central.sonatype.com/artifact/com.github.binarywang/weixin-java-pay?smo=true
     api 'com.github.binarywang:weixin-java-mp:4.8.1.B'
@@ -132,9 +132,9 @@ dependencies {
     api "org.springframework.boot:spring-boot-starter-oauth2-authorization-server"
 
     //https://search.maven.org/artifact/com.nimbusds/nimbus-jose-jwt
-    api "com.nimbusds:nimbus-jose-jwt:10.7"
+    api "com.nimbusds:nimbus-jose-jwt:10.8"
     //https://search.maven.org/artifact/com.nimbusds/oauth2-oidc-sdk
-    api 'com.nimbusds:oauth2-oidc-sdk:11.32'
+    api 'com.nimbusds:oauth2-oidc-sdk:11.33'
 
     api "org.apache.commons:commons-collections4"
 
@@ -161,9 +161,9 @@ dependencies {
     api "com.googlecode.aviator:aviator:5.4.3"
 
     //https://search.maven.org/artifact/com.google.protobuf/protobuf-java
-    api "com.google.protobuf:protobuf-java:4.33.4"
+    api "com.google.protobuf:protobuf-java:4.33.5"
     //https://search.maven.org/artifact/com.google.protobuf/protobuf-java-util
-    api "com.google.protobuf:protobuf-java-util:4.33.4"
+    api "com.google.protobuf:protobuf-java-util:4.33.5"
     //https://search.maven.org/artifact/com.googlecode.protobuf-java-format/protobuf-java-format
     //api "com.googlecode.protobuf-java-format:protobuf-java-format:1.4"
 
@@ -194,11 +194,11 @@ dependencies {
 
     testImplementation "io.github.shuigedeng:taotao-boot-starter-test"
 
-    testImplementation 'org.junit.jupiter:junit-jupiter:6.0.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-engine:6.0.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params:6.0.2'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:6.0.2'
-    testImplementation "org.assertj:assertj-core:3.27.6"
+    testImplementation 'org.junit.jupiter:junit-jupiter:6.0.3'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:6.0.3'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:6.0.3'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:6.0.3'
+    testImplementation "org.assertj:assertj-core:3.27.7"
 
     testImplementation "org.projectlombok:lombok"
     testAnnotationProcessor  "org.projectlombok:lombok:${lombokVersion}"
