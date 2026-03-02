@@ -22,9 +22,9 @@ description = "认证中心"
 dependencies {
     api project(":taotao-cloud-auth-api")
 
-    api "io.github.shuigedeng:taotao-cloud-sys-api:2026.03"
-    api "io.github.shuigedeng:taotao-cloud-member-api:2026.03"
-    api "io.github.shuigedeng:taotao-cloud-message-api:2026.03"
+    api "io.github.shuigedeng:taotao-cloud-sys-api:2026.04"
+    api "io.github.shuigedeng:taotao-cloud-member-api:2026.04"
+    api "io.github.shuigedeng:taotao-cloud-message-api:2026.04"
 
     //cloud
     //api "io.github.shuigedeng:taotao-cloud-starter-seata"
