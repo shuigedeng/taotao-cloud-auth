@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.api.inner.request;
 
-import com.taotao.boot.common.model.request.RequestBase;
+import com.taotao.boot.common.model.ddd.types.MarkerRequest;
 import lombok.*;
 
 import java.io.Serializable;
@@ -35,7 +35,7 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class FeignClientQueryApiRequest extends RequestBase implements Serializable {
+public class FeignClientQueryApiRequest implements MarkerRequest {
 
     private static final long serialVersionUID = 5126530068827085130L;
 
