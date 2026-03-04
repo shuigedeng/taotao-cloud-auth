@@ -63,7 +63,7 @@ public abstract class AbstractRegisteredClient extends BaseSysEntity
     /**
      * 客户端身份验证方法
      */
-    @Schema(name = "客户端认证模式", title = "支持多个值，以逗号分隔", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "客户端认证模式", title = "支持多个值，以逗号分隔")
     @Column(name = "client_authentication_methods", nullable = false, length = 1000)
     //    @JsonDeserialize(using = SetToCommaDelimitedStringDeserializer.class)
     //    @JsonSerialize(using = CommaDelimitedStringToSetSerializer.class)
@@ -72,7 +72,7 @@ public abstract class AbstractRegisteredClient extends BaseSysEntity
     /**
      * 授权授权类型
      */
-    @Schema(name = "认证模式", title = "支持多个值，以逗号分隔", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "认证模式", title = "支持多个值，以逗号分隔")
     @Column(name = "authorization_grant_types", nullable = false, length = 1000)
     //    @JsonDeserialize(using = SetToCommaDelimitedStringDeserializer.class)
     //    @JsonSerialize(using = CommaDelimitedStringToSetSerializer.class)

@@ -94,7 +94,7 @@ public class SysEmployee {
 
     @Schema(title = "生日")
     @Column(name = "birth_day")
-    @	Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
     private Date birthday;
 
     //	@Schema(title = "性别")

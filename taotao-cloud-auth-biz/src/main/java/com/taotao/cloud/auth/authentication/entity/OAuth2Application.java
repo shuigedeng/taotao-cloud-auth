@@ -60,7 +60,7 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
     @Column(name = "application_id", length = 64)
     private String applicationId;
 
-    @Schema(name = "应用名称", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "应用名称")
     @NotBlank(message = "应用名称不能为空")
     @Column(name = "application_name", length = 128)
     private String applicationName;
