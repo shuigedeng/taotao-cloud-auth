@@ -132,7 +132,7 @@ dependencies {
     api "org.springframework.boot:spring-boot-starter-oauth2-authorization-server"
 
     //https://search.maven.org/artifact/com.nimbusds/nimbus-jose-jwt
-    api "com.nimbusds:nimbus-jose-jwt:10.8"
+    api "com.nimbusds:nimbus-jose-jwt:10.9"
     //https://search.maven.org/artifact/com.nimbusds/oauth2-oidc-sdk
     api 'com.nimbusds:oauth2-oidc-sdk:11.33'
 
@@ -210,7 +210,7 @@ dependencies {
     testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapstructProcessorVersion}"
     //https://github.com/entur/mapstruct-spi-protobuf
     //https://search.maven.org/artifact/no.entur.mapstruct.spi/protobuf-spi-impl
-    testAnnotationProcessor "no.entur.mapstruct.spi:protobuf-spi-impl:1.52.0"
+    testAnnotationProcessor "no.entur.mapstruct.spi:protobuf-spi-impl:1.53.0"
 }
 
 def getProperty(String key, String defaultValue) {
