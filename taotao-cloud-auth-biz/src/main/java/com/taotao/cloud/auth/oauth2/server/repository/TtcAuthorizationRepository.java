@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.oauth2.server.repository;
 
-import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.auth.oauth2.server.entity.TtcAuthorization;
 import jakarta.persistence.QueryHint;
 import org.hibernate.jpa.AvailableHints;
@@ -38,7 +38,7 @@ import java.util.Optional;
  * @since 2023-07-10 17:11:21
  */
 public interface TtcAuthorizationRepository
-        extends JpaSuperRepository<TtcAuthorization, String> {
+        extends BaseRepository<TtcAuthorization, String> {
 
     /**
      * 根据 State 查询 OAuth2 认证信息

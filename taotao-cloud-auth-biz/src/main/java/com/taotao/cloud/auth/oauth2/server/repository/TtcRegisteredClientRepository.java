@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.oauth2.server.repository;
 
-import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.auth.oauth2.server.entity.TtcRegisteredClient;
 import jakarta.persistence.QueryHint;
 import org.hibernate.jpa.AvailableHints;
@@ -32,7 +32,7 @@ import java.util.Optional;
  * @since 2023-07-10 17:11:24
  */
 public interface TtcRegisteredClientRepository
-        extends JpaSuperRepository<TtcRegisteredClient, String> {
+        extends BaseRepository<TtcRegisteredClient, String> {
 
     /**
      * 根据 ClientId 查询 RegisteredClient

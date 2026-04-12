@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.authentication.repository;
 
-import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.auth.authentication.entity.OAuth2Device;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
@@ -28,7 +28,7 @@ import org.springframework.data.jpa.repository.Query;
  *
  * @since : 2023/5/15 16:14
  */
-public interface OAuth2DeviceRepository extends JpaSuperRepository<OAuth2Device, String> {
+public interface OAuth2DeviceRepository extends BaseRepository<OAuth2Device, String> {
 
     /**
      * 根据 Client ID 查询 OAuth2Device

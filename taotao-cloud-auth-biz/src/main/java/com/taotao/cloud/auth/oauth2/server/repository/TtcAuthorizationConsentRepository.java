@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.oauth2.server.repository;
 
-import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.auth.oauth2.server.entity.TtcAuthorizationConsent;
 import com.taotao.cloud.auth.oauth2.server.generator.TtcAuthorizationConsentId;
 import jakarta.persistence.QueryHint;
@@ -33,7 +33,7 @@ import java.util.Optional;
  * @since 2023-07-10 17:11:17
  */
 public interface TtcAuthorizationConsentRepository
-        extends JpaSuperRepository<TtcAuthorizationConsent, TtcAuthorizationConsentId> {
+        extends BaseRepository<TtcAuthorizationConsent, TtcAuthorizationConsentId> {
 
     /**
      * 根据 client id 和 principalName 查询 OAuth2 确认信息

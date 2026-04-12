@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.authentication.repository;
 
-import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.auth.authentication.entity.OAuth2Permission;
 
 /**
@@ -26,4 +26,4 @@ import com.taotao.cloud.auth.authentication.entity.OAuth2Permission;
  * @since : 2022/4/1 13:52
  */
 public interface OAuth2PermissionRepository
-        extends JpaSuperRepository<OAuth2Permission, String> {}
+        extends BaseRepository<OAuth2Permission, String> {}

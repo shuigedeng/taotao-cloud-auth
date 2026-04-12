@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.authentication.repository;
 
-import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.auth.authentication.entity.OAuth2Application;
 
 /**
@@ -26,7 +26,7 @@ import com.taotao.cloud.auth.authentication.entity.OAuth2Application;
  * @since : 2022/3/1 18:05
  */
 public interface OAuth2ApplicationRepository
-        extends JpaSuperRepository<OAuth2Application, String> {
+        extends BaseRepository<OAuth2Application, String> {
 
     /**
      * 根据 Client ID 查询 OAuth2Application
