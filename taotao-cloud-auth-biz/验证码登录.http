@@ -23,3 +23,30 @@ Content-Type: application/json
 #  "expires_in": 1770365654
 #}
 ###
+
+
+
+
+
+
+
+
+{
+    "access_token": "eyJraWQiOiIxZGY0ZGQ3YS0zMTA3LTQzMzYtODA5Zi0xOWYxMGNmOWJlN2YiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL2Jsb2cudGFvdGFvY2xvdWQudG9wLyIsInN1YiI6ImFkbWluIiwiYXVkIjpbImNsaWVudDEiLCJjbGllbnQyIl0sImV4cCI6MTc3MjAyOTg1NSwiaWF0IjoxNzcyMDExODU1LCJzY29wZSI6WyJtYW5hZ2VyLmJvb2sucmVhZCIsIlJPTEVfUk9MRV9BMSIsIlJPTEVfUk9MRV9BMiIsIm1hbmFnZXIuYm9vay53cml0ZSJdfQ.0b9pbz3nCBy_gU7QbxDMViX6N7HFyt7MOvuUZ4q1CB_aJ4AJ3cmN3san99vb_S_Yj7sAr_ryuPmt6rjMSbihBVfdOPJ0rFMx6WRkpg7XFtbkW1GKOPgaYMKURI0zaZNs9s4018AiGRwjxyeY-U-aRLMlrgTyDZG2MjqryWCBcYlLgfUCbZc-cX0QV1YW1AECZF33aUdDjHgtX63JnluWanEpwBKXdTlucUPwdOCn-Xg_HIwd6cxrlOjWrNw_1f75TFLlH-NCp34idlh_rVXi64o7xvICMPwuGMnCF2THf8jT3xGsDCfGVfn4JEAfg_J0_GDQvzzaGtcktPIbOCmz3w",
+    "refresh_token": "69775f72-eedd-4288-8f76-5b08edcddd83",
+    "scope": "manager.book.read ROLE_ROLE_A1 ROLE_ROLE_A2 manager.book.write",
+    "token_type": "Bearer",
+    "expires_in": 1772029854
+}
+
+"JwtAuthenticationToken [Principal=org.springframework.security.oauth2.jwt.Jwt@8f7c1ee0, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[FactorGrantedAuthority [authority=FACTOR_BEARER, issuedAt=2026-02-25T09:40:30.112234Z]]]"
+
+
+
+{
+  "access_token": "eyJraWQiOiIxZGY0ZGQ3YS0zMTA3LTQzMzYtODA5Zi0xOWYxMGNmOWJlN2YiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL2Jsb2cudGFvdGFvY2xvdWQudG9wLyIsInN1YiI6ImFkbWluIiwiYXVkIjpbImNsaWVudDEiLCJjbGllbnQyIl0sImV4cCI6MTc3MDM2NTY1NSwiaWF0IjoxNzcwMzQ3NjU1LCJzY29wZSI6WyJtYW5hZ2VyLmJvb2sucmVhZCIsIlJPTEVfUk9MRV9BMSIsIlJPTEVfUk9MRV9BMiIsIm1hbmFnZXIuYm9vay53cml0ZSJdfQ.eOvgmLL0NEvm1GmyazZ0qqNlFcRymW-Vw3SnmHH7ADiu8TVNQwbYo5emZRmEn9MeihmVKmdrFYDdPNqa50g0kM-cTko0VOec1d-pruobspIB0nlM297S-c787seodL9xs_Wezh6EDI_LYUWtHithfBdsKuRe6EhWKxKQUNjMqQVluP11erQlpaj-Tid2RLF2REHGVFv8ilBlTivgo3SerI_W6sT4cUybdCLYDTtvYvKngEdeHRucqKj_2H7j8lHTWmtdrbO5rW4ZhhfP3cBSx2P-dlz-cpshM2WnfKHYocHzt3sha05_WKDVqWvRHDIXz0uJSH6XlOnNrMJZC79t1g",
+  "refresh_token": "b3edf851-a7a5-4609-9037-fec1cc9dbc6f",
+  "scope": "manager.book.read ROLE_ROLE_A1 ROLE_ROLE_A2 manager.book.write",
+  "token_type": "Bearer",
+  "expires_in": 1770365654
+}
