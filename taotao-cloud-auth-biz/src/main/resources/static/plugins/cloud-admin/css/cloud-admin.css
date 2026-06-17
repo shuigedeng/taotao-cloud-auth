@@ -2743,10 +2743,10 @@ input[type="button"].btn-block {
 .glyphicon-sort-by-alphabet-alt:before {
   content: "\e152";
 }
-.glyphicon-sort-by-order:before {
+.glyphicon-sort-by-auth:before {
   content: "\e153";
 }
-.glyphicon-sort-by-order-alt:before {
+.glyphicon-sort-by-auth-alt:before {
   content: "\e154";
 }
 .glyphicon-sort-by-attributes:before {
