@@ -11,19 +11,19 @@ agent: general
 
 ### 1. 运行测试
 ```bash
-./gradlew test
+gradlew test
 ```
 测试失败则中止部署。
 
 ### 2. 打包
 ```bash
-./gradlew :taotao-cloud-auth-assembly:bootJar
+gradlew :taotao-cloud-auth-biz:bootJar
 ```
 
 ### 3. 启动（指定环境）
 ```bash
-java --enable-preview \
-  -jar taotao-cloud-auth-assembly/build/libs/taotao-cloud-auth-assembly-*.jar \
+java --enable-preview ^
+  -jar taotao-cloud-auth-biz/build/libs/taotao-cloud-auth-*.jar ^
   --spring.profiles.active={environment}
 ```
 

@@ -1,5 +1,5 @@
 ---
-description: 初始化项目上下文，分析 DDD 工程结构、依赖、分层模式
+description: 初始化项目上下文，分析工程结构、依赖、模式
 agent: general
 ---
 
@@ -7,32 +7,35 @@ agent: general
 
 ## 任务目标
 
-分析 DDD 工程结构、依赖关系和分层模式，生成项目上下文总结。
+分析工程结构、依赖关系和分层模式，生成项目上下文总结。
 
 ## 执行步骤
 
 ### 1. 分析项目结构
 - 使用 `read` 读取根目录结构
-- 识别 8 个 DDD 模块（api/application/assembly/common/domain/facade/infrastructure/interfaces）
-- 确认每个模块的包结构
+- 识别 2 个 Gradle 模块（taotao-cloud-auth-api + taotao-cloud-auth-biz）
+- 确认 biz 模块下的包结构（authentication/controller, service, repository, entity, configuration）
 
 ### 2. 分析技术栈
 - JDK 版本（25 预览特性）
-- Gradle 版本及关键插件（spotbugs/checkstyle/pmd/spotless/jacoco）
-- Spring Boot / Spring Cloud 版本
-- 持久化框架（MyBatis-Plus / JPA）
+- Gradle 版本及关键插件（spotbugs/checkstyle/pmd/spotless）
+- Spring Boot / Spring Security / OAuth2 版本
+- 持久化框架（JPA / MyBatis-Plus）
 - 消息中间件（RocketMQ / Kafka）
 - 注册中心（Nacos）
+- gRPC / Protobuf
 
-### 3. 分析 DDD 分层模式
-- domain 层：聚合根、值对象、领域事件、仓储接口
-- application 层：命令/查询服务、assembler、ACL
-- infrastructure 层：仓储实现、PO、事件订阅、配置
-- interfaces 层：buyer/seller/manager 三端 Controller + RPC/gRPC
+### 3. 分析分层模式
+- authentication/controller：REST API 端点
+- authentication/service：业务服务
+- authentication/repository：数据访问
+- authentication/entity：JPA 实体
+- authentication/converter：OAuth2 模型转换
+- configuration：Spring Security / OAuth2 配置
 
 ### 4. 输出项目上下文
 生成分析报告，包含：
 - 项目全貌（模块 + 职责）
 - 技术栈清单
-- DDD 各层职责和关键类
+- 各层职责和关键类
 - 常见操作指引

@@ -1,5 +1,5 @@
 ---
-description: 按确认后的 Spec 执行 DDD 编码
+description: 按确认后的 Spec 执行编码
 agent: general
 ---
 
@@ -15,18 +15,18 @@ agent: general
 - Spec 是合同，严格按 Spec 执行
 - 不允许偏离 Spec 的任何变更
 
-## DDD 分层实现原则
+## 分层实现原则
 
 | 实现步骤 | 放入哪一层 | 注意事项 |
 |----------|-----------|----------|
-| 领域模型（聚合根/实体/值对象/领域事件） | `domain` 层 | 零技术依赖，纯业务 |
-| 仓储接口 | `domain/repository/` | 接口在 domain |
-| 应用服务（编排） | `application/service/` | 事务边界，不含业务规则 |
-| 仓储实现 | `infrastructure/persistent/repository/` | PO 映射 |
-| 数据传输 | `application/dto/` + `application/assembler/` | 数据转换 |
-| REST API | `interfaces/controller/` | 按端 buyer/seller/manager |
-| RPC/gRPC 接口定义 | `api/` | 接口 + DTO |
-| RPC/gRPC 实现 | `interfaces/rpc/` 或 `interfaces/grpc/` | 实现类 |
+| REST Controller | `authentication/controller/` | 参数校验 + Result 封装，无业务逻辑 |
+| Service 业务逻辑 | `authentication/service/` | 事务管理，调用 Repository |
+| JPA Repository | `authentication/repository/` | 接口继承 JpaRepository |
+| 实体定义 | `authentication/entity/` | JPA Entity + Table 注解 |
+| DTO | `authentication/dto/` | 内部数据传输 |
+| Security 配置 | `configuration/` | 所有安全配置集中在此 |
+| API 接口定义 | `taotao-cloud-auth-api/` | protobuf + swagger 注解 |
+| 模型转换 | `authentication/converter/` | OAuth2 模型双向转换 |
 
 ## 执行流程
 
@@ -35,7 +35,7 @@ agent: general
 2. 使用 `edit` 或 `write` 修改代码
 3. 验证编译：
 ```bash
-./gradlew compileJava
+gradlew :taotao-cloud-auth-biz:compileJava
 ```
 4. Git Commit
 ```bash

@@ -1,73 +1,43 @@
-**`.claude/commands/test.md`**
-```markdown
 ---
-description: 运行测试并生成报告
+description: 运行测试并生成 JaCoCo 覆盖率报告
 parameters:
   - name: module
     type: string
-    description: 测试模块（controller/service/repository）
+    description: 测试模块 (api / biz / 留空则全部)
     required: false
   - name: coverage
     type: boolean
     default: true
-  - name: parallel
-    type: boolean
-    default: true
 ---
 
-# 测试执行
+# Test — 测试 taotao-cloud-auth
 
 ## 执行步骤
 
-### 1. 清理并编译
+### 1. 运行测试
 ```bash
-./mvnw clean compile
-2. 运行测试
-{% if module %}
+gradlew test
+```
 
-bash
-./mvnw test -Dtest=*{{module}}*Test
-{% else %}
+如果指定了模块参数：
+```bash
+gradlew :taotao-cloud-auth-{{module}}:test
+```
 
-bash
-./mvnw test -DforkCount={{ parallel ? '1C' : '1' }}
-{% endif %}
+### 2. 生成覆盖率报告（可选）
+```bash
+gradlew jacocoTestReport
+```
+报告位置: `build/reports/jacoco/test/html/index.html`
 
-3. 生成覆盖率报告（如果需要）
-{% if coverage %}
-
-bash
-./mvnw jacoco:report
-# 报告位置: target/site/jacoco/index.html
-{% endif %}
-
-4. 输出测试结果
+### 3. 输出测试结果
+```
 测试统计
-总测试数: {{total}}
+总测试数: {total}
+通过: {passed}
+失败: {failed}
+耗时: {duration}ms
 
-通过: {{passed}}
-
-失败: {{failed}}
-
-跳过: {{skipped}}
-
-耗时: {{duration}}ms
-
-覆盖率报告
-指令覆盖率: {{instructionCoverage}}%
-
-分支覆盖率: {{branchCoverage}}%
-
-行覆盖率: {{lineCoverage}}%
-
-方法覆盖率: {{methodCoverage}}%
-
-失败测试详情
-{% for failure in failures %}
-
-{{failure.className}}.{{failure.methodName}}
-
-错误: {{failure.message}}
-
-堆栈: {{failure.stackTrace | truncate(200)}}
-{% endfor %}
+失败测试详情（如有）
+- {className}.{methodName}: {errorMessage}
+```

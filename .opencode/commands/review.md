@@ -1,5 +1,5 @@
 ---
-description: DDD 代码审查 — 检查领域模型、架构合规、代码质量
+description: 代码审查 — 检查代码质量、安全合规、架构合理性
 agent: general
 ---
 
@@ -9,33 +9,34 @@ agent: general
 
 ## 审查维度
 
-### 1. 领域模型合规
-- 聚合根是否维护了内部不变量（业务规则在聚合内，而非在 Service）
-- 值对象是否不可变（final 字段、无 setter、构造时自验证）
-- 跨聚合是否通过 ID 引用而非对象引用
-- 领域事件是否在聚合内 `registerEvent()`，仓储 `save()` 时发布
+### 1. 安全合规
+- 密码编码是否使用 BCryptPasswordEncoder
+- 是否硬编码了 Secret / Token / Password
+- 日志中是否可能泄露敏感信息
+- OAuth2 端点是否有适当的认证和授权
+- Scope/Permission 检查是否完整
 
 ### 2. 架构合规
-- 依赖方向：`interfaces → application → domain ← infrastructure`（domain 无外部依赖）
-- 事务边界是否仅开在 `application/service/` 层
 - Controller 是否不含业务逻辑（仅参数校验 + 响应封装）
-- Application Service 是否不包含业务规则判断（仅编排）
+- Service 层是否正确使用 @Transactional
+- 配置是否集中放在 configuration/ 包，而非分散在各 Controller
+- 是否符合分层依赖方向
 
 ### 3. 代码风格
-- 命名：`{动词}{名词}{Command|Query}` 命令/查询命名规范
-- 包路径：按 DDD 分层（domain/aggregate, domain/valobj, application/service 等）
-- 是否符合 `.claude/rules/` 下各规范文件
+- 命名：`{业务}Controller`, `{业务}Service`, `{业务}Repository`
+- 包路径：`com.taotao.cloud.auth.{module}`
+- 是否符合 `.opencode/instructions/code-rules.md`
 
 ### 4. 项目特定禁止项
-- 聚合根中注入 Repository 或 Domain Service
 - Controller 中直接调用 Repository
-- Application Service 中包含业务规则判断
-- 值对象中包含业务行为以外的逻辑
+- 配置类中硬编码业务规则
+- 自定义加密算法替代 Spring Security 内置实现
+- 在非 configuration 包中配置 SecurityFilterChain
 
 ## 输出格式
 
 ```
-📊 DDD Code Review Report
+📊 Code Review Report
 
 ✅ 通过：
 - [内容]

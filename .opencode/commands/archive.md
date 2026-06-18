@@ -12,15 +12,16 @@ agent: general
 ### 1. 记录变更总结
 记录以下信息：
 - 变更涉及的模块和文件
-- 新增/修改的领域模型（聚合根、实体、值对象、领域事件）
-- 接口变更（API / RPC / gRPC）
+- 新增/修改的 Controller、Service、Entity
+- 安全配置变更（SecurityFilterChain、OAuth2 注册）
+- 接口变更（API / gRPC / Protobuf）
 - 关键决策和理由
 
 ### 2. 更新 AGENTS.md（如果需要）
 如果变更引入了：
 - 新模块 → 更新 STRUCTURE 章节
 - 新约定 → 更新 CONVENTIONS 章节
-- 新禁止项 → 更新 ANTI-PATTERNS 章节
+- 新技术 → 更新 TECH STACK
 
 ### 3. Git Commit（如未提交）
 ```bash

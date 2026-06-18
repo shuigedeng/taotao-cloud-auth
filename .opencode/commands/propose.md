@@ -1,5 +1,5 @@
 ---
-description: 创建 DDD 变更提案，生成渐进式 Spec
+description: 创建变更提案，生成渐进式 Spec
 agent: general
 ---
 
@@ -10,12 +10,12 @@ agent: general
 ## 核心法则
 1. **No Spec, No Code** — 没有 spec，不准写代码
 2. **Spec is Truth** — spec 和代码冲突时，错的一定是代码
-3. **DDD 第一** — 优先从领域模型出发，而非数据表或 API
+3. **安全优先** — 优先从安全/认证角度出发，确保 OAuth2 和认证流程的完整性
 
 ## 执行步骤
 
 ### 第一阶段：现状调查
-1. 使用 `read` + `grep` 定位涉及的模块、聚合根、领域事件
+1. 使用 `read` + `grep` 定位涉及的 Controller、Service、Configuration
 2. 标注每个结论的代码出处（文件路径 + 类名/方法名）
 
 ### 第二阶段：逐个澄清
@@ -29,10 +29,10 @@ agent: general
 ```
 ## 1. 背景与目标
 ## 2. 代码现状
-## 3. 领域模型变更（聚合/实体/值对象/领域事件）
-## 4. 功能点
+## 3. 模型变更（Entity/DTO/Protobuf）
+## 4. 安全配置变更（如有）
 ## 5. 业务规则
-## 6. 接口变更（API / RPC / gRPC）
+## 6. 接口变更（REST / gRPC）
 ## 7. 影响范围
 ## 8. 测试策略
 ## 9. 待澄清问题

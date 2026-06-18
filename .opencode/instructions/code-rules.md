@@ -1,223 +1,205 @@
 # 项目编码规范 — taotao-cloud-auth
 
-> 补充 DDD 架构规范（详见 `.claude/CLAUDE.md` 和 `.claude/rules/`）中未覆盖的实现细节
+> 认证授权中心编码规范，涵盖 OAuth2、Spring Security、Spring Boot 4.1 相关实现规范。
 
 ---
 
 ## 1. 模块依赖规则
 
 ```
-api  ←  interfaces  ←  application  →  facade
-                          ↓
-                     domain  ←  infrastructure
+taotao-cloud-auth-api    (protobuf + gRPC 接口定义、DTO、Swagger 注解)
+       ↑ 依赖
+taotao-cloud-auth-biz    (业务实现、配置、启动入口)
+       │
+       ├── authentication/    (认证授权核心逻辑)
+       ├── configuration/     (Spring Security / OAuth2 配置)
+       └── springdoc/         (文档定制)
 ```
-
-- `domain`：零外部依赖，不依赖 Spring、不依赖数据库
-- `application`：依赖 `domain`，可依赖 `facade` 接口，不依赖 `infrastructure`
-- `infrastructure`：依赖 `domain` 实现仓储，依赖 `application` 实现事件订阅
-- `interfaces`：依赖 `application`，不直接依赖 `infrastructure`
-- `api`：纯 DTO + 接口定义，不依赖任何业务模块
 
 ### 禁止违反的依赖
 ```java
-// ❌ 禁止：Controller 直接调用 Repository
-@Autowired private OrderRepository orderRepository;
+// ❌ 禁止：api 模块依赖 biz 模块（api 是纯接口，必须零业务依赖）
+// ❌ 禁止：在 Controller 中直接操作 Entity
+@Autowired private OAuth2ApplicationEntity applicationEntity;
 
-// ❌ 禁止：Application Service 直接调用 Mapper
-@Autowired private OrderMapper orderMapper;
+// ❌ 禁止：在配置类中硬编码安全规则到业务逻辑
+@Bean
+public SecurityFilterChain filterChain(HttpSecurity http) {
+    http.authorizeHttpRequests(auth -> auth
+        .requestMatchers("/public/**").permitAll()
+        .anyRequest().authenticated());
+    // ❌ 不要在这里写业务判断
+}
 
-// ❌ 禁止：Domain Service 注入 Repository
-@Autowired private OrderRepository orderRepository;
-
-// ✅ 正确：Application Service 通过仓储接口操作持久化
-private final OrderDomainRepository orderRepository;
+// ✅ 正确：Controller → Service → Repository
+@RestController
+public class OAuth2ApplicationController {
+    private final OAuth2ApplicationService applicationService;
+}
 ```
 
 ## 2. 包结构规范
 
 ```
-com.taotao.cloud.order.{module}/
-├── aggregate/     # 聚合根（@AggregateRoot）
-├── entity/        # 实体（@Entity）
-├── valobj/        # 值对象（@ValueObject | @Embeddable）
-├── event/         # 领域事件（extends DomainEvent）
-├── repository/    # 仓储接口
-└── service/       # 领域服务（@DomainService）
+com.taotao.cloud.auth/
+├── authentication/
+│   ├── controller/     # REST 控制器 (12 个)
+│   ├── service/        # 业务服务 (8 个)
+│   ├── repository/     # JPA Repository (6 个)
+│   ├── entity/         # JPA 持久化实体 (6 个)
+│   ├── dto/            # 内部数据传输对象
+│   ├── converter/      # OAuth2 RegisteredClient 转换器
+│   ├── details/        # UserDetailsService 实现
+│   └── generator/      # 自定义 ID 生成器
+├── configuration/      # Security / OAuth2 / Client 配置
+└── springdoc/          # OpenAPI 文档全局定制
 ```
 
-### 聚合根的写法
-```java
-@AggregateRoot
-public class OrderAgg {
-    // 聚合内实体用对象引用（非 ID）
-    private List<OrderItem> items;
-
-    // 跨聚合用 ID 引用
-    private Long customerId;
-
-    // 业务行为方法（不是 setter）
-    public void addItem(ProductId productId, Money price, int quantity) {
-        // 校验业务规则
-        // 修改内部状态
-        // 注册领域事件
-        registerEvent(new OrderItemAddedEvent(this.id, productId));
-    }
-
-    // 无参构造（JPA 要求），protected
-    protected OrderAgg() {}
-
-    // 静态工厂方法
-    public static OrderAgg create(...) { ... }
-}
-```
-
-### 值对象的写法
-```java
-@Embeddable
-public class Money {
-    private final BigDecimal amount;
-    private final Currency currency;
-
-    // 构造时自验证
-    public Money(BigDecimal amount, Currency currency) {
-        if (amount == null || amount.compareTo(BigDecimal.ZERO) < 0) {
-            throw new DomainException("金额不能为负数");
-        }
-        this.amount = amount;
-        this.currency = currency;
-    }
-
-    // 只有 getter，无 setter
-    // 覆写 equals/hashCode（基于所有属性）
-}
-```
-
-## 3. Application Service 规范
-
-### 命令服务（写操作）
-```java
-@ApplicationService
-@Service
-@Transactional
-public class OrderCommandServiceImpl implements OrderCommandService {
-    private final OrderDomainRepository orderRepository;
-    private final OrderDomainService orderDomainService;
-
-    @Override
-    public CreateOrderResponse createOrder(CreateOrderCommand command) {
-        // 1. 构建领域对象
-        // 2. 调用领域服务（如果需要跨聚合逻辑）
-        // 3. 保存聚合
-        // 4. 发布领域事件
-        // 5. 返回 DTO
-        return CreateOrderResponse.fromDomain(order);
-    }
-}
-```
-
-### 查询服务（读操作）
-```java
-@ApplicationService
-@Service
-@Transactional(readOnly = true)
-public class OrderQueryServiceImpl implements OrderQueryService {
-    private final OrderQueryRepository orderQueryRepository;
-
-    @Override
-    public OrderDetailResult queryDetail(String orderSn) {
-        // 直接返回 DTO/Result，不经过领域模型
-        return orderQueryRepository.getDetailBySn(orderSn);
-    }
-}
-```
-
-## 4. Controller 规范
-
+### Controller 规范
 ```java
 @RestController
-@RequestMapping("/{role}/order/order")
-// role = buyer | seller | manager
-public class OrderBuyerController extends BusinessController {
+public class OAuth2ApplicationController {
     // HTTP 解析 + 参数校验 + Result 封装
-    // 禁止业务逻辑
+    // 委托给 Service 层，禁止业务逻辑
 
     @GetMapping("/page")
-    public Result<PageResult<OrderSimpleResult>> page(OrderPageQuery query) {
-        return Result.success(orderQueryService.pageQuery(query));
+    public Result<PageResult<OAuth2ApplicationDTO>> page(PageQuery query) {
+        return Result.success(applicationService.page(query));
     }
 
-    @PostMapping("/{orderSn}/cancel")
-    public Result<Void> cancel(@PathVariable String orderSn, @RequestParam String reason) {
-        orderCommandService.cancel(orderSn, reason);
+    @PostMapping
+    public Result<Void> save(@Valid @RequestBody OAuth2ApplicationDTO dto) {
+        applicationService.save(dto);
         return Result.success();
     }
 }
 ```
 
-## 5. 枚举规范
-
+### Service 规范
 ```java
-// 订单状态枚举，在 common 模块定义
-public enum OrderStatusEnum {
-    PENDING("待付款"),
-    PAID("已付款"),
-    DELIVERED("已发货"),
-    RECEIVED("已收货"),
-    COMPLETED("已完成"),
-    CANCELLED("已取消");
+@Service
+public class OAuth2ApplicationService {
+    private final OAuth2ApplicationRepository repository;
+    private final OAuth2ApplicationToRegisteredClientConverter converter;
 
-    private final String description;
-    // ...
+    public OAuth2ApplicationDTO save(OAuth2ApplicationDTO dto) {
+        // 1. 参数校验 (通过 @Valid)
+        // 2. 业务逻辑
+        // 3. 持久化
+        // 4. 返回 DTO
+    }
 }
 ```
 
-## 6. 领域事件规范
-
+### Configuration 规范
 ```java
-// 事件定义在 domain/event/
-public class OrderCreatedEvent extends DomainEvent {
-    private final Long orderId;
-    // 不可变，构造时赋值
-}
+@Configuration
+@EnableWebSecurity
+public class DefaultSecurityConfiguration {
+    // 所有安全配置集中在此
+    // 使用 application.yml 外部化配置
+    // 不内嵌硬编码 URL 或 Secret
 
-// 事件在聚合根内注册
-// 仓储 save() 时自动 flush 发布
-// 订阅在 infrastructure/event/
-```
+    @Bean
+    @Order(1)
+    public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http)
+            throws Exception {
+        // OAuth2 端点安全配置
+    }
 
-## 7. MapStruct + Assembler 规范
-
-```java
-// Assembler 在 infrastructure/assembler/
-// 职责：Domain Entity ←→ Persistence PO 双向映射
-
-@Mapper(componentModel = "spring")
-public interface OrderAssembler {
-    OrderPo toPo(Order order);
-    Order toDomain(OrderPo po);
+    @Bean
+    @Order(2)
+    public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http)
+            throws Exception {
+        // 默认安全配置
+    }
 }
 ```
 
-## 8. 构建与测试
+### Converter 规范
+```java
+@Component
+public class OAuth2ApplicationToRegisteredClientConverter
+        implements RegisteredClientConverter<OAuth2Application> {
 
-```bash
-# 全量构建
-./gradlew build
-
-# 运行所有测试
-./gradlew test
-
-# 运行指定模块测试
-./gradlew :taotao-cloud-auth-domain:test
-
-# 代码质量
-./gradlew checkstyleMain spotlessCheck pmdMain spotbugsMain
-
-# 本地启动
-./gradlew :taotao-cloud-auth-assembly:bootRun --args='--spring.profiles.active=dev'
+    @Override
+    public RegisteredClient convert(OAuth2Application application) {
+        // OAuth2Application Entity → Spring Security RegisteredClient
+        // 单向转换，不包含反向逻辑
+    }
+}
 ```
 
-## 9. 数据库规范
+## 3. OAuth2 授权流程规范
+
+### 授权码模式流程
+```
+用户 → [客户端] → /oauth2/authorize (授权端点)
+                    → redirect to login (/login)
+                    → 用户认证
+                    → redirect with code
+                    → /oauth2/token (令牌端点) → access_token + refresh_token
+```
+
+### 设备码模式流程
+```
+用户 → [设备] → /oauth2/device_authorization (设备授权端点)
+                → device_code + user_code + verification_uri
+                → 用户访问 verification_uri 输入 user_code
+                → 设备轮询 /oauth2/token → 授权完成
+```
+
+### 端点注册规范
+```java
+// 在 Oauth2AuthorizationServerConfiguration 中注册
+RegisteredClient registeredClient = RegisteredClient.withId(application.getId())
+    .clientId(application.getClientId())
+    .clientSecret(application.getClientSecret())
+    .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
+    .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+    .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
+    .authorizationGrantType(AuthorizationGrantType.DEVICE_CODE)
+    .redirectUri(application.getRedirectUris())
+    .scope(OidcScopes.OPENID)
+    .scope(application.getScopes())
+    .clientSettings(ClientSettings.builder()
+        .requireAuthorizationConsent(true)
+        .build())
+    .build();
+```
+
+## 4. 数据模型规范
+
+### OAuth2Application — OAuth2 客户端注册
+```java
+@Entity
+@Table(name = "oauth2_application")
+public class OAuth2Application {
+    @Id
+    private String id;
+
+    @Column(name = "client_id", unique = true, nullable = false)
+    private String clientId;
+
+    @Column(name = "client_secret")
+    private String clientSecret;
+
+    @Column(name = "redirect_uris", columnDefinition = "TEXT")
+    private String redirectUris;        // JSON 数组字符串
+
+    @Column(name = "authorization_grant_types", columnDefinition = "TEXT")
+    private String authorizationGrantTypes;  // JSON 数组字符串
+
+    @Column(name = "client_authentication_methods", columnDefinition = "TEXT")
+    private String clientAuthenticationMethods;  // JSON 数组字符串
+
+    @Column(name = "scopes", columnDefinition = "TEXT")
+    private String scopes;              // JSON 数组字符串
+
+    // create_by, create_time, update_by, update_time (BaseEntity)
+    // is_deleted, tenant_id, version (BaseEntity)
+}
+```
 
 ### 表必备字段
 ```sql
@@ -231,10 +213,80 @@ public interface OrderAssembler {
 `version` int DEFAULT 0 COMMENT '乐观锁'
 ```
 
-### 禁止
-- 循环中查询数据库（N+1 问题）
-- `SELECT *`
-- 在 Java 代码中拼接 SQL
-- 跨聚合直接操作其他聚合的数据表
+## 5. 安全规范
 
+- 密码编码：统一使用 `BCryptPasswordEncoder`（Spring Security 内置）
+- 禁止自定义加密算法
+- 禁止在日志中打印 Secret / Token / Password
+- OAuth2 Client Secret 使用加密存储
+- 所有认证端点需要速率限制（集成 Sentinel）
+- 敏感操作记录合规审计（OAuth2Compliance）
 
+```java
+// ✅ 正确：使用 DelegatingPasswordEncoder
+@Bean
+public PasswordEncoder passwordEncoder() {
+    return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+}
+
+// ❌ 禁止：自定义 MD5/SHA 加密
+public class CustomPasswordEncoder { ... }
+```
+
+## 6. 枚举规范
+
+```java
+// 在 api 模块或 common 中定义
+public enum GrantTypeEnum {
+    AUTHORIZATION_CODE("authorization_code"),
+    CLIENT_CREDENTIALS("client_credentials"),
+    DEVICE_CODE("urn:ietf:params:oauth:grant-type:device_code"),
+    REFRESH_TOKEN("refresh_token");
+
+    private final String value;
+    // ...
+}
+```
+
+## 7. 构建与测试
+
+```bash
+# 全量构建 (Windows)
+gradlew build
+
+# 启动开发环境
+gradlew :taotao-cloud-auth-biz:bootRun --args='--spring.profiles.active=dev'
+
+# 运行测试
+gradlew test
+
+# 运行指定模块测试
+gradlew :taotao-cloud-auth-biz:test
+
+# 代码质量检查
+gradlew checkstyleMain spotlessCheck pmdMain spotbugsMain
+
+# 打包
+gradlew :taotao-cloud-auth-biz:bootJar
+
+# macOS / Linux
+./gradlew build
+```
+
+## 8. gRPC / Protobuf 规范
+
+- API 接口定义在 `taotao-cloud-auth-api/src/main/proto/`
+- DTO 使用 Protobuf `Message` 定义
+- gRPC 服务使用 `service` 定义
+- 生成的 Java 代码在 `build/generated/sources/`
+- 禁止修改生成的 Java 代码
+- API 接口使用 swagger 注解说明
+
+## 9. 编码样式
+
+- 缩进：4 空格
+- 编码：UTF-8
+- 继承 CommonEntity/BaseEntity 实现审计字段
+- Service 层事务注解：`@Transactional(readOnly = true)` 查询，写操作单独覆盖
+- 禁止 System.out.println，使用 SLF4J Logger
+- 所有 Controller 返回 Result 统一包装

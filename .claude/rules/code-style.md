@@ -1,53 +1,57 @@
-## 5. 模块化规则
-
-**`.claude/rules/code-style.md`**
-```markdown
-# 代码风格规范
+# 代码风格规范 — taotao-cloud-auth
 
 ## 格式化规则
 - 缩进: 4 个空格（不使用 Tab）
-- 行宽: 120 字符
+- 行宽: 150 字符
+- 编码: UTF-8
 - 大括号: K&R 风格（左括号不换行）
-- 缩进：4 空格
-- 包命名：`com.company.project.layer.subdomain`（如 `com.shop.order.domain.model`）
-- 类名：PascalCase，接口以 `I` 开头（可选）或直接名词（如 `OrderRepository`）
-- 方法：小驼峰，动词开头（`validateEmail`, `calculateTotal`）
+
+## 命名规范
+- 包名: `com.taotao.cloud.auth.{module}`（全小写）
+- 类名: PascalCase（如 `OAuth2ApplicationController`, `DefaultSecurityConfiguration`）
+- 方法名: 小驼峰（`findByClientId`, `saveOAuth2Application`）
+- 常量: UPPER_SNAKE_CASE（如 `AUTHORIZATION_CODE`, `GRANT_TYPE_PASSWORD`）
+- Controller 后缀: `Controller`（如 `LoginController`）
+- Service 后缀: `Service`（如 `OAuth2ApplicationService`）
+- Repository 后缀: `Repository`（如 `OAuth2ApplicationRepository`）
+- Entity 前缀: `OAuth2`（如 `OAuth2Application`, `OAuth2Scope`）
+- DTO 后缀: `DTO` 或 `Query`/`Command`（如 `OAuth2ApplicationDTO`, `SessionCreate`）
+
 ## 导入顺序
-1. Java 标准库 (java.*, javax.*)
-2. 第三方库 (org.*, com.*)
-3. Spring 框架 (org.springframework.*)
-4. 项目内部包 (com.company.project.*)
-5. 静态导入
+1. Java 标准库 (`java.*`, `javax.*`)
+2. Jakarta (`jakarta.*`)
+3. Spring 框架 (`org.springframework.*`, `org.springframework.security.*`)
+4. 第三方库 (`org.*`, `com.*`)
+5. 项目内部包 (`com.taotao.cloud.auth.*`)
+6. 静态导入
 
 ## Lombok 使用规范
 ```java
-@Data           // 用于简单 DTO/Entity
-@Builder        // 用于构建复杂对象
-@Slf4j          // 日志记录
-@RequiredArgsConstructor  // 依赖注入
-示例代码
-java
-@Slf4j
-@Service
-@RequiredArgsConstructor
-public class UserServiceImpl implements UserService {
-    private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
+@Slf4j                       // 日志（所有类必备）
+@Service                     // Service 层
+@RequiredArgsConstructor      // 构造器注入（首选）
+public class OAuth2ApplicationService {
+    private final OAuth2ApplicationRepository repository;  // final + @RequiredArgsConstructor
     
-    @Override
-    @Transactional
-    public UserResponse create(UserRequest request) {
-        log.info("Creating user with username: {}", request.getUsername());
-        
-        // 业务逻辑
-        User user = User.builder()
-            .username(request.getUsername())
-            .password(passwordEncoder.encode(request.getPassword()))
-            .build();
-        
-        User saved = userRepository.save(user);
-        log.debug("User created with id: {}", saved.getId());
-        
-        return UserResponse.from(saved);
+    public void someMethod() {
+        log.info("业务日志: {}", param);  // 使用 SLF4J，禁止 System.out
     }
 }
+```
+
+## 注解使用规范
+- `@Entity` + `@Table` — JPA 实体
+- `@Service` — 业务服务
+- `@RestController` — REST 控制器
+- `@Repository` — 数据访问
+- `@Configuration` — 配置类
+- `@Transactional` — 事务管理（Service 层）
+- `@Valid` / `@Validated` — 参数校验
+- `@Tag`, `@Operation`, `@Schema` — API 文档
+
+## 代码质量要求
+- 方法长度不超过 80 行
+- 循环复杂度不超过 15
+- 无重复代码（抽离公共方法）
+- 无 System.out.println（使用 log.info / log.debug）
+- 所有 Controller 方法返回 `Result<T>` 统一包装
