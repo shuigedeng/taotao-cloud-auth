@@ -67,6 +67,6 @@
     "profiles": ["dev", "test", "pre", "pro"],
     "modules": ["taotao-cloud-auth-api", "taotao-cloud-auth-biz"],
     "package": "com.taotao.cloud.auth",
-    "bom": "io.github.shuigedeng:taotao-cloud-dependencies:2026.07"
+    "bom": "io.github.shuigedeng:taotao-cloud-dependencies:2026.08"
   }
 }

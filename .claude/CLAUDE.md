@@ -16,7 +16,7 @@ taotao-cloud-auth 是 taotao-cloud 微服务体系的 **OAuth2 授权服务器�
 | 缓存 | Redis (Redisson / Lettuce) | 4.3.1 |
 | 消息 | RocketMQ / Kafka | - |
 | 注册中心 | Nacos (Spring Cloud Alibaba) | - |
-| BOM | taotao-cloud-dependencies | 2026.07 |
+| BOM | taotao-cloud-dependencies | 2026.08 |
 | 质量 | Checkstyle / SpotBugs / PMD / Spotless / OWASP | - |
 
 ## 项目结构
@@ -145,5 +145,5 @@ Repository (数据访问, JPA接口)
 ## 备注
 - JDK 25 预览特性，编译和运行时需加 `--enable-preview`
 - 大量 `--add-exports` JVM 参数（build.gradle 中配置）
-- `taotao-cloud-dependencies:2026.07` BOM 未开源，需私有仓库凭据
+- `taotao-cloud-dependencies:2026.08` BOM 未开源，需私有仓库凭据
 - `OAuth2Application` 中的 `redirectUris`、`scopes` 等字段使用 JSON 数组字符串存储
