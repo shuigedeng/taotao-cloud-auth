@@ -177,7 +177,6 @@ public class SysSocialUser  {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSocialId() {
         return socialId;
     }
@@ -189,7 +188,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSocialId(String socialId) {
         this.socialId = socialId;
     }
@@ -233,7 +231,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
@@ -244,7 +241,6 @@ public class SysSocialUser  {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getBlog() {
         return blog;
     }
@@ -256,7 +252,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setBlog(String blog) {
         this.blog = blog;
     }
@@ -267,7 +262,6 @@ public class SysSocialUser  {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getCompany() {
         return company;
     }
@@ -279,7 +273,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setCompany(String company) {
         this.company = company;
     }
@@ -290,7 +283,6 @@ public class SysSocialUser  {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getLocation() {
         return location;
     }
@@ -302,7 +294,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setLocation(String location) {
         this.location = location;
     }
@@ -313,7 +304,6 @@ public class SysSocialUser  {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getEmail() {
         return email;
     }
@@ -325,7 +315,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -336,7 +325,6 @@ public class SysSocialUser  {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getRemark() {
         return remark;
     }
@@ -348,7 +336,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRemark(String remark) {
         this.remark = remark;
     }
@@ -359,7 +346,6 @@ public class SysSocialUser  {
      * @return AuthUserGender
      * @since 2022.03
      */
-
     public AuthUserGender getGender() {
         return gender;
     }
@@ -371,7 +357,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setGender(AuthUserGender gender) {
         this.gender = gender;
     }
@@ -388,7 +373,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSource(String source) {
         this.source = source;
     }
@@ -399,7 +383,6 @@ public class SysSocialUser  {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getAccessToken() {
         return accessToken;
     }
@@ -411,7 +394,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
     }
@@ -422,7 +404,6 @@ public class SysSocialUser  {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getRefreshToken() {
         return refreshToken;
     }
@@ -434,7 +415,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
     }
@@ -445,7 +425,6 @@ public class SysSocialUser  {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getExpireIn() {
         return expireIn;
     }
@@ -457,7 +436,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setExpireIn(Integer expireIn) {
         this.expireIn = expireIn;
     }
@@ -468,7 +446,6 @@ public class SysSocialUser  {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getRefreshTokenExpireIn() {
         return refreshTokenExpireIn;
     }
@@ -480,7 +457,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRefreshTokenExpireIn(Integer refreshTokenExpireIn) {
         this.refreshTokenExpireIn = refreshTokenExpireIn;
     }
@@ -491,7 +467,6 @@ public class SysSocialUser  {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getScope() {
         return scope;
     }
@@ -503,7 +478,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setScope(String scope) {
         this.scope = scope;
     }
@@ -514,7 +488,6 @@ public class SysSocialUser  {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getTokenType() {
         return tokenType;
     }
@@ -526,7 +499,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setTokenType(String tokenType) {
         this.tokenType = tokenType;
     }
@@ -537,7 +509,6 @@ public class SysSocialUser  {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getUid() {
         return uid;
     }
@@ -549,7 +520,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setUid(String uid) {
         this.uid = uid;
     }
@@ -560,7 +530,6 @@ public class SysSocialUser  {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getOpenId() {
         return openId;
     }
@@ -572,7 +541,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setOpenId(String openId) {
         this.openId = openId;
     }
@@ -583,7 +551,6 @@ public class SysSocialUser  {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getAccessCode() {
         return accessCode;
     }
@@ -595,7 +562,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAccessCode(String accessCode) {
         this.accessCode = accessCode;
     }
@@ -606,7 +572,6 @@ public class SysSocialUser  {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getUnionId() {
         return unionId;
     }
@@ -618,7 +583,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setUnionId(String unionId) {
         this.unionId = unionId;
     }
@@ -629,7 +593,6 @@ public class SysSocialUser  {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getAppId() {
         return appId;
     }
@@ -641,7 +604,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAppId(String appId) {
         this.appId = appId;
     }
@@ -658,7 +620,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
@@ -674,7 +635,6 @@ public class SysSocialUser  {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setUsers(Set<SysUser> users) {
         this.users = users;
     }

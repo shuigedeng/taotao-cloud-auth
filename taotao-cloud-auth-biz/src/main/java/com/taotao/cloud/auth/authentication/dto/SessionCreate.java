@@ -46,7 +46,6 @@ public class SessionCreate {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getClientId() {
         return clientId;
     }
@@ -58,7 +57,6 @@ public class SessionCreate {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setClientId(String clientId) {
         this.clientId = clientId;
     }
@@ -69,7 +67,6 @@ public class SessionCreate {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getClientSecret() {
         return clientSecret;
     }
@@ -81,7 +78,6 @@ public class SessionCreate {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setClientSecret(String clientSecret) {
         this.clientSecret = clientSecret;
     }
@@ -92,7 +88,6 @@ public class SessionCreate {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSessionId() {
         return sessionId;
     }
@@ -104,7 +99,6 @@ public class SessionCreate {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSessionId(String sessionId) {
         this.sessionId = sessionId;
     }

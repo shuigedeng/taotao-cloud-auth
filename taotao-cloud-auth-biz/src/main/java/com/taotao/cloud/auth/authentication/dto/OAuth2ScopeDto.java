@@ -45,7 +45,6 @@ public class OAuth2ScopeDto {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getScopeId() {
         return scopeId;
     }
@@ -57,7 +56,6 @@ public class OAuth2ScopeDto {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setScopeId(String scopeId) {
         this.scopeId = scopeId;
     }
@@ -73,7 +71,6 @@ public class OAuth2ScopeDto {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPermissions(Set<OAuth2PermissionDto> permissions) {
         this.permissions = permissions;
     }

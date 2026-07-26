@@ -92,7 +92,6 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getDeviceId() {
         return deviceId;
     }
@@ -104,7 +103,6 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setDeviceId(String deviceId) {
         this.deviceId = deviceId;
     }
@@ -115,7 +113,6 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getDeviceName() {
         return deviceName;
     }
@@ -127,7 +124,6 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setDeviceName(String deviceName) {
         this.deviceName = deviceName;
     }
@@ -138,7 +134,6 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getProductId() {
         return productId;
     }
@@ -150,7 +145,6 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setProductId(String productId) {
         this.productId = productId;
     }
@@ -161,7 +155,6 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
      * @return 是否成功
      * @since 2022.03
      */
-
     public Boolean getActivated() {
         return activated;
     }
@@ -173,7 +166,6 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setActivated(Boolean activated) {
         this.activated = activated;
     }
@@ -190,7 +182,6 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setScopes(Set<OAuth2Scope> scopes) {
         this.scopes = scopes;
     }

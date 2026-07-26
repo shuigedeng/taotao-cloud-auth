@@ -60,7 +60,6 @@ public class OAuth2JacksonProcessor {
 		jsonMapper =builder.build();
     }
 
-
     /**
      * 加载
      *
@@ -69,7 +68,6 @@ public class OAuth2JacksonProcessor {
      * @return JacksonModule
      * @since 2022.03
      */
-
     private static JacksonModule loadAndGetInstance(String className, ClassLoader loader) {
         try {
             @SuppressWarnings("unchecked")
@@ -90,7 +88,6 @@ public class OAuth2JacksonProcessor {
         }
     }
 
-
     /**
      * writeMap 方法
      *
@@ -99,7 +96,6 @@ public class OAuth2JacksonProcessor {
      * @return 字符串
      * @since 2022.03
      */
-
     public String writeMap(Map<String, Object> data) {
         try {
             return this.jsonMapper.writeValueAsString(data);

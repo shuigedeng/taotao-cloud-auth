@@ -93,7 +93,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getComplianceId() {
         return complianceId;
     }
@@ -105,7 +104,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setComplianceId(String complianceId) {
         this.complianceId = complianceId;
     }
@@ -116,7 +114,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getPrincipalName() {
         return principalName;
     }
@@ -128,7 +125,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPrincipalName(String principalName) {
         this.principalName = principalName;
     }
@@ -139,7 +135,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getClientId() {
         return clientId;
     }
@@ -151,7 +146,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setClientId(String clientId) {
         this.clientId = clientId;
     }
@@ -162,7 +156,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getIp() {
         return ip;
     }
@@ -174,7 +167,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setIp(String ip) {
         this.ip = ip;
     }
@@ -185,7 +177,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 是否成功
      * @since 2022.03
      */
-
     public Boolean getMobile() {
         return mobile;
     }
@@ -197,7 +188,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setMobile(Boolean mobile) {
         this.mobile = mobile;
     }
@@ -208,7 +198,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getOsName() {
         return osName;
     }
@@ -220,7 +209,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setOsName(String osName) {
         this.osName = osName;
     }
@@ -231,7 +219,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getBrowserName() {
         return browserName;
     }
@@ -243,7 +230,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setBrowserName(String browserName) {
         this.browserName = browserName;
     }
@@ -254,7 +240,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 是否成功
      * @since 2022.03
      */
-
     public Boolean getMobileBrowser() {
         return mobileBrowser;
     }
@@ -266,7 +251,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setMobileBrowser(Boolean mobileBrowser) {
         this.mobileBrowser = mobileBrowser;
     }
@@ -277,7 +261,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getEngineName() {
         return engineName;
     }
@@ -289,7 +272,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setEngineName(String engineName) {
         this.engineName = engineName;
     }
@@ -300,7 +282,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 是否成功
      * @since 2022.03
      */
-
     public Boolean getMobilePlatform() {
         return mobilePlatform;
     }
@@ -312,7 +293,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setMobilePlatform(Boolean mobilePlatform) {
         this.mobilePlatform = mobilePlatform;
     }
@@ -323,7 +303,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 是否成功
      * @since 2022.03
      */
-
     public Boolean getIphoneOrIpod() {
         return iphoneOrIpod;
     }
@@ -335,7 +314,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setIphoneOrIpod(Boolean iphoneOrIpod) {
         this.iphoneOrIpod = iphoneOrIpod;
     }
@@ -346,7 +324,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 是否成功
      * @since 2022.03
      */
-
     public Boolean getIpad() {
         return ipad;
     }
@@ -358,7 +335,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setIpad(Boolean ipad) {
         this.ipad = ipad;
     }
@@ -369,7 +345,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 是否成功
      * @since 2022.03
      */
-
     public Boolean getIos() {
         return ios;
     }
@@ -381,7 +356,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setIos(Boolean ios) {
         this.ios = ios;
     }
@@ -392,7 +366,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 是否成功
      * @since 2022.03
      */
-
     public Boolean getAndroid() {
         return android;
     }
@@ -404,7 +377,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAndroid(Boolean android) {
         this.android = android;
     }
@@ -415,7 +387,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getOperation() {
         return operation;
     }
@@ -427,7 +398,6 @@ public class OAuth2Compliance extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setOperation(String operation) {
         this.operation = operation;
     }

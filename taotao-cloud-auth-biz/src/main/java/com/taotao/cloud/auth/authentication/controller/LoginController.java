@@ -68,7 +68,6 @@ public class LoginController {
      * @return ModelAndView
      * @since 2022.03
      */
-
     public ModelAndView login(Map<String, Object> model, HttpServletRequest request) {
 
         ModelAndView modelAndView = new ModelAndView(DEFAULT_LOGIN_PAGE_VIEW);
@@ -110,7 +109,6 @@ public class LoginController {
      * @return 无返回值
      * @since 2022.03
      */
-
     private SecurityAuthenticationProperties.FormLogin getFormLogin() {
         return authenticationProperties.getFormLogin();
     }
@@ -123,7 +121,6 @@ public class LoginController {
      * @return 是否成功
      * @since 2022.03
      */
-
     private boolean isErrorPage(HttpServletRequest request) {
         String failureUrl = DEFAULT_LOGIN_PAGE_VIEW + "?" + DEFAULT_ERROR_PAGE_VIEW;
         return matches(request, failureUrl);
@@ -137,7 +134,6 @@ public class LoginController {
      * @return 是否成功
      * @since 2022.03
      */
-
     private boolean isLogoutSuccess(HttpServletRequest request) {
         String logoutSuccessUrl = DEFAULT_LOGIN_PAGE_VIEW + "?logout";
         return matches(request, logoutSuccessUrl);
@@ -158,7 +154,6 @@ public class LoginController {
      * @return 字符串
      * @since 2022.03
      */
-
     private String getErrorMessage(HttpServletRequest request) {
         HttpSession session = WebUtils.getSession(request);
         if (ObjectUtils.isNotEmpty(session)) {
@@ -171,7 +166,6 @@ public class LoginController {
         return null;
     }
 
-
     /**
      * 匹配
      *
@@ -180,7 +174,6 @@ public class LoginController {
      * @return 是否成功
      * @since 2022.03
      */
-
     private boolean matches(HttpServletRequest request, String url) {
         if (!HttpMethod.GET.name().equals(request.getMethod()) || url == null) {
             return false;

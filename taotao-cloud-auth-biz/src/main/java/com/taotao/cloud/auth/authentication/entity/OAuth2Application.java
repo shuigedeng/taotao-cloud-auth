@@ -105,7 +105,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getApplicationId() {
         return applicationId;
     }
@@ -117,7 +116,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setApplicationId(String applicationId) {
         this.applicationId = applicationId;
     }
@@ -128,7 +126,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getApplicationName() {
         return applicationName;
     }
@@ -140,7 +137,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setApplicationName(String applicationName) {
         this.applicationName = applicationName;
     }
@@ -151,7 +147,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getAbbreviation() {
         return abbreviation;
     }
@@ -163,7 +158,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAbbreviation(String abbreviation) {
         this.abbreviation = abbreviation;
     }
@@ -174,7 +168,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getLogo() {
         return logo;
     }
@@ -186,7 +179,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setLogo(String logo) {
         this.logo = logo;
     }
@@ -197,7 +189,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getHomepage() {
         return homepage;
     }
@@ -209,7 +200,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setHomepage(String homepage) {
         this.homepage = homepage;
     }
@@ -220,7 +210,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * @return ApplicationType
      * @since 2022.03
      */
-
     public ApplicationType getApplicationType() {
         return applicationType;
     }
@@ -232,7 +221,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setApplicationType(ApplicationType applicationType) {
         this.applicationType = applicationType;
     }
@@ -249,7 +237,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setScopes(Set<OAuth2Scope> scopes) {
         this.scopes = scopes;
     }

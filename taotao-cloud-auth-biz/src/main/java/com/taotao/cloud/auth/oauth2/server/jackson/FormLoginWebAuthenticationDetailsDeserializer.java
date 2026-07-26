@@ -50,7 +50,6 @@ public class FormLoginWebAuthenticationDetailsDeserializer
                 remoteAddress, sessionId, closed, parameterName, category, code, identity);
     }
 
-
     /**
      * readJsonNode 方法
      *
@@ -59,7 +58,6 @@ public class FormLoginWebAuthenticationDetailsDeserializer
      * @return JsonNode
      * @since 2022.03
      */
-
     private JsonNode readJsonNode(JsonNode jsonNode, String field) {
         return jsonNode.has(field) ? jsonNode.get(field) : MissingNode.getInstance();
     }

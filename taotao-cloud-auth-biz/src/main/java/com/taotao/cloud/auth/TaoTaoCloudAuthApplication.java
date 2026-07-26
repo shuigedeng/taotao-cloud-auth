@@ -85,7 +85,6 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 @SpringBootApplication
 public class TaoTaoCloudAuthApplication {
 
-
     /**
      * main 方法
      *
@@ -93,7 +92,6 @@ public class TaoTaoCloudAuthApplication {
      * @return 无返回值
      * @since 2022.03
      */
-
     public static void main(String[] args) {
         new StartupSpringApplication(TaoTaoCloudAuthApplication.class)
                 .setTtcBanner()

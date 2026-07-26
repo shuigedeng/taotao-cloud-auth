@@ -43,7 +43,6 @@ public class DeviceController {
      * @return 字符串
      * @since 2022.03
      */
-
     public String activate(
             @RequestParam(value = OAuth2ParameterNames.USER_CODE, required = false)
                     String userCode) {
@@ -66,7 +65,6 @@ public class DeviceController {
      * @return 字符串
      * @since 2022.03
      */
-
     public String activated() {
         return "activation-allowed";
     }

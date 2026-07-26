@@ -146,7 +146,6 @@ public class Oauth2AuthorizationServerConfiguration {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void postConstruct() {
 		log.info("SDK [OAuth2 Authorization Server] Auto Configure.");
 	}
@@ -250,7 +249,6 @@ public class Oauth2AuthorizationServerConfiguration {
 	 * @return SecurityFilterChain
 	 * @since 2022.03
 	 */
-
 	public SecurityFilterChain authorizationServerSecurityFilterChain(
 		HttpSecurity httpSecurity,
 		PasswordEncoder passwordEncoder,
@@ -524,14 +522,12 @@ public class Oauth2AuthorizationServerConfiguration {
 			.build();
 	}
 
-
 	/**
 	 * 创建请求Matcher
 	 *
 	 * @return 请求Matcher
 	 * @since 2022.03
 	 */
-
 	private static RequestMatcher createRequestMatcher() {
 		MediaTypeRequestMatcher requestMatcher = new MediaTypeRequestMatcher(MediaType.TEXT_HTML);
 		requestMatcher.setIgnoredMediaTypes(Set.of(MediaType.ALL));
@@ -636,7 +632,6 @@ public class Oauth2AuthorizationServerConfiguration {
 	 * @return AuthorizationServerSettings
 	 * @since 2022.03
 	 */
-
 	public AuthorizationServerSettings authorizationServerSettings(
 		SecurityOAuth2EndpointProperties securityOAuth2EndpointProperties ) {
 		return AuthorizationServerSettings.builder()
@@ -656,16 +651,13 @@ public class Oauth2AuthorizationServerConfiguration {
 			.build();
 	}
 
-
 	/**
 	 * DefaultRedirectStrategy 方法
 	 *
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-
 
 	/**
 	 * 发送
@@ -676,7 +668,6 @@ public class Oauth2AuthorizationServerConfiguration {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	private void sendAuthorizationResponse(
 		HttpServletRequest request, HttpServletResponse response, Authentication authentication )
 		throws IOException {
@@ -713,7 +704,6 @@ public class Oauth2AuthorizationServerConfiguration {
 	 * @return 是否成功
 	 * @since 2022.03
 	 */
-
 	public boolean isAjaxRequest( HttpServletRequest request ) {
 		String requestedWith = request.getHeader("x-requested-with");
 		return "XMLHttpRequest".equalsIgnoreCase(requestedWith);

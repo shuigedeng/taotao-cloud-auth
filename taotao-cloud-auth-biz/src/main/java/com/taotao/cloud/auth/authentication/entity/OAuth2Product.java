@@ -59,7 +59,6 @@ public class OAuth2Product extends BaseEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getProductId() {
         return productId;
     }
@@ -71,7 +70,6 @@ public class OAuth2Product extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setProductId(String productId) {
         this.productId = productId;
     }
@@ -82,7 +80,6 @@ public class OAuth2Product extends BaseEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getProductKey() {
         return productKey;
     }
@@ -94,7 +91,6 @@ public class OAuth2Product extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setProductKey(String productKey) {
         this.productKey = productKey;
     }

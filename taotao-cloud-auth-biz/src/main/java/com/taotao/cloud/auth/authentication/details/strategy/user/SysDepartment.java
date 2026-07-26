@@ -95,7 +95,6 @@ public class SysDepartment {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getDepartmentId() {
         return departmentId;
     }
@@ -107,7 +106,6 @@ public class SysDepartment {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setDepartmentId(String departmentId) {
         this.departmentId = departmentId;
     }
@@ -118,7 +116,6 @@ public class SysDepartment {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getDepartmentName() {
         return departmentName;
     }
@@ -130,7 +127,6 @@ public class SysDepartment {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
     }
@@ -141,7 +137,6 @@ public class SysDepartment {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getA4BizDeptId() {
         return a4BizDeptId;
     }
@@ -153,7 +148,6 @@ public class SysDepartment {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setA4BizDeptId(String a4BizDeptId) {
         this.a4BizDeptId = a4BizDeptId;
     }
@@ -164,7 +158,6 @@ public class SysDepartment {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getBizDeptCode() {
         return bizDeptCode;
     }
@@ -176,7 +169,6 @@ public class SysDepartment {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setBizDeptCode(String bizDeptCode) {
         this.bizDeptCode = bizDeptCode;
     }
@@ -187,7 +179,6 @@ public class SysDepartment {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getBizDeptDesc() {
         return bizDeptDesc;
     }
@@ -199,7 +190,6 @@ public class SysDepartment {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setBizDeptDesc(String bizDeptDesc) {
         this.bizDeptDesc = bizDeptDesc;
     }
@@ -210,7 +200,6 @@ public class SysDepartment {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getBizDeptId() {
         return bizDeptId;
     }
@@ -222,7 +211,6 @@ public class SysDepartment {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setBizDeptId(String bizDeptId) {
         this.bizDeptId = bizDeptId;
     }
@@ -233,7 +221,6 @@ public class SysDepartment {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getBizDeptName() {
         return bizDeptName;
     }
@@ -245,7 +232,6 @@ public class SysDepartment {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setBizDeptName(String bizDeptName) {
         this.bizDeptName = bizDeptName;
     }
@@ -256,7 +242,6 @@ public class SysDepartment {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getBizDeptType() {
         return bizDeptType;
     }
@@ -268,7 +253,6 @@ public class SysDepartment {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setBizDeptType(String bizDeptType) {
         this.bizDeptType = bizDeptType;
     }
@@ -279,7 +263,6 @@ public class SysDepartment {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getPartitionCode() {
         return partitionCode;
     }
@@ -291,7 +274,6 @@ public class SysDepartment {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPartitionCode(String partitionCode) {
         this.partitionCode = partitionCode;
     }
@@ -302,7 +284,6 @@ public class SysDepartment {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getShortName() {
         return shortName;
     }
@@ -314,7 +295,6 @@ public class SysDepartment {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setShortName(String shortName) {
         this.shortName = shortName;
     }
@@ -325,7 +305,6 @@ public class SysDepartment {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getParentId() {
         return parentId;
     }
@@ -337,7 +316,6 @@ public class SysDepartment {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setParentId(String parentId) {
         this.parentId = parentId;
     }
@@ -348,7 +326,6 @@ public class SysDepartment {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getOrganizationId() {
         return organizationId;
     }
@@ -360,7 +337,6 @@ public class SysDepartment {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setOrganizationId(String organizationId) {
         this.organizationId = organizationId;
     }

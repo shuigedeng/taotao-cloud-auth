@@ -47,7 +47,6 @@ public class OAuth2PermissionDto {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getPermissionId() {
         return permissionId;
     }
@@ -59,7 +58,6 @@ public class OAuth2PermissionDto {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPermissionId(String permissionId) {
         this.permissionId = permissionId;
     }
@@ -70,7 +68,6 @@ public class OAuth2PermissionDto {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getPermissionCode() {
         return permissionCode;
     }
@@ -82,7 +79,6 @@ public class OAuth2PermissionDto {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPermissionCode(String permissionCode) {
         this.permissionCode = permissionCode;
     }
@@ -93,7 +89,6 @@ public class OAuth2PermissionDto {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getPermissionName() {
         return permissionName;
     }
@@ -105,7 +100,6 @@ public class OAuth2PermissionDto {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPermissionName(String permissionName) {
         this.permissionName = permissionName;
     }

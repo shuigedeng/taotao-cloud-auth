@@ -94,7 +94,6 @@ public class SysAttribute {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getAttributeId() {
         return attributeId;
     }
@@ -106,7 +105,6 @@ public class SysAttribute {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAttributeId(String attributeId) {
         this.attributeId = attributeId;
     }
@@ -117,7 +115,6 @@ public class SysAttribute {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getAttributeCode() {
         return attributeCode;
     }
@@ -129,7 +126,6 @@ public class SysAttribute {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAttributeCode(String attributeCode) {
         this.attributeCode = attributeCode;
     }
@@ -140,7 +136,6 @@ public class SysAttribute {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getRequestMethod() {
         return requestMethod;
     }
@@ -152,7 +147,6 @@ public class SysAttribute {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRequestMethod(String requestMethod) {
         this.requestMethod = requestMethod;
     }
@@ -163,7 +157,6 @@ public class SysAttribute {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getServiceId() {
         return serviceId;
     }
@@ -175,7 +168,6 @@ public class SysAttribute {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setServiceId(String serviceId) {
         this.serviceId = serviceId;
     }
@@ -186,7 +178,6 @@ public class SysAttribute {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getClassName() {
         return className;
     }
@@ -198,7 +189,6 @@ public class SysAttribute {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setClassName(String className) {
         this.className = className;
     }
@@ -209,7 +199,6 @@ public class SysAttribute {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getMethodName() {
         return methodName;
     }
@@ -221,7 +210,6 @@ public class SysAttribute {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setMethodName(String methodName) {
         this.methodName = methodName;
     }
@@ -232,7 +220,6 @@ public class SysAttribute {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getUrl() {
         return url;
     }
@@ -244,7 +231,6 @@ public class SysAttribute {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setUrl(String url) {
         this.url = url;
     }
@@ -255,7 +241,6 @@ public class SysAttribute {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getWebExpression() {
         return webExpression;
     }
@@ -267,7 +252,6 @@ public class SysAttribute {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setWebExpression(String webExpression) {
         this.webExpression = webExpression;
     }
@@ -283,7 +267,6 @@ public class SysAttribute {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPermissions(Set<SysPermission> permissions) {
         this.permissions = permissions;
     }

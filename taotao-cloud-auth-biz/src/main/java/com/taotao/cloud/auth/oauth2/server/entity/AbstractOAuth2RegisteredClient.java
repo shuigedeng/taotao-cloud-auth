@@ -109,7 +109,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getClientId() {
 		return clientId;
 	}
@@ -121,7 +120,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setClientId( String clientId ) {
 		this.clientId = clientId;
 	}
@@ -132,7 +130,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getClientSecret() {
 		return clientSecret;
 	}
@@ -144,7 +141,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setClientSecret( String clientSecret ) {
 		this.clientSecret = clientSecret;
 	}
@@ -155,7 +151,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 是否成功
 	 * @since 2022.03
 	 */
-
 	public Boolean getRequireProofKey() {
 		return requireProofKey;
 	}
@@ -167,7 +162,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setRequireProofKey( Boolean requireProofKey ) {
 		this.requireProofKey = requireProofKey;
 	}
@@ -178,7 +172,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 是否成功
 	 * @since 2022.03
 	 */
-
 	public Boolean getRequireAuthorizationConsent() {
 		return requireAuthorizationConsent;
 	}
@@ -190,7 +183,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setRequireAuthorizationConsent( Boolean requireAuthorizationConsent ) {
 		this.requireAuthorizationConsent = requireAuthorizationConsent;
 	}
@@ -201,7 +193,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String getJwkSetUrl() {
 		return jwkSetUrl;
 	}
@@ -213,7 +204,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setJwkSetUrl( String jwkSetUrl ) {
 		this.jwkSetUrl = jwkSetUrl;
 	}
@@ -224,7 +214,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return Signature
 	 * @since 2022.03
 	 */
-
 	public Signature getAuthenticationSigningAlgorithm() {
 		return authenticationSigningAlgorithm;
 	}
@@ -236,7 +225,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setAuthenticationSigningAlgorithm( Signature authenticationSigningAlgorithm ) {
 		this.authenticationSigningAlgorithm = authenticationSigningAlgorithm;
 	}
@@ -247,7 +235,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return Duration
 	 * @since 2022.03
 	 */
-
 	public Duration getAuthorizationCodeValidity() {
 		return authorizationCodeValidity;
 	}
@@ -259,7 +246,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setAuthorizationCodeValidity( Duration authorizationCodeValidity ) {
 		this.authorizationCodeValidity = authorizationCodeValidity;
 	}
@@ -270,7 +256,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return Duration
 	 * @since 2022.03
 	 */
-
 	public Duration getAccessTokenValidity() {
 		return accessTokenValidity;
 	}
@@ -282,7 +267,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setAccessTokenValidity( Duration accessTokenValidity ) {
 		this.accessTokenValidity = accessTokenValidity;
 	}
@@ -293,7 +277,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return Duration
 	 * @since 2022.03
 	 */
-
 	public Duration getDeviceCodeValidity() {
 		return deviceCodeValidity;
 	}
@@ -305,7 +288,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setDeviceCodeValidity( Duration deviceCodeValidity ) {
 		this.deviceCodeValidity = deviceCodeValidity;
 	}
@@ -316,7 +298,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return Duration
 	 * @since 2022.03
 	 */
-
 	public Duration getRefreshTokenValidity() {
 		return refreshTokenValidity;
 	}
@@ -328,7 +309,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setRefreshTokenValidity( Duration refreshTokenValidity ) {
 		this.refreshTokenValidity = refreshTokenValidity;
 	}
@@ -339,7 +319,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return TokenFormat
 	 * @since 2022.03
 	 */
-
 	public TokenFormat getAccessTokenFormat() {
 		return accessTokenFormat;
 	}
@@ -351,7 +330,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setAccessTokenFormat( TokenFormat accessTokenFormat ) {
 		this.accessTokenFormat = accessTokenFormat;
 	}
@@ -362,7 +340,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 是否成功
 	 * @since 2022.03
 	 */
-
 	public Boolean getReuseRefreshTokens() {
 		return reuseRefreshTokens;
 	}
@@ -374,7 +351,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setReuseRefreshTokens( Boolean reuseRefreshTokens ) {
 		this.reuseRefreshTokens = reuseRefreshTokens;
 	}
@@ -385,7 +361,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return Signature
 	 * @since 2022.03
 	 */
-
 	public Signature getIdTokenSignatureAlgorithm() {
 		return idTokenSignatureAlgorithm;
 	}
@@ -397,7 +372,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void setIdTokenSignatureAlgorithm( Signature idTokenSignatureAlgorithm ) {
 		this.idTokenSignatureAlgorithm = idTokenSignatureAlgorithm;
 	}

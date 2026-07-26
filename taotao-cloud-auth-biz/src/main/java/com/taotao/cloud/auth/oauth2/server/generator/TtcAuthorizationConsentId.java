@@ -51,7 +51,6 @@ public class TtcAuthorizationConsentId implements Serializable {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getRegisteredClientId() {
         return registeredClientId;
     }
@@ -63,7 +62,6 @@ public class TtcAuthorizationConsentId implements Serializable {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRegisteredClientId(String registeredClientId) {
         this.registeredClientId = registeredClientId;
     }
@@ -74,7 +72,6 @@ public class TtcAuthorizationConsentId implements Serializable {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getPrincipalName() {
         return principalName;
     }
@@ -86,7 +83,6 @@ public class TtcAuthorizationConsentId implements Serializable {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPrincipalName(String principalName) {
         this.principalName = principalName;
     }

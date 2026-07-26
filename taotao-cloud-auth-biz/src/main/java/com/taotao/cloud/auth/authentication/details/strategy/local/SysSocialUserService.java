@@ -34,7 +34,6 @@ public class SysSocialUserService {
     //        this.sysSocialUserRepository = sysSocialUserRepository;
     //    }
 
-
     /**
      * 根据条件查询
      *
@@ -43,12 +42,10 @@ public class SysSocialUserService {
      * @return SysSocialUser
      * @since 2022.03
      */
-
     public SysSocialUser findByUuidAndSource(String uuid, String source) {
         //        return sysSocialUserRepository.findSysSocialUserByUuidAndSource(uuid, source);
         return null;
     }
-
 
     /**
      * 保存
@@ -57,6 +54,5 @@ public class SysSocialUserService {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void saveAndFlush( SysSocialUser sysSocialUser) {}
 }

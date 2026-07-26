@@ -122,7 +122,6 @@ public class Oauth2Controller {
      * @return oauth2userinfo
      * @since 2022.03
      */
-
     public Oauth2UserinfoResult user(Principal principal) {
         Oauth2UserinfoResult result = new Oauth2UserinfoResult();
         //		if (!(principal instanceof JwtAuthenticationToken jwtAuthenticationToken)) {

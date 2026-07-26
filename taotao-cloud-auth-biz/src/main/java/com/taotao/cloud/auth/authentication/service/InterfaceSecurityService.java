@@ -77,7 +77,6 @@ public class InterfaceSecurityService {
         return registeredClient;
     }
 
-
     /**
      * 创建
      *
@@ -87,7 +86,6 @@ public class InterfaceSecurityService {
      * @return SecretKey
      * @since 2022.03
      */
-
     public SecretKey createSecretKey(String clientId, String clientSecret, String sessionId) {
         // 检测终端是否是有效终端
         RegisteredClient registeredClient = this.validateClient(clientId, clientSecret);

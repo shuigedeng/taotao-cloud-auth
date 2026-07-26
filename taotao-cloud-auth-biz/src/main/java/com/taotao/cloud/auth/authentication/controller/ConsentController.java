@@ -138,14 +138,12 @@ public class ConsentController {
         return "consent";
     }
 
-
     /**
      * 初始化字典ionaries
      *
      * @return 无返回值
      * @since 2022.03
      */
-
     private void initDictionaries() {
         List<OAuth2Scope> scopes = scopeService.findAll();
         if (CollectionUtils.isNotEmpty(scopes)) {
@@ -173,7 +171,6 @@ public class ConsentController {
         }
     }
 
-
     /**
      * scopeToOption 方法
      *
@@ -181,7 +178,6 @@ public class ConsentController {
      * @return Option
      * @since 2022.03
      */
-
     private Option scopeToOption( OAuth2Scope scope) {
         Option option = new Option();
         String label =

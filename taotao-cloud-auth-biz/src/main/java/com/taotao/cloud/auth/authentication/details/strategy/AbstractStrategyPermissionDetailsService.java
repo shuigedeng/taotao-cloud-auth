@@ -34,7 +34,6 @@ public abstract class AbstractStrategyPermissionDetailsService
         return permissions.stream().map(this::toEntity).collect(Collectors.toList());
     }
 
-
     /**
      * 转换为
      *
@@ -42,7 +41,6 @@ public abstract class AbstractStrategyPermissionDetailsService
      * @return TtcPermission
      * @since 2022.03
      */
-
     protected TtcPermission toEntity( SysPermission object) {
         TtcPermission ttcPermission = new TtcPermission();
         ttcPermission.setPermissionId(object.getPermissionId());

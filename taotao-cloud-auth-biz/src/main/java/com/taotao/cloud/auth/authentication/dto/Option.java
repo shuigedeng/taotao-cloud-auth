@@ -38,7 +38,6 @@ public class Option implements Serializable {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getLabel() {
         return label;
     }
@@ -50,7 +49,6 @@ public class Option implements Serializable {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setLabel(String label) {
         this.label = label;
     }
@@ -61,7 +59,6 @@ public class Option implements Serializable {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getValue() {
         return value;
     }
@@ -73,7 +70,6 @@ public class Option implements Serializable {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setValue(String value) {
         this.value = value;
     }

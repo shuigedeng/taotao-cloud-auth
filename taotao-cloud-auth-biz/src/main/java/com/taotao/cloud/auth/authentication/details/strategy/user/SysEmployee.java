@@ -140,7 +140,6 @@ public class SysEmployee {
      * @return SysUser
      * @since 2022.03
      */
-
     public SysUser getUser() {
         return user;
     }
@@ -152,7 +151,6 @@ public class SysEmployee {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setUser( SysUser user) {
         this.user = user;
     }
@@ -163,7 +161,6 @@ public class SysEmployee {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getEmployeeId() {
         return employeeId;
     }
@@ -175,7 +172,6 @@ public class SysEmployee {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
@@ -186,7 +182,6 @@ public class SysEmployee {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getEmployeeName() {
         return employeeName;
     }
@@ -198,7 +193,6 @@ public class SysEmployee {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
     }
@@ -209,7 +203,6 @@ public class SysEmployee {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getEmployeeNo() {
         return employeeNo;
     }
@@ -221,7 +214,6 @@ public class SysEmployee {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setEmployeeNo(String employeeNo) {
         this.employeeNo = employeeNo;
     }
@@ -232,7 +224,6 @@ public class SysEmployee {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getMobilePhoneNumber() {
         return mobilePhoneNumber;
     }
@@ -244,7 +235,6 @@ public class SysEmployee {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setMobilePhoneNumber(String mobilePhoneNumber) {
         this.mobilePhoneNumber = mobilePhoneNumber;
     }
@@ -255,7 +245,6 @@ public class SysEmployee {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getOfficePhoneNumber() {
         return officePhoneNumber;
     }
@@ -267,7 +256,6 @@ public class SysEmployee {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setOfficePhoneNumber(String officePhoneNumber) {
         this.officePhoneNumber = officePhoneNumber;
     }
@@ -278,7 +266,6 @@ public class SysEmployee {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getEmail() {
         return email;
     }
@@ -290,7 +277,6 @@ public class SysEmployee {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -301,7 +287,6 @@ public class SysEmployee {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getPkiEmail() {
         return pkiEmail;
     }
@@ -313,7 +298,6 @@ public class SysEmployee {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPkiEmail(String pkiEmail) {
         this.pkiEmail = pkiEmail;
     }
@@ -324,7 +308,6 @@ public class SysEmployee {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getA4BizEmpId() {
         return a4BizEmpId;
     }
@@ -336,7 +319,6 @@ public class SysEmployee {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setA4BizEmpId(String a4BizEmpId) {
         this.a4BizEmpId = a4BizEmpId;
     }
@@ -378,7 +360,6 @@ public class SysEmployee {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
@@ -389,7 +370,6 @@ public class SysEmployee {
      * @return Date
      * @since 2022.03
      */
-
     public Date getBirthday() {
         return birthday;
     }
@@ -401,7 +381,6 @@ public class SysEmployee {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
@@ -417,7 +396,6 @@ public class SysEmployee {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setDepartments(Set<SysDepartment> departments) {
         this.departments = departments;
     }

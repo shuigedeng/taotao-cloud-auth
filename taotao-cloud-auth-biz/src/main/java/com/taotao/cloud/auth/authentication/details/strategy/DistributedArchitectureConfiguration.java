@@ -49,7 +49,6 @@ public class DistributedArchitectureConfiguration {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void postConstruct() {
         log.debug(" Module [Distributed Architecture] Auto Configure.");
     }
@@ -87,7 +86,6 @@ public class DistributedArchitectureConfiguration {
          * @return 策略权限DetailsService
          * @since 2022.03
          */
-
         public StrategyPermissionDetailsService localPermissionDetailsService(
                 SysPermissionService sysPermissionService ) {
             LocalPermissionDetailsService localPermissionDetailsService =
@@ -128,7 +126,6 @@ public class DistributedArchitectureConfiguration {
 		 * @return 策略用户DetailsService
 		 * @since 2022.03
 		 */
-
 		public StrategyUserDetailsService remoteUserDetailsService(  ) {
 			log.debug(" Strategy [Remote User Details Service] Auto Configure.");
 			return new RemoteUserDetailsService();
@@ -143,7 +140,6 @@ public class DistributedArchitectureConfiguration {
          * @return 策略权限DetailsService
          * @since 2022.03
          */
-
         public StrategyPermissionDetailsService remotePermissionDetailsService() {
             RemotePermissionDetailsService remotePermissionDetailsService =
                     new RemotePermissionDetailsService();

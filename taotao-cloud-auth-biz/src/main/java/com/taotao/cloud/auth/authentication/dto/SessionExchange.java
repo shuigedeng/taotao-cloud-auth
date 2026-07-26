@@ -43,7 +43,6 @@ public class SessionExchange {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getConfidential() {
         return confidential;
     }
@@ -55,7 +54,6 @@ public class SessionExchange {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setConfidential(String confidential) {
         this.confidential = confidential;
     }
@@ -66,7 +64,6 @@ public class SessionExchange {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSessionId() {
         return sessionId;
     }
@@ -78,7 +75,6 @@ public class SessionExchange {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSessionId(String sessionId) {
         this.sessionId = sessionId;
     }

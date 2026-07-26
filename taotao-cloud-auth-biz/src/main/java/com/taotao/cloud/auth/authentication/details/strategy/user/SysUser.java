@@ -165,7 +165,6 @@ public class SysUser {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -177,7 +176,6 @@ public class SysUser {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
@@ -188,7 +186,6 @@ public class SysUser {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getAvatar() {
         return avatar;
     }
@@ -200,7 +197,6 @@ public class SysUser {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
@@ -211,7 +207,6 @@ public class SysUser {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getEmail() {
         return email;
     }
@@ -223,7 +218,6 @@ public class SysUser {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -234,7 +228,6 @@ public class SysUser {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getUserId() {
         return userId;
     }
@@ -246,7 +239,6 @@ public class SysUser {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setUserId(String userId) {
         this.userId = userId;
     }
@@ -257,7 +249,6 @@ public class SysUser {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getUserName() {
         return userName;
     }
@@ -269,7 +260,6 @@ public class SysUser {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setUserName(String userName) {
         this.userName = userName;
     }
@@ -280,7 +270,6 @@ public class SysUser {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getPassword() {
         return password;
     }
@@ -292,7 +281,6 @@ public class SysUser {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -303,7 +291,6 @@ public class SysUser {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getNickName() {
         return nickName;
     }
@@ -315,7 +302,6 @@ public class SysUser {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setNickName(String nickName) {
         this.nickName = nickName;
     }
@@ -331,7 +317,6 @@ public class SysUser {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRoles(Set<SysRole> roles) {
         this.roles = roles;
     }
@@ -342,7 +327,6 @@ public class SysUser {
      * @return SysEmployee
      * @since 2022.03
      */
-
     public SysEmployee getEmployee() {
         return employee;
     }
@@ -354,7 +338,6 @@ public class SysUser {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setEmployee( SysEmployee employee) {
         this.employee = employee;
     }
@@ -365,7 +348,6 @@ public class SysUser {
      * @return LocalDateTime
      * @since 2022.03
      */
-
     public LocalDateTime getAccountExpireAt() {
         return accountExpireAt;
     }
@@ -377,7 +359,6 @@ public class SysUser {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAccountExpireAt(LocalDateTime accountExpireAt) {
         this.accountExpireAt = accountExpireAt;
     }
@@ -388,7 +369,6 @@ public class SysUser {
      * @return LocalDateTime
      * @since 2022.03
      */
-
     public LocalDateTime getCredentialsExpireAt() {
         return credentialsExpireAt;
     }
@@ -400,7 +380,6 @@ public class SysUser {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setCredentialsExpireAt(LocalDateTime credentialsExpireAt) {
         this.credentialsExpireAt = credentialsExpireAt;
     }
@@ -411,7 +390,6 @@ public class SysUser {
      * @return DataItemStatusEnum
      * @since 2022.03
      */
-
     public DataItemStatusEnum getStatus() {
         return status;
     }
@@ -423,7 +401,6 @@ public class SysUser {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setStatus(DataItemStatusEnum status) {
         this.status = status;
     }
@@ -434,7 +411,6 @@ public class SysUser {
      * @return 是否成功
      * @since 2022.03
      */
-
     public Boolean getReserved() {
         return reserved;
     }
@@ -446,7 +422,6 @@ public class SysUser {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setReserved(Boolean reserved) {
         this.reserved = reserved;
     }
@@ -457,7 +432,6 @@ public class SysUser {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Integer getReversion() {
         return reversion;
     }
@@ -469,7 +443,6 @@ public class SysUser {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setReversion(Integer reversion) {
         this.reversion = reversion;
     }
@@ -480,7 +453,6 @@ public class SysUser {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getDescription() {
         return description;
     }
@@ -492,7 +464,6 @@ public class SysUser {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setDescription(String description) {
         this.description = description;
     }

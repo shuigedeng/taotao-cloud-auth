@@ -91,7 +91,6 @@ public class SysRole {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getRoleId() {
         return roleId;
     }
@@ -103,7 +102,6 @@ public class SysRole {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRoleId( String roleId ) {
         this.roleId = roleId;
     }
@@ -114,7 +112,6 @@ public class SysRole {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getRoleCode() {
         return roleCode;
     }
@@ -126,7 +123,6 @@ public class SysRole {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRoleCode( String roleCode ) {
         this.roleCode = roleCode;
     }
@@ -137,7 +133,6 @@ public class SysRole {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getRoleName() {
         return roleName;
     }
@@ -149,7 +144,6 @@ public class SysRole {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setRoleName( String roleName ) {
         this.roleName = roleName;
     }
@@ -165,7 +159,6 @@ public class SysRole {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPermissions( Set<SysPermission> permissions ) {
         this.permissions = permissions;
     }

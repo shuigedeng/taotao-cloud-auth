@@ -47,7 +47,6 @@ public class Session {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSessionId() {
         return sessionId;
     }
@@ -59,7 +58,6 @@ public class Session {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSessionId(String sessionId) {
         this.sessionId = sessionId;
     }
@@ -70,7 +68,6 @@ public class Session {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getPublicKey() {
         return publicKey;
     }
@@ -82,7 +79,6 @@ public class Session {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setPublicKey(String publicKey) {
         this.publicKey = publicKey;
     }
@@ -93,7 +89,6 @@ public class Session {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getState() {
         return state;
     }
@@ -105,7 +100,6 @@ public class Session {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setState(String state) {
         this.state = state;
     }

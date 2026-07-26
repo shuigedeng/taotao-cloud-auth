@@ -187,7 +187,6 @@ public class TtcAuthorizationConsent extends AbstractEntity {
      * @return 结果数量
      * @since 2022.03
      */
-
     public Long getVersion() {
         return version;
     }
@@ -199,7 +198,6 @@ public class TtcAuthorizationConsent extends AbstractEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setVersion(Long version) {
         this.version = version;
     }

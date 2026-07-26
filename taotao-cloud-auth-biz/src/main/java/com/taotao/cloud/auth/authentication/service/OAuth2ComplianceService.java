@@ -101,7 +101,6 @@ public class OAuth2ComplianceService implements ComplianceService {
      * @return UserAgent
      * @since 2022.03
      */
-
     private UserAgent getUserAgent(HttpServletRequest request) {
         return UserAgentUtil.parse(request.getHeader(HttpHeaders.USER_AGENT));
     }
@@ -114,11 +113,9 @@ public class OAuth2ComplianceService implements ComplianceService {
      * @return 字符串
      * @since 2022.03
      */
-
     private String getIp(HttpServletRequest request) {
         return JakartaServletUtil.getClientIP(request, "");
     }
-
 
     /**
      * 转换为
@@ -130,7 +127,6 @@ public class OAuth2ComplianceService implements ComplianceService {
      * @return o auth2compliance
      * @since 2022.03
      */
-
     public OAuth2Compliance toEntity(
             String principalName, String clientId, String operation, HttpServletRequest request) {
         OAuth2Compliance audit = new OAuth2Compliance();

@@ -45,7 +45,6 @@ public class SysUserService {
     //		this.sysDefaultRoleService = sysDefaultRoleService;
     //	}
 
-
     /**
      * 根据条件查询
      *
@@ -53,12 +52,10 @@ public class SysUserService {
      * @return SysUser
      * @since 2022.03
      */
-
     public SysUser findByUserName(String userName) {
         //		return sysUserRepository.findByUserName(userName);
         return null;
     }
-
 
     /**
      * 根据条件查询
@@ -67,12 +64,10 @@ public class SysUserService {
      * @return SysUser
      * @since 2022.03
      */
-
     public SysUser findByUserId(String userId) {
         //		return sysUserRepository.findByUserId(userId);
         return null;
     }
-
 
     /**
      * changePassword 方法
@@ -82,14 +77,12 @@ public class SysUserService {
      * @return SysUser
      * @since 2022.03
      */
-
     public SysUser changePassword(String userId, String password) {
         SysUser sysUser = findByUserId(userId);
         sysUser.setPassword(SecurityUtils.encrypt(password));
         //		return saveAndFlush(sysUser);
         return null;
     }
-
 
     /**
      * 分配
@@ -99,12 +92,10 @@ public class SysUserService {
      * @return SysUser
      * @since 2022.03
      */
-
     public SysUser assign(String userId, String[] roleIds) {
         SysUser sysUser = findByUserId(userId);
         return this.register(sysUser, roleIds);
     }
-
 
     /**
      * 注册
@@ -114,7 +105,6 @@ public class SysUserService {
      * @return SysUser
      * @since 2022.03
      */
-
     public SysUser register( SysUser sysUser, String[] roleIds) {
         //		Set<SysRole> sysRoles = new HashSet<>();
         //		for (String roleId : roleIds) {
@@ -151,7 +141,6 @@ public class SysUserService {
     //		return saveAndFlush(sysUser);
     //	}
 
-
     /**
      * enhance 方法
      *
@@ -159,7 +148,6 @@ public class SysUserService {
      * @return 字符串
      * @since 2022.03
      */
-
     private String enhance(String userName) {
         if (StringUtils.isNotBlank(userName)) {
             SysUser checkedSysUser = this.findByUserName(userName);
@@ -205,7 +193,6 @@ public class SysUserService {
 //        return null;
 //    }
 
-
     /**
      * changeStatus 方法
      *
@@ -214,7 +201,6 @@ public class SysUserService {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void changeStatus(String userId, DataItemStatusEnum status) {
         SysUser sysUser = findByUserId(userId);
         if (ObjectUtils.isNotEmpty(sysUser)) {

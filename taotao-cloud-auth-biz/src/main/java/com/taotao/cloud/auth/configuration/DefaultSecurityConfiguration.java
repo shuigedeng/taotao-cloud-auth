@@ -342,7 +342,6 @@ public class DefaultSecurityConfiguration {
 	 * @return 密码Encoder
 	 * @since 2022.03
 	 */
-
 	public PasswordEncoder passwordEncoder() {
 		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
 	}
@@ -358,7 +357,6 @@ public class DefaultSecurityConfiguration {
 	 * @return 用户DetailsService
 	 * @since 2022.03
 	 */
-
 	public UserDetailsService userDetailsService(
 		StrategyUserDetailsService strategyUserDetailsService ) {
 		SecurityUserDetailsService securityUserDetailsService =
@@ -376,7 +374,6 @@ public class DefaultSecurityConfiguration {
 	 * @return ClientDetailsService
 	 * @since 2022.03
 	 */
-
 	public ClientDetailsService clientDetailsService( OAuth2ApplicationService applicationService ) {
 		Oauth2ClientDetailsService oauth2ClientDetailsService =
 			new Oauth2ClientDetailsService(applicationService);
@@ -393,7 +390,6 @@ public class DefaultSecurityConfiguration {
 	 * @return SessionRegistry
 	 * @since 2022.03
 	 */
-
 	public SessionRegistry sessionRegistry(
 		FindByIndexNameSessionRepository<? extends Session> sessionRepository ) {
 		return new SpringSessionBackedSessionRegistry<>(sessionRepository);
@@ -407,7 +403,6 @@ public class DefaultSecurityConfiguration {
 	 * @return HttpSessionEventPublisher
 	 * @since 2022.03
 	 */
-
 	public HttpSessionEventPublisher httpSessionEventPublisher() {
 		return new HttpSessionEventPublisher();
 	}
