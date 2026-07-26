@@ -32,6 +32,15 @@ import java.util.Set;
  */
 public class UpmsHelper {
 
+
+    /**
+     * 转换
+     *
+     * @param sysUser sysUser
+     * @return TtcUser
+     * @since 2022.03
+     */
+
     public static TtcUser convertSysUserToTtcUser( SysUser sysUser) {
         Set<TtcGrantedAuthority> authorities = new HashSet<>();
         Set<String> roles = new HashSet<>();
@@ -66,13 +75,40 @@ public class UpmsHelper {
                 authorities);
     }
 
+    /**
+    /**
+     * 判断
+     *
+     * @param sysUser sysUser
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     private static boolean isEnabled( SysUser sysUser) {
         return sysUser.getStatus() != DataItemStatusEnum.FORBIDDEN;
     }
 
+    /**
+    /**
+     * 判断
+     *
+     * @param sysUser sysUser
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     private static boolean isNonLocked( SysUser sysUser) {
         return !(sysUser.getStatus() == DataItemStatusEnum.LOCKING);
     }
+
+    /**
+    /**
+     * 判断
+     *
+     * @param localDateTime localDateTime
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     private static boolean isNonExpired(LocalDateTime localDateTime) {
         if (ObjectUtils.isEmpty(localDateTime)) {
@@ -82,6 +118,15 @@ public class UpmsHelper {
         }
     }
 
+    /**
+    /**
+     * 判断
+     *
+     * @param sysUser sysUser
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     private static boolean isAccountNonExpired( SysUser sysUser) {
         if (sysUser.getStatus() == DataItemStatusEnum.EXPIRED) {
             return false;
@@ -89,6 +134,15 @@ public class UpmsHelper {
 
         return isNonExpired(sysUser.getAccountExpireAt());
     }
+
+    /**
+    /**
+     * 判断
+     *
+     * @param sysUser sysUser
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     private static boolean isCredentialsNonExpired( SysUser sysUser) {
         return isNonExpired(sysUser.getCredentialsExpireAt());

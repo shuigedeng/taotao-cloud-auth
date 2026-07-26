@@ -69,6 +69,13 @@ public class MessagesController {
 
     @Operation(summary = "测试消息", description = "测试消息")
     @GetMapping("/messages")
+    /**
+     * 获取
+     *
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public String[] getMessages() {
         LogUtils.info("slfdlaskdf;lasjdf;lj");
         // DubboDictRes dubboDictRes = dubboDictService.findByCode(1);
@@ -86,6 +93,13 @@ public class MessagesController {
     @Operation(summary = "测试消息NotAuth", description = "测试消息NotAuth")
     @GetMapping("/NotAuth/messages")
     @NotAuth
+    /**
+     * 获取
+     *
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public String[] getMessagesNotAuth() {
         LogUtils.info("slfdlaskdf;lasjdf;lj NotAuth");
 
@@ -112,6 +126,13 @@ public class MessagesController {
     //    }
 
     @GetMapping(value = "/info")
+    /**
+     * 获取
+     *
+     * @return Object
+     * @since 2022.03
+     */
+
     public Object getUserInfo() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Object principal = authentication.getPrincipal();

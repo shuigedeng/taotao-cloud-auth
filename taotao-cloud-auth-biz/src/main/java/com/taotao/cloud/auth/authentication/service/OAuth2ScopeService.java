@@ -39,6 +39,16 @@ public class OAuth2ScopeService {
         this.oauthScopesRepository = oauthScopesRepository;
     }
 
+
+    /**
+     * 分配ed
+     *
+     * @param scopeId scopeId
+     * @param permissions 权限s
+     * @return o auth2scope
+     * @since 2022.03
+     */
+
     public OAuth2Scope assigned(String scopeId, Set<OAuth2Permission> permissions) {
 
         OAuth2Scope oldScope = oauthScopesRepository.findById(scopeId).get();
@@ -46,6 +56,15 @@ public class OAuth2ScopeService {
 
         return oauthScopesRepository.saveAndFlush(oldScope);
     }
+
+
+    /**
+     * 根据条件查询
+     *
+     * @param scopeCode scopeCode
+     * @return o auth2scope
+     * @since 2022.03
+     */
 
     public OAuth2Scope findByScopeCode(String scopeCode) {
         return oauthScopesRepository.findByScopeCode(scopeCode);

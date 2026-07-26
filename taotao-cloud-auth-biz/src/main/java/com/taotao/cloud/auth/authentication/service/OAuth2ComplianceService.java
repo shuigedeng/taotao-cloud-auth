@@ -93,13 +93,43 @@ public class OAuth2ComplianceService implements ComplianceService {
 		complianceRepository.save(compliance);
     }
 
+    /**
+    /**
+     * 获取
+     *
+     * @param request request
+     * @return UserAgent
+     * @since 2022.03
+     */
+
     private UserAgent getUserAgent(HttpServletRequest request) {
         return UserAgentUtil.parse(request.getHeader(HttpHeaders.USER_AGENT));
     }
 
+    /**
+    /**
+     * 获取
+     *
+     * @param request request
+     * @return 字符串
+     * @since 2022.03
+     */
+
     private String getIp(HttpServletRequest request) {
         return JakartaServletUtil.getClientIP(request, "");
     }
+
+
+    /**
+     * 转换为
+     *
+     * @param principalName principalName
+     * @param clientId clientId
+     * @param operation operation
+     * @param request 请求
+     * @return o auth2compliance
+     * @since 2022.03
+     */
 
     public OAuth2Compliance toEntity(
             String principalName, String clientId, String operation, HttpServletRequest request) {

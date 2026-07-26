@@ -99,49 +99,139 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
             })
     private Set<OAuth2Scope> scopes = new HashSet<>();
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getApplicationId() {
         return applicationId;
     }
+
+    /**
+     * 设置
+     *
+     * @param applicationId applicationId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setApplicationId(String applicationId) {
         this.applicationId = applicationId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getApplicationName() {
         return applicationName;
     }
+
+    /**
+     * 设置
+     *
+     * @param applicationName applicationName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setApplicationName(String applicationName) {
         this.applicationName = applicationName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getAbbreviation() {
         return abbreviation;
     }
+
+    /**
+     * 设置
+     *
+     * @param abbreviation abbreviation
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setAbbreviation(String abbreviation) {
         this.abbreviation = abbreviation;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getLogo() {
         return logo;
     }
+
+    /**
+     * 设置
+     *
+     * @param logo logo
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setLogo(String logo) {
         this.logo = logo;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getHomepage() {
         return homepage;
     }
+
+    /**
+     * 设置
+     *
+     * @param homepage homepage
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setHomepage(String homepage) {
         this.homepage = homepage;
     }
 
+    /**
+     * 获取
+     *
+     * @return ApplicationType
+     * @since 2022.03
+     */
+
     public ApplicationType getApplicationType() {
         return applicationType;
     }
+
+    /**
+     * 设置
+     *
+     * @param applicationType applicationType
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setApplicationType(ApplicationType applicationType) {
         this.applicationType = applicationType;
@@ -151,6 +241,14 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
     public Set<OAuth2Scope> getScopes() {
         return scopes;
     }
+
+    /**
+     * 设置
+     *
+     * @param scopes scopes
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setScopes(Set<OAuth2Scope> scopes) {
         this.scopes = scopes;

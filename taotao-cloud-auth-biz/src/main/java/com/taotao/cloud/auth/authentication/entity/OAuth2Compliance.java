@@ -87,121 +87,346 @@ public class OAuth2Compliance extends BaseEntity {
     @Column(name = "operation")
     private String operation;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getComplianceId() {
         return complianceId;
     }
+
+    /**
+     * 设置
+     *
+     * @param complianceId complianceId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setComplianceId(String complianceId) {
         this.complianceId = complianceId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getPrincipalName() {
         return principalName;
     }
+
+    /**
+     * 设置
+     *
+     * @param principalName principalName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setPrincipalName(String principalName) {
         this.principalName = principalName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getClientId() {
         return clientId;
     }
+
+    /**
+     * 设置
+     *
+     * @param clientId clientId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setClientId(String clientId) {
         this.clientId = clientId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getIp() {
         return ip;
     }
+
+    /**
+     * 设置
+     *
+     * @param ip ip
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setIp(String ip) {
         this.ip = ip;
     }
 
+    /**
+     * 获取
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public Boolean getMobile() {
         return mobile;
     }
+
+    /**
+     * 设置
+     *
+     * @param mobile mobile
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setMobile(Boolean mobile) {
         this.mobile = mobile;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getOsName() {
         return osName;
     }
+
+    /**
+     * 设置
+     *
+     * @param osName osName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setOsName(String osName) {
         this.osName = osName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getBrowserName() {
         return browserName;
     }
+
+    /**
+     * 设置
+     *
+     * @param browserName browserName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setBrowserName(String browserName) {
         this.browserName = browserName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public Boolean getMobileBrowser() {
         return mobileBrowser;
     }
+
+    /**
+     * 设置
+     *
+     * @param mobileBrowser mobileBrowser
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setMobileBrowser(Boolean mobileBrowser) {
         this.mobileBrowser = mobileBrowser;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getEngineName() {
         return engineName;
     }
+
+    /**
+     * 设置
+     *
+     * @param engineName engineName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setEngineName(String engineName) {
         this.engineName = engineName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public Boolean getMobilePlatform() {
         return mobilePlatform;
     }
+
+    /**
+     * 设置
+     *
+     * @param mobilePlatform mobilePlatform
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setMobilePlatform(Boolean mobilePlatform) {
         this.mobilePlatform = mobilePlatform;
     }
 
+    /**
+     * 获取
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public Boolean getIphoneOrIpod() {
         return iphoneOrIpod;
     }
+
+    /**
+     * 设置
+     *
+     * @param iphoneOrIpod iphoneOrIpod
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setIphoneOrIpod(Boolean iphoneOrIpod) {
         this.iphoneOrIpod = iphoneOrIpod;
     }
 
+    /**
+     * 获取
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public Boolean getIpad() {
         return ipad;
     }
+
+    /**
+     * 设置
+     *
+     * @param ipad ipad
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setIpad(Boolean ipad) {
         this.ipad = ipad;
     }
 
+    /**
+     * 获取
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public Boolean getIos() {
         return ios;
     }
+
+    /**
+     * 设置
+     *
+     * @param ios ios
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setIos(Boolean ios) {
         this.ios = ios;
     }
 
+    /**
+     * 获取
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public Boolean getAndroid() {
         return android;
     }
+
+    /**
+     * 设置
+     *
+     * @param android android
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setAndroid(Boolean android) {
         this.android = android;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getOperation() {
         return operation;
     }
+
+    /**
+     * 设置
+     *
+     * @param operation operation
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setOperation(String operation) {
         this.operation = operation;

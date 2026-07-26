@@ -42,6 +42,14 @@ public class DistributedArchitectureConfiguration {
             LoggerFactory.getLogger(DistributedArchitectureConfiguration.class);
 
     @PostConstruct
+
+    /**
+     * postConstruct 方法
+     *
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void postConstruct() {
         log.debug(" Module [Distributed Architecture] Auto Configure.");
     }
@@ -71,6 +79,15 @@ public class DistributedArchitectureConfiguration {
 
         @Bean
         @ConditionalOnMissingBean
+
+        /**
+         * localPermissionDetailsService 方法
+         *
+         * @param sysPermissionService sysPermissionService
+         * @return 策略权限DetailsService
+         * @since 2022.03
+         */
+
         public StrategyPermissionDetailsService localPermissionDetailsService(
                 SysPermissionService sysPermissionService ) {
             LocalPermissionDetailsService localPermissionDetailsService =
@@ -104,6 +121,14 @@ public class DistributedArchitectureConfiguration {
 //        }
 		@Bean
 		@ConditionalOnMissingBean
+
+		/**
+		 * remoteUserDetailsService 方法
+		 *
+		 * @return 策略用户DetailsService
+		 * @since 2022.03
+		 */
+
 		public StrategyUserDetailsService remoteUserDetailsService(  ) {
 			log.debug(" Strategy [Remote User Details Service] Auto Configure.");
 			return new RemoteUserDetailsService();
@@ -111,6 +136,14 @@ public class DistributedArchitectureConfiguration {
 
         @Bean
         @ConditionalOnMissingBean
+
+        /**
+         * remotePermissionDetailsService 方法
+         *
+         * @return 策略权限DetailsService
+         * @since 2022.03
+         */
+
         public StrategyPermissionDetailsService remotePermissionDetailsService() {
             RemotePermissionDetailsService remotePermissionDetailsService =
                     new RemotePermissionDetailsService();

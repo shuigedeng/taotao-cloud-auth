@@ -103,105 +103,300 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 
 	public abstract Set<OAuth2Scope> getScopes();
 
+	/**
+	 * 获取
+	 *
+	 * @return 字符串
+	 * @since 2022.03
+	 */
+
 	public String getClientId() {
 		return clientId;
 	}
+
+	/**
+	 * 设置
+	 *
+	 * @param clientId clientId
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setClientId( String clientId ) {
 		this.clientId = clientId;
 	}
 
+	/**
+	 * 获取
+	 *
+	 * @return 字符串
+	 * @since 2022.03
+	 */
+
 	public String getClientSecret() {
 		return clientSecret;
 	}
+
+	/**
+	 * 设置
+	 *
+	 * @param clientSecret clientSecret
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setClientSecret( String clientSecret ) {
 		this.clientSecret = clientSecret;
 	}
 
+	/**
+	 * 获取
+	 *
+	 * @return 是否成功
+	 * @since 2022.03
+	 */
+
 	public Boolean getRequireProofKey() {
 		return requireProofKey;
 	}
+
+	/**
+	 * 设置
+	 *
+	 * @param requireProofKey requireProofKey
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setRequireProofKey( Boolean requireProofKey ) {
 		this.requireProofKey = requireProofKey;
 	}
 
+	/**
+	 * 获取
+	 *
+	 * @return 是否成功
+	 * @since 2022.03
+	 */
+
 	public Boolean getRequireAuthorizationConsent() {
 		return requireAuthorizationConsent;
 	}
+
+	/**
+	 * 设置
+	 *
+	 * @param requireAuthorizationConsent requireAuthorizationConsent
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setRequireAuthorizationConsent( Boolean requireAuthorizationConsent ) {
 		this.requireAuthorizationConsent = requireAuthorizationConsent;
 	}
 
+	/**
+	 * 获取
+	 *
+	 * @return 字符串
+	 * @since 2022.03
+	 */
+
 	public String getJwkSetUrl() {
 		return jwkSetUrl;
 	}
+
+	/**
+	 * 设置
+	 *
+	 * @param jwkSetUrl jwkSetUrl
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setJwkSetUrl( String jwkSetUrl ) {
 		this.jwkSetUrl = jwkSetUrl;
 	}
 
+	/**
+	 * 获取
+	 *
+	 * @return Signature
+	 * @since 2022.03
+	 */
+
 	public Signature getAuthenticationSigningAlgorithm() {
 		return authenticationSigningAlgorithm;
 	}
+
+	/**
+	 * 设置
+	 *
+	 * @param authenticationSigningAlgorithm authenticationSigningAlgorithm
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setAuthenticationSigningAlgorithm( Signature authenticationSigningAlgorithm ) {
 		this.authenticationSigningAlgorithm = authenticationSigningAlgorithm;
 	}
 
+	/**
+	 * 获取
+	 *
+	 * @return Duration
+	 * @since 2022.03
+	 */
+
 	public Duration getAuthorizationCodeValidity() {
 		return authorizationCodeValidity;
 	}
+
+	/**
+	 * 设置
+	 *
+	 * @param authorizationCodeValidity authorizationCodeValidity
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setAuthorizationCodeValidity( Duration authorizationCodeValidity ) {
 		this.authorizationCodeValidity = authorizationCodeValidity;
 	}
 
+	/**
+	 * 获取
+	 *
+	 * @return Duration
+	 * @since 2022.03
+	 */
+
 	public Duration getAccessTokenValidity() {
 		return accessTokenValidity;
 	}
+
+	/**
+	 * 设置
+	 *
+	 * @param accessTokenValidity accessTokenValidity
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setAccessTokenValidity( Duration accessTokenValidity ) {
 		this.accessTokenValidity = accessTokenValidity;
 	}
 
+	/**
+	 * 获取
+	 *
+	 * @return Duration
+	 * @since 2022.03
+	 */
+
 	public Duration getDeviceCodeValidity() {
 		return deviceCodeValidity;
 	}
+
+	/**
+	 * 设置
+	 *
+	 * @param deviceCodeValidity deviceCodeValidity
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setDeviceCodeValidity( Duration deviceCodeValidity ) {
 		this.deviceCodeValidity = deviceCodeValidity;
 	}
 
+	/**
+	 * 获取
+	 *
+	 * @return Duration
+	 * @since 2022.03
+	 */
+
 	public Duration getRefreshTokenValidity() {
 		return refreshTokenValidity;
 	}
+
+	/**
+	 * 设置
+	 *
+	 * @param refreshTokenValidity refreshTokenValidity
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setRefreshTokenValidity( Duration refreshTokenValidity ) {
 		this.refreshTokenValidity = refreshTokenValidity;
 	}
 
+	/**
+	 * 获取
+	 *
+	 * @return TokenFormat
+	 * @since 2022.03
+	 */
+
 	public TokenFormat getAccessTokenFormat() {
 		return accessTokenFormat;
 	}
+
+	/**
+	 * 设置
+	 *
+	 * @param accessTokenFormat accessTokenFormat
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setAccessTokenFormat( TokenFormat accessTokenFormat ) {
 		this.accessTokenFormat = accessTokenFormat;
 	}
 
+	/**
+	 * 获取
+	 *
+	 * @return 是否成功
+	 * @since 2022.03
+	 */
+
 	public Boolean getReuseRefreshTokens() {
 		return reuseRefreshTokens;
 	}
+
+	/**
+	 * 设置
+	 *
+	 * @param reuseRefreshTokens reuseRefreshTokens
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setReuseRefreshTokens( Boolean reuseRefreshTokens ) {
 		this.reuseRefreshTokens = reuseRefreshTokens;
 	}
 
+	/**
+	 * 获取
+	 *
+	 * @return Signature
+	 * @since 2022.03
+	 */
+
 	public Signature getIdTokenSignatureAlgorithm() {
 		return idTokenSignatureAlgorithm;
 	}
+
+	/**
+	 * 设置
+	 *
+	 * @param idTokenSignatureAlgorithm idTokenSignatureAlgorithm
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	public void setIdTokenSignatureAlgorithm( Signature idTokenSignatureAlgorithm ) {
 		this.idTokenSignatureAlgorithm = idTokenSignatureAlgorithm;

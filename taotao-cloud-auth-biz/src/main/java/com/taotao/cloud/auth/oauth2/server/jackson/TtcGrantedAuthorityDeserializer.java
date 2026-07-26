@@ -42,6 +42,16 @@ public class TtcGrantedAuthorityDeserializer extends ValueDeserializer<TtcGrante
         return new TtcGrantedAuthority(authority);
     }
 
+
+    /**
+     * readJsonNode 方法
+     *
+     * @param jsonNode jsonNode
+     * @param field 字段
+     * @return JsonNode
+     * @since 2022.03
+     */
+
     private JsonNode readJsonNode(JsonNode jsonNode, String field) {
         return jsonNode.has(field) ? jsonNode.get(field) : MissingNode.getInstance();
     }

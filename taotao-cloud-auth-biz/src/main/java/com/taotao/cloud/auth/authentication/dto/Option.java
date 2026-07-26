@@ -32,17 +32,47 @@ public class Option implements Serializable {
 
     private String value;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getLabel() {
         return label;
     }
+
+    /**
+     * 设置
+     *
+     * @param label label
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setLabel(String label) {
         this.label = label;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getValue() {
         return value;
     }
+
+    /**
+     * 设置
+     *
+     * @param value value
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setValue(String value) {
         this.value = value;

@@ -139,6 +139,14 @@ public class Oauth2AuthorizationServerConfiguration {
 		LoggerFactory.getLogger(Oauth2AuthorizationServerConfiguration.class);
 
 	@PostConstruct
+
+	/**
+	 * postConstruct 方法
+	 *
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void postConstruct() {
 		log.info("SDK [OAuth2 Authorization Server] Auto Configure.");
 	}
@@ -223,6 +231,26 @@ public class Oauth2AuthorizationServerConfiguration {
 
 	@Bean
 	@Order(Ordered.HIGHEST_PRECEDENCE)
+
+	/**
+	 * authorizationServerSecurityFilterChain 方法
+	 *
+	 * @param httpSecurity httpSecurity
+	 * @param passwordEncoder 密码Encoder
+	 * @param userDetailsService 用户DetailsService
+	 * @param clientDetailsService clientDetailsService
+	 * @param httpCryptoProcessor httpCryptoProcessor
+	 * @param ttcTokenStrategyConfigurer ttcTokenStrategyConfigurer
+	 * @param formLoginUrlConfigurer formLoginUrlConfigurer
+	 * @param securityAuthenticationProperties securityAuthenticationProperties
+	 * @param securityOAuth2EndpointProperties security o auth2endpoint properties
+	 * @param deviceVerificationResponseHandler deviceVerificationResponseHandler
+	 * @param clientRegistrationResponseHandler clientRegistrationResponseHandler
+	 * @param registeredClientRepository registeredClientRepository
+	 * @return SecurityFilterChain
+	 * @since 2022.03
+	 */
+
 	public SecurityFilterChain authorizationServerSecurityFilterChain(
 		HttpSecurity httpSecurity,
 		PasswordEncoder passwordEncoder,
@@ -496,6 +524,14 @@ public class Oauth2AuthorizationServerConfiguration {
 			.build();
 	}
 
+
+	/**
+	 * 创建请求Matcher
+	 *
+	 * @return 请求Matcher
+	 * @since 2022.03
+	 */
+
 	private static RequestMatcher createRequestMatcher() {
 		MediaTypeRequestMatcher requestMatcher = new MediaTypeRequestMatcher(MediaType.TEXT_HTML);
 		requestMatcher.setIgnoredMediaTypes(Set.of(MediaType.ALL));
@@ -592,6 +628,15 @@ public class Oauth2AuthorizationServerConfiguration {
 	}
 
 	@Bean
+
+	/**
+	 * authorizationServerSettings 方法
+	 *
+	 * @param securityOAuth2EndpointProperties security o auth2endpoint properties
+	 * @return AuthorizationServerSettings
+	 * @since 2022.03
+	 */
+
 	public AuthorizationServerSettings authorizationServerSettings(
 		SecurityOAuth2EndpointProperties securityOAuth2EndpointProperties ) {
 		return AuthorizationServerSettings.builder()
@@ -611,7 +656,26 @@ public class Oauth2AuthorizationServerConfiguration {
 			.build();
 	}
 
+
+	/**
+	 * DefaultRedirectStrategy 方法
+	 *
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+
+
+	/**
+	 * 发送
+	 *
+	 * @param request 请求
+	 * @param response 响应
+	 * @param authentication authentication
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
 
 	private void sendAuthorizationResponse(
 		HttpServletRequest request, HttpServletResponse response, Authentication authentication )
@@ -640,6 +704,15 @@ public class Oauth2AuthorizationServerConfiguration {
 		}
 		ResponseUtils.success(response, redirectUri);
 	}
+
+	/**
+	/**
+	 * 判断
+	 *
+	 * @param request request
+	 * @return 是否成功
+	 * @since 2022.03
+	 */
 
 	public boolean isAjaxRequest( HttpServletRequest request ) {
 		String requestedWith = request.getHeader("x-requested-with");

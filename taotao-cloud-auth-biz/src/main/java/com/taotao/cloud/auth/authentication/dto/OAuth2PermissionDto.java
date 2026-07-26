@@ -41,25 +41,70 @@ public class OAuth2PermissionDto {
     @NotNull(message = "服务ID不能为空")
     private String permissionName;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getPermissionId() {
         return permissionId;
     }
+
+    /**
+     * 设置
+     *
+     * @param permissionId permissionId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setPermissionId(String permissionId) {
         this.permissionId = permissionId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getPermissionCode() {
         return permissionCode;
     }
+
+    /**
+     * 设置
+     *
+     * @param permissionCode permissionCode
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setPermissionCode(String permissionCode) {
         this.permissionCode = permissionCode;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getPermissionName() {
         return permissionName;
     }
+
+    /**
+     * 设置
+     *
+     * @param permissionName permissionName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setPermissionName(String permissionName) {
         this.permissionName = permissionName;

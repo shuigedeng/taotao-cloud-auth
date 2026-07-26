@@ -54,6 +54,17 @@ public class OAuth2ClientAuthenticationTokenDeserializer
         return deserialize(jsonParser, context, jsonNode);
     }
 
+
+    /**
+     * deserialize 方法
+     *
+     * @param parser parser
+     * @param context context
+     * @param root root
+     * @return o auth2client authentication token
+     * @since 2022.03
+     */
+
     private OAuth2ClientAuthenticationToken deserialize(
             JsonParser parser, DeserializationContext context, JsonNode root)  {
         Set<TtcGrantedAuthority> authorities =

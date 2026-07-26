@@ -34,6 +34,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class DeviceController {
 
     @GetMapping(DefaultConstants.DEVICE_ACTIVATION_URI)
+
+    /**
+     * activate 方法
+     *
+     * @param USER_CODE 用户_code
+     * @param false false
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String activate(
             @RequestParam(value = OAuth2ParameterNames.USER_CODE, required = false)
                     String userCode) {
@@ -49,6 +59,14 @@ public class DeviceController {
     }
 
     @GetMapping(value = DefaultConstants.DEVICE_VERIFICATION_SUCCESS_URI)
+
+    /**
+     * activated 方法
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String activated() {
         return "activation-allowed";
     }

@@ -45,17 +45,47 @@ public class TtcAuthorizationConsentId implements Serializable {
         this.principalName = principalName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getRegisteredClientId() {
         return registeredClientId;
     }
+
+    /**
+     * 设置
+     *
+     * @param registeredClientId registeredClientId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setRegisteredClientId(String registeredClientId) {
         this.registeredClientId = registeredClientId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getPrincipalName() {
         return principalName;
     }
+
+    /**
+     * 设置
+     *
+     * @param principalName principalName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setPrincipalName(String principalName) {
         this.principalName = principalName;

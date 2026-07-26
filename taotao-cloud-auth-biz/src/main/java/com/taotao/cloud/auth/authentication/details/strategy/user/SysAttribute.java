@@ -88,65 +88,185 @@ public class SysAttribute {
             })
     private Set<SysPermission> permissions = new HashSet<>();
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getAttributeId() {
         return attributeId;
     }
+
+    /**
+     * 设置
+     *
+     * @param attributeId attributeId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setAttributeId(String attributeId) {
         this.attributeId = attributeId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getAttributeCode() {
         return attributeCode;
     }
+
+    /**
+     * 设置
+     *
+     * @param attributeCode attributeCode
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setAttributeCode(String attributeCode) {
         this.attributeCode = attributeCode;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getRequestMethod() {
         return requestMethod;
     }
+
+    /**
+     * 设置
+     *
+     * @param requestMethod requestMethod
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setRequestMethod(String requestMethod) {
         this.requestMethod = requestMethod;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getServiceId() {
         return serviceId;
     }
+
+    /**
+     * 设置
+     *
+     * @param serviceId serviceId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setServiceId(String serviceId) {
         this.serviceId = serviceId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getClassName() {
         return className;
     }
+
+    /**
+     * 设置
+     *
+     * @param className className
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setClassName(String className) {
         this.className = className;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getMethodName() {
         return methodName;
     }
+
+    /**
+     * 设置
+     *
+     * @param methodName methodName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setMethodName(String methodName) {
         this.methodName = methodName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getUrl() {
         return url;
     }
+
+    /**
+     * 设置
+     *
+     * @param url url
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setUrl(String url) {
         this.url = url;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getWebExpression() {
         return webExpression;
     }
+
+    /**
+     * 设置
+     *
+     * @param webExpression webExpression
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setWebExpression(String webExpression) {
         this.webExpression = webExpression;
@@ -155,6 +275,14 @@ public class SysAttribute {
     public Set<SysPermission> getPermissions() {
         return permissions;
     }
+
+    /**
+     * 设置
+     *
+     * @param permissions permissions
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setPermissions(Set<SysPermission> permissions) {
         this.permissions = permissions;

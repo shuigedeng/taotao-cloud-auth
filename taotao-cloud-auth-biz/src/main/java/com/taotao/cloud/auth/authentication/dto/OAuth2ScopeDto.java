@@ -39,9 +39,24 @@ public class OAuth2ScopeDto {
     @Schema(name = "范围权限列表")
     private Set<OAuth2PermissionDto> permissions = new HashSet<>();
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getScopeId() {
         return scopeId;
     }
+
+    /**
+     * 设置
+     *
+     * @param scopeId scopeId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setScopeId(String scopeId) {
         this.scopeId = scopeId;
@@ -50,6 +65,14 @@ public class OAuth2ScopeDto {
     public Set<OAuth2PermissionDto> getPermissions() {
         return permissions;
     }
+
+    /**
+     * 设置
+     *
+     * @param permissions permissions
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setPermissions(Set<OAuth2PermissionDto> permissions) {
         this.permissions = permissions;

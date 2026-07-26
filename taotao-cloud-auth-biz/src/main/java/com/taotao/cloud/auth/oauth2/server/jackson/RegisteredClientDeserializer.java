@@ -55,6 +55,17 @@ public class RegisteredClientDeserializer extends ValueDeserializer<RegisteredCl
         return deserialize(jsonParser, deserializationContext, jsonNode);
     }
 
+
+    /**
+     * deserialize 方法
+     *
+     * @param parser parser
+     * @param deserializationContext deserializationContext
+     * @param root root
+     * @return RegisteredClient
+     * @since 2022.03
+     */
+
     private RegisteredClient deserialize(JsonParser parser,  DeserializationContext deserializationContext, JsonNode root)
             {
 

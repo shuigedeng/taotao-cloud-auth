@@ -40,25 +40,70 @@ public class SessionCreate {
     @Schema(title = "未登录前端身份标识")
     private String sessionId;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getClientId() {
         return clientId;
     }
+
+    /**
+     * 设置
+     *
+     * @param clientId clientId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setClientId(String clientId) {
         this.clientId = clientId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getClientSecret() {
         return clientSecret;
     }
+
+    /**
+     * 设置
+     *
+     * @param clientSecret clientSecret
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setClientSecret(String clientSecret) {
         this.clientSecret = clientSecret;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getSessionId() {
         return sessionId;
     }
+
+    /**
+     * 设置
+     *
+     * @param sessionId sessionId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSessionId(String sessionId) {
         this.sessionId = sessionId;

@@ -84,25 +84,70 @@ public class OAuth2Scope extends BaseSysEntity {
             })
     private Set<OAuth2Permission> permissions = new HashSet<>();
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getScopeId() {
         return scopeId;
     }
+
+    /**
+     * 设置
+     *
+     * @param scopeId scopeId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setScopeId(String scopeId) {
         this.scopeId = scopeId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getScopeCode() {
         return scopeCode;
     }
+
+    /**
+     * 设置
+     *
+     * @param scopeCode scopeCode
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setScopeCode(String scopeCode) {
         this.scopeCode = scopeCode;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getScopeName() {
         return scopeName;
     }
+
+    /**
+     * 设置
+     *
+     * @param scopeName scopeName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setScopeName(String scopeName) {
         this.scopeName = scopeName;
@@ -111,6 +156,14 @@ public class OAuth2Scope extends BaseSysEntity {
     public Set<OAuth2Permission> getPermissions() {
         return permissions;
     }
+
+    /**
+     * 设置
+     *
+     * @param permissions permissions
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setPermissions(Set<OAuth2Permission> permissions) {
         this.permissions = permissions;

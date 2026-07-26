@@ -45,15 +45,43 @@ public class SysUserService {
     //		this.sysDefaultRoleService = sysDefaultRoleService;
     //	}
 
+
+    /**
+     * 根据条件查询
+     *
+     * @param userName 用户名
+     * @return SysUser
+     * @since 2022.03
+     */
+
     public SysUser findByUserName(String userName) {
         //		return sysUserRepository.findByUserName(userName);
         return null;
     }
 
+
+    /**
+     * 根据条件查询
+     *
+     * @param userId 用户ID
+     * @return SysUser
+     * @since 2022.03
+     */
+
     public SysUser findByUserId(String userId) {
         //		return sysUserRepository.findByUserId(userId);
         return null;
     }
+
+
+    /**
+     * changePassword 方法
+     *
+     * @param userId 用户ID
+     * @param password 密码
+     * @return SysUser
+     * @since 2022.03
+     */
 
     public SysUser changePassword(String userId, String password) {
         SysUser sysUser = findByUserId(userId);
@@ -62,10 +90,30 @@ public class SysUserService {
         return null;
     }
 
+
+    /**
+     * 分配
+     *
+     * @param userId 用户ID
+     * @param roleIds 角色ID列表
+     * @return SysUser
+     * @since 2022.03
+     */
+
     public SysUser assign(String userId, String[] roleIds) {
         SysUser sysUser = findByUserId(userId);
         return this.register(sysUser, roleIds);
     }
+
+
+    /**
+     * 注册
+     *
+     * @param sysUser sysUser
+     * @param roleIds 角色ID列表
+     * @return SysUser
+     * @since 2022.03
+     */
 
     public SysUser register( SysUser sysUser, String[] roleIds) {
         //		Set<SysRole> sysRoles = new HashSet<>();
@@ -102,6 +150,15 @@ public class SysUserService {
     //		}
     //		return saveAndFlush(sysUser);
     //	}
+
+
+    /**
+     * enhance 方法
+     *
+     * @param userName 用户名
+     * @return 字符串
+     * @since 2022.03
+     */
 
     private String enhance(String userName) {
         if (StringUtils.isNotBlank(userName)) {
@@ -147,6 +204,16 @@ public class SysUserService {
 //        //		return UpmsHelper.convertSysUserToTtcUser(newSysUser);
 //        return null;
 //    }
+
+
+    /**
+     * changeStatus 方法
+     *
+     * @param userId 用户ID
+     * @param status 状态
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void changeStatus(String userId, DataItemStatusEnum status) {
         SysUser sysUser = findByUserId(userId);

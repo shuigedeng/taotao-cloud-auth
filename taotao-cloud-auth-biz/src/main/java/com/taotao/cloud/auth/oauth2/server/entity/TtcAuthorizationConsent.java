@@ -181,9 +181,24 @@ public class TtcAuthorizationConsent extends AbstractEntity {
                 .toString();
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Long getVersion() {
         return version;
     }
+
+    /**
+     * 设置
+     *
+     * @param version version
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setVersion(Long version) {
         this.version = version;

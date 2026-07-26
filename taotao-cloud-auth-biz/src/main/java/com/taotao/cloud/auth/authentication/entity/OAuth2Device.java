@@ -86,33 +86,93 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
             })
     private Set<OAuth2Scope> scopes = new HashSet<>();
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getDeviceId() {
         return deviceId;
     }
+
+    /**
+     * 设置
+     *
+     * @param deviceId deviceId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setDeviceId(String deviceId) {
         this.deviceId = deviceId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getDeviceName() {
         return deviceName;
     }
+
+    /**
+     * 设置
+     *
+     * @param deviceName deviceName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setDeviceName(String deviceName) {
         this.deviceName = deviceName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getProductId() {
         return productId;
     }
+
+    /**
+     * 设置
+     *
+     * @param productId productId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setProductId(String productId) {
         this.productId = productId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public Boolean getActivated() {
         return activated;
     }
+
+    /**
+     * 设置
+     *
+     * @param activated activated
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setActivated(Boolean activated) {
         this.activated = activated;
@@ -122,6 +182,14 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
     public Set<OAuth2Scope> getScopes() {
         return scopes;
     }
+
+    /**
+     * 设置
+     *
+     * @param scopes scopes
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setScopes(Set<OAuth2Scope> scopes) {
         this.scopes = scopes;

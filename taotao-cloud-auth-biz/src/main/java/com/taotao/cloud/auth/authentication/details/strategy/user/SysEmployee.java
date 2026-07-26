@@ -134,73 +134,208 @@ public class SysEmployee {
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
     private SysUser user;
 
+    /**
+     * 获取
+     *
+     * @return SysUser
+     * @since 2022.03
+     */
+
     public SysUser getUser() {
         return user;
     }
+
+    /**
+     * 设置
+     *
+     * @param user user
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setUser( SysUser user) {
         this.user = user;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getEmployeeId() {
         return employeeId;
     }
+
+    /**
+     * 设置
+     *
+     * @param employeeId employeeId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getEmployeeName() {
         return employeeName;
     }
+
+    /**
+     * 设置
+     *
+     * @param employeeName employeeName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getEmployeeNo() {
         return employeeNo;
     }
+
+    /**
+     * 设置
+     *
+     * @param employeeNo employeeNo
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setEmployeeNo(String employeeNo) {
         this.employeeNo = employeeNo;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getMobilePhoneNumber() {
         return mobilePhoneNumber;
     }
+
+    /**
+     * 设置
+     *
+     * @param mobilePhoneNumber mobilePhoneNumber
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setMobilePhoneNumber(String mobilePhoneNumber) {
         this.mobilePhoneNumber = mobilePhoneNumber;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getOfficePhoneNumber() {
         return officePhoneNumber;
     }
+
+    /**
+     * 设置
+     *
+     * @param officePhoneNumber officePhoneNumber
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setOfficePhoneNumber(String officePhoneNumber) {
         this.officePhoneNumber = officePhoneNumber;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getEmail() {
         return email;
     }
+
+    /**
+     * 设置
+     *
+     * @param email email
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getPkiEmail() {
         return pkiEmail;
     }
+
+    /**
+     * 设置
+     *
+     * @param pkiEmail pkiEmail
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setPkiEmail(String pkiEmail) {
         this.pkiEmail = pkiEmail;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getA4BizEmpId() {
         return a4BizEmpId;
     }
+
+    /**
+     * 设置
+     *
+     * @param a4BizEmpId a4BizEmpId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setA4BizEmpId(String a4BizEmpId) {
         this.a4BizEmpId = a4BizEmpId;
@@ -236,13 +371,36 @@ public class SysEmployee {
 //        return this.getEmail();
 //    }
 
+    /**
+     * 设置
+     *
+     * @param avatar avatar
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 
+    /**
+     * 获取
+     *
+     * @return Date
+     * @since 2022.03
+     */
+
     public Date getBirthday() {
         return birthday;
     }
+
+    /**
+     * 设置
+     *
+     * @param birthday birthday
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
@@ -251,6 +409,14 @@ public class SysEmployee {
     public Set<SysDepartment> getDepartments() {
         return departments;
     }
+
+    /**
+     * 设置
+     *
+     * @param departments departments
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setDepartments(Set<SysDepartment> departments) {
         this.departments = departments;

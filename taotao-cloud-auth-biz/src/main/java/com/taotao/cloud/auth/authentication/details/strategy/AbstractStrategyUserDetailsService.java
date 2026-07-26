@@ -30,6 +30,16 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
  */
 public abstract class AbstractStrategyUserDetailsService implements StrategyUserDetailsService {
 
+
+    /**
+     * 转换
+     *
+     * @param sysUser sysUser
+     * @param userName 用户名
+     * @return TtcUser
+     * @since 2022.03
+     */
+
     protected TtcUser convertSysUser( SysUser sysUser, String userName)
             throws AuthenticationException {
         if (ObjectUtils.isEmpty(sysUser)) {

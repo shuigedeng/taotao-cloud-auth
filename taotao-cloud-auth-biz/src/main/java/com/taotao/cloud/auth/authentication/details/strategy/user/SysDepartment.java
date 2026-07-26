@@ -89,97 +89,277 @@ public class SysDepartment {
     @Column(name = "organization_id", length = 64)
     private String organizationId;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getDepartmentId() {
         return departmentId;
     }
+
+    /**
+     * 设置
+     *
+     * @param departmentId departmentId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setDepartmentId(String departmentId) {
         this.departmentId = departmentId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getDepartmentName() {
         return departmentName;
     }
+
+    /**
+     * 设置
+     *
+     * @param departmentName departmentName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getA4BizDeptId() {
         return a4BizDeptId;
     }
+
+    /**
+     * 设置
+     *
+     * @param a4BizDeptId a4BizDeptId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setA4BizDeptId(String a4BizDeptId) {
         this.a4BizDeptId = a4BizDeptId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getBizDeptCode() {
         return bizDeptCode;
     }
+
+    /**
+     * 设置
+     *
+     * @param bizDeptCode bizDeptCode
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setBizDeptCode(String bizDeptCode) {
         this.bizDeptCode = bizDeptCode;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getBizDeptDesc() {
         return bizDeptDesc;
     }
+
+    /**
+     * 设置
+     *
+     * @param bizDeptDesc bizDeptDesc
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setBizDeptDesc(String bizDeptDesc) {
         this.bizDeptDesc = bizDeptDesc;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getBizDeptId() {
         return bizDeptId;
     }
+
+    /**
+     * 设置
+     *
+     * @param bizDeptId bizDeptId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setBizDeptId(String bizDeptId) {
         this.bizDeptId = bizDeptId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getBizDeptName() {
         return bizDeptName;
     }
+
+    /**
+     * 设置
+     *
+     * @param bizDeptName bizDeptName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setBizDeptName(String bizDeptName) {
         this.bizDeptName = bizDeptName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getBizDeptType() {
         return bizDeptType;
     }
+
+    /**
+     * 设置
+     *
+     * @param bizDeptType bizDeptType
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setBizDeptType(String bizDeptType) {
         this.bizDeptType = bizDeptType;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getPartitionCode() {
         return partitionCode;
     }
+
+    /**
+     * 设置
+     *
+     * @param partitionCode partitionCode
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setPartitionCode(String partitionCode) {
         this.partitionCode = partitionCode;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getShortName() {
         return shortName;
     }
+
+    /**
+     * 设置
+     *
+     * @param shortName shortName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setShortName(String shortName) {
         this.shortName = shortName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getParentId() {
         return parentId;
     }
+
+    /**
+     * 设置
+     *
+     * @param parentId parentId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setParentId(String parentId) {
         this.parentId = parentId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getOrganizationId() {
         return organizationId;
     }
+
+    /**
+     * 设置
+     *
+     * @param organizationId organizationId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setOrganizationId(String organizationId) {
         this.organizationId = organizationId;

@@ -37,17 +37,47 @@ public class SessionExchange {
     @Schema(title = "未登录前端身份标识")
     private String sessionId;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getConfidential() {
         return confidential;
     }
+
+    /**
+     * 设置
+     *
+     * @param confidential confidential
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setConfidential(String confidential) {
         this.confidential = confidential;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getSessionId() {
         return sessionId;
     }
+
+    /**
+     * 设置
+     *
+     * @param sessionId sessionId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSessionId(String sessionId) {
         this.sessionId = sessionId;

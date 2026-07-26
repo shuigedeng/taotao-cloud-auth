@@ -40,6 +40,16 @@ public abstract class AbstractOAuth2EntityConverter<S, T> implements Converter<S
         return jacksonProcessor.parseMap(data);
     }
 
+
+    /**
+     * writeMap 方法
+     *
+     * @param String String
+     * @param data 数据
+     * @return 字符串
+     * @since 2022.03
+     */
+
     protected String writeMap(Map<String, Object> data) {
         return jacksonProcessor.writeMap(data);
     }

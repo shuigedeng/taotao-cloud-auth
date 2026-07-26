@@ -41,25 +41,70 @@ public class Session {
      */
     private String state;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getSessionId() {
         return sessionId;
     }
+
+    /**
+     * 设置
+     *
+     * @param sessionId sessionId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSessionId(String sessionId) {
         this.sessionId = sessionId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getPublicKey() {
         return publicKey;
     }
+
+    /**
+     * 设置
+     *
+     * @param publicKey publicKey
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setPublicKey(String publicKey) {
         this.publicKey = publicKey;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getState() {
         return state;
     }
+
+    /**
+     * 设置
+     *
+     * @param state state
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setState(String state) {
         this.state = state;

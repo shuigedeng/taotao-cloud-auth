@@ -124,6 +124,15 @@ public class OAuth2ScopeController {
         return Result.success(scope);
     }
 
+
+    /**
+     * 转换为
+     *
+     * @param dto DTO
+     * @return o auth2permission
+     * @since 2022.03
+     */
+
     private OAuth2Permission toEntity( OAuth2PermissionDto dto) {
         OAuth2Permission entity = new OAuth2Permission();
         entity.setPermissionId(dto.getPermissionId());

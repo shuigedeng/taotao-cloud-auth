@@ -59,6 +59,15 @@ public class OAuth2ApplicationService {
         this.objectConverter = new OAuth2ApplicationToRegisteredClientConverter();
     }
 
+
+    /**
+     * 保存
+     *
+     * @param entity entity
+     * @return o auth2application
+     * @since 2022.03
+     */
+
     public OAuth2Application saveAndFlush( OAuth2Application entity) {
         OAuth2Application application = applicationRepository.saveAndFlush(entity);
         if (ObjectUtils.isNotEmpty(application)) {
@@ -72,12 +81,31 @@ public class OAuth2ApplicationService {
     }
 
     @Transactional(rollbackFor = RuntimeException.class)
+
+    /**
+     * 删除
+     *
+     * @param id ID
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void deleteById(String id) {
         applicationRepository.deleteById(id);
         ttcRegisteredClientRepository.deleteById(id);
     }
 
     @Transactional(rollbackFor = RuntimeException.class)
+
+    /**
+     * authorize 方法
+     *
+     * @param applicationId applicationId
+     * @param scopeIds scope id列表
+     * @return o auth2application
+     * @since 2022.03
+     */
+
     public OAuth2Application authorize(String applicationId, String[] scopeIds) {
 
         Set<OAuth2Scope> scopes = new HashSet<>();
@@ -92,6 +120,15 @@ public class OAuth2ApplicationService {
 
         return saveAndFlush(oldApplication);
     }
+
+
+    /**
+     * 根据条件查询
+     *
+     * @param clientId clientId
+     * @return o auth2application
+     * @since 2022.03
+     */
 
     public OAuth2Application findByClientId(String clientId) {
         return applicationRepository.findByClientId(clientId);

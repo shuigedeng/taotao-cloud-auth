@@ -171,9 +171,24 @@ public class SysSocialUser  {
             })
     private Set<SysUser> users = new HashSet<>();
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getSocialId() {
         return socialId;
     }
+
+    /**
+     * 设置
+     *
+     * @param socialId socialId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSocialId(String socialId) {
         this.socialId = socialId;
@@ -211,53 +226,151 @@ public class SysSocialUser  {
 //        return avatar;
 //    }
 
+    /**
+     * 设置
+     *
+     * @param avatar avatar
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getBlog() {
         return blog;
     }
 
+    /**
+     * 设置
+     *
+     * @param blog blog
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setBlog(String blog) {
         this.blog = blog;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getCompany() {
         return company;
     }
 
+    /**
+     * 设置
+     *
+     * @param company company
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setCompany(String company) {
         this.company = company;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getLocation() {
         return location;
     }
 
+    /**
+     * 设置
+     *
+     * @param location location
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setLocation(String location) {
         this.location = location;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getEmail() {
         return email;
     }
 
+    /**
+     * 设置
+     *
+     * @param email email
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setEmail(String email) {
         this.email = email;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getRemark() {
         return remark;
     }
 
+    /**
+     * 设置
+     *
+     * @param remark remark
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setRemark(String remark) {
         this.remark = remark;
     }
 
+    /**
+     * 获取
+     *
+     * @return AuthUserGender
+     * @since 2022.03
+     */
+
     public AuthUserGender getGender() {
         return gender;
     }
+
+    /**
+     * 设置
+     *
+     * @param gender gender
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setGender(AuthUserGender gender) {
         this.gender = gender;
@@ -268,93 +381,266 @@ public class SysSocialUser  {
 //        return source;
 //    }
 
+    /**
+     * 设置
+     *
+     * @param source source
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setSource(String source) {
         this.source = source;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getAccessToken() {
         return accessToken;
     }
 
+    /**
+     * 设置
+     *
+     * @param accessToken accessToken
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getRefreshToken() {
         return refreshToken;
     }
 
+    /**
+     * 设置
+     *
+     * @param refreshToken refreshToken
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
     }
+
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
 
     public Integer getExpireIn() {
         return expireIn;
     }
 
+    /**
+     * 设置
+     *
+     * @param expireIn expireIn
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setExpireIn(Integer expireIn) {
         this.expireIn = expireIn;
     }
+
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
 
     public Integer getRefreshTokenExpireIn() {
         return refreshTokenExpireIn;
     }
 
+    /**
+     * 设置
+     *
+     * @param refreshTokenExpireIn refreshTokenExpireIn
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setRefreshTokenExpireIn(Integer refreshTokenExpireIn) {
         this.refreshTokenExpireIn = refreshTokenExpireIn;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getScope() {
         return scope;
     }
 
+    /**
+     * 设置
+     *
+     * @param scope scope
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setScope(String scope) {
         this.scope = scope;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getTokenType() {
         return tokenType;
     }
 
+    /**
+     * 设置
+     *
+     * @param tokenType tokenType
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setTokenType(String tokenType) {
         this.tokenType = tokenType;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getUid() {
         return uid;
     }
 
+    /**
+     * 设置
+     *
+     * @param uid uid
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setUid(String uid) {
         this.uid = uid;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getOpenId() {
         return openId;
     }
 
+    /**
+     * 设置
+     *
+     * @param openId openId
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setOpenId(String openId) {
         this.openId = openId;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getAccessCode() {
         return accessCode;
     }
 
+    /**
+     * 设置
+     *
+     * @param accessCode accessCode
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setAccessCode(String accessCode) {
         this.accessCode = accessCode;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getUnionId() {
         return unionId;
     }
 
+    /**
+     * 设置
+     *
+     * @param unionId unionId
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setUnionId(String unionId) {
         this.unionId = unionId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getAppId() {
         return appId;
     }
+
+    /**
+     * 设置
+     *
+     * @param appId appId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setAppId(String appId) {
         this.appId = appId;
@@ -365,6 +651,14 @@ public class SysSocialUser  {
 //        return phoneNumber;
 //    }
 
+    /**
+     * 设置
+     *
+     * @param phoneNumber phoneNumber
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
@@ -372,6 +666,14 @@ public class SysSocialUser  {
     public Set<SysUser> getUsers() {
         return users;
     }
+
+    /**
+     * 设置
+     *
+     * @param users users
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setUsers(Set<SysUser> users) {
         this.users = users;

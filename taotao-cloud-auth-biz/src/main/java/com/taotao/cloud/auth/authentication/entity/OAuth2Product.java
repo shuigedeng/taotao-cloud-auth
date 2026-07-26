@@ -53,17 +53,47 @@ public class OAuth2Product extends BaseEntity {
     @Column(name = "product_key", length = 32, unique = true)
     private String productKey;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getProductId() {
         return productId;
     }
+
+    /**
+     * 设置
+     *
+     * @param productId productId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setProductId(String productId) {
         this.productId = productId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getProductKey() {
         return productKey;
     }
+
+    /**
+     * 设置
+     *
+     * @param productKey productKey
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setProductKey(String productKey) {
         this.productKey = productKey;
