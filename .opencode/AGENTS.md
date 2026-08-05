@@ -105,7 +105,7 @@ gradlew publishToMavenLocal                            # 发布到本地 Maven
 ## NOTES
 
 - JDK 25 预览特性，`--enable-preview` + 大量 `--add-exports`
-- `taotao-cloud-dependencies:2026.08` BOM 未开源，外部构建需要私有仓库凭据
+- `taotao-cloud-dependencies:2026.09` BOM 未开源，外部构建需要私有仓库凭据
 - `taotao-cloud-starter-security` 提供框架安全能力
 - OAuth2 客户端注册信息存储在 `OAuth2Application` 实体中
 - 设备码授权流程：`DeviceController` → `OAuth2DeviceService` → `OAuth2Device`

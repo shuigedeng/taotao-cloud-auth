@@ -5,7 +5,7 @@
 taotao-cloud-auth 是 taotao-cloud 微服务架构中的 **OAuth2 授权服务器（认证中心）**，基于 Spring Authorization Server（内置在 Spring Security 中）构建。提供统一的认证、授权、单点登录能力，支持授权码、客户端凭证、设备码等多种 OAuth2 授权模式。
 
 - **group**: `io.github.shuigedeng`
-- **version**: `2026.08`
+- **version**: `2026.09`
 - **模块**: `taotao-cloud-auth-api`（纯接口） + `taotao-cloud-auth-biz`（业务实现）
 
 ## 技术栈
@@ -23,7 +23,7 @@ taotao-cloud-auth 是 taotao-cloud 微服务架构中的 **OAuth2 授权服务�
 | 注册中心 | Nacos | — |
 | 文档 | Knife4j / Swagger | 4.5.0 / 3.0.0 |
 | 工具 | Lombok / MapStruct / Record Builder / Hutool | 1.18.46 / 1.6.3 / 53 / 5.8.44 |
-| BOM | taotao-cloud-dependencies | 2026.08 |
+| BOM | taotao-cloud-dependencies | 2026.09 |
 | 质量 | Checkstyle / SpotBugs / PMD / Spotless / OWASP | — |
 | 容器化 | Jib / Docker / K8s | — |
 
@@ -163,7 +163,7 @@ Repository (JPA 数据访问，接口继承 JpaRepository)
 - 编译时：`--enable-preview` + `--release 25`
 - 运行时：`--enable-preview`
 - `--add-exports` JVM 参数大量使用（接入 Spring Boot 4 + JDK 25 的模块化兼容需求）
-- BOM `taotao-cloud-dependencies:2026.08` 未开源，需私有仓库凭据
+- BOM `taotao-cloud-dependencies:2026.09` 未开源，需私有仓库凭据
 - `OAuth2Application` 中 `redirectUris`、`scopes` 等字段使用 JSON 数组字符串存储
 
 ## 团队协作
