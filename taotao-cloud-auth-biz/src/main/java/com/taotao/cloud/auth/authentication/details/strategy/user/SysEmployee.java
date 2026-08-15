@@ -34,6 +34,9 @@ import java.util.Set;
 /**
  * <p>人员信息 </p>
  */
+// @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region =
+// UpmsConstants.REGION_SYS_EMPLOYEE)
+//public class SysEmployee implements SocialUserDetails {
 @Schema(title = "人员")
 @Entity
 @NamedEntityGraph(
@@ -49,9 +52,6 @@ import java.util.Set;
         indexes = {@Index(name = "sys_employee_id_idx", columnList = "employee_id")})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "employeeId")
 @Cacheable
-// @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region =
-// UpmsConstants.REGION_SYS_EMPLOYEE)
-//public class SysEmployee implements SocialUserDetails {
 public class SysEmployee {
 
     @Schema(title = "人员ID")

@@ -30,15 +30,15 @@ import java.util.Set;
 /**
  * <p>社会化登录用户 </p>
  */
+// @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region =
+// UpmsConstants.REGION_SYS_SOCIAL_USER)
+//public class SysSocialUser implements SocialUserDetails {
 @Schema(title = "社会化登录用户")
 @Entity
 @Table(
         name = "sys_social_user",
         indexes = {@Index(name = "sys_social_user_id_idx", columnList = "social_id")})
 @Cacheable
-// @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region =
-// UpmsConstants.REGION_SYS_SOCIAL_USER)
-//public class SysSocialUser implements SocialUserDetails {
 public class SysSocialUser  {
 
     @Schema(title = "社会用户ID")

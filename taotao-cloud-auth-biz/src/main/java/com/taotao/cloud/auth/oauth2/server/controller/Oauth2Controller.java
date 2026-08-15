@@ -61,8 +61,8 @@ public class Oauth2Controller {
      * @param user OAuth2用户信息
      * @return OAuth2用户信息
      */
-    @Operation(summary = "获取当前认证的OAuth2用户信息", description = "获取当前认证的OAuth2用户信息")
     // @RequestLogger
+    @Operation(summary = "获取当前认证的OAuth2用户信息", description = "获取当前认证的OAuth2用户信息")
     @PreAuthorize("hasAuthority('express:company:info:id')")
     @GetMapping("/user")
     public Result<OAuth2User> user(@AuthenticationPrincipal OAuth2User user) {
@@ -83,8 +83,8 @@ public class Oauth2Controller {
     //            @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient oAuth2AuthorizedClient) {
     //        return Result.success(oAuth2AuthorizedClient);
     //    }
-    @Operation(summary = "退出系统", description = "退出系统")
     // @RequestLogger
+    @Operation(summary = "退出系统", description = "退出系统")
     @PostMapping("/logout")
     public Result<Boolean> logout() {
         Authentication authentication = SecurityUtils.getAuthentication();

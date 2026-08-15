@@ -28,6 +28,8 @@ import org.hibernate.annotations.UuidGenerator;
  * <p>部门信息 </p>
  *
  */
+// @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region =
+// UpmsConstants.REGION_SYS_DEPARTMENT)
 @Schema(title = "部门")
 @Entity
 @Table(
@@ -35,8 +37,6 @@ import org.hibernate.annotations.UuidGenerator;
         indexes = {@Index(name = "sys_department_id_idx", columnList = "department_id")})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "departmentId")
 @Cacheable
-// @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region =
-// UpmsConstants.REGION_SYS_DEPARTMENT)
 public class SysDepartment {
 
     @Schema(title = "部门ID")

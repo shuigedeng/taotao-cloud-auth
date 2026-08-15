@@ -34,6 +34,8 @@ import java.util.Set;
  * <p>系统用户 </p>
  *
  */
+// @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region =
+// UpmsConstants.REGION_SYS_USER)
 @Schema(title = "系统用户")
 @Entity
 @Table(
@@ -44,8 +46,6 @@ import java.util.Set;
             @Index(name = "sys_user_unm_idx", columnList = "user_name")
         })
 @Cacheable
-// @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region =
-// UpmsConstants.REGION_SYS_USER)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "userId")
 public class SysUser {
 

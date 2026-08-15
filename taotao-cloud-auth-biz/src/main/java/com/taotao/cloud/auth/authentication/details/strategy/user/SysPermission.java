@@ -26,14 +26,14 @@ import org.hibernate.annotations.UuidGenerator;
  * <p>系统权限实体 </p>
  *
  */
+// @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region =
+// UpmsConstants.REGION_SYS_PERMISSION)
 @Schema(name = "系统权限")
 @Entity
 @Table(
         name = "sys_permission",
         indexes = {@Index(name = "sys_permission_id_idx", columnList = "permission_id")})
 @Cacheable
-// @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region =
-// UpmsConstants.REGION_SYS_PERMISSION)
 public class SysPermission {
 
     @Schema(name = "权限ID")

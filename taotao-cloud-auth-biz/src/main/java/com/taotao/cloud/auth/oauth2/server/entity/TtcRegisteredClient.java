@@ -47,8 +47,8 @@ public class TtcRegisteredClient extends AbstractRegisteredClient {
     /**
      * id
      */
-    @Id
     //@TtcRegisteredClientUuidGenerator
+    @Id
     @UuidGenerator
     @Column(name = "id", nullable = false, length = 100)
     private String id;

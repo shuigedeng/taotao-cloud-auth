@@ -38,9 +38,9 @@ import java.util.Set;
 // @EntityListeners(value = {SysAttributeEntityListener.class})
 public class SysAttribute {
 
+    //    @SysAttributeUuid
     @Schema(title = "元数据ID")
     @Id
-    //    @SysAttributeUuid
     @Column(name = "attribute_id", length = 64)
     private String attributeId;
 

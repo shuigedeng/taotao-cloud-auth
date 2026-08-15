@@ -41,8 +41,8 @@ import java.util.Objects;
         region = OAuth2Constants.REGION_OAUTH2_PERMISSION)
 public class OAuth2Permission extends BaseSysEntity {
 
-    @Id
 //    @OAuth2PermissionUuid
+    @Id
     @UuidGenerator
     @Column(name = "permission_id", length = 64)
     private String permissionId;

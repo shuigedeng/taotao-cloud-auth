@@ -49,8 +49,8 @@ public class TtcAuthorization extends AbstractEntity {
     /**
      * id
      */
-    @Id
     //@TtcAuthorizationUuidGenerator
+    @Id
     @UuidGenerator
     @Column(name = "id", nullable = false, length = 100)
     private String id;

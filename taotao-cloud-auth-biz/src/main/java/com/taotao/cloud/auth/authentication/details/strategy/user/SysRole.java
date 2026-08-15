@@ -34,6 +34,8 @@ import java.util.Set;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
+// @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region =
+// UpmsConstants.REGION_SYS_ROLE)
 @Entity
 @Table(
         name = "sys_role",
@@ -43,8 +45,6 @@ import java.util.Set;
                 @Index(name = "sys_role_rcd_idx", columnList = "role_code")
         })
 @Cacheable
-// @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region =
-// UpmsConstants.REGION_SYS_ROLE)
 public class SysRole {
 
     @Id
