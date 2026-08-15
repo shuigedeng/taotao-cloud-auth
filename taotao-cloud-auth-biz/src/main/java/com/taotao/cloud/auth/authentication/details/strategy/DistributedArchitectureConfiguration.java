@@ -41,14 +41,13 @@ public class DistributedArchitectureConfiguration {
     private static final Logger log =
             LoggerFactory.getLogger(DistributedArchitectureConfiguration.class);
 
-    @PostConstruct
-
     /**
      * postConstruct 方法
      *
      * @return 无返回值
      * @since 2022.03
      */
+    @PostConstruct
     public void postConstruct() {
         log.debug(" Module [Distributed Architecture] Auto Configure.");
     }
@@ -76,9 +75,6 @@ public class DistributedArchitectureConfiguration {
 //            return new LocalUserDetailsService(sysUserService, socialAuthenticationHandler);
 //        }
 
-        @Bean
-        @ConditionalOnMissingBean
-
         /**
          * localPermissionDetailsService 方法
          *
@@ -86,6 +82,8 @@ public class DistributedArchitectureConfiguration {
          * @return 策略权限DetailsService
          * @since 2022.03
          */
+        @Bean
+        @ConditionalOnMissingBean
         public StrategyPermissionDetailsService localPermissionDetailsService(
                 SysPermissionService sysPermissionService ) {
             LocalPermissionDetailsService localPermissionDetailsService =
@@ -117,8 +115,6 @@ public class DistributedArchitectureConfiguration {
 //            log.debug(" Strategy [Remote User Details Service] Auto Configure.");
 //            return new RemoteUserDetailsService(userApi);
 //        }
-		@Bean
-		@ConditionalOnMissingBean
 
 		/**
 		 * remoteUserDetailsService 方法
@@ -126,13 +122,12 @@ public class DistributedArchitectureConfiguration {
 		 * @return 策略用户DetailsService
 		 * @since 2022.03
 		 */
+		@Bean
+		@ConditionalOnMissingBean
 		public StrategyUserDetailsService remoteUserDetailsService(  ) {
 			log.debug(" Strategy [Remote User Details Service] Auto Configure.");
 			return new RemoteUserDetailsService();
 		}
-
-        @Bean
-        @ConditionalOnMissingBean
 
         /**
          * remotePermissionDetailsService 方法
@@ -140,6 +135,8 @@ public class DistributedArchitectureConfiguration {
          * @return 策略权限DetailsService
          * @since 2022.03
          */
+        @Bean
+        @ConditionalOnMissingBean
         public StrategyPermissionDetailsService remotePermissionDetailsService() {
             RemotePermissionDetailsService remotePermissionDetailsService =
                     new RemotePermissionDetailsService();
@@ -148,3 +145,4 @@ public class DistributedArchitectureConfiguration {
         }
     }
 }
+

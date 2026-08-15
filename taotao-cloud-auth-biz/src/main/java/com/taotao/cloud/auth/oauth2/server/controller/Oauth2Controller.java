@@ -112,9 +112,6 @@ public class Oauth2Controller {
         throw new BaseException("退出失败");
     }
 
-    @ResponseBody
-    @GetMapping("/userInfo")
-
     /**
      * 用户
      *
@@ -122,6 +119,8 @@ public class Oauth2Controller {
      * @return oauth2userinfo
      * @since 2022.03
      */
+    @ResponseBody
+    @GetMapping("/userInfo")
     public Oauth2UserinfoResult user(Principal principal) {
         Oauth2UserinfoResult result = new Oauth2UserinfoResult();
         //		if (!(principal instanceof JwtAuthenticationToken jwtAuthenticationToken)) {
@@ -183,3 +182,4 @@ public class Oauth2Controller {
         return result;
     }
 }
+

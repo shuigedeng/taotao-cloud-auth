@@ -78,8 +78,6 @@ public class OAuth2ApplicationService {
         }
     }
 
-    @Transactional(rollbackFor = RuntimeException.class)
-
     /**
      * 删除
      *
@@ -87,12 +85,11 @@ public class OAuth2ApplicationService {
      * @return 无返回值
      * @since 2022.03
      */
+    @Transactional(rollbackFor = RuntimeException.class)
     public void deleteById(String id) {
         applicationRepository.deleteById(id);
         ttcRegisteredClientRepository.deleteById(id);
     }
-
-    @Transactional(rollbackFor = RuntimeException.class)
 
     /**
      * authorize 方法
@@ -102,6 +99,7 @@ public class OAuth2ApplicationService {
      * @return o auth2application
      * @since 2022.03
      */
+    @Transactional(rollbackFor = RuntimeException.class)
     public OAuth2Application authorize(String applicationId, String[] scopeIds) {
 
         Set<OAuth2Scope> scopes = new HashSet<>();
@@ -128,3 +126,4 @@ public class OAuth2ApplicationService {
         return applicationRepository.findByClientId(clientId);
     }
 }
+

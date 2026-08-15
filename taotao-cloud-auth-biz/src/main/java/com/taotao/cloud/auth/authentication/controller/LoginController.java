@@ -57,8 +57,6 @@ public class LoginController {
         this.authenticationProperties = authenticationProperties;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-
     /**
      * 登录
      *
@@ -68,6 +66,7 @@ public class LoginController {
      * @return ModelAndView
      * @since 2022.03
      */
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login(Map<String, Object> model, HttpServletRequest request) {
 
         ModelAndView modelAndView = new ModelAndView(DEFAULT_LOGIN_PAGE_VIEW);
@@ -193,3 +192,4 @@ public class LoginController {
         return uri.equals(request.getContextPath() + url);
     }
 }
+

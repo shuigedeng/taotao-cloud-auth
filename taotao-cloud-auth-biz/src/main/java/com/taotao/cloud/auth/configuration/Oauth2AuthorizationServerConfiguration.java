@@ -138,14 +138,13 @@ public class Oauth2AuthorizationServerConfiguration {
 	private static final Logger log =
 		LoggerFactory.getLogger(Oauth2AuthorizationServerConfiguration.class);
 
-	@PostConstruct
-
 	/**
 	 * postConstruct 方法
 	 *
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
+	@PostConstruct
 	public void postConstruct() {
 		log.info("SDK [OAuth2 Authorization Server] Auto Configure.");
 	}
@@ -228,9 +227,6 @@ public class Oauth2AuthorizationServerConfiguration {
 		return jpaOAuth2AuthorizationConsentService;
 	}
 
-	@Bean
-	@Order(Ordered.HIGHEST_PRECEDENCE)
-
 	/**
 	 * authorizationServerSecurityFilterChain 方法
 	 *
@@ -249,6 +245,8 @@ public class Oauth2AuthorizationServerConfiguration {
 	 * @return SecurityFilterChain
 	 * @since 2022.03
 	 */
+	@Bean
+	@Order(Ordered.HIGHEST_PRECEDENCE)
 	public SecurityFilterChain authorizationServerSecurityFilterChain(
 		HttpSecurity httpSecurity,
 		PasswordEncoder passwordEncoder,
@@ -623,8 +621,6 @@ public class Oauth2AuthorizationServerConfiguration {
 		return ttcOpaqueTokenCustomizer;
 	}
 
-	@Bean
-
 	/**
 	 * authorizationServerSettings 方法
 	 *
@@ -632,6 +628,7 @@ public class Oauth2AuthorizationServerConfiguration {
 	 * @return AuthorizationServerSettings
 	 * @since 2022.03
 	 */
+	@Bean
 	public AuthorizationServerSettings authorizationServerSettings(
 		SecurityOAuth2EndpointProperties securityOAuth2EndpointProperties ) {
 		return AuthorizationServerSettings.builder()
@@ -709,3 +706,4 @@ public class Oauth2AuthorizationServerConfiguration {
 		return "XMLHttpRequest".equalsIgnoreCase(requestedWith);
 	}
 }
+

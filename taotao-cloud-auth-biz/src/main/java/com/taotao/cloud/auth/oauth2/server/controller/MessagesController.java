@@ -67,15 +67,14 @@ public class MessagesController {
     // @DubboReference(check = false)
     // private IDubboDictService dubboDictService;
 
-    @Operation(summary = "测试消息", description = "测试消息")
-    @GetMapping("/messages")
-
     /**
      * 获取
      *
      * @return 无返回值
      * @since 2022.03
      */
+    @Operation(summary = "测试消息", description = "测试消息")
+    @GetMapping("/messages")
     public String[] getMessages() {
         LogUtils.info("slfdlaskdf;lasjdf;lj");
         // DubboDictRes dubboDictRes = dubboDictService.findByCode(1);
@@ -90,16 +89,15 @@ public class MessagesController {
         return new String[] {"Message 1", "Message 2", "Message 3"};
     }
 
-    @Operation(summary = "测试消息NotAuth", description = "测试消息NotAuth")
-    @GetMapping("/NotAuth/messages")
-    @NotAuth
-
     /**
      * 获取
      *
      * @return 无返回值
      * @since 2022.03
      */
+    @Operation(summary = "测试消息NotAuth", description = "测试消息NotAuth")
+    @GetMapping("/NotAuth/messages")
+    @NotAuth
     public String[] getMessagesNotAuth() {
         LogUtils.info("slfdlaskdf;lasjdf;lj NotAuth");
 
@@ -125,14 +123,13 @@ public class MessagesController {
     //        return Result.success(oAuth2AuthorizedClient);
     //    }
 
-    @GetMapping(value = "/info")
-
     /**
      * 获取
      *
      * @return Object
      * @since 2022.03
      */
+    @GetMapping(value = "/info")
     public Object getUserInfo() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Object principal = authentication.getPrincipal();
@@ -144,3 +141,4 @@ public class MessagesController {
         return authentication.getPrincipal();
     }
 }
+

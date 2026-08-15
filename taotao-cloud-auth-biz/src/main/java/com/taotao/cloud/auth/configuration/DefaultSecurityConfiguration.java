@@ -334,21 +334,18 @@ public class DefaultSecurityConfiguration {
 			.build();
 	}
 
-	@Bean
-
 	/**
 	 * 密码Encoder
 	 *
 	 * @return 密码Encoder
 	 * @since 2022.03
 	 */
+	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
 	}
 
 
-
-	@Bean
 
 	/**
 	 * 用户DetailsService
@@ -357,6 +354,7 @@ public class DefaultSecurityConfiguration {
 	 * @return 用户DetailsService
 	 * @since 2022.03
 	 */
+	@Bean
 	public UserDetailsService userDetailsService(
 		StrategyUserDetailsService strategyUserDetailsService ) {
 		SecurityUserDetailsService securityUserDetailsService =
@@ -365,8 +363,6 @@ public class DefaultSecurityConfiguration {
 		return securityUserDetailsService;
 	}
 
-	@Bean
-
 	/**
 	 * clientDetailsService 方法
 	 *
@@ -374,14 +370,13 @@ public class DefaultSecurityConfiguration {
 	 * @return ClientDetailsService
 	 * @since 2022.03
 	 */
+	@Bean
 	public ClientDetailsService clientDetailsService( OAuth2ApplicationService applicationService ) {
 		Oauth2ClientDetailsService oauth2ClientDetailsService =
 			new Oauth2ClientDetailsService(applicationService);
 		log.info("Bean  Client Details Service] Auto Configure.");
 		return oauth2ClientDetailsService;
 	}
-
-	@Bean
 
 	/**
 	 * sessionRegistry 方法
@@ -390,12 +385,11 @@ public class DefaultSecurityConfiguration {
 	 * @return SessionRegistry
 	 * @since 2022.03
 	 */
+	@Bean
 	public SessionRegistry sessionRegistry(
 		FindByIndexNameSessionRepository<? extends Session> sessionRepository ) {
 		return new SpringSessionBackedSessionRegistry<>(sessionRepository);
 	}
-
-	@Bean
 
 	/**
 	 * httpSessionEventPublisher 方法
@@ -403,7 +397,9 @@ public class DefaultSecurityConfiguration {
 	 * @return HttpSessionEventPublisher
 	 * @since 2022.03
 	 */
+	@Bean
 	public HttpSessionEventPublisher httpSessionEventPublisher() {
 		return new HttpSessionEventPublisher();
 	}
 }
+

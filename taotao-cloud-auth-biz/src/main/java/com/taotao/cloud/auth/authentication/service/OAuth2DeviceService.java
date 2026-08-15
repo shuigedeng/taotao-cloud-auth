@@ -66,8 +66,6 @@ public class OAuth2DeviceService implements com.taotao.boot.security.spring.oaut
                 new RegisteredClientToOAuth2DeviceConverter(scopeService);
     }
 
-    @Transactional(rollbackFor = RuntimeException.class)
-
     /**
      * 保存
      *
@@ -75,6 +73,7 @@ public class OAuth2DeviceService implements com.taotao.boot.security.spring.oaut
      * @return o auth2device
      * @since 2022.03
      */
+    @Transactional(rollbackFor = RuntimeException.class)
     public OAuth2Device saveAndFlush( OAuth2Device entity) {
         OAuth2Device device = deviceRepository.saveAndFlush(entity);
         if (ObjectUtils.isNotEmpty(device)) {
@@ -87,8 +86,6 @@ public class OAuth2DeviceService implements com.taotao.boot.security.spring.oaut
         }
     }
 
-    @Transactional(rollbackFor = RuntimeException.class)
-
     /**
      * 删除
      *
@@ -96,12 +93,11 @@ public class OAuth2DeviceService implements com.taotao.boot.security.spring.oaut
      * @return 无返回值
      * @since 2022.03
      */
+    @Transactional(rollbackFor = RuntimeException.class)
     public void deleteById(String id) {
         deviceRepository.deleteById(id);
         ttcRegisteredClientRepository.deleteById(id);
     }
-
-    @Transactional(rollbackFor = RuntimeException.class)
 
     /**
      * authorize 方法
@@ -111,6 +107,7 @@ public class OAuth2DeviceService implements com.taotao.boot.security.spring.oaut
      * @return o auth2device
      * @since 2022.03
      */
+    @Transactional(rollbackFor = RuntimeException.class)
     public OAuth2Device authorize(String deviceId, String[] scopeIds) {
 
         Set<OAuth2Scope> scopes = new HashSet<>();
@@ -155,3 +152,4 @@ public class OAuth2DeviceService implements com.taotao.boot.security.spring.oaut
         return result != 0;
     }
 }
+
