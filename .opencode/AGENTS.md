@@ -6,7 +6,7 @@
 
 ## OVERVIEW
 
-认证授权中心，基于 Spring Boot 4.1.0 / JDK 25 / Gradle 9.5。作为 taotao-cloud 微服务体系的 **OAuth2 授权服务器**，提供统一的认证、授权、单点登录能力。
+认证授权中心，基于 Spring Boot 4.1.1 / JDK 25 / Gradle 9.5。作为 taotao-cloud 微服务体系的 **OAuth2 授权服务器**，提供统一的认证、授权、单点登录能力。
 
 采用 Spring Authorization Server 框架，支持多种 OAuth2 授权模式（授权码、客户端凭证、设备码、刷新令牌），集成 Spring Security 安全体系。
 
@@ -73,7 +73,7 @@ taotao-cloud-auth/
 |----------|-----------|---------|
 | Language | Java (JDK 25 preview) | 25 |
 | Build | Gradle | 9.5 |
-| Framework | Spring Boot | 4.1.0 |
+| Framework | Spring Boot | 4.1.1 |
 | Security | Spring Security / Spring Authorization Server | 7.x |
 | API | gRPC + Protobuf | 1.82.0 / 4.35.0 |
 | Persistence | JPA / MyBatis-Plus | - |

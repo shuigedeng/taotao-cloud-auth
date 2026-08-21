@@ -59,11 +59,11 @@ dependencies {
     api "io.github.shuigedeng:taotao-boot-starter-grpc"
 
     //https://central.sonatype.com/artifact/org.springframework.session/spring-session-data-redis
-    api 'org.springframework.session:spring-session-data-redis:4.1.0'
+    api 'org.springframework.session:spring-session-data-redis:4.1.1'
 
     //https://central.sonatype.com/artifact/com.github.binarywang/weixin-java-pay?smo=true
-    api 'com.github.binarywang:weixin-java-mp:4.8.1.B'
-    api 'com.github.binarywang:weixin-java-miniapp:4.8.1.B'
+    api 'com.github.binarywang:weixin-java-mp:4.8.5.B'
+    api 'com.github.binarywang:weixin-java-miniapp:4.8.5.B'
 
     //api 'top.dcenter:justAuth-spring-security-starter:1.1.25'
 
@@ -134,7 +134,7 @@ dependencies {
     //https://search.maven.org/artifact/com.nimbusds/nimbus-jose-jwt
     api "com.nimbusds:nimbus-jose-jwt:10.9.1"
     //https://search.maven.org/artifact/com.nimbusds/oauth2-oidc-sdk
-    api 'com.nimbusds:oauth2-oidc-sdk:11.38.1'
+    api 'com.nimbusds:oauth2-oidc-sdk:11.38.2'
 
     api "org.apache.commons:commons-collections4"
 
@@ -158,12 +158,12 @@ dependencies {
     //https://code.google.com/p/aviator/
     //http://code.google.com/p/aviator/wiki/User_Guide_zh
     //https://search.maven.org/artifact/com.googlecode.aviator/aviator
-    api "com.googlecode.aviator:aviator:5.4.3"
+    api "com.googlecode.aviator:aviator:5.4.4"
 
     //https://search.maven.org/artifact/com.google.protobuf/protobuf-java
-    api "com.google.protobuf:protobuf-java:4.35.0"
+    api "com.google.protobuf:protobuf-java:4.36.0"
     //https://search.maven.org/artifact/com.google.protobuf/protobuf-java-util
-    api "com.google.protobuf:protobuf-java-util:4.35.0"
+    api "com.google.protobuf:protobuf-java-util:4.36.0"
     //https://search.maven.org/artifact/com.googlecode.protobuf-java-format/protobuf-java-format
     //api "com.googlecode.protobuf-java-format:protobuf-java-format:1.4"
 
@@ -210,7 +210,7 @@ dependencies {
     testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapstructProcessorVersion}"
     //https://github.com/entur/mapstruct-spi-protobuf
     //https://search.maven.org/artifact/no.entur.mapstruct.spi/protobuf-spi-impl
-    testAnnotationProcessor "no.entur.mapstruct.spi:protobuf-spi-impl:1.65.0"
+    testAnnotationProcessor "no.entur.mapstruct.spi:protobuf-spi-impl:1.66.0"
 }
 
 def getProperty(String key, String defaultValue) {

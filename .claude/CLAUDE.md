@@ -10,7 +10,7 @@ taotao-cloud-auth 是 taotao-cloud 微服务体系的 **OAuth2 授权服务器�
 |------|------|------|
 | 语言 | Java (JDK 25 preview) | 25 |
 | 构建 | Gradle | 9.5 |
-| 框架 | Spring Boot / Spring Security / Spring Authorization Server | 4.1.0 / 7.x |
+| 框架 | Spring Boot / Spring Security / Spring Authorization Server | 4.1.1 / 7.x |
 | API | gRPC / Protobuf | 1.82.0 / 4.35.0 |
 | 持久化 | JPA / MyBatis-Plus | - |
 | 缓存 | Redis (Redisson / Lettuce) | 4.3.1 |
