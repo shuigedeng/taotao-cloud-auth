@@ -59,7 +59,6 @@ public class TtcAuthorizationConsentId implements Serializable {
      * 设置
      *
      * @param registeredClientId registeredClientId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRegisteredClientId(String registeredClientId) {
@@ -80,7 +79,6 @@ public class TtcAuthorizationConsentId implements Serializable {
      * 设置
      *
      * @param principalName principalName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPrincipalName(String principalName) {

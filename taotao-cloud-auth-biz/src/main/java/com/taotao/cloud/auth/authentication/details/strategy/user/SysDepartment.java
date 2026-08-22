@@ -103,7 +103,6 @@ public class SysDepartment {
      * 设置
      *
      * @param departmentId departmentId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setDepartmentId(String departmentId) {
@@ -124,7 +123,6 @@ public class SysDepartment {
      * 设置
      *
      * @param departmentName departmentName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setDepartmentName(String departmentName) {
@@ -145,7 +143,6 @@ public class SysDepartment {
      * 设置
      *
      * @param a4BizDeptId a4BizDeptId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setA4BizDeptId(String a4BizDeptId) {
@@ -166,7 +163,6 @@ public class SysDepartment {
      * 设置
      *
      * @param bizDeptCode bizDeptCode
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBizDeptCode(String bizDeptCode) {
@@ -187,7 +183,6 @@ public class SysDepartment {
      * 设置
      *
      * @param bizDeptDesc bizDeptDesc
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBizDeptDesc(String bizDeptDesc) {
@@ -208,7 +203,6 @@ public class SysDepartment {
      * 设置
      *
      * @param bizDeptId bizDeptId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBizDeptId(String bizDeptId) {
@@ -229,7 +223,6 @@ public class SysDepartment {
      * 设置
      *
      * @param bizDeptName bizDeptName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBizDeptName(String bizDeptName) {
@@ -250,7 +243,6 @@ public class SysDepartment {
      * 设置
      *
      * @param bizDeptType bizDeptType
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBizDeptType(String bizDeptType) {
@@ -271,7 +263,6 @@ public class SysDepartment {
      * 设置
      *
      * @param partitionCode partitionCode
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPartitionCode(String partitionCode) {
@@ -292,7 +283,6 @@ public class SysDepartment {
      * 设置
      *
      * @param shortName shortName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setShortName(String shortName) {
@@ -313,7 +303,6 @@ public class SysDepartment {
      * 设置
      *
      * @param parentId parentId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setParentId(String parentId) {
@@ -334,7 +323,6 @@ public class SysDepartment {
      * 设置
      *
      * @param organizationId organizationId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setOrganizationId(String organizationId) {

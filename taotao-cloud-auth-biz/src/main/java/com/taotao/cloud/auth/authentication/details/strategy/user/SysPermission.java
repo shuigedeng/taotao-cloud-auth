@@ -64,7 +64,6 @@ public class SysPermission {
      * 设置
      *
      * @param permissionId permissionId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPermissionId(String permissionId) {
@@ -85,7 +84,6 @@ public class SysPermission {
      * 设置
      *
      * @param permissionCode permissionCode
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPermissionCode(String permissionCode) {
@@ -106,7 +104,6 @@ public class SysPermission {
      * 设置
      *
      * @param permissionName permissionName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPermissionName(String permissionName) {

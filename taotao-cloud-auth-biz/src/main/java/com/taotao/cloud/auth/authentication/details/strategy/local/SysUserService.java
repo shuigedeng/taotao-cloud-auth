@@ -198,7 +198,6 @@ public class SysUserService {
      *
      * @param userId 用户ID
      * @param status 状态
-     * @return 无返回值
      * @since 2022.03
      */
     public void changeStatus(String userId, DataItemStatusEnum status) {

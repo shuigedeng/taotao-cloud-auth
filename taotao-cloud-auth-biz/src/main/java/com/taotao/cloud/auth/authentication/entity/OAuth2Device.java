@@ -100,7 +100,6 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
      * 设置
      *
      * @param deviceId deviceId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setDeviceId(String deviceId) {
@@ -121,7 +120,6 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
      * 设置
      *
      * @param deviceName deviceName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setDeviceName(String deviceName) {
@@ -142,7 +140,6 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
      * 设置
      *
      * @param productId productId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setProductId(String productId) {
@@ -163,7 +160,6 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
      * 设置
      *
      * @param activated activated
-     * @return 无返回值
      * @since 2022.03
      */
     public void setActivated(Boolean activated) {
@@ -179,7 +175,6 @@ public class OAuth2Device extends AbstractOAuth2RegisteredClient {
      * 设置
      *
      * @param scopes scopes
-     * @return 无返回值
      * @since 2022.03
      */
     public void setScopes(Set<OAuth2Scope> scopes) {

@@ -113,7 +113,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * 设置
      *
      * @param applicationId applicationId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setApplicationId(String applicationId) {
@@ -134,7 +133,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * 设置
      *
      * @param applicationName applicationName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setApplicationName(String applicationName) {
@@ -155,7 +153,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * 设置
      *
      * @param abbreviation abbreviation
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAbbreviation(String abbreviation) {
@@ -176,7 +173,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * 设置
      *
      * @param logo logo
-     * @return 无返回值
      * @since 2022.03
      */
     public void setLogo(String logo) {
@@ -197,7 +193,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * 设置
      *
      * @param homepage homepage
-     * @return 无返回值
      * @since 2022.03
      */
     public void setHomepage(String homepage) {
@@ -218,7 +213,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * 设置
      *
      * @param applicationType applicationType
-     * @return 无返回值
      * @since 2022.03
      */
     public void setApplicationType(ApplicationType applicationType) {
@@ -234,7 +228,6 @@ public class OAuth2Application extends AbstractOAuth2RegisteredClient {
      * 设置
      *
      * @param scopes scopes
-     * @return 无返回值
      * @since 2022.03
      */
     public void setScopes(Set<OAuth2Scope> scopes) {

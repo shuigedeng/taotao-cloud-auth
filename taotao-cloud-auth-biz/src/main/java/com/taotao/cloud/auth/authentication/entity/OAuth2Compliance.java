@@ -101,7 +101,6 @@ public class OAuth2Compliance extends BaseEntity {
      * 设置
      *
      * @param complianceId complianceId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setComplianceId(String complianceId) {
@@ -122,7 +121,6 @@ public class OAuth2Compliance extends BaseEntity {
      * 设置
      *
      * @param principalName principalName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPrincipalName(String principalName) {
@@ -143,7 +141,6 @@ public class OAuth2Compliance extends BaseEntity {
      * 设置
      *
      * @param clientId clientId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setClientId(String clientId) {
@@ -164,7 +161,6 @@ public class OAuth2Compliance extends BaseEntity {
      * 设置
      *
      * @param ip ip
-     * @return 无返回值
      * @since 2022.03
      */
     public void setIp(String ip) {
@@ -185,7 +181,6 @@ public class OAuth2Compliance extends BaseEntity {
      * 设置
      *
      * @param mobile mobile
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMobile(Boolean mobile) {
@@ -206,7 +201,6 @@ public class OAuth2Compliance extends BaseEntity {
      * 设置
      *
      * @param osName osName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setOsName(String osName) {
@@ -227,7 +221,6 @@ public class OAuth2Compliance extends BaseEntity {
      * 设置
      *
      * @param browserName browserName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBrowserName(String browserName) {
@@ -248,7 +241,6 @@ public class OAuth2Compliance extends BaseEntity {
      * 设置
      *
      * @param mobileBrowser mobileBrowser
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMobileBrowser(Boolean mobileBrowser) {
@@ -269,7 +261,6 @@ public class OAuth2Compliance extends BaseEntity {
      * 设置
      *
      * @param engineName engineName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setEngineName(String engineName) {
@@ -290,7 +281,6 @@ public class OAuth2Compliance extends BaseEntity {
      * 设置
      *
      * @param mobilePlatform mobilePlatform
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMobilePlatform(Boolean mobilePlatform) {
@@ -311,7 +301,6 @@ public class OAuth2Compliance extends BaseEntity {
      * 设置
      *
      * @param iphoneOrIpod iphoneOrIpod
-     * @return 无返回值
      * @since 2022.03
      */
     public void setIphoneOrIpod(Boolean iphoneOrIpod) {
@@ -332,7 +321,6 @@ public class OAuth2Compliance extends BaseEntity {
      * 设置
      *
      * @param ipad ipad
-     * @return 无返回值
      * @since 2022.03
      */
     public void setIpad(Boolean ipad) {
@@ -353,7 +341,6 @@ public class OAuth2Compliance extends BaseEntity {
      * 设置
      *
      * @param ios ios
-     * @return 无返回值
      * @since 2022.03
      */
     public void setIos(Boolean ios) {
@@ -374,7 +361,6 @@ public class OAuth2Compliance extends BaseEntity {
      * 设置
      *
      * @param android android
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAndroid(Boolean android) {
@@ -395,7 +381,6 @@ public class OAuth2Compliance extends BaseEntity {
      * 设置
      *
      * @param operation operation
-     * @return 无返回值
      * @since 2022.03
      */
     public void setOperation(String operation) {

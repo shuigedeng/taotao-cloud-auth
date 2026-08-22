@@ -53,7 +53,6 @@ public class OAuth2ScopeDto {
      * 设置
      *
      * @param scopeId scopeId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setScopeId(String scopeId) {
@@ -68,7 +67,6 @@ public class OAuth2ScopeDto {
      * 设置
      *
      * @param permissions permissions
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPermissions(Set<OAuth2PermissionDto> permissions) {

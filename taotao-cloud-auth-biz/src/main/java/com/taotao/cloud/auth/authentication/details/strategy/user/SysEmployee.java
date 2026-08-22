@@ -148,7 +148,6 @@ public class SysEmployee {
      * 设置
      *
      * @param user user
-     * @return 无返回值
      * @since 2022.03
      */
     public void setUser( SysUser user) {
@@ -169,7 +168,6 @@ public class SysEmployee {
      * 设置
      *
      * @param employeeId employeeId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setEmployeeId(String employeeId) {
@@ -190,7 +188,6 @@ public class SysEmployee {
      * 设置
      *
      * @param employeeName employeeName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setEmployeeName(String employeeName) {
@@ -211,7 +208,6 @@ public class SysEmployee {
      * 设置
      *
      * @param employeeNo employeeNo
-     * @return 无返回值
      * @since 2022.03
      */
     public void setEmployeeNo(String employeeNo) {
@@ -232,7 +228,6 @@ public class SysEmployee {
      * 设置
      *
      * @param mobilePhoneNumber mobilePhoneNumber
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMobilePhoneNumber(String mobilePhoneNumber) {
@@ -253,7 +248,6 @@ public class SysEmployee {
      * 设置
      *
      * @param officePhoneNumber officePhoneNumber
-     * @return 无返回值
      * @since 2022.03
      */
     public void setOfficePhoneNumber(String officePhoneNumber) {
@@ -274,7 +268,6 @@ public class SysEmployee {
      * 设置
      *
      * @param email email
-     * @return 无返回值
      * @since 2022.03
      */
     public void setEmail(String email) {
@@ -295,7 +288,6 @@ public class SysEmployee {
      * 设置
      *
      * @param pkiEmail pkiEmail
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPkiEmail(String pkiEmail) {
@@ -316,7 +308,6 @@ public class SysEmployee {
      * 设置
      *
      * @param a4BizEmpId a4BizEmpId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setA4BizEmpId(String a4BizEmpId) {
@@ -357,7 +348,6 @@ public class SysEmployee {
      * 设置
      *
      * @param avatar avatar
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAvatar(String avatar) {
@@ -378,7 +368,6 @@ public class SysEmployee {
      * 设置
      *
      * @param birthday birthday
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBirthday(Date birthday) {
@@ -393,7 +382,6 @@ public class SysEmployee {
      * 设置
      *
      * @param departments departments
-     * @return 无返回值
      * @since 2022.03
      */
     public void setDepartments(Set<SysDepartment> departments) {

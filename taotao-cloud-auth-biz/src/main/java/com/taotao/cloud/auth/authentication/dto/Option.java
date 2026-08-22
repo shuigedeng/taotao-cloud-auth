@@ -46,7 +46,6 @@ public class Option implements Serializable {
      * 设置
      *
      * @param label label
-     * @return 无返回值
      * @since 2022.03
      */
     public void setLabel(String label) {
@@ -67,7 +66,6 @@ public class Option implements Serializable {
      * 设置
      *
      * @param value value
-     * @return 无返回值
      * @since 2022.03
      */
     public void setValue(String value) {

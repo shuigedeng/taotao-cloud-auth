@@ -105,7 +105,6 @@ public class LoginController {
     /**
      * 获取
      *
-     * @return 无返回值
      * @since 2022.03
      */
     private SecurityAuthenticationProperties.FormLogin getFormLogin() {

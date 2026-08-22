@@ -98,7 +98,6 @@ public class OAuth2Scope extends BaseSysEntity {
      * 设置
      *
      * @param scopeId scopeId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setScopeId(String scopeId) {
@@ -119,7 +118,6 @@ public class OAuth2Scope extends BaseSysEntity {
      * 设置
      *
      * @param scopeCode scopeCode
-     * @return 无返回值
      * @since 2022.03
      */
     public void setScopeCode(String scopeCode) {
@@ -140,7 +138,6 @@ public class OAuth2Scope extends BaseSysEntity {
      * 设置
      *
      * @param scopeName scopeName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setScopeName(String scopeName) {
@@ -155,7 +152,6 @@ public class OAuth2Scope extends BaseSysEntity {
      * 设置
      *
      * @param permissions permissions
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPermissions(Set<OAuth2Permission> permissions) {

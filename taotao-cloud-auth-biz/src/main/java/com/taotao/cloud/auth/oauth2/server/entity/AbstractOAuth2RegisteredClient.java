@@ -117,7 +117,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * 设置
 	 *
 	 * @param clientId clientId
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setClientId( String clientId ) {
@@ -138,7 +137,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * 设置
 	 *
 	 * @param clientSecret clientSecret
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setClientSecret( String clientSecret ) {
@@ -159,7 +157,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * 设置
 	 *
 	 * @param requireProofKey requireProofKey
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setRequireProofKey( Boolean requireProofKey ) {
@@ -180,7 +177,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * 设置
 	 *
 	 * @param requireAuthorizationConsent requireAuthorizationConsent
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setRequireAuthorizationConsent( Boolean requireAuthorizationConsent ) {
@@ -201,7 +197,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * 设置
 	 *
 	 * @param jwkSetUrl jwkSetUrl
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setJwkSetUrl( String jwkSetUrl ) {
@@ -222,7 +217,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * 设置
 	 *
 	 * @param authenticationSigningAlgorithm authenticationSigningAlgorithm
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setAuthenticationSigningAlgorithm( Signature authenticationSigningAlgorithm ) {
@@ -243,7 +237,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * 设置
 	 *
 	 * @param authorizationCodeValidity authorizationCodeValidity
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setAuthorizationCodeValidity( Duration authorizationCodeValidity ) {
@@ -264,7 +257,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * 设置
 	 *
 	 * @param accessTokenValidity accessTokenValidity
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setAccessTokenValidity( Duration accessTokenValidity ) {
@@ -285,7 +277,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * 设置
 	 *
 	 * @param deviceCodeValidity deviceCodeValidity
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setDeviceCodeValidity( Duration deviceCodeValidity ) {
@@ -306,7 +297,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * 设置
 	 *
 	 * @param refreshTokenValidity refreshTokenValidity
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setRefreshTokenValidity( Duration refreshTokenValidity ) {
@@ -327,7 +317,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * 设置
 	 *
 	 * @param accessTokenFormat accessTokenFormat
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setAccessTokenFormat( TokenFormat accessTokenFormat ) {
@@ -348,7 +337,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * 设置
 	 *
 	 * @param reuseRefreshTokens reuseRefreshTokens
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setReuseRefreshTokens( Boolean reuseRefreshTokens ) {
@@ -369,7 +357,6 @@ public abstract class AbstractOAuth2RegisteredClient extends AbstractRegisteredC
 	 * 设置
 	 *
 	 * @param idTokenSignatureAlgorithm idTokenSignatureAlgorithm
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	public void setIdTokenSignatureAlgorithm( Signature idTokenSignatureAlgorithm ) {

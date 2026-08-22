@@ -99,7 +99,6 @@ public class SysRole {
      * 设置
      *
      * @param roleId roleId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRoleId( String roleId ) {
@@ -120,7 +119,6 @@ public class SysRole {
      * 设置
      *
      * @param roleCode roleCode
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRoleCode( String roleCode ) {
@@ -141,7 +139,6 @@ public class SysRole {
      * 设置
      *
      * @param roleName roleName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRoleName( String roleName ) {
@@ -156,7 +153,6 @@ public class SysRole {
      * 设置
      *
      * @param permissions permissions
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPermissions( Set<SysPermission> permissions ) {

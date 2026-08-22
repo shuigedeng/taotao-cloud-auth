@@ -67,7 +67,6 @@ public class OAuth2Product extends BaseEntity {
      * 设置
      *
      * @param productId productId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setProductId(String productId) {
@@ -88,7 +87,6 @@ public class OAuth2Product extends BaseEntity {
      * 设置
      *
      * @param productKey productKey
-     * @return 无返回值
      * @since 2022.03
      */
     public void setProductKey(String productKey) {

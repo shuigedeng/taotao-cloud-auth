@@ -173,7 +173,6 @@ public class SysUser {
      * 设置
      *
      * @param phoneNumber phoneNumber
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPhoneNumber(String phoneNumber) {
@@ -194,7 +193,6 @@ public class SysUser {
      * 设置
      *
      * @param avatar avatar
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAvatar(String avatar) {
@@ -215,7 +213,6 @@ public class SysUser {
      * 设置
      *
      * @param email email
-     * @return 无返回值
      * @since 2022.03
      */
     public void setEmail(String email) {
@@ -236,7 +233,6 @@ public class SysUser {
      * 设置
      *
      * @param userId userId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setUserId(String userId) {
@@ -257,7 +253,6 @@ public class SysUser {
      * 设置
      *
      * @param userName userName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setUserName(String userName) {
@@ -278,7 +273,6 @@ public class SysUser {
      * 设置
      *
      * @param password password
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPassword(String password) {
@@ -299,7 +293,6 @@ public class SysUser {
      * 设置
      *
      * @param nickName nickName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setNickName(String nickName) {
@@ -314,7 +307,6 @@ public class SysUser {
      * 设置
      *
      * @param roles roles
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRoles(Set<SysRole> roles) {
@@ -335,7 +327,6 @@ public class SysUser {
      * 设置
      *
      * @param employee employee
-     * @return 无返回值
      * @since 2022.03
      */
     public void setEmployee( SysEmployee employee) {
@@ -356,7 +347,6 @@ public class SysUser {
      * 设置
      *
      * @param accountExpireAt accountExpireAt
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAccountExpireAt(LocalDateTime accountExpireAt) {
@@ -377,7 +367,6 @@ public class SysUser {
      * 设置
      *
      * @param credentialsExpireAt credentialsExpireAt
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCredentialsExpireAt(LocalDateTime credentialsExpireAt) {
@@ -398,7 +387,6 @@ public class SysUser {
      * 设置
      *
      * @param status status
-     * @return 无返回值
      * @since 2022.03
      */
     public void setStatus(DataItemStatusEnum status) {
@@ -419,7 +407,6 @@ public class SysUser {
      * 设置
      *
      * @param reserved reserved
-     * @return 无返回值
      * @since 2022.03
      */
     public void setReserved(Boolean reserved) {
@@ -440,7 +427,6 @@ public class SysUser {
      * 设置
      *
      * @param reversion reversion
-     * @return 无返回值
      * @since 2022.03
      */
     public void setReversion(Integer reversion) {
@@ -461,7 +447,6 @@ public class SysUser {
      * 设置
      *
      * @param description description
-     * @return 无返回值
      * @since 2022.03
      */
     public void setDescription(String description) {

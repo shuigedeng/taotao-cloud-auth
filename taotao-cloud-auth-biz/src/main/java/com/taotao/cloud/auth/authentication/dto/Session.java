@@ -55,7 +55,6 @@ public class Session {
      * 设置
      *
      * @param sessionId sessionId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSessionId(String sessionId) {
@@ -76,7 +75,6 @@ public class Session {
      * 设置
      *
      * @param publicKey publicKey
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPublicKey(String publicKey) {
@@ -97,7 +95,6 @@ public class Session {
      * 设置
      *
      * @param state state
-     * @return 无返回值
      * @since 2022.03
      */
     public void setState(String state) {

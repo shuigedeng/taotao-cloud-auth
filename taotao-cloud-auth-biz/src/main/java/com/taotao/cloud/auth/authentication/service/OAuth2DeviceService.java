@@ -90,7 +90,6 @@ public class OAuth2DeviceService implements com.taotao.boot.security.spring.oaut
      * 删除
      *
      * @param id ID
-     * @return 无返回值
      * @since 2022.03
      */
     @Transactional(rollbackFor = RuntimeException.class)

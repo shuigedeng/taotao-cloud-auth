@@ -195,7 +195,6 @@ public class TtcAuthorizationConsent extends AbstractEntity {
      * 设置
      *
      * @param version version
-     * @return 无返回值
      * @since 2022.03
      */
     public void setVersion(Long version) {

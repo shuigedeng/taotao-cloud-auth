@@ -51,7 +51,6 @@ public class SessionExchange {
      * 设置
      *
      * @param confidential confidential
-     * @return 无返回值
      * @since 2022.03
      */
     public void setConfidential(String confidential) {
@@ -72,7 +71,6 @@ public class SessionExchange {
      * 设置
      *
      * @param sessionId sessionId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSessionId(String sessionId) {

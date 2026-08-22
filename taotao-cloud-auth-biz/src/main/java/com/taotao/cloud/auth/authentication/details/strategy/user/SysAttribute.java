@@ -102,7 +102,6 @@ public class SysAttribute {
      * 设置
      *
      * @param attributeId attributeId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAttributeId(String attributeId) {
@@ -123,7 +122,6 @@ public class SysAttribute {
      * 设置
      *
      * @param attributeCode attributeCode
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAttributeCode(String attributeCode) {
@@ -144,7 +142,6 @@ public class SysAttribute {
      * 设置
      *
      * @param requestMethod requestMethod
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRequestMethod(String requestMethod) {
@@ -165,7 +162,6 @@ public class SysAttribute {
      * 设置
      *
      * @param serviceId serviceId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setServiceId(String serviceId) {
@@ -186,7 +182,6 @@ public class SysAttribute {
      * 设置
      *
      * @param className className
-     * @return 无返回值
      * @since 2022.03
      */
     public void setClassName(String className) {
@@ -207,7 +202,6 @@ public class SysAttribute {
      * 设置
      *
      * @param methodName methodName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMethodName(String methodName) {
@@ -228,7 +222,6 @@ public class SysAttribute {
      * 设置
      *
      * @param url url
-     * @return 无返回值
      * @since 2022.03
      */
     public void setUrl(String url) {
@@ -249,7 +242,6 @@ public class SysAttribute {
      * 设置
      *
      * @param webExpression webExpression
-     * @return 无返回值
      * @since 2022.03
      */
     public void setWebExpression(String webExpression) {
@@ -264,7 +256,6 @@ public class SysAttribute {
      * 设置
      *
      * @param permissions permissions
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPermissions(Set<SysPermission> permissions) {

@@ -185,7 +185,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param socialId socialId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSocialId(String socialId) {
@@ -228,7 +227,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param avatar avatar
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAvatar(String avatar) {
@@ -249,7 +247,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param blog blog
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBlog(String blog) {
@@ -270,7 +267,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param company company
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCompany(String company) {
@@ -291,7 +287,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param location location
-     * @return 无返回值
      * @since 2022.03
      */
     public void setLocation(String location) {
@@ -312,7 +307,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param email email
-     * @return 无返回值
      * @since 2022.03
      */
     public void setEmail(String email) {
@@ -333,7 +327,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param remark remark
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRemark(String remark) {
@@ -354,7 +347,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param gender gender
-     * @return 无返回值
      * @since 2022.03
      */
     public void setGender(AuthUserGender gender) {
@@ -370,7 +362,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param source source
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSource(String source) {
@@ -391,7 +382,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param accessToken accessToken
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAccessToken(String accessToken) {
@@ -412,7 +402,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param refreshToken refreshToken
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRefreshToken(String refreshToken) {
@@ -433,7 +422,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param expireIn expireIn
-     * @return 无返回值
      * @since 2022.03
      */
     public void setExpireIn(Integer expireIn) {
@@ -454,7 +442,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param refreshTokenExpireIn refreshTokenExpireIn
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRefreshTokenExpireIn(Integer refreshTokenExpireIn) {
@@ -475,7 +462,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param scope scope
-     * @return 无返回值
      * @since 2022.03
      */
     public void setScope(String scope) {
@@ -496,7 +482,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param tokenType tokenType
-     * @return 无返回值
      * @since 2022.03
      */
     public void setTokenType(String tokenType) {
@@ -517,7 +502,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param uid uid
-     * @return 无返回值
      * @since 2022.03
      */
     public void setUid(String uid) {
@@ -538,7 +522,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param openId openId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setOpenId(String openId) {
@@ -559,7 +542,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param accessCode accessCode
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAccessCode(String accessCode) {
@@ -580,7 +562,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param unionId unionId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setUnionId(String unionId) {
@@ -601,7 +582,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param appId appId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAppId(String appId) {
@@ -617,7 +597,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param phoneNumber phoneNumber
-     * @return 无返回值
      * @since 2022.03
      */
     public void setPhoneNumber(String phoneNumber) {
@@ -632,7 +611,6 @@ public class SysSocialUser  {
      * 设置
      *
      * @param users users
-     * @return 无返回值
      * @since 2022.03
      */
     public void setUsers(Set<SysUser> users) {

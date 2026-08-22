@@ -70,7 +70,6 @@ public class MessagesController {
     /**
      * 获取
      *
-     * @return 无返回值
      * @since 2022.03
      */
     @Operation(summary = "测试消息", description = "测试消息")
@@ -92,7 +91,6 @@ public class MessagesController {
     /**
      * 获取
      *
-     * @return 无返回值
      * @since 2022.03
      */
     @Operation(summary = "测试消息NotAuth", description = "测试消息NotAuth")

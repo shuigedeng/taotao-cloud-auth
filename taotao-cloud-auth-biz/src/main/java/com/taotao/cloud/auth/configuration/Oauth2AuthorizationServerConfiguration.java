@@ -141,7 +141,6 @@ public class Oauth2AuthorizationServerConfiguration {
 	/**
 	 * postConstruct 方法
 	 *
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	@PostConstruct
@@ -651,7 +650,6 @@ public class Oauth2AuthorizationServerConfiguration {
 	/**
 	 * DefaultRedirectStrategy 方法
 	 *
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
@@ -662,7 +660,6 @@ public class Oauth2AuthorizationServerConfiguration {
 	 * @param request 请求
 	 * @param response 响应
 	 * @param authentication authentication
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	private void sendAuthorizationResponse(
