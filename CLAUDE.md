@@ -13,7 +13,7 @@ taotao-cloud-auth 是 taotao-cloud 微服务架构中的 **OAuth2 授权服务�
 | 类别 | 技术 | 版本 |
 |------|------|------|
 | 语言 | Java | 25 (preview) |
-| 构建 | Gradle | 9.7.0 |
+| 构建 | Gradle | 9.7.1 |
 | 微服务 | Spring Cloud / Spring Cloud Alibaba | 2025.1.1 / 2025.1.0.0 |
 | 框架 | Spring Boot / Spring Security | 4.1.1 / 7.1.0 |
 | API | gRPC / Protobuf | 1.80.0 / 4.35.0 |
