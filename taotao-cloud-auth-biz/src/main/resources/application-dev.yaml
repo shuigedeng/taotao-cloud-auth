@@ -346,11 +346,14 @@ spring:
     timeout-per-shutdown-phase: 30s
   thymeleaf:
     mode: HTML
-    prefix: classpath:/static/
+    prefix: classpath:/templates/
+    check-template-location: true
     suffix: .html
     encoding: UTF-8
     cache: false
-    check-template: true
+    enabled: true
+    servlet:
+      content-type: text/html
   main:
     allow-circular-references: false
     allow-bean-definition-overriding: false
@@ -656,11 +659,11 @@ spring:
             scope: message.read
         provider:
           ttauth:
-            authorization-uri: http://${remote-ip}:33401/oauth2/authorize
-            token-uri: http://${remote-ip}:33401/oauth2/token
-            user-info-uri: http://${remote-ip}:33401/api/test/user
+            authorization-uri: http://${remote-ip}:33334/oauth2/authorize
+            token-uri: http://${remote-ip}:33334/oauth2/token
+            user-info-uri: http://${remote-ip}:33334/api/test/user
             user-name-attribute: id
-            jwk-set-uri: http://${remote-ip}:33401/oauth2/jwks
+            jwk-set-uri: http://${remote-ip}:33334/oauth2/jwks
           google:
             authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
             token-uri: https://www.googleapis.com/oauth2/v4/token
@@ -1038,21 +1041,21 @@ taotao:
         endpoint:
           uaa-service-name: taotao-cloud-uaa
           upms-service-name: taotao-cloud-upms
-          gateway-service-uri: http://${remote-ip}:33401
-          uaa-service-uri: http://${remote-ip}:33401/
-          upms-service-uri: http://${remote-ip}:33401/${ttc.endpoint.upms-service-name}
-          access-token-uri: http://${remote-ip}:33401/oauth2/token
-          authorization-uri: http://${remote-ip}:33401/oauth2/authorize
-          token-revocation-uri: http://${remote-ip}:33401/oauth2/revoke
-          token-introspection-uri: http://${remote-ip}:33401/oauth2/introspect
-          jwk-set-uri: http://${remote-ip}:33401/oauth2/jwks
+          gateway-service-uri: http://${remote-ip}:33334
+          uaa-service-uri: http://${remote-ip}:33334/
+          upms-service-uri: http://${remote-ip}:33334/${ttc.endpoint.upms-service-name}
+          access-token-uri: http://${remote-ip}:33334/oauth2/token
+          authorization-uri: http://${remote-ip}:33334/oauth2/authorize
+          token-revocation-uri: http://${remote-ip}:33334/oauth2/revoke
+          token-introspection-uri: http://${remote-ip}:33334/oauth2/introspect
+          jwk-set-uri: http://${remote-ip}:33334/oauth2/jwks
           issuer-uri: ${ttc.endpoint.uaa-service-uri}
-          oidc-client-registration-uri: http://${remote-ip}:33401/connect/register
-          oidc-user-info-uri: http://${remote-ip}:33401/userinfo
-          #device-authorization-uri: http://${remote-ip}:33401/oauth2/device_authorization
-          #device-authorization-endpoint: http://${remote-ip}:33401/oauth2/device_authorization
-          #device-verification-uri: http://${remote-ip}:33401/oauth2/device_verification
-          #device-verification-endpoint: http://${remote-ip}:33401/oauth2/device_verification
+          oidc-client-registration-uri: http://${remote-ip}:33334/connect/register
+          oidc-user-info-uri: http://${remote-ip}:33334/userinfo
+          #device-authorization-uri: http://${remote-ip}:33334/oauth2/device_authorization
+          #device-authorization-endpoint: http://${remote-ip}:33334/oauth2/device_authorization
+          #device-verification-uri: http://${remote-ip}:33334/oauth2/device_verification
+          #device-verification-endpoint: http://${remote-ip}:33334/oauth2/device_verification
         authentication:
           form-login:
             category: HUTOOL_GIF
@@ -1312,7 +1315,7 @@ knife4j:
 
 jwk:
   set:
-    uri: http://${remote-ip}:33401/oauth2/jwks
+    uri: http://${remote-ip}:33334/oauth2/jwks
 
 auth:
   baidu:
@@ -1327,21 +1330,21 @@ ttc:
   endpoint:
     uaa-service-name: taotao-cloud-uaa
     upms-service-name: taotao-cloud-upms
-    gateway-service-uri: http://${remote-ip}:33401
-    uaa-service-uri: http://${remote-ip}:33401/
-    upms-service-uri: http://${remote-ip}:33401/${ttc.endpoint.upms-service-name}
-    access-token-uri: http://${remote-ip}:33401/oauth2/token
-    authorization-uri: http://${remote-ip}:33401/oauth2/authorize
-    token-revocation-uri: http://${remote-ip}:33401/oauth2/revoke
-    token-introspection-uri: http://${remote-ip}:33401/oauth2/introspect
-    jwk-set-uri: http://${remote-ip}:33401/oauth2/jwks
+    gateway-service-uri: http://${remote-ip}:33334
+    uaa-service-uri: http://${remote-ip}:33334/
+    upms-service-uri: http://${remote-ip}:33334/${ttc.endpoint.upms-service-name}
+    access-token-uri: http://${remote-ip}:33334/oauth2/token
+    authorization-uri: http://${remote-ip}:33334/oauth2/authorize
+    token-revocation-uri: http://${remote-ip}:33334/oauth2/revoke
+    token-introspection-uri: http://${remote-ip}:33334/oauth2/introspect
+    jwk-set-uri: http://${remote-ip}:33334/oauth2/jwks
     issuer-uri: ${ttc.endpoint.uaa-service-uri}
-    oidc-client-registration-uri: http://${remote-ip}:33401/connect/register
-    oidc-user-info-uri: http://${remote-ip}:33401/userinfo
-    #device-authorization-uri: http://${remote-ip}:33401/oauth2/device_authorization
-    #device-authorization-endpoint: http://${remote-ip}:33401/oauth2/device_authorization
-    #device-verification-uri: http://${remote-ip}:33401/oauth2/device_verification
-    #device-verification-endpoint: http://${remote-ip}:33401/oauth2/device_verification
+    oidc-client-registration-uri: http://${remote-ip}:33334/connect/register
+    oidc-user-info-uri: http://${remote-ip}:33334/userinfo
+    #device-authorization-uri: http://${remote-ip}:33334/oauth2/device_authorization
+    #device-authorization-endpoint: http://${remote-ip}:33334/oauth2/device_authorization
+    #device-verification-uri: http://${remote-ip}:33334/oauth2/device_verification
+    #device-verification-endpoint: http://${remote-ip}:33334/oauth2/device_verification
   oauth2:
     authentication:
       sign-in-endpoint-limited:
