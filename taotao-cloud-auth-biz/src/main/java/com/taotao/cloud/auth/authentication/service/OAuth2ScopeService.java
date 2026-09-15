@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.auth.authentication.service;
 
-import com.taotao.cloud.auth.authentication.entity.OAuth2Permission;
-import com.taotao.cloud.auth.authentication.entity.OAuth2Scope;
-import com.taotao.cloud.auth.authentication.repository.OAuth2ScopeRepository;
+import com.taotao.cloud.auth.persistent.persistence.OAuth2Permission;
+import com.taotao.cloud.auth.persistent.persistence.OAuth2Scope;
+import com.taotao.cloud.auth.persistent.repository.OAuth2ScopeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,7 +49,7 @@ public class OAuth2ScopeService {
      */
     public OAuth2Scope assigned(String scopeId, Set<OAuth2Permission> permissions) {
 
-        OAuth2Scope oldScope = oauthScopesRepository.findById(scopeId).get();
+        OAuth2Scope oldScope = oauthScopesRepository.findById(Long.valueOf(scopeId)).get();
         oldScope.setPermissions(permissions);
 
         return oauthScopesRepository.saveAndFlush(oldScope);

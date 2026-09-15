@@ -18,8 +18,8 @@ package com.taotao.cloud.auth.oauth2.server.service;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
-import com.taotao.cloud.auth.oauth2.server.entity.TtcAuthorization;
-import com.taotao.cloud.auth.oauth2.server.repository.TtcAuthorizationRepository;
+import com.taotao.cloud.auth.persistent.persistence.TtcAuthorization;
+import com.taotao.cloud.auth.persistent.repository.TtcAuthorizationRepository;
 import jakarta.persistence.criteria.Predicate;
 import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
@@ -258,7 +258,7 @@ public class TtcAuthorizationService {
      * @since 2023-07-10 17:10:08
      */
     public void deleteById(String id) {
-        ttcAuthorizationRepository.deleteById(id);
+        ttcAuthorizationRepository.deleteById(Long.valueOf(id));
     }
 
     /**
@@ -269,7 +269,7 @@ public class TtcAuthorizationService {
      * @since 2023-07-10 17:10:09
      */
     public TtcAuthorization findById(String id) {
-        return ttcAuthorizationRepository.findById(id).orElse(null);
+        return ttcAuthorizationRepository.findById(Long.valueOf(id)).orElse(null);
     }
 
     /**
@@ -279,7 +279,7 @@ public class TtcAuthorizationService {
      * @since 2023-07-10 17:10:09
      */
     public void updateAndFlush( TtcAuthorization entity) {
-        TtcAuthorization existingAuthorization = this.findById(entity.getId());
+        TtcAuthorization existingAuthorization = this.findById(String.valueOf(entity.getId()));
         BeanUtil.copyProperties(
                 entity, existingAuthorization, CopyOptions.create().ignoreNullValue());
         // 更新数据

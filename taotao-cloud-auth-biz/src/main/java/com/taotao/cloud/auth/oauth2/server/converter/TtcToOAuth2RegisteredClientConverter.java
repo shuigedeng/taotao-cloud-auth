@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.oauth2.server.converter;
 
-import com.taotao.cloud.auth.oauth2.server.entity.TtcRegisteredClient;
+import com.taotao.cloud.auth.persistent.persistence.TtcRegisteredClient;
 import com.taotao.cloud.auth.oauth2.server.jackson.OAuth2JacksonProcessor;
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
 import org.springframework.security.oauth2.server.authorization.settings.TokenSettings;

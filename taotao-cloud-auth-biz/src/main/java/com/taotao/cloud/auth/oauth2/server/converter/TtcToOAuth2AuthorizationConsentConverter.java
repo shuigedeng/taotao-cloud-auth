@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.oauth2.server.converter;
 
 import com.taotao.boot.security.spring.support.core.authority.TtcGrantedAuthority;
-import com.taotao.cloud.auth.oauth2.server.entity.TtcAuthorizationConsent;
+import com.taotao.cloud.auth.persistent.persistence.TtcAuthorizationConsent;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.security.oauth2.server.authorization.OAuth2AuthorizationConsent;

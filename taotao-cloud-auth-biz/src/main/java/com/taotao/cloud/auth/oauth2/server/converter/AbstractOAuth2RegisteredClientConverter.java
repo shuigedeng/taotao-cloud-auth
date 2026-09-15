@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.oauth2.server.converter;
 
-import com.taotao.cloud.auth.authentication.entity.OAuth2Scope;
-import com.taotao.cloud.auth.oauth2.server.entity.AbstractOAuth2RegisteredClient;
+import com.taotao.cloud.auth.persistent.persistence.OAuth2Scope;
+import com.taotao.cloud.auth.persistent.abstracts.AbstractOAuth2RegisteredClient;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.security.oauth2.jose.jws.JwsAlgorithm;
 import org.springframework.security.oauth2.jose.jws.SignatureAlgorithm;

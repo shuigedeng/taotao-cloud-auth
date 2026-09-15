@@ -17,10 +17,10 @@
 package com.taotao.cloud.auth.authentication.service;
 
 import com.taotao.cloud.auth.authentication.converter.OAuth2ApplicationToRegisteredClientConverter;
-import com.taotao.cloud.auth.authentication.entity.OAuth2Application;
-import com.taotao.cloud.auth.authentication.entity.OAuth2Scope;
-import com.taotao.cloud.auth.authentication.repository.OAuth2ApplicationRepository;
-import com.taotao.cloud.auth.oauth2.server.repository.TtcRegisteredClientRepository;
+import com.taotao.cloud.auth.persistent.persistence.OAuth2Application;
+import com.taotao.cloud.auth.persistent.persistence.OAuth2Scope;
+import com.taotao.cloud.auth.persistent.repository.OAuth2ApplicationRepository;
+import com.taotao.cloud.auth.persistent.repository.TtcRegisteredClientRepository;
 import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -86,8 +86,8 @@ public class OAuth2ApplicationService {
      */
     @Transactional(rollbackFor = RuntimeException.class)
     public void deleteById(String id) {
-        applicationRepository.deleteById(id);
-        ttcRegisteredClientRepository.deleteById(id);
+        applicationRepository.deleteById(Long.valueOf(id));
+        ttcRegisteredClientRepository.deleteById(Long.valueOf(id));
     }
 
     /**
@@ -108,7 +108,7 @@ public class OAuth2ApplicationService {
             scopes.add(scope);
         }
 
-        OAuth2Application oldApplication = applicationRepository.findById(applicationId).get();
+        OAuth2Application oldApplication = applicationRepository.findById(Long.valueOf(applicationId)).get();
         oldApplication.setScopes(scopes);
 
         return saveAndFlush(oldApplication);

@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.oauth2.server.service;
 
-import com.taotao.cloud.auth.oauth2.server.entity.TtcRegisteredClient;
-import com.taotao.cloud.auth.oauth2.server.repository.TtcRegisteredClientRepository;
+import com.taotao.cloud.auth.persistent.persistence.TtcRegisteredClient;
+import com.taotao.cloud.auth.persistent.repository.TtcRegisteredClientRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,7 +91,7 @@ public class TtcRegisteredClientService {
      * @since 2023-07-10 17:10:23
      */
     public TtcRegisteredClient findById(String id) {
-        return registeredClientRepository.findById(id).get();
+        return registeredClientRepository.findById(Long.valueOf(id)).get();
     }
 
     /**
@@ -101,6 +101,6 @@ public class TtcRegisteredClientService {
      * @since 2023-07-10 17:10:23
      */
     public void deleteById(String id) {
-        registeredClientRepository.deleteById(id);
+        registeredClientRepository.deleteById(Long.valueOf(id));
     }
 }

@@ -18,7 +18,7 @@ package com.taotao.cloud.auth.oauth2.server.converter;
 
 import cn.hutool.core.date.DateUtil;
 import com.taotao.boot.security.spring.support.utils.OAuth2AuthorizationUtils;
-import com.taotao.cloud.auth.oauth2.server.entity.TtcAuthorization;
+import com.taotao.cloud.auth.persistent.persistence.TtcAuthorization;
 import com.taotao.cloud.auth.oauth2.server.jackson.OAuth2JacksonProcessor;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.security.oauth2.core.OAuth2AccessToken;
@@ -83,7 +83,7 @@ public class TtcToOAuth2AuthorizationConverter
 
         OAuth2Authorization.Builder builder =
                 OAuth2Authorization.withRegisteredClient(registeredClient)
-                        .id(entity.getId())
+                        .id(String.valueOf(entity.getId()))
                         .principalName(entity.getPrincipalName())
                         .authorizationGrantType(
                                 OAuth2AuthorizationUtils.resolveAuthorizationGrantType(

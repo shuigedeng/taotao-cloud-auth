@@ -18,7 +18,7 @@ package com.taotao.cloud.auth.oauth2.server.converter;
 
 import cn.hutool.core.date.DateUtil;
 import com.taotao.boot.security.spring.support.utils.OAuth2AuthorizationUtils;
-import com.taotao.cloud.auth.oauth2.server.entity.RegisteredClientDetails;
+import com.taotao.cloud.auth.persistent.abstracts.RegisteredClientDetails;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
@@ -90,12 +90,12 @@ public interface RegisteredClientConverter<S extends RegisteredClientDetails>
         Set<String> postLogoutRedirectUris =
                 StringUtils.commaDelimitedListToSet(details.getPostLogoutRedirectUris());
 
-        return RegisteredClient.withId(details.getId())
+        return RegisteredClient.withId(details.getRegisteredClientId())
                 .clientId(details.getClientId())
                 .clientIdIssuedAt(DateUtil.toInstant(details.getClientIdIssuedAt()))
                 .clientSecret(details.getClientSecret())
                 .clientSecretExpiresAt(DateUtil.toInstant(details.getClientSecretExpiresAt()))
-                .clientName(details.getId())
+                .clientName(details.getRegisteredClientId())
                 .clientAuthenticationMethods(
                         authenticationMethods ->
                                 clientAuthenticationMethods.forEach(

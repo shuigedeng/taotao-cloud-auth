@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
  * @version 2023.07
  * @since 2023-07-10 17:11:02
  */
-public class RedisRegisteredClientRepository extends JpaRegisteredClientRepository {
+public class RedisRegisteredClientRepository extends MysqlRegisteredClientRepository {
 
     private static final Logger log =
             LoggerFactory.getLogger(RedisRegisteredClientRepository.class);

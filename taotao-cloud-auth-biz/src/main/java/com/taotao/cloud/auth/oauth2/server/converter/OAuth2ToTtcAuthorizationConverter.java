@@ -18,7 +18,7 @@ package com.taotao.cloud.auth.oauth2.server.converter;
 
 
 import cn.hutool.core.date.DateUtil;
-import com.taotao.cloud.auth.oauth2.server.entity.TtcAuthorization;
+import com.taotao.cloud.auth.persistent.persistence.TtcAuthorization;
 import com.taotao.cloud.auth.oauth2.server.jackson.OAuth2JacksonProcessor;
 import org.springframework.security.oauth2.core.*;
 import org.springframework.security.oauth2.core.endpoint.OAuth2ParameterNames;
@@ -63,7 +63,7 @@ public class OAuth2ToTtcAuthorizationConverter
     @Override
     public TtcAuthorization convert(OAuth2Authorization authorization) {
         TtcAuthorization entity = new TtcAuthorization();
-        entity.setId(authorization.getId());
+        entity.setId(Long.valueOf(authorization.getId()));
         entity.setRegisteredClientId(authorization.getRegisteredClientId());
         entity.setPrincipalName(authorization.getPrincipalName());
         entity.setAuthorizationGrantType(authorization.getAuthorizationGrantType().getValue());

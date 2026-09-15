@@ -18,9 +18,9 @@ package com.taotao.cloud.auth.oauth2.client.details;
 
 import com.taotao.boot.security.spring.support.core.authority.TtcGrantedAuthority;
 import com.taotao.boot.security.spring.support.core.details.client.EnhanceClientDetailsService;
-import com.taotao.cloud.auth.authentication.entity.OAuth2Application;
-import com.taotao.cloud.auth.authentication.entity.OAuth2Permission;
-import com.taotao.cloud.auth.authentication.entity.OAuth2Scope;
+import com.taotao.cloud.auth.persistent.persistence.OAuth2Application;
+import com.taotao.cloud.auth.persistent.persistence.OAuth2Permission;
+import com.taotao.cloud.auth.persistent.persistence.OAuth2Scope;
 import com.taotao.cloud.auth.authentication.service.OAuth2ApplicationService;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;

@@ -51,9 +51,9 @@ import com.taotao.boot.security.spring.support.token.SecurityTokenStrategyConfig
 import com.taotao.cloud.auth.oauth2.server.service.TtcAuthorizationConsentService;
 import com.taotao.cloud.auth.oauth2.server.service.TtcAuthorizationService;
 import com.taotao.cloud.auth.oauth2.server.service.TtcRegisteredClientService;
-import com.taotao.cloud.auth.oauth2.server.storage.JpaOAuth2AuthorizationConsentService;
-import com.taotao.cloud.auth.oauth2.server.storage.JpaOAuth2AuthorizationService;
-import com.taotao.cloud.auth.oauth2.server.storage.JpaRegisteredClientRepository;
+import com.taotao.cloud.auth.oauth2.server.storage.MysqlOAuth2AuthorizationConsentService;
+import com.taotao.cloud.auth.oauth2.server.storage.MysqlOAuth2AuthorizationService;
+import com.taotao.cloud.auth.oauth2.server.storage.MysqlRegisteredClientRepository;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -180,10 +180,10 @@ public class Oauth2AuthorizationServerConfiguration {
 	public RegisteredClientRepository registeredClientRepository(
 		TtcRegisteredClientService ttcRegisteredClientService,
 		PasswordEncoder passwordEncoder) {
-		JpaRegisteredClientRepository jpaRegisteredClientRepository =
-			new JpaRegisteredClientRepository(ttcRegisteredClientService, passwordEncoder);
+		MysqlRegisteredClientRepository mysqlRegisteredClientRepository =
+			new MysqlRegisteredClientRepository(ttcRegisteredClientService, passwordEncoder);
 		log.info("Bean [Jpa Registered Client Repository] Auto Configure.");
-		return jpaRegisteredClientRepository;
+		return mysqlRegisteredClientRepository;
 	}
 
 	/**
@@ -199,11 +199,11 @@ public class Oauth2AuthorizationServerConfiguration {
 	public OAuth2AuthorizationService authorizationService(
 		TtcAuthorizationService ttcAuthorizationService,
 		RegisteredClientRepository registeredClientRepository) {
-		JpaOAuth2AuthorizationService jpaOAuth2AuthorizationService =
-			new JpaOAuth2AuthorizationService(
+		MysqlOAuth2AuthorizationService mysqlOAuth2AuthorizationService =
+			new MysqlOAuth2AuthorizationService(
 				ttcAuthorizationService, registeredClientRepository);
 		log.info("Bean [Jpa OAuth2 Authorization Service] Auto Configure.");
-		return jpaOAuth2AuthorizationService;
+		return mysqlOAuth2AuthorizationService;
 	}
 
 	/**
@@ -219,11 +219,11 @@ public class Oauth2AuthorizationServerConfiguration {
 	public OAuth2AuthorizationConsentService authorizationConsentService(
 		TtcAuthorizationConsentService ttcAuthorizationConsentService,
 		RegisteredClientRepository registeredClientRepository) {
-		JpaOAuth2AuthorizationConsentService jpaOAuth2AuthorizationConsentService =
-			new JpaOAuth2AuthorizationConsentService(
+		MysqlOAuth2AuthorizationConsentService mysqlOAuth2AuthorizationConsentService =
+			new MysqlOAuth2AuthorizationConsentService(
 				ttcAuthorizationConsentService, registeredClientRepository);
 		log.info("Bean [Jpa OAuth2 Authorization Consent Service] Auto Configure.");
-		return jpaOAuth2AuthorizationConsentService;
+		return mysqlOAuth2AuthorizationConsentService;
 	}
 
 	/**

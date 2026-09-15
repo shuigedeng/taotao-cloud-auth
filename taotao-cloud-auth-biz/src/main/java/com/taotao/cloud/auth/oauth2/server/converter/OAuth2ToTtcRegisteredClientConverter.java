@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.oauth2.server.converter;
 
 import cn.hutool.core.date.DateUtil;
-import com.taotao.cloud.auth.oauth2.server.entity.TtcRegisteredClient;
+import com.taotao.cloud.auth.persistent.persistence.TtcRegisteredClient;
 import com.taotao.cloud.auth.oauth2.server.jackson.OAuth2JacksonProcessor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
@@ -77,12 +77,11 @@ public class OAuth2ToTtcRegisteredClientConverter
                 new ArrayList<>(registeredClient.getAuthorizationGrantTypes().size());
         registeredClient
                 .getAuthorizationGrantTypes()
-                .forEach(
-                        authorizationGrantType ->
+                .forEach(authorizationGrantType ->
                                 authorizationGrantTypes.add(authorizationGrantType.getValue()));
 
         TtcRegisteredClient entity = new TtcRegisteredClient();
-        entity.setId(registeredClient.getId());
+        entity.setId(Long.valueOf(registeredClient.getId()));
         entity.setClientId(registeredClient.getClientId());
         entity.setClientIdIssuedAt(
                 DateUtil.toLocalDateTime(registeredClient.getClientIdIssuedAt()));

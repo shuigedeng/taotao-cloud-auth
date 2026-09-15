@@ -17,7 +17,7 @@
 package com.taotao.cloud.auth.authentication.controller;
 
 import com.taotao.boot.common.model.result.Result;
-import com.taotao.cloud.auth.authentication.entity.OAuth2Application;
+import com.taotao.cloud.auth.persistent.persistence.OAuth2Application;
 import com.taotao.cloud.auth.authentication.service.OAuth2ApplicationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

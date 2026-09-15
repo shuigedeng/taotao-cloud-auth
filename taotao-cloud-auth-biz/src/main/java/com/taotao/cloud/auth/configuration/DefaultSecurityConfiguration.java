@@ -43,8 +43,8 @@ import com.taotao.boot.security.spring.support.core.details.client.ClientDetails
 import com.taotao.boot.security.spring.support.filter.ExtensionAndOauth2LoginRefreshTokenFilter;
 import com.taotao.boot.security.spring.support.token.OAuth2AccessTokenStore;
 import com.taotao.boot.security.spring.support.token.SecurityTokenStrategyConfigurer;
-import com.taotao.cloud.auth.authentication.details.SecurityUserDetailsService;
-import com.taotao.cloud.auth.authentication.details.strategy.StrategyUserDetailsService;
+import com.taotao.cloud.auth.authentication.userdetails.SecurityUserDetailsService;
+import com.taotao.cloud.auth.authentication.userdetails.strategy.StrategyUserDetailsService;
 import com.taotao.cloud.auth.authentication.service.OAuth2ApplicationService;
 import com.taotao.cloud.auth.oauth2.client.details.Oauth2ClientDetailsService;
 import org.slf4j.Logger;
@@ -108,6 +108,7 @@ public class DefaultSecurityConfiguration {
 	//	// 返回配置好的过滤器
 	//	return new CorsFilter(configurationSource);
 	// }
+
 	@Bean
 	SecurityFilterChain defaultSecurityFilterChain(
 		HttpSecurity httpSecurity,
@@ -344,7 +345,6 @@ public class DefaultSecurityConfiguration {
 	public PasswordEncoder passwordEncoder() {
 		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
 	}
-
 
 
 	/**

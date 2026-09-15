@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.authentication.converter;
 
-import com.taotao.cloud.auth.authentication.entity.OAuth2Application;
+import com.taotao.cloud.auth.persistent.persistence.OAuth2Application;
 import com.taotao.cloud.auth.oauth2.server.converter.AbstractOAuth2RegisteredClientConverter;
 
 /**

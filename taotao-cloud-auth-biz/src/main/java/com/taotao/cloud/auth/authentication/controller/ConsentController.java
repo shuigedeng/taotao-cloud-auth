@@ -20,8 +20,8 @@ import com.taotao.boot.security.spring.autoconfigure.properties.SecurityOAuth2En
 import com.taotao.boot.security.spring.support.constants.DefaultConstants;
 import com.taotao.boot.security.spring.support.constants.SymbolConstants;
 import com.taotao.cloud.auth.authentication.dto.Option;
-import com.taotao.cloud.auth.authentication.entity.OAuth2Application;
-import com.taotao.cloud.auth.authentication.entity.OAuth2Scope;
+import com.taotao.cloud.auth.persistent.persistence.OAuth2Application;
+import com.taotao.cloud.auth.persistent.persistence.OAuth2Scope;
 import com.taotao.cloud.auth.authentication.service.OAuth2ApplicationService;
 import com.taotao.cloud.auth.authentication.service.OAuth2ScopeService;
 import org.apache.commons.collections4.CollectionUtils;
@@ -179,8 +179,8 @@ public class ConsentController {
      */
     private Option scopeToOption( OAuth2Scope scope) {
         Option option = new Option();
-        String label =
-                scope.getDescription() == null ? scope.getScopeName() : scope.getDescription();
+        String label = scope.getScopeName();
+//                scope.getDescription() == null ? scope.getScopeName() : scope.getDescription();
         option.setLabel(label);
         option.setValue(scope.getScopeCode());
         return option;

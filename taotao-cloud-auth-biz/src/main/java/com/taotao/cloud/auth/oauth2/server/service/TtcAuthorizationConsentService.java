@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.auth.oauth2.server.service;
 
-import com.taotao.cloud.auth.oauth2.server.entity.TtcAuthorizationConsent;
-import com.taotao.cloud.auth.oauth2.server.repository.TtcAuthorizationConsentRepository;
+import com.taotao.cloud.auth.persistent.persistence.TtcAuthorizationConsent;
+import com.taotao.cloud.auth.persistent.repository.TtcAuthorizationConsentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -18,10 +18,10 @@ package com.taotao.cloud.auth.authentication.service;
 
 import com.taotao.cloud.auth.authentication.converter.OAuth2DeviceToRegisteredClientConverter;
 import com.taotao.cloud.auth.authentication.converter.RegisteredClientToOAuth2DeviceConverter;
-import com.taotao.cloud.auth.authentication.entity.OAuth2Device;
-import com.taotao.cloud.auth.authentication.entity.OAuth2Scope;
-import com.taotao.cloud.auth.authentication.repository.OAuth2DeviceRepository;
-import com.taotao.cloud.auth.oauth2.server.repository.TtcRegisteredClientRepository;
+import com.taotao.cloud.auth.persistent.persistence.OAuth2Device;
+import com.taotao.cloud.auth.persistent.persistence.OAuth2Scope;
+import com.taotao.cloud.auth.persistent.repository.OAuth2DeviceRepository;
+import com.taotao.cloud.auth.persistent.repository.TtcRegisteredClientRepository;
 import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -94,8 +94,8 @@ public class OAuth2DeviceService implements com.taotao.boot.security.spring.oaut
      */
     @Transactional(rollbackFor = RuntimeException.class)
     public void deleteById(String id) {
-        deviceRepository.deleteById(id);
-        ttcRegisteredClientRepository.deleteById(id);
+        deviceRepository.deleteById(Long.valueOf(id));
+        ttcRegisteredClientRepository.deleteById(Long.valueOf(id));
     }
 
     /**
@@ -116,7 +116,7 @@ public class OAuth2DeviceService implements com.taotao.boot.security.spring.oaut
             scopes.add(scope);
         }
 
-        OAuth2Device oldDevice = deviceRepository.findById(deviceId).get();
+        OAuth2Device oldDevice = deviceRepository.findById(Long.valueOf(deviceId)).get();
         oldDevice.setScopes(scopes);
 
         return saveAndFlush(oldDevice);

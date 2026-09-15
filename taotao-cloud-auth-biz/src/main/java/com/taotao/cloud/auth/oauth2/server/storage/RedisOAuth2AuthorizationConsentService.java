@@ -37,7 +37,7 @@ import java.util.concurrent.TimeUnit;
  * @since 2023-07-10 17:10:53
  */
 public final class RedisOAuth2AuthorizationConsentService
-        extends JpaOAuth2AuthorizationConsentService {
+        extends MysqlOAuth2AuthorizationConsentService {
 
     /**
      * 查询时放入Redis中的部分 key
