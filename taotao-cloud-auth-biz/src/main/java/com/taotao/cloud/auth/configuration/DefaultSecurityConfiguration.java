@@ -167,7 +167,7 @@ public class DefaultSecurityConfiguration {
 					})
 					.clearAuthentication(true);
 			})
-			// **************************************自定义登录配置***********************************************
+			// **************************************自定义扩展登录配置***********************************************
 			.with(
 				new ExtensionLoginFilterSecurityConfigurer<>(),
 				( customizer ) -> {
@@ -264,8 +264,7 @@ public class DefaultSecurityConfiguration {
 						.wechatMiniAppLogin(miniAppLoginConfigurer -> {
 						});
 				})
-			// **************************************oauth2
-			// login登录配置***********************************************
+			// **************************************oauth2第三方登录配置***********************************************
 			.with(
 				new SocialLoginFilterSecurityConfigurer<HttpSecurity>()
 					.socialDelegateClientRegistrationRepository(socialDelegateClientRegistrationRepository),
@@ -321,7 +320,6 @@ public class DefaultSecurityConfiguration {
 									}
 								});
 						});
-
 				});
 //			.with(new Oauth2FormSmsLoginHttpConfigurer<>(authenticationProperties),
 //				Customizer.withDefaults())
@@ -329,9 +327,7 @@ public class DefaultSecurityConfiguration {
 //				Customizer.withDefaults());
 
 		return httpSecurity
-			.addFilterAfter(
-				new ExtensionAndOauth2LoginRefreshTokenFilter(oAuth2AccessTokenStore),
-				LogoutFilter.class)
+			.addFilterAfter(new ExtensionAndOauth2LoginRefreshTokenFilter(oAuth2AccessTokenStore), LogoutFilter.class)
 			.build();
 	}
 
