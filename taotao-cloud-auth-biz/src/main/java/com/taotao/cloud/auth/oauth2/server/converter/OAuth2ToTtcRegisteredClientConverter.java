@@ -81,7 +81,7 @@ public class OAuth2ToTtcRegisteredClientConverter
                                 authorizationGrantTypes.add(authorizationGrantType.getValue()));
 
         TtcRegisteredClient entity = new TtcRegisteredClient();
-        entity.setId(Long.valueOf(registeredClient.getId()));
+        entity.setOriginId(registeredClient.getId());
         entity.setClientId(registeredClient.getClientId());
         entity.setClientIdIssuedAt(
                 DateUtil.toLocalDateTime(registeredClient.getClientIdIssuedAt()));

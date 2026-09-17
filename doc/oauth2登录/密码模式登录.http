@@ -1,2 +1,2 @@
 // 密码模式
-http://127.0.0.1:9800/oauth/token?grant_type=password&client_id=backend&client_secret=123456&username=root&password=123456&scope=all
+http://127.0.0.1:33334/oauth/token?grant_type=password&client_id=backend&client_secret=123456&username=root&password=123456&scope=all

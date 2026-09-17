@@ -42,4 +42,14 @@ public interface TtcRegisteredClientRepository extends BaseRepository<TtcRegiste
      */
     @QueryHints(@QueryHint(name = AvailableHints.HINT_CACHEABLE, value = "true"))
     Optional<TtcRegisteredClient> findByClientId(String clientId);
+
+	/**
+	 * 根据 ClientId 查询 RegisteredClient
+	 *
+	 * @param originId OAuth2 客户端ID
+	 * @return {@link Optional }<{@link TtcRegisteredClient }>
+	 * @since 2023-07-10 17:11:24
+	 */
+	@QueryHints(@QueryHint(name = AvailableHints.HINT_CACHEABLE, value = "true"))
+	Optional<TtcRegisteredClient> findByOriginId(String originId);
 }

@@ -1,3 +1,16 @@
-###
-GET http://127.0.0.1:33337/login/oauth2/code/github
-# 回调  GET http://127.0.0.1:33337/login/oauth2/code/github?code=1ad7eb43032c79fadb8f&state=7X2neWrwO2CCpsfnlM0M6HCNnHupp75RCoW1nihFNHQ%3D
+### 1.浏览器请求
+
+GET  http://127.0.0.1:33334/oauth2/authorization/github
+
+### 2.重定向到github登录页面
+
+### 3.使用自己的账户登录
+
+### 4.回调到自己的配置地址 并且带上他的code
+# https://1fe9ccce.cpolar.cn/login/oauth2/code/github?code=89ba58bc07225f5d4390b5f16a2c607860785d7460f0cf2930e1e096a0299fb3&state=YPgIXvys-m0reKiLToJaoJNe07GSu1RrQUJ_laadElk%3D
+# http://127.0.0.1:33334/login/oauth2/code/github?code=1ad7eb43032c79fadb8f&state=7X2neWrwO2CCpsfnlM0M6HCNnHupp75RCoW1nihFNHQ%3D
+
+### 5.然后通过code 应用用授权码换取令牌
+login/oauth2/code/github 对应OAuth2LoginAuthenticationProvider 向github的access_token接口发起post请求
+
+### 6.拿到access_token 后 再向配置的地址 获取user信息 OAuth2UserService 将这些属性封装为 OAuth2User 对象

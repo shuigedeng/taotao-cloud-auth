@@ -91,7 +91,7 @@ public class TtcRegisteredClientService {
      * @since 2023-07-10 17:10:23
      */
     public TtcRegisteredClient findById(String id) {
-        return registeredClientRepository.findById(Long.valueOf(id)).get();
+        return registeredClientRepository.findByOriginId(id).get();
     }
 
     /**

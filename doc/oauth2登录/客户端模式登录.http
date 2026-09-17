@@ -1,2 +1,2 @@
 // 客户端模式
-http://127.0.0.1:9800/oauth/token?grant_type=client_credentials&client_id=server&client_secret=123456
+http://127.0.0.1:33334/oauth/token?grant_type=client_credentials&client_id=server&client_secret=123456

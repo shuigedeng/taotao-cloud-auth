@@ -633,15 +633,18 @@ spring:
           github:
             client-id: c51cb681f7045cc44e6f
             client-secret: 2eeb2f180a05a82117d4276c788f3a2f276823c1
-            redirect-uri: http://1fe9ccce.cpolar.cn/login/oauth2/code/github
+            redirect-uri: http://127.0.0.1:33334/login/oauth2/code/github
           gitee:
             provider: gitee
             client-name: taotaocloud
             client-id: 81bc2a5852cbcd35f94fa77512e1efb776b57102e1fb9b82105acf7b412f072b
             client-secret: 6cf101f97728215e3455d19bf84e4b277be505a9690cf0e9558bc24904dd6ad6
             authorization-grant-type: authorization_code
+            authorization-uri: https://gitee.com/oauth/authorize
+            token-uri: https://gitee.com/oauth/token
+            user-info-uri: https://gitee.com/api/v5/user
             #'{baseUrl}/login/oauth2/code/{registrationId}'
-            redirect-uri: http://1fe9ccce.cpolar.cn/login/oauth2/code/gitee
+            redirect-uri: http://127.0.0.1:33334/login/oauth2/code/gitee
             scope:
               - user_info
           qq:
@@ -1387,7 +1390,7 @@ ttc:
         gitee:
           clientId: 81bc2a5852cbcd35f94fa77512e1efb776b57102e1fb9b82105acf7b412f072b
           clientSecret: 6cf101f97728215e3455d19bf84e4b277be505a9690cf0e9558bc24904dd6ad6
-          redirectUri: http://1fe9ccce.cpolar.cn/login/oauth2/code/gitee
+          redirectUri: http://127.0.0.1:33334/login/oauth2/code/gitee
           scopes:
             - user_info
 
