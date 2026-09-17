@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.api.rpc;
+package com.taotao.cloud.auth.api.rpc.command;
 
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.auth.api.rpc.request.ClientQueryRpcRequest;
-import com.taotao.cloud.auth.api.rpc.response.ClientRpcResponse;
+import com.taotao.cloud.auth.api.rpc.dto.query.ClientQueryRpcRequest;
+import com.taotao.cloud.auth.api.rpc.dto.response.ClientRpcResponse;
 
 /**
  * OAuth2 客户端 RPC 服务接口
@@ -28,7 +28,6 @@ import com.taotao.cloud.auth.api.rpc.response.ClientRpcResponse;
  * @version 2022.03
  * @since 2022-03-25 14:22:32
  */
-public interface Oauth2ClientRpcService {
+public interface Oauth2ClientCommandRpcService {
 
-	Response<ClientRpcResponse> findById(Request<ClientQueryRpcRequest> clientQueryRpcRequest);
 }

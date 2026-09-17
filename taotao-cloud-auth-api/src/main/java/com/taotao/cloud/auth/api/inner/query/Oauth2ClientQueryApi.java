@@ -14,13 +14,13 @@
   * limitations under the License.
   */
 
- package com.taotao.cloud.auth.api.inner;
+ package com.taotao.cloud.auth.api.inner.query;
 
  import com.taotao.boot.common.constant.ServiceNameConstants;
  import com.taotao.boot.common.model.request.Request;
  import com.taotao.boot.common.model.response.Response;
- import com.taotao.cloud.auth.api.inner.request.FeignClientQueryApiRequest;
- import com.taotao.cloud.auth.api.inner.response.ClientApiResponse;
+ import com.taotao.cloud.auth.api.inner.dto.query.Oauth2ClientQueryApiRequest;
+ import com.taotao.cloud.auth.api.inner.dto.response.ClientApiResponse;
  import org.springframework.validation.annotation.Validated;
  import org.springframework.web.bind.annotation.RequestBody;
  import org.springframework.web.service.annotation.HttpExchange;
@@ -35,9 +35,9 @@
   */
  @HttpExchange(
 	 value = ServiceNameConstants.TAOTAO_CLOUD_AUTH)
- public interface Oauth2ClientApi {
+ public interface Oauth2ClientQueryApi {
 
 	 @PostExchange(value = "/auth/query")
 	 Response<ClientApiResponse> query(
-		 @Validated @RequestBody Request<FeignClientQueryApiRequest> feignClientQueryApiRequest);
+		 @Validated @RequestBody Request<Oauth2ClientQueryApiRequest> feignClientQueryApiRequest);
  }

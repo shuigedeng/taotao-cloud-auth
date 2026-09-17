@@ -1,0 +1,2 @@
+POST  http://127.0.0.1:33401/oauth2/authorize?client_id=67601992f3574c75809a3d79888bf16e&response_type=code&scope=message.read&redirect_uri=http%3A%2F%2F127.0.0.1%3A8090%2Fauthorized
+

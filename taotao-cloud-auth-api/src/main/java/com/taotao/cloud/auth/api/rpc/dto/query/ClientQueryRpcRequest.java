@@ -14,49 +14,32 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.api.inner.response;
+package com.taotao.cloud.auth.api.rpc.dto.query;
 
-import com.taotao.boot.common.model.ddd.types.MarkerResponse;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.taotao.boot.common.model.ddd.types.MarkerRequest;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.*;
-
-import java.io.Serial;
-import java.io.Serializable;
+import lombok.NoArgsConstructor;
 
 /**
- * 公司查询VO
+ * 菜单查询对象
  *
  * @author shuigedeng
  * @version 2021.10
- * @since 2021-10-09 16:31:52
+ * @since 2021-10-09 15:27:42
  */
 @Setter
 @Getter
 @ToString
 @Builder
-@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(description = "公司查询VO")
-public class ClientApiResponse implements MarkerResponse  {
+public class ClientQueryRpcRequest implements MarkerRequest {
 
-    @Serial
-    private static final long serialVersionUID = -4132785717179910025L;
+    private static final long serialVersionUID = 5126530068827085130L;
 
+    /** id */
     private Long id;
 
-    /** 字典名称 */
-    private String dictName;
-
-    /** 字典编码 */
-    private String dictCode;
-
-    /** 描述 */
-    private String description;
-
-    /** 排序值 */
-    private Integer sortNum;
-
-    /** 备注信息 */
-    private String remark;
 }

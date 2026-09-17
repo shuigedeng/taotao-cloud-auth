@@ -1,0 +1,3 @@
+###
+GET http://127.0.0.1:33337/login/oauth2/code/qq
+# 回调  GET http://127.0.0.1:33337/login/oauth2/code/qq?code=1ad7eb43032c79fadb8f&state=7X2neWrwO2CCpsfnlM0M6HCNnHupp75RCoW1nihFNHQ%3D

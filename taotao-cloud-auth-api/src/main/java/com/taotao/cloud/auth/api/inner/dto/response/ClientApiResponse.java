@@ -14,17 +14,13 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.auth.api.rpc.response;
+package com.taotao.cloud.auth.api.inner.dto.response;
 
 import com.taotao.boot.common.model.ddd.types.MarkerResponse;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.Serial;
-import java.io.Serializable;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.*;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+
+import java.io.Serial;
 
 /**
  * 公司查询VO
@@ -37,11 +33,11 @@ import lombok.NoArgsConstructor;
 @Getter
 @ToString
 @Builder
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "公司查询VO")
-public class ClientRpcResponse implements MarkerResponse  {
+public class ClientApiResponse implements MarkerResponse  {
 
     @Serial
     private static final long serialVersionUID = -4132785717179910025L;

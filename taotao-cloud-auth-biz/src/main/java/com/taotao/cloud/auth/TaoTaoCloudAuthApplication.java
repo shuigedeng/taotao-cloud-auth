@@ -53,6 +53,8 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
  * <p>/.well-known/openid-configuration {@link  org.springframework.security.oauth2.server.authorization.oidc.web.OidcProviderConfigurationEndpointFilter}
  * <p>/userinfo {@link  org.springframework.security.oauth2.server.authorization.oidc.web.OidcUserInfoEndpointFilter}
  *
+ * <p>//login/oauth2/code/* {@link  org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter}
+ *
  * <p>/oauth/confirm_access 用户批准授权的端点
  * <p>/oauth/error 用于渲染授权服务器的错误
  * <p>/oauth/check_token 资源服务器解码access token
