@@ -333,7 +333,7 @@ spring:
       #1.Tomcat将使用虚拟线程来处理HTTP请求。这意味着处理Web请求的应用程序代码（例如控制器中的方法）将在虚拟线程上运行。
       #2.调用@Async方法时，SpringMVC的异步请求处理和SpringWebFlux的阻塞执行支持现在将利用虚拟线程
       #3.标记有@Scheduled的方法将在虚拟线程上运行
-      enabled: true
+      enabled: false
   config:
     import:
       # 使用 optional: 前缀，即使nacos不可用也能启动
@@ -346,11 +346,14 @@ spring:
     timeout-per-shutdown-phase: 30s
   thymeleaf:
     mode: HTML
-    prefix: classpath:/static/
+    prefix: classpath:/templates/
+    check-template-location: true
     suffix: .html
     encoding: UTF-8
     cache: false
-    check-template: true
+    enabled: true
+    servlet:
+      content-type: text/html
   main:
     allow-circular-references: false
     allow-bean-definition-overriding: false
@@ -512,51 +515,6 @@ spring:
           transportMode : "NIO"
           # 配置看门狗的默认超时时间为30s，这里改为 10s
           lockWatchdogTimeout: 10000
-  redis:
-    redisson:
-      config: |
-        singleServerConfig:
-          # 连接空闲超时，单位：毫秒
-          idleConnectionTimeout: 10000
-          # 连接超时，单位：毫秒
-          connectTimeout: 10000
-          # 命令等待超时，单位：毫秒
-          timeout: 3000
-          # 命令失败重试次数,如果尝试达到 retryAttempts（命令失败重试次数） 仍然不能将命令发送至某个指定的节点时，将抛出错误。
-          # 如果尝试在此限制之内发送成功，则开始启用 timeout（命令等待超时） 计时。
-          retryAttempts: 3
-          # 命令重试发送时间间隔，单位：毫秒
-          #retryInterval: 1500
-          # 单个连接最大订阅数量
-          subscriptionsPerConnection: 5
-          # 客户端名称
-          clientName: "taotao-cloud-redis-client"
-          # 节点地址
-          address: "redis://${remote-ip}:6379"
-          # 发布和订阅连接的最小空闲连接数
-          subscriptionConnectionMinimumIdleSize: 1
-          # 发布和订阅连接池大小
-          subscriptionConnectionPoolSize: 50
-          # 最小空闲连接数
-          connectionMinimumIdleSize: 32
-          # 连接池大小
-          connectionPoolSize: 64
-          # 数据库编号
-          database: 1
-          # DNS监测时间间隔，单位：毫秒
-          dnsMonitoringInterval: 5000
-        # 密码，没有设置密码时，需要注释掉，否则会报错
-        #password: taotao-cloud
-        # 线程池数量,默认值: 当前处理核数量 * 2
-        threads: 16
-        # Netty线程池数量,默认值: 当前处理核数量 * 2
-        nettyThreads: 32
-        # 编码
-        codec: !<org.redisson.codec.JsonJackson3Codec> {}
-        # 传输模式
-        transportMode : "NIO"
-        # 配置看门狗的默认超时时间为30s，这里改为 10s
-        lockWatchdogTimeout: 10000
   kafka:
     enabled: true
     bootstrap-servers: ${remote-ip}:9094
@@ -701,11 +659,11 @@ spring:
             scope: message.read
         provider:
           ttauth:
-            authorization-uri: http://${remote-ip}:33401/oauth2/authorize
-            token-uri: http://${remote-ip}:33401/oauth2/token
-            user-info-uri: http://${remote-ip}:33401/api/test/user
+            authorization-uri: http://${remote-ip}:33334/oauth2/authorize
+            token-uri: http://${remote-ip}:33334/oauth2/token
+            user-info-uri: http://${remote-ip}:33334/api/test/user
             user-name-attribute: id
-            jwk-set-uri: http://${remote-ip}:33401/oauth2/jwks
+            jwk-set-uri: http://${remote-ip}:33334/oauth2/jwks
           google:
             authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
             token-uri: https://www.googleapis.com/oauth2/v4/token
@@ -1083,21 +1041,21 @@ taotao:
         endpoint:
           uaa-service-name: taotao-cloud-uaa
           upms-service-name: taotao-cloud-upms
-          gateway-service-uri: http://${remote-ip}:33401
-          uaa-service-uri: http://${remote-ip}:33401/
-          upms-service-uri: http://${remote-ip}:33401/${ttc.endpoint.upms-service-name}
-          access-token-uri: http://${remote-ip}:33401/oauth2/token
-          authorization-uri: http://${remote-ip}:33401/oauth2/authorize
-          token-revocation-uri: http://${remote-ip}:33401/oauth2/revoke
-          token-introspection-uri: http://${remote-ip}:33401/oauth2/introspect
-          jwk-set-uri: http://${remote-ip}:33401/oauth2/jwks
+          gateway-service-uri: http://${remote-ip}:33334
+          uaa-service-uri: http://${remote-ip}:33334/
+          upms-service-uri: http://${remote-ip}:33334/${ttc.endpoint.upms-service-name}
+          access-token-uri: http://${remote-ip}:33334/oauth2/token
+          authorization-uri: http://${remote-ip}:33334/oauth2/authorize
+          token-revocation-uri: http://${remote-ip}:33334/oauth2/revoke
+          token-introspection-uri: http://${remote-ip}:33334/oauth2/introspect
+          jwk-set-uri: http://${remote-ip}:33334/oauth2/jwks
           issuer-uri: ${ttc.endpoint.uaa-service-uri}
-          oidc-client-registration-uri: http://${remote-ip}:33401/connect/register
-          oidc-user-info-uri: http://${remote-ip}:33401/userinfo
-          #device-authorization-uri: http://${remote-ip}:33401/oauth2/device_authorization
-          #device-authorization-endpoint: http://${remote-ip}:33401/oauth2/device_authorization
-          #device-verification-uri: http://${remote-ip}:33401/oauth2/device_verification
-          #device-verification-endpoint: http://${remote-ip}:33401/oauth2/device_verification
+          oidc-client-registration-uri: http://${remote-ip}:33334/connect/register
+          oidc-user-info-uri: http://${remote-ip}:33334/userinfo
+          #device-authorization-uri: http://${remote-ip}:33334/oauth2/device_authorization
+          #device-authorization-endpoint: http://${remote-ip}:33334/oauth2/device_authorization
+          #device-verification-uri: http://${remote-ip}:33334/oauth2/device_verification
+          #device-verification-endpoint: http://${remote-ip}:33334/oauth2/device_verification
         authentication:
           form-login:
             category: HUTOOL_GIF
@@ -1357,7 +1315,7 @@ knife4j:
 
 jwk:
   set:
-    uri: http://${remote-ip}:33401/oauth2/jwks
+    uri: http://${remote-ip}:33334/oauth2/jwks
 
 auth:
   baidu:
@@ -1372,21 +1330,21 @@ ttc:
   endpoint:
     uaa-service-name: taotao-cloud-uaa
     upms-service-name: taotao-cloud-upms
-    gateway-service-uri: http://${remote-ip}:33401
-    uaa-service-uri: http://${remote-ip}:33401/
-    upms-service-uri: http://${remote-ip}:33401/${ttc.endpoint.upms-service-name}
-    access-token-uri: http://${remote-ip}:33401/oauth2/token
-    authorization-uri: http://${remote-ip}:33401/oauth2/authorize
-    token-revocation-uri: http://${remote-ip}:33401/oauth2/revoke
-    token-introspection-uri: http://${remote-ip}:33401/oauth2/introspect
-    jwk-set-uri: http://${remote-ip}:33401/oauth2/jwks
+    gateway-service-uri: http://${remote-ip}:33334
+    uaa-service-uri: http://${remote-ip}:33334/
+    upms-service-uri: http://${remote-ip}:33334/${ttc.endpoint.upms-service-name}
+    access-token-uri: http://${remote-ip}:33334/oauth2/token
+    authorization-uri: http://${remote-ip}:33334/oauth2/authorize
+    token-revocation-uri: http://${remote-ip}:33334/oauth2/revoke
+    token-introspection-uri: http://${remote-ip}:33334/oauth2/introspect
+    jwk-set-uri: http://${remote-ip}:33334/oauth2/jwks
     issuer-uri: ${ttc.endpoint.uaa-service-uri}
-    oidc-client-registration-uri: http://${remote-ip}:33401/connect/register
-    oidc-user-info-uri: http://${remote-ip}:33401/userinfo
-    #device-authorization-uri: http://${remote-ip}:33401/oauth2/device_authorization
-    #device-authorization-endpoint: http://${remote-ip}:33401/oauth2/device_authorization
-    #device-verification-uri: http://${remote-ip}:33401/oauth2/device_verification
-    #device-verification-endpoint: http://${remote-ip}:33401/oauth2/device_verification
+    oidc-client-registration-uri: http://${remote-ip}:33334/connect/register
+    oidc-user-info-uri: http://${remote-ip}:33334/userinfo
+    #device-authorization-uri: http://${remote-ip}:33334/oauth2/device_authorization
+    #device-authorization-endpoint: http://${remote-ip}:33334/oauth2/device_authorization
+    #device-verification-uri: http://${remote-ip}:33334/oauth2/device_verification
+    #device-verification-endpoint: http://${remote-ip}:33334/oauth2/device_verification
   oauth2:
     authentication:
       sign-in-endpoint-limited:
