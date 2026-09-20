@@ -47,7 +47,7 @@ import static com.taotao.boot.common.constant.RedisConstants.LOGOUT_JWT_KEY_PREF
  * @version 2021.10
  * @since 2021-12-22 15:50:56
  */
-@Validated
+
 @Tag(name = "Oauth2API", description = "Oauth2API")
 @RestController
 @RequestMapping("/auth/oauth2")

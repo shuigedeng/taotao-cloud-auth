@@ -42,7 +42,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 2021.10
  * @since 2021-12-22 15:56:32
  */
-@Validated
+
 @Tag(name = "测试API", description = "测试API")
 @RestController
 @RequestMapping("/api/test")

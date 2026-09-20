@@ -33,11 +33,10 @@
   * @version 2022.03
   * @since 2020/5/2 16:42
   */
- @HttpExchange(
-	 value = ServiceNameConstants.TAOTAO_CLOUD_AUTH)
+ @HttpExchange
  public interface Oauth2ClientQueryApi {
 
 	 @PostExchange(value = "/auth/query")
 	 Response<ClientApiResponse> query(
-		 @Validated @RequestBody Request<Oauth2ClientQueryApiRequest> feignClientQueryApiRequest);
+		  @RequestBody Request<Oauth2ClientQueryApiRequest> feignClientQueryApiRequest);
  }

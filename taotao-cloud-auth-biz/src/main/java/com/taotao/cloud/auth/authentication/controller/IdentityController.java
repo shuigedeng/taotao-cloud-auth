@@ -34,6 +34,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
+import jakarta.validation.Valid;
 import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -84,7 +85,7 @@ public class IdentityController {
                 schema = @Schema(implementation = SessionCreate.class)),
     })
     @PostMapping("/open/identity/session")
-    public Result<Session> codeToSession(@Validated @RequestBody SessionCreate sessionCreate) {
+    public Result<Session> codeToSession(@Valid @RequestBody SessionCreate sessionCreate) {
 
         SecretKey secretKey =
                 interfaceSecurityService.createSecretKey(
@@ -123,7 +124,7 @@ public class IdentityController {
                 schema = @Schema(implementation = SessionExchange.class)),
     })
     @PostMapping("/open/identity/exchange")
-    public Result<String> exchange(@Validated @RequestBody SessionExchange sessionExchange) {
+    public Result<String> exchange(@Valid @RequestBody SessionExchange sessionExchange) {
 
         String encryptedAesKey =
                 interfaceSecurityService.exchange(
@@ -156,7 +157,7 @@ public class IdentityController {
     })
     @PostMapping("/open/identity/prompt")
     public Result<SignInErrorStatus> prompt(
-            @Validated @RequestBody SignInErrorPrompt signInErrorPrompt) {
+            @Valid @RequestBody SignInErrorPrompt signInErrorPrompt) {
         SignInErrorStatus signInErrorStatus =
                 signInFailureLimitedStampManager.errorStatus(signInErrorPrompt.getUsername());
         return Result.success(signInErrorStatus);
