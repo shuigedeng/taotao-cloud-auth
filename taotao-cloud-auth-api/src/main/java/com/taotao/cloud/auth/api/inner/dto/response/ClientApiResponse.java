@@ -36,7 +36,7 @@ import java.io.Serial;
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(description = "公司查询VO")
+@Schema(description = "公司查询响应对象")
 public class ClientApiResponse implements MarkerResponse  {
 
     @Serial
