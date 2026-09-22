@@ -612,10 +612,10 @@ spring:
             #jws-algorithms:
             #  - RS256
             #public-key-location: classpath:certificate/taotao-cloud.pub
-         opaquetoken:
-           client-id: 14a9cf797931430896ad13a6b1855611
-           client-secret: 14a9cf797931430896ad13a6b1855611asdfasfd
-           introspection-uri: http://${remote-ip}/oauth2/introspect
+         #opaquetoken:
+         #  client-id: 14a9cf797931430896ad13a6b1855611
+         #  client-secret: 14a9cf797931430896ad13a6b1855611asdfasfd
+         #  introspection-uri: http://${remote-ip}/oauth2/introspect
            #introspection-uri: http://${remote-ip}:8080/oauth/check_token
       client:
         registration:
