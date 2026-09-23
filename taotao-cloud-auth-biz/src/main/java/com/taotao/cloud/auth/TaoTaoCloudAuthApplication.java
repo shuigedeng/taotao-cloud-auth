@@ -30,7 +30,6 @@ import org.springframework.boot.persistence.autoconfigure.EntityScan;
 import org.springframework.boot.security.oauth2.client.autoconfigure.OAuth2ClientProperties;
 import org.springframework.boot.web.server.servlet.context.ServletComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.data.envers.repository.config.EnableEnversRepositories;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisIndexedHttpSession;
 
@@ -90,10 +89,10 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 	basePackages = {
 		"com.taotao.cloud.auth.persistent.mapper",
 	})
-@EnableEnversRepositories(
-        basePackages = {
-            "com.taotao.cloud.auth.persistent.repository",
-        })
+//@EnableEnversRepositories(
+//        basePackages = {
+//            "com.taotao.cloud.auth.persistent.repository",
+//        })
 @EntityScan(
         basePackages = {
             "com.taotao.cloud.auth.persistent.persistence",

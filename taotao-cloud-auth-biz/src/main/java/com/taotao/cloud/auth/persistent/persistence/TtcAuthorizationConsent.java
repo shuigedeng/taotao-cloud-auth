@@ -21,7 +21,6 @@ import com.google.common.base.Objects;
 import com.taotao.boot.webagg.entity.BasePO;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.envers.RevisionNumber;
 
 /**
  * <p>OAuth2 认证确认信息实体 </p>
@@ -39,9 +38,9 @@ import org.hibernate.envers.RevisionNumber;
 @Table(
 	name = TtcAuthorizationConsent.TABLE_NAME,
 	indexes = {
-		@Index(name = "idx_create_time", columnList = "`create_time`"),
-		@Index(name = "oauth2_authorization_consent_rcid_idx", columnList = "registered_client_id"),
-		@Index(name = "oauth2_authorization_consent_pn_idx", columnList = "principal_name")
+		@Index(name = "idx_create_time", columnList = "create_time"),
+		@Index(name = "idx_registered_client_id", columnList = "registered_client_id"),
+		@Index(name = "idx_principal_name", columnList = "principal_name")
 	})
 @TableName(TtcAuthorizationConsent.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = TtcAuthorizationConsent.TABLE_NAME)
@@ -72,7 +71,6 @@ public class TtcAuthorizationConsent extends BasePO<TtcAuthorizationConsent> {
     private String authorities;
 
     @Version
-    @RevisionNumber
     @Column(name = "version", columnDefinition = "int not null default 1 comment '版本号'")
     private Long version = 1L;
 

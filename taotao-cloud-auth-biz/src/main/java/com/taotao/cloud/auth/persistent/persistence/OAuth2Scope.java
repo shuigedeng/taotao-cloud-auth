@@ -43,11 +43,13 @@ import java.util.Set;
 @Entity
 @Table(
 	name = OAuth2Scope.TABLE_NAME,
-	uniqueConstraints = {@UniqueConstraint(columnNames = {"scope_code"})},
+	uniqueConstraints = {
+		@UniqueConstraint(name = "scope_code",columnNames = {"scope_code"})
+	},
 	indexes = {
-		@Index(name = "idx_create_time", columnList = "`create_time`"),
-		@Index(name = "oauth2_scope_id_idx", columnList = "scope_id"),
-		@Index(name = "oauth2_scope_code_idx", columnList = "scope_code")
+		@Index(name = "idx_create_time", columnList = "create_time"),
+		@Index(name = "idx_scope_id", columnList = "scope_id"),
+		@Index(name = "idx_scope_code", columnList = "scope_code")
 	})
 @TableName(OAuth2Scope.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = OAuth2Scope.TABLE_NAME)

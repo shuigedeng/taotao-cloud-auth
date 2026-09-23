@@ -37,11 +37,13 @@ import lombok.*;
 @Entity
 @Table(
 	name = OAuth2DeviceScopeRelation.TABLE_NAME,
-	uniqueConstraints = {@UniqueConstraint(columnNames = {"device_id", "scope_id"})},
+	uniqueConstraints = {
+		@UniqueConstraint(name = "uniq_device_id_scope_id",columnNames = {"device_id", "scope_id"})
+	},
 	indexes = {
-		@Index(name = "idx_create_time", columnList = "`create_time`"),
-		@Index(name = "oauth2_device_scope_aid_idx", columnList = "device_id"),
-		@Index(name = "oauth2_device_scope_sid_idx", columnList = "scope_id")
+		@Index(name = "idx_create_time", columnList = "create_time"),
+		@Index(name = "idx_device_id", columnList = "device_id"),
+		@Index(name = "idx_scope_id", columnList = "scope_id")
 	})
 @TableName(OAuth2DeviceScopeRelation.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = OAuth2DeviceScopeRelation.TABLE_NAME)

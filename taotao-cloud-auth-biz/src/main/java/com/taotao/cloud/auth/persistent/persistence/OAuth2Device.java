@@ -41,12 +41,14 @@ import java.util.Set;
 @Entity
 @Table(
 	name = OAuth2Device.TABLE_NAME,
-	uniqueConstraints = {@UniqueConstraint(columnNames = {"device_name"})},
+	uniqueConstraints = {
+		@UniqueConstraint(name = "uniq_device_name",columnNames = {"device_name"})
+	},
 	indexes = {
-		@Index(name = "idx_create_time", columnList = "`create_time`"),
-		@Index(name = "oauth2_device_id_idx", columnList = "device_id"),
-		@Index(name = "oauth2_device_ipk_idx", columnList = "device_name"),
-		@Index(name = "oauth2_device_pid_idx", columnList = "product_id")
+		@Index(name = "idx_create_time", columnList = "create_time"),
+		@Index(name = "idx_device_id", columnList = "device_id"),
+		@Index(name = "idx_device_name", columnList = "device_name"),
+		@Index(name = "idx_product_id", columnList = "product_id")
 	})
 @TableName(OAuth2Device.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = OAuth2Device.TABLE_NAME)

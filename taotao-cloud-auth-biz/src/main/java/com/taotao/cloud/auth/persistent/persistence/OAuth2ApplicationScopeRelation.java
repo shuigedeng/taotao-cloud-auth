@@ -39,12 +39,16 @@ import lombok.*;
 @Entity
 @Table(
 	name = OAuth2ApplicationScopeRelation.TABLE_NAME,
-	uniqueConstraints = {@UniqueConstraint(columnNames = {"application_id", "scope_id"})},
+	uniqueConstraints = {
+		@UniqueConstraint(name = "uniq_application_id_scope_id", columnNames = {"application_id", "scope_id"})
+	},
 	indexes = {
-		@Index(name = "idx_create_time", columnList = "`create_time`"),
-		@Index(name = "oauth2_application_scope_aid_idx", columnList = "application_id"),
-		@Index(name = "oauth2_application_scope_sid_idx", columnList = "scope_id")
-	})
+		@Index(name = "idx_create_time", columnList = "create_time"),
+		@Index(name = "idx_application_id", columnList = "application_id"),
+		@Index(name = "idx_scope_id", columnList = "scope_id")
+	},
+	comment = "OAuth2应用实体"
+)
 @TableName(OAuth2ApplicationScopeRelation.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = OAuth2ApplicationScopeRelation.TABLE_NAME)
 public class OAuth2ApplicationScopeRelation extends BasePO<OAuth2ApplicationScopeRelation> {

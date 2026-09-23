@@ -37,10 +37,9 @@ import lombok.*;
 @Table(
 	name = TtcRegisteredClient.TABLE_NAME,
 	indexes = {
-		@Index(name = "idx_create_time", columnList = "`create_time`"),
-		@Index(name = "oauth2_registered_client_id_idx", columnList = "id"),
-		@Index(name = "oauth2_registered_client_cid_idx", columnList = "client_id"),
-		@Index(name = "oauth2_registered_origin_id_idx", columnList = "origin_id")
+		@Index(name = "idx_create_time", columnList = "create_time"),
+		@Index(name = "idx_client_id", columnList = "client_id"),
+		@Index(name = "idx_origin_id", columnList = "origin_id")
 	})
 @TableName(TtcRegisteredClient.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = TtcRegisteredClient.TABLE_NAME)

@@ -39,10 +39,9 @@ import java.time.LocalDateTime;
 @Table(
 	name = TtcAuthorization.TABLE_NAME,
 	indexes = {
-		@Index(name = "idx_create_time", columnList = "`create_time`"),
-		@Index(name = "oauth2_authorization_id_idx", columnList = "id"),
-		@Index(name = "oauth2_authorization_rci_idx", columnList = "registered_client_id"),
-		@Index(name = "oauth2_authorization_pn_idx", columnList = "principal_name")
+		@Index(name = "idx_create_time", columnList = "create_time"),
+		@Index(name = "idx_registered_client_id", columnList = "registered_client_id"),
+		@Index(name = "idx_principal_name", columnList = "principal_name")
 	})
 @TableName(TtcAuthorization.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = TtcAuthorization.TABLE_NAME)
@@ -54,22 +53,13 @@ public class TtcAuthorization  extends BasePO<TtcAuthorization> {
 
 	public static final String TABLE_NAME = "ttc_oauth2_authorization";
 
-    /**
-     * 注册客户端id
-     */
-    @Column(name = "registered_client_id", nullable = false, length = 100)
+    @Column(name = "registered_client_id", nullable = false, length = 100,comment = "注册客户端id")
     private String registeredClientId;
 
-    /**
-     * 主体名称
-     */
-    @Column(name = "principal_name", nullable = false, length = 200)
+    @Column(name = "principal_name", nullable = false, length = 200,comment = "主体名称")
     private String principalName;
 
-    /**
-     * 授权授权类型
-     */
-    @Column(name = "authorization_grant_type", nullable = false, length = 100)
+    @Column(name = "authorization_grant_type", nullable = false, length = 100,comment = "授权授权类型")
     private String authorizationGrantType;
 
     /**

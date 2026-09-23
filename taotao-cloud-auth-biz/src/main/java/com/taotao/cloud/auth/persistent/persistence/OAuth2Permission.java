@@ -36,8 +36,8 @@ import lombok.*;
 @Table(
 	name = OAuth2Permission.TABLE_NAME,
 	indexes = {
-		@Index(name = "idx_create_time", columnList = "`create_time`"),
-		@Index(name = "oauth2_permission_id_idx", columnList = "permission_id")
+		@Index(name = "idx_create_time", columnList = "create_time"),
+		@Index(name = "idx_permission_id", columnList = "permission_id")
 	})
 @TableName(OAuth2Permission.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = OAuth2Permission.TABLE_NAME)

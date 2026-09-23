@@ -46,9 +46,9 @@ import java.util.Set;
 @Table(
 	name = OAuth2Application.TABLE_NAME,
 	indexes = {
-		@Index(name = "idx_create_time", columnList = "`create_time`"),
-		@Index(name = "oauth2_application_id_idx", columnList = "application_id"),
-		@Index(name = "oauth2_application_cid_idx", columnList = "client_id")
+		@Index(name = "idx_create_time", columnList = "create_time"),
+		@Index(name = "idx_application_id", columnList = "application_id"),
+		@Index(name = "idx_client_id", columnList = "client_id")
 	})
 @TableName(OAuth2Application.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = OAuth2Application.TABLE_NAME)

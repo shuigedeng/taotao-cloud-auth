@@ -36,8 +36,8 @@ import lombok.*;
 @Table(
 	name = OAuth2Compliance.TABLE_NAME,
 	indexes = {
-		@Index(name = "idx_create_time", columnList = "`create_time`"),
-		@Index(name = "oauth2_compliance_id_idx", columnList = "compliance_id")
+		@Index(name = "idx_create_time", columnList = "create_time"),
+		@Index(name = "idx_compliance_id", columnList = "compliance_id")
 	})
 @TableName(OAuth2Compliance.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = OAuth2Compliance.TABLE_NAME)

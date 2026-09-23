@@ -43,9 +43,9 @@ import java.util.Set;
 @Table(
 	name = OAuth2ScopePermissionRelation.TABLE_NAME,
 	indexes = {
-		@Index(name = "idx_create_time", columnList = "`create_time`"),
-		@Index(name = "oauth2_scope_permission_sid_idx", columnList = "scope_id"),
-		@Index(name = "oauth2_scope_permission_pid_idx", columnList = "permission_id")
+		@Index(name = "idx_create_time", columnList = "create_time"),
+		@Index(name = "idx_scope_id", columnList = "scope_id"),
+		@Index(name = "idx_permission_id", columnList = "permission_id")
 	})
 @TableName(OAuth2ScopePermissionRelation.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = OAuth2ScopePermissionRelation.TABLE_NAME)

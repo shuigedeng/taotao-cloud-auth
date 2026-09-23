@@ -37,11 +37,13 @@ import lombok.*;
 @Entity
 @Table(
 	name = OAuth2Product.TABLE_NAME,
-	uniqueConstraints = {@UniqueConstraint(columnNames = {"product_key"})},
+	uniqueConstraints = {
+		@UniqueConstraint(name = "uniq_product_key",columnNames = {"product_key"})
+	},
 	indexes = {
-		@Index(name = "idx_create_time", columnList = "`create_time`"),
-		@Index(name = "oauth2_product_pid_idx", columnList = "product_id"),
-		@Index(name = "oauth2_product_ipk_idx", columnList = "product_key")
+		@Index(name = "idx_create_time", columnList = "create_time"),
+		@Index(name = "idx_product_id", columnList = "product_id"),
+		@Index(name = "idx_product_key", columnList = "product_key")
 	})
 @TableName(OAuth2Product.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = OAuth2Product.TABLE_NAME)
