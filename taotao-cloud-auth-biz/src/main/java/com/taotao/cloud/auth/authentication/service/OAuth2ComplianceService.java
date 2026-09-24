@@ -94,7 +94,6 @@ public class OAuth2ComplianceService implements ComplianceService {
     }
 
     /**
-    /**
      * 获取
      *
      * @param request request
@@ -105,7 +104,6 @@ public class OAuth2ComplianceService implements ComplianceService {
         return UserAgentUtil.parse(request.getHeader(HttpHeaders.USER_AGENT));
     }
 
-    /**
     /**
      * 获取
      *

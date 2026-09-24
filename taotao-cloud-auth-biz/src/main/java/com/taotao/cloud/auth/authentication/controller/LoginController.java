@@ -102,7 +102,6 @@ public class LoginController {
     }
 
     /**
-    /**
      * 获取
      *
      * @since 2022.03
@@ -111,7 +110,6 @@ public class LoginController {
         return authenticationProperties.getFormLogin();
     }
 
-    /**
     /**
      * 判断
      *
@@ -124,7 +122,6 @@ public class LoginController {
         return matches(request, failureUrl);
     }
 
-    /**
     /**
      * 判断
      *
@@ -144,7 +141,6 @@ public class LoginController {
                 : Collections.emptyMap();
     }
 
-    /**
     /**
      * 获取
      *
