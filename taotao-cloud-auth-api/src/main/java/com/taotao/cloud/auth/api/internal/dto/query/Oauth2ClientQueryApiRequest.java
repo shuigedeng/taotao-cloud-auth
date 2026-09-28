@@ -1,4 +1,4 @@
-package com.taotao.cloud.auth.api.inner.dto.query;
+package com.taotao.cloud.auth.api.internal.dto.query;
 
 import com.taotao.boot.common.model.ddd.types.MarkerRequest;
 

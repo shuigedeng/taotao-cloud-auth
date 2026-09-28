@@ -14,7 +14,7 @@
   * limitations under the License.
   */
 
- package com.taotao.cloud.auth.api.inner.command;
+ package com.taotao.cloud.auth.api.internal.command;
 
  import com.taotao.boot.common.constant.ServiceNameConstants;
  import org.springframework.web.service.annotation.HttpExchange;
