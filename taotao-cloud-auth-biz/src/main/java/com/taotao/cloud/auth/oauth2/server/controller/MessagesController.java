@@ -62,7 +62,7 @@ public class MessagesController {
     //    }
 
     // @Autowired
-    // private IFeignDictApi feignDictService;
+    // private AclServiceDictApi feignDictService;
     //
     // @DubboReference(check = false)
     // private IDubboDictService dubboDictService;
