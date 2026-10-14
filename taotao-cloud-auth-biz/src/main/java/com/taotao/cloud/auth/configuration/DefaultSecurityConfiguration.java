@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.auth.configuration;
 
-import com.taotao.boot.captcha.support.core.processor.CaptchaRendererFactory;
+import com.taotao.boot.captcha.standard.core.processor.CaptchaRendererFactory;
 import com.taotao.boot.security.spring.authentication.login.extension.ExtensionLoginFilterSecurityConfigurer;
 import com.taotao.boot.security.spring.authentication.login.extension.account.service.AccountUserDetailsService;
 import com.taotao.boot.security.spring.authentication.login.extension.captcha.service.CaptchaCheckService;
