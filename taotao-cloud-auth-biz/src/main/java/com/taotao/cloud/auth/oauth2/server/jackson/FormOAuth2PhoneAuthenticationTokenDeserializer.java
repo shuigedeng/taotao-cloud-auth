@@ -40,9 +40,6 @@ package com.taotao.cloud.auth.oauth2.server.jackson; ///*
 // * {@link FormOAuth2PhoneAuthenticationTokenMixin} but you can also registered it with
 // * your own mixin class.
 // *
-// * @author Jitendra Singh
-// * @author Greg Turnquist
-// * @author Onur Kagan Ozcan
 // * @see FormOAuth2PhoneAuthenticationTokenMixin
 // * @since 4.2
 // */
