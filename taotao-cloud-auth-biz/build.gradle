@@ -35,7 +35,7 @@ dependencies {
     //boot
     api "io.github.shuigedeng:taotao-boot-starter-common"
     api "io.github.shuigedeng:taotao-boot-starter-ddd"
-    api "io.github.shuigedeng:taotao-boot-starter-apollo"
+    //api "io.github.shuigedeng:taotao-boot-starter-apollo"
     //api "io.github.shuigedeng:taotao-boot-starter-dubbo"
     api "io.github.shuigedeng:taotao-boot-starter-eventbus"
     api "io.github.shuigedeng:taotao-boot-starter-mq-rocketmq"
@@ -60,7 +60,7 @@ dependencies {
     api "io.github.shuigedeng:taotao-boot-starter-grpc"
 
     //https://central.sonatype.com/artifact/org.springframework.session/spring-session-data-redis
-    api 'org.springframework.session:spring-session-data-redis:4.1.1'
+    api 'org.springframework.session:spring-session-data-redis:4.2.0'
 
     //https://central.sonatype.com/artifact/com.github.binarywang/weixin-java-pay?smo=true
     api 'com.github.binarywang:weixin-java-mp:4.8.6.B'
@@ -135,7 +135,7 @@ dependencies {
     //https://search.maven.org/artifact/com.nimbusds/nimbus-jose-jwt
     api "com.nimbusds:nimbus-jose-jwt:10.10"
     //https://search.maven.org/artifact/com.nimbusds/oauth2-oidc-sdk
-    api 'com.nimbusds:oauth2-oidc-sdk:11.38.2'
+    api 'com.nimbusds:oauth2-oidc-sdk:11.39'
 
     api "org.apache.commons:commons-collections4"
 
@@ -211,7 +211,7 @@ dependencies {
     testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapstructProcessorVersion}"
     //https://github.com/entur/mapstruct-spi-protobuf
     //https://search.maven.org/artifact/no.entur.mapstruct.spi/protobuf-spi-impl
-    testAnnotationProcessor "no.entur.mapstruct.spi:protobuf-spi-impl:1.76.0"
+    testAnnotationProcessor "no.entur.mapstruct.spi:protobuf-spi-impl:1.79.0"
 }
 
 def getProperty(String key, String defaultValue) {
@@ -307,9 +307,9 @@ configurations {
         resolutionStrategy {
             force "org.codehaus.groovy:groovy:3.0.25"
             force 'org.antlr:antlr4:4.13.2'
-            force 'net.minidev:json-smart:2.6.0'
+            force 'net.minidev:json-smart:2.6.1'
             //todo 临时使用
-            force "io.opentelemetry:opentelemetry-api-incubator:1.66.0-alpha"
+            force "io.opentelemetry:opentelemetry-api-incubator:1.68.0-alpha"
             force 'org.bouncycastle:bcprov-jdk18on:1.86'
             force 'org.bouncycastle:bcpkix-jdk18on:1.86'
             force 'org.bouncycastle:bcutil-jdk18on:1.86'
@@ -335,7 +335,6 @@ configurations {
         //exclude group: "org.apache.logging.log4j", module: "log4j-api"
         //exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
         exclude group: "org.springframework.boot", module: "spring-boot-starter-undertow"
-        exclude group: "commons-logging", module: "commons-logging"
         exclude group: "org.bouncycastle", module: "bcprov-jdk15on"
         exclude group: "org.bouncycastle", module: "bcpkix-jdk15on"
         exclude group: "org.bouncycastle", module: "bcutil-jdk15on"
